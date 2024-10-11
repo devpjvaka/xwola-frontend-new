@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+    .primary-btn {
+        @apply text-sm font-semibold border-[1px] border-black px-4 py-2 shadow-[5px_5px_0px_0px] duration-300;
+    }
+    .primary-btn:hover {
+        @apply bg-black text-white shadow-[5px_5px_0px_0px_#6c6c6c];
+    }
+    @screen lg {
+        .primary-btn {
+            @apply text-base;
+        }
+    }
+}
+
+@layer base {
+    .text-shadow {
+        text-shadow: -6px 6px 10px rgba(0, 0, 0, 0.4);
+    }
+}
+
+@layer utilities {
+    .img-shadow {
+        filter: drop-shadow(-6px 6px 10px rgba(0, 0, 0, 0.4));
+    }
+}
