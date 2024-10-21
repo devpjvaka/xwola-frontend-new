@@ -16,7 +16,7 @@ const Banner2 = () => {
             <motion.h1
               variants={SlideUp(0.2)}
               initial="initial"
-              whileInView="animate"
+              whileInView={"animate"}
               className="text-4xl font-bold font-serif"
             >
               Empowering ideas, transforming possibilities.
@@ -26,7 +26,7 @@ const Banner2 = () => {
               variants={SlideUp(0.4)}
               initial="initial"
               whileInView="animate"
-              className="text-black-500 text-sm leading-7"
+              className="text-gray-500 text-lg leading-7"
             >
               At Xwola, we believe that every idea holds the potential to shape the future. Our mission is to empower those ideas by providing the expertise, technology, and innovation needed to bring them to life. We transform possibilities into tangible outcomes, helping businesses and individuals alike realize their full potential. By pushing the boundaries of what’s possible, we not only deliver solutions but also inspire growth and progress. With Xwola by your side, your ideas can drive change, unlock new opportunities, and lead to a brighter future.
             </motion.p>

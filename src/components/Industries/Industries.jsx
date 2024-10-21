@@ -378,7 +378,7 @@ const Industries = () => {
           <h1 className="uppercase text-2xl font-bold font-serif text-black-500 whitespace-nowrap">
             Speaking the language of Your Industry
           </h1>
-          <p className="text-gray-500 font-secondary text-xl leading-7">
+          <p className="text-black-500 font-secondary text-xl leading-7">
             We tailor agile and resilient IT solutions to your business by
             addressing each domain's unique risks, opportunities, and best
             practices.
@@ -458,7 +458,7 @@ const Industries = () => {
               <motion.p
                 variants={SlideUp(0.4)}
                 initial="initial"
-                animate="animate"
+                whileInView="animate"
                 className="text-gray-500 font-secondary text-xl leading-7"
               >
                 Telecom software development provides telcos with powerful
@@ -584,7 +584,7 @@ const Industries = () => {
             <motion.p
               variants={SlideUp(0.4)}
               initial="initial"
-              animate="animate"
+              whileInView="animate"
               className="text-gray-500 font-secondary text-xl leading-7"
             >
               Our focus lies in{" "}
@@ -600,7 +600,7 @@ const Industries = () => {
               <motion.button
                 variants={SlideUp(0.6)}
                 initial="initial"
-                animate="animate"
+                whileInView="animate"
                 className="primary-btn  bg-black text-white 
               shadow-[5px_5px_0px_0px_#6c6c6c]"
               >

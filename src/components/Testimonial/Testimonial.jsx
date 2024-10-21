@@ -8,27 +8,21 @@ const TestimonialData = [
     name: "Shivaya",
     designation: "Developer",
     img: "https://i.pravatar.cc/300?img=1",
-    text: `Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-     Dignissimos aperiam fugit illum repellat perferendis modi accusantium
-      molestias laboriosam unde sint`,
+    text: 'Their team was incredibly responsive, professional, and committed to bringing our vision to life. From concept to execution, they ensured every detail was perfect. We couldnot be happier with the results!',
   },
   {
     id: 2,
     name: "Maha Deva",
     designation: "Designer",
     img: "https://i.pravatar.cc/300?img=2",
-    text: `Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-     Dignissimos aperiam fugit illum repellat perferendis modi accusantium
-      molestias laboriosam unde sint`,
+    text: ` Their innovative approach and attention to detail made all the difference in our project. They truly transformed our ideas into reality, and we saw immediate improvements in our operations.`,
   },
   {
     id: 3,
     name: "Sri Hari",
     designation: "Manager",
     img: "https://i.pravatar.cc/300?img=3",
-    text: `Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-     Dignissimos aperiam fugit illum repellat perferendis modi accusantium
-      molestias laboriosam unde sint`,
+    text: ` They not only understood our goals but took them to the next level. Their creativity and professionalism made the entire process smooth and enjoyable. Highly recommended!`,
   },
 ];
 
@@ -83,7 +77,7 @@ const Testimonial = () => {
 
                 {/* Button Section */}
                 <div className="mt-5 border-t-2 border-gray-500/40 pt-5">
-                  <p className="text-sm text-gray-300 group-hover: text-black">
+                  <p className="text-sm text-gray-300 group-hover:text-black">
                     {card.text}
                   </p>
                 </div>

@@ -26,6 +26,7 @@ import Icon7 from "../../assets/icons/Icon7.png";
 import Icon8 from "../../assets/icons/Icon8.png";
 import ourmission from "../../assets/About/ourmission.png";
 import ourvision from "../../assets/About/ourvision.png";
+//import count from  "../../components/About/count";
 
 const services = [
   { id: 1, icon: Icon1, description: "Custom Software Development" },
@@ -38,34 +39,11 @@ const services = [
   { id: 8, icon: Icon8, description: "UI/UX Design" },
 ];
 const coreValues = [
-  {
-    id: 1,
-    image: image1,
-    heading: "Unified",
-    content:
-      "At Xwola, we believe in the power of unity, fostering a collaborative environment where diverse perspectives come together. Our commitment to a unified team ensures that we leverage collective strengths, driving innovation and delivering exceptional results for our clients.",
-  },
-  {
-    id: 2,
-    image: image2,
-    heading: "Confident",
-    content:
-      "Confidence drives our approach to custom technology solutions. We bring unwavering certainty to every project, delivering robust, reliable, and innovative outcomes that empower businesses to excel and grow.",
-  },
-  {
-    id: 3,
-    image: image3,
-    heading: "Reliable",
-    content:
-      "Reliability defines our approach at Xwola and guides our digital transformation services. We deliver dependable end-to-end solutions, ensuring business resilience and growth in the ever-evolving digital landscape.",
-  },
-  {
-    id: 4,
-    image: image4,
-    heading: "Transformative",
-    content:
-      "Xwola’s transformative ethos revolutionizes industries with pioneering software development services. We empower businesses to achieve unparalleled growth and innovation in an ever-evolving digital landscape.",
-  },
+  { id: 1, heading: "Integrity", content: "We uphold the highest standards of integrity in all our actions." },
+  { id: 2, heading: "Innovation", content: "We foster a culture of creativity and innovation." },
+  { id: 3, heading: "Teamwork", content: "We work together, across boundaries, to meet the needs of our customers." },
+  { id: 4, heading: "Excellence", content: "We strive to exceed expectations in everything we do." },
+  // Add more core values as needed
 ];
 
 const About = () => {
@@ -82,12 +60,12 @@ const About = () => {
             whileInView={{ scale: 1 }} // Scale back to normal
             transition={{ duration: 1 }} // Animation duration
           />
-          <div className="absolute inset-0 bg-black opacity-50" />{" "}
+          <div className="absolute inset-0 bg-black opacity-50 rounded-3xl" />{" "}
           {/* Transparent black overlay */}
         </div>
 
         {/* Content Section */}
-        <div className="bg-brandWhite rounded-3xl container grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[650px] relative z-10">
+        <div className="bg-brandwhite rounded-3xl container grid grid-cols-1 md:grid-cols-2 gap-6 min-h-[650px] relative z-10">
           {" "}
           {/* z-10 to bring content above the overlay */}
           {/* Text section */}
@@ -124,6 +102,8 @@ const About = () => {
           </div>
         </div>
       </section>
+     
+      
 
       {/* Mission & Vision Section */}
       <div className="py-20">
@@ -183,7 +163,7 @@ const About = () => {
       </div>
 
       {/* Our Clients Section */}
-      <div className="py-20 max-w-6xl w-full mx-auto mt-10">
+      <div className="py-24 max-w-6xl w-full mx-auto mt-10">
         <div className="flex flex-col justify-center items-center text-center">
           <motion.h2
             variants={SlideUp(0.2)}
@@ -197,7 +177,7 @@ const About = () => {
             variants={SlideUp(0.2)}
             initial="initial"
             whileInView={"animate"}
-            className="text-lg md:text-xl text-blck-600 max-w-4xl mb-5"
+            className="text-lg md:text-xl text-gray-500 max-w-4xl mb-5"
           >
             At Xwola, we are proud to serve a diverse clientele across various
             industries, providing tailored software solutions that empower their
@@ -256,58 +236,109 @@ const About = () => {
       </div>
 
       {/* Our Core Value Section */}
-
-      <div className="py-20">
-        <h2 className="text-3xl xl:text-4xl font-bold text-center mb-8">
+      <div className="relative z-10 py-20 sm:py-20">
+        <h2 className="text-2xl sm:text-3xl xl:text-4xl font-bold text-center mb-6 sm:mb-8 text-black">
           Our Guiding Principles
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 mt-10">
-          {coreValues.map((value) => (
-            <motion.div
-              key={value.id}
-              className="relative group overflow-hidden"
-              initial="initial"
-              whileHover="hover" // Trigger both heading and content animations on hover
-            >
-              {/* Image with slight zoom on hover */}
-              <motion.img
-                src={value.image}
-                alt={value.heading}
-                className="w-full h-64 object-cover"
-                initial={{ scale: 1 }}
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.3 }}
-              />
 
-              <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-60">
-                {/* Heading with zoom-out effect */}
-                <motion.h3
-                  className="text-2xl font-bold text-white bg-opacity-80 px-4 py-2"
-                  variants={{
-                    initial: { scale: 1 },
-                    hover: { scale: 0.9 }, // Zoom out on hover
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {value.heading}
-                </motion.h3>
+        {/* Padding container */}
+        <div className="px-4 sm:px-8 lg:px-16">
+          {/* Background and Grid container */}
+          <div
+            className="relative bg-cover bg-center rounded-5xl overflow-hidden"
+            style={{
+              backgroundImage: `url(${image1})`,
+              backgroundSize: "150% auto",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              height: "60vh", // Adjust height for desktop
+              maxWidth: "100%", // Ensure full width on smaller screens
+              margin: "0 auto",
+            }}
+          >
+            {/* Content grid for desktop */}
+            <div className="hidden lg:grid grid-cols-4 w-full h-full">
+              {coreValues.map((value, index) => {
+                return (
+                  <motion.div
+                    key={value.id}
+                    className="relative group overflow-hidden bg-black bg-opacity-60 flex flex-col justify-end items-center h-full border-t border-white p-6 lg:p-8"
+                    initial="initial"
+                    whileHover="hover"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      borderBottom: index < coreValues.length - 1 ? "1px solid white" : "none",
+                    }}
+                  >
+                    {/* Background layer with transition effect */}
+                    <div className="absolute inset-0 bg-black bg-opacity-40 z-0 transition-all duration-500 group-hover:blur-md group-hover:bg-black group-hover:bg-opacity-60" />
 
-                {/* Content with zoom-in effect */}
-                <motion.p
-                  className="text-white mt-2 text-center"
-                  variants={{
-                    initial: { scale: 0.9, opacity: 0.5 }, // Initially zoomed out
-                    hover: { scale: 1, opacity: 1 }, // Zoom in and fully visible on hover
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {value.content}
-                </motion.p>
-              </div>
-            </motion.div>
-          ))}
+                    {/* Heading and Content container */}
+                    <motion.div
+                      className="relative text-center z-10 flex flex-col items-center justify-end h-full"
+                      initial={{ y: 0 }} // Initial position
+                      whileHover={{ y: -100 }} // Move up on hover
+                      transition={{ duration: 0.6 }} // Smooth transition
+                    >
+                      {/* Heading always visible */}
+                      <h3 className="text-xl font-bold text-white mb-4 opacity-100 transition-opacity duration-500">
+                        {value.heading}
+                      </h3>
+
+                      {/* Content initially hidden */}
+                      <motion.p
+                        className="text-white"
+                        initial={{ opacity: 0 }} // Initially hidden
+                        animate={{ opacity: 1 }} // Become visible when the parent moves
+                        transition={{ duration: 0.6 }} // Smooth transition for content
+                      >
+                        {value.content}
+                      </motion.p>
+                    </motion.div>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            {/* Content grid for mobile */}
+            <div className="lg:hidden grid grid-cols-1 w-full h-auto">
+              {coreValues.map((value, index) => {
+                return (
+                  <motion.div
+                    key={value.id}
+                    className="relative group overflow-hidden bg-black bg-opacity-60 flex flex-col justify-end items-center border-b border-white p-6"
+                  >
+                    <div className="absolute inset-0 bg-black bg-opacity-40 z-0 transition-all duration-500 group-hover:blur-md group-hover:bg-black group-hover:bg-opacity-60" />
+
+                    <motion.div
+                      className="relative text-center z-10"
+                      variants={{
+                        initial: { y: 150, opacity: 1 },
+                        hover: { y: -150, opacity: 1 },
+                      }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <motion.h3 className="text-xl font-bold text-white mb-4">
+                        {value.heading}
+                      </motion.h3>
+                      <motion.p className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        {value.content}
+                      </motion.p>
+                    </motion.div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
+
+
+
+
+
+
 
       {/* Our Services Section */}
       {/* < section className="py-20" >
@@ -379,7 +410,7 @@ const About = () => {
             variants={SlideUp(0.2)}
             initial="initial"
             whileInView="animate"
-            className="text-3xl xl:text-4xl font-bold mb-5"
+            className="text-3xl xl:text-4xl font-bold mb-5" 
           >
             Why Xwola
           </motion.h1>
@@ -387,60 +418,48 @@ const About = () => {
             variants={SlideUp(0.4)}
             initial="initial"
             whileInView="animate"
-            className="text-lg md:text-xl text-blck-600 max-w-4xl mb-5"
+            className="text-lg md:text-xl text-gray-500 max-w-4xl mb-5"
           >
-            We leverage our extensive experience and talented resource pool to
-            deliver the top-notch IT services for businesses globally. Over the
-            years, we have succeeded in keeping up the trust placed in us by our
-            customers and established long term relations
+            We leverage our extensive experience and talented resource pool to deliver
+            the top-notch IT services for businesses globally. Over the years, we have
+            succeeded in keeping up the trust placed in us by our customers and established
+            long term relations.
           </motion.p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-20">
-            <motion.div
-              variants={SlideUp(0.6)}
-              initial="initial"
-              whileInView="animate"
-              className="space-y-6 text-center md:text-left md:px-4 xl:px-8"
-            >
-              <img src={icon1} alt="" className="w-24 h-24 mx-auto md:mx-0" />
-              <p className="text-3xl font-semibold"> One - Stop Solutions</p>
-              <p>
-                We offer end-to-end IT services, design, development,quality
-                assurance with a dedicated group of experts for various industry
-                domains and technologies
-              </p>
-            </motion.div>
 
-            <motion.div
-              variants={SlideUp(0.8)}
-              initial="initial"
-              whileInView="animate"
-              className="space-y-6 text-center md:text-left md:px-4 xl:px-8"
-            >
-              <img src={icon2} alt="" className="w-24 h-24 mx-auto md:mx-0" />
-              <p className="text-3xl font-semibold">Customer Focus</p>
-              <p>
-                In this constantly changing and challenging business world, we
-                aim to provide competent advice as per the custom needs of the
-                client to meet their business goals
-              </p>
-            </motion.div>
-            <motion.div
-              variants={SlideUp(1.0)}
-              initial="initial"
-              whileInView="animate"
-              className="space-y-6 text-center md:text-left md:px-4 xl:px-8"
-            >
-              <img src={icon3} alt="" className="w-24 h-24 mx-auto md:mx-0" />
-              <p className="text-3xl font-semibold">Commitment</p>
-              <p>
-                We deliver the maximum value to our customers by becoming their
-                reliable technology partner.Our sucess is defined by the sucess
-                of our customer
-              </p>
-            </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-20">
+            {[
+              {
+                icon: icon1,
+                title: 'One - Stop Solutions',
+                description: 'We offer end-to-end IT services, design, development, quality assurance with a dedicated group of experts for various industry domains and technologies.',
+              },
+              {
+                icon: icon2,
+                title: 'Customer Focus',
+                description: 'In this constantly changing and challenging business world, we aim to provide competent advice as per the custom needs of the client to meet their business goals.',
+              },
+              {
+                icon: icon3,
+                title: 'Commitment',
+                description: 'We deliver the maximum value to our customers by becoming their reliable technology partner. Our success is defined by the success of our customer.',
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                variants={SlideUp(0.6 + index * 0.2)} // Adjusted animation timing
+                initial="initial"
+                whileInView="animate"
+                className="space-y-6 text-center md:px-4 xl:px-8"
+              >
+                <img src={item.icon} alt="" className="w-24 h-24 mx-auto" /> {/* Center icon */}
+                <p className="text-3xl font-semibold">{item.title}</p>
+                <p>{item.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
+
     </>
   );
 };

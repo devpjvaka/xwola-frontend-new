@@ -16,23 +16,23 @@ const Hero = () => {
             <motion.h1
               variants={SlideUp(0.5)}
               initial="initial"
-              animate="animate"
-              className="text-2xl font-bold"
+              whileInView={"animate"}
+              className="text-4xl font-handwritting"
             >
               Innovating Today for the Digital Solutions of Tomorrow
             </motion.h1>
             <motion.p
               variants={SlideUp(0.5)}
               initial="initial"
-              animate="animate"
-              className="text-sm text-gray-500"
+              whileInView={"animate"}
+              className="text-lg text-gray-500 font-handwritting"
             >
               At Xwola, we build innovative software solutions that empower
               businesses to thrive. Our team focuses on cutting-edge technology
               and user-driven design to solve modern challenges. From scalable
               applications to tailored services, we create tools for today’s
               needs. Together, we’re shaping the digital future, one solution at
-              a time
+              a time.
             </motion.p>
 
             <div className="space-x-4">

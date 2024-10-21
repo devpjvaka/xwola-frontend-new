@@ -1,5 +1,5 @@
 import React from "react";
-import Banner1 from "../../assets/banner.png";
+import Banner1 from "../../assets/team 1.png";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animation";
 
@@ -28,7 +28,7 @@ const Banner = () => {
             <motion.h1
               variants={SlideUp(0.2)}
               initial="initial"
-              animate="animate"
+              whileInView={"animate"}
               className="text-4xl font-bold font-serif"
             >
               We believe that a team makes any project better
@@ -37,8 +37,8 @@ const Banner = () => {
             <motion.p
               variants={SlideUp(0.4)}
               initial="initial"
-              animate="animate"
-              className="text-black-500 text-sm leading-7"
+              whileInView={"animate"}
+              className="text-gray-500 text-lg leading-7"
             >
               At Xwola, we understand that collaboration is at the heart of every successful project. A strong team brings together diverse skills, experiences, and perspectives, enabling us to tackle challenges more effectively and innovate beyond boundaries. We believe that when talented individuals unite with a shared vision, the possibilities are endless. Whether it's crafting solutions, delivering exceptional service, or driving your vision forward, our team works together to make every project better and more impactful. Let Xwola be your partner in transforming ideas into reality.
             </motion.p>
