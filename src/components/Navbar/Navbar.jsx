@@ -37,7 +37,7 @@ const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className="container py-4 flex justify-between items-center"
+        className="container py-10 flex justify-between items-center"
       >
         {/* Logo section */}
         <Link to="/">

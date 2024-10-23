@@ -193,7 +193,6 @@ export default function ContactForm() {
     >
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 flex items-center justify-center h-screen">
         <div className="w-full h-full">
-          <h1 className="text-center">My Google Map</h1>
           {/* Google Map iframe */}
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509373!2d144.9537363155042!3d-37.81720997975159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf5779f1dfac69b4e!2sGoogle%20Australia!5e0!3m2!1sen!2sus!4v1621940222067!5m2!1sen!2sus"
