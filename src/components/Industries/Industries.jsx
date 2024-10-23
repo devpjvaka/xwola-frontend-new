@@ -262,59 +262,59 @@ const Industries = () => {
 
   return (
     <>
-       <div className=" mx-auto mt-16 bg-black p-8">
-      {/* Carousel Viewport */}
-      <div className=" container embla w-full h-[500px]" ref={emblaRef}>
-        <div className="embla__container flex">
-          {images.map((slide, index) => (
-            <motion.div
-              className="embla__slide flex items-center p-5 min-w-full"
-              key={slide.id}
-              initial="hidden"
-              animate={selectedIndex === index ? "enter" : "exit"}
-              variants={slideVariants}
-              transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }} // Smooth cubic-bezier transition
-            >
-              {/* Text Section */}
-              <div
-                className="w-2/3 p-8 rounded-lg shadow-md"
-                style={{ backgroundColor: slide.bgColor }}
+      <div className=" mx-auto mt-16 bg-black p-8">
+        {/* Carousel Viewport */}
+        <div className=" container embla w-full h-[500px]" ref={emblaRef}>
+          <div className="embla__container flex">
+            {images.map((slide, index) => (
+              <motion.div
+                className="embla__slide flex items-center p-5 min-w-full"
+                key={slide.id}
+                initial="hidden"
+                animate={selectedIndex === index ? "enter" : "exit"}
+                variants={slideVariants}
+                transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }} // Smooth cubic-bezier transition
               >
-                <h2 className="text-3xl font-handwritting text-gold">
-                  {slide.title}
-                </h2>
-                <p className="mt-4 text-xl font-handwritting text-white">
-                  {slide.subtitle}
-                </p>
-                {/* Navigation Buttons */}
-                <div className="flex items-center mt-8">
-                  {/* Navigation Arrows */}
-                  <button className="arrow-button left" onClick={scrollPrev}>
-                    &larr;
-                  </button>
-                  <button className="arrow-button right" onClick={scrollNext}>
-                    &rarr;
-                  </button>
+                {/* Text Section */}
+                <div
+                  className="w-2/3 p-8 rounded-lg shadow-md"
+                  style={{ backgroundColor: slide.bgColor }}
+                >
+                  <h2 className="text-3xl font-handwritting text-gold">
+                    {slide.title}
+                  </h2>
+                  <p className="mt-4 text-xl font-handwritting text-white">
+                    {slide.subtitle}
+                  </p>
+                  {/* Navigation Buttons */}
+                  <div className="flex items-center mt-8">
+                    {/* Navigation Arrows */}
+                    <button className="arrow-button left" onClick={scrollPrev}>
+                      &larr;
+                    </button>
+                    <button className="arrow-button right" onClick={scrollNext}>
+                      &rarr;
+                    </button>
+                  </div>
                 </div>
-              </div>
-  
-              {/* Image Section */}
-              <div className="w-1/3 flex justify-center items-center">
-                <motion.img
-                  src={slide.image}
-                  alt={slide.title}
-                  className="rounded-lg w-40 h-40 object-contain"
-                  initial={{ scale: 0.8 }}
-                  animate={{ scale: 1 }}
-                  exit={{ scale: 0.8 }}
-                  transition={{ duration: 0.5 }} // Smooth scale transition
-                />
-              </div>
-            </motion.div>
-          ))}
+
+                {/* Image Section */}
+                <div className="w-1/3 flex justify-center items-center">
+                  <motion.img
+                    src={slide.image}
+                    alt={slide.title}
+                    className="rounded-lg w-40 h-40 object-contain"
+                    initial={{ scale: 0.8 }}
+                    animate={{ scale: 1 }}
+                    exit={{ scale: 0.8 }}
+                    transition={{ duration: 0.5 }} // Smooth scale transition
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
 
       <div>
         <div className="container py-14">

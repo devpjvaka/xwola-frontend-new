@@ -56,8 +56,6 @@ export const SlideLeft = (delay) => {
   };
 };
 
-;
-
 export const fadeUp = (delay) => {
   return {
     hidden: {
@@ -101,7 +99,6 @@ export const fadeUp = (delay) => {
 //     aosDelay: "700",
 //   },
 // ];
-
 
 const images = [
   {
@@ -166,9 +163,9 @@ const Services = () => {
 
   return (
     <>
-      <div className="relative mx-auto mt-16 max-w-7xl bg-black p-8">
+      <div className=" mx-auto mt-16 bg-black p-8">
         {/* Carousel Viewport */}
-        <div className="embla w-full" ref={emblaRef}>
+        <div className=" container embla w-full h-[500px]" ref={emblaRef}>
           <div className="embla__container flex">
             {images.map((slide, index) => (
               <motion.div
@@ -189,8 +186,7 @@ const Services = () => {
                   </h2>
                   <p className="mt-4 text-xl font-handwritting text-white">
                     {slide.subtitle}
-                  </p>{" "}
-                  {/* Increased mt-2 to mt-4 */}
+                  </p>
                   {/* Navigation Buttons */}
                   <div className="flex items-center mt-8">
                     {/* Navigation Arrows */}
