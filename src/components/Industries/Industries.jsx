@@ -1,7 +1,6 @@
-import React from "react";
-import Hospitality from "../../assets/Industries/event&hospitality.png";
-import Retail from "../../assets/Industries/retail.png";
-import Communication from "../../assets/Industries/communication.png";
+import Hospitality from "../../assets/Industries/event&hospitality_1.png";
+import Retail from "../../assets/Industries/retail_1.png";
+import Communication from "../../assets/Industries/communications_1.png";
 import Tele from "../../assets/Industries/tele.png";
 import Retails from "../../assets/Industries/reatils.png";
 import Events from "../../assets/Industries/events.png";
@@ -18,6 +17,9 @@ import { PiBankDuotone } from "react-icons/pi";
 import { MdOutlinePayments } from "react-icons/md";
 import { TbTransactionEuro } from "react-icons/tb";
 import { FaSignal } from "react-icons/fa";
+import React, { useState, useEffect, useCallback } from "react"; // keep this import
+import useEmblaCarousel from "embla-carousel-react";
+import "tailwindcss/tailwind.css";
 
 const SlideRight = (delay) => {
   return {
@@ -63,15 +65,6 @@ export const SlideLeft = (delay) => {
 const headphoneData = [
   {
     id: 1,
-    image: Hospitality,
-    title: "Events and Hospitality ",
-    subtitle:
-      "Enhancing guest experiences with seamless event planning and top-tier hospitality. Our team focuses on every detail to create memorable moments that leave lasting impressions..",
-
-    bgColor: "#000000",
-  },
-  {
-    id: 2,
     image: Communication,
     title: "TeleCommunication",
     subtitle:
@@ -80,11 +73,21 @@ const headphoneData = [
     bgColor: "#000000",
   },
   {
-    id: 3,
+    id: 2,
     image: Retail,
     title: "Retail",
     subtitle:
       "Empowering retailers with innovative solutions to enhance customer experiences and streamline operations for greater efficiency and satisfaction.",
+
+    bgColor: "#000000",
+  },
+
+  {
+    id: 3,
+    image: Hospitality,
+    title: "Events & Hospitality ",
+    subtitle:
+      "Enhancing guest experiences with seamless event planning and top-tier hospitality. Our team focuses on every detail to create memorable moments that leave lasting impressions..",
 
     bgColor: "#000000",
   },
@@ -194,6 +197,41 @@ const subjectList = [
     delay: 0.9,
   },
 ];
+const images = [
+  {
+    id: 1,
+    image: Communication,
+    title: "TeleCommunication",
+    subtitle:
+      "We provide advanced communication solutions that connect businesses and individuals across the globe, fostering seamless connectivity. Our services enhance collaboration, enabling organizations to operate efficiently and expand their reach worldwide.",
+
+    bgColor: "#000000",
+  },
+  {
+    id: 2,
+    image: Retail,
+    title: "Retail",
+    subtitle:
+      "We empower retailers by providing innovative solutions designed to enhance customer experiences and streamline operational processes. Our approach focuses on maximizing efficiency and ensuring greater satisfaction for both businesses and their customers.",
+
+    bgColor: "#000000",
+  },
+
+  {
+    id: 3,
+    image: Hospitality,
+    title: "Events & Hospitality ",
+    subtitle:
+      "We enhance guest experiences through seamless event planning and exceptional hospitality, ensuring every detail is meticulously handled. Our dedicated team is committed to creating memorable moments that leave lasting impressions on all attendees.",
+
+    bgColor: "#000000",
+  },
+];
+const slideVariants = {
+  hidden: { opacity: 0, scale: 0.8, x: 100 },
+  enter: { opacity: 1, scale: 1, x: 0 },
+  exit: { opacity: 0, scale: 0.8, x: -100 },
+};
 
 const Industries = () => {
   const [activeData, setActiveData] = React.useState(headphoneData[0]);
@@ -201,230 +239,82 @@ const Industries = () => {
   const handleActiveData = (data) => {
     setActiveData(data);
   };
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    emblaApi.on("select", onSelect);
+  }, [emblaApi, onSelect]);
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
 
   return (
     <>
-      <motion.section
-        initial={{ backgroundColor: activeData.bgColor }}
-        animate={{ backgroundColor: activeData.bgColor }}
-        transition={{ duration: 0.8 }}
-        className="bg-brandDark text-white"
-      >
-        <div className="container grid grid-cols-1 md:grid-cols-2 min-h-[605px]">
-          {/* ______ Headphone Info ______ */}
-          <div className="flex flex-col justify-center py-14 md:py-0 xl:max-w-[500px] order-2 md:order-1">
-            <div className="space-y-5 text-center md:text-left">
-              <AnimatePresence mode="wait">
-                <UpdateFollower
-                  mouseOptions={{
-                    backgroundColor: "white",
-                    zIndex: 9999,
-                    followSpeed: 0.5,
-                    rotate: -720,
-                    mixBlendMode: "difference",
-                    scale: 10,
-                  }}
-                >
-                  <motion.h1
-                    key={activeData.id}
-                    variants={SlideRight(0.2)}
-                    initial="hidden"
-                    animate="show"
-                    exit="exit"
-                    className="text-3xl lg:text-6xl xl:text-5xl font-bold font-handwritting text-shadow"
-                  >
-                    {activeData.title}
-                  </motion.h1>
-                </UpdateFollower>
-              </AnimatePresence>
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={activeData.id}
-                  variants={SlideRight(0.4)}
-                  initial="hidden"
-                  animate="show"
-                  exit="exit"
-                  className="text-md font-handwritting leading-loose text-white/80"
-                >
-                  {activeData.subtitle}
-                </motion.p>
-              </AnimatePresence>
-
-              <AnimatePresence mode="wait">
-                <UpdateFollower
-                  mouseOptions={{
-                    backgroundColor: activeData.bgColor,
-                    zIndex: 9999,
-                    followSpeed: 0.5,
-                    rotate: -720,
-                    scale: 6,
-                    backgroundElement: (
-                      <div>
-                        <img src={activeData.image} />
-                      </div>
-                    ),
-                  }}
-                ></UpdateFollower>
-              </AnimatePresence>
-
-              {/* ______ Headphone List Separator ______ */}
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}
-                className="flex items-center justify-center md:justify-start gap-4 !md:mt-24 !mb-10"
-              ></motion.div>
-
-              {/* Headphone list switcher */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}
-                className="grid grid-cols-3 gap-10"
+       <div className=" mx-auto mt-16 bg-black p-8">
+      {/* Carousel Viewport */}
+      <div className=" container embla w-full h-[500px]" ref={emblaRef}>
+        <div className="embla__container flex">
+          {images.map((slide, index) => (
+            <motion.div
+              className="embla__slide flex items-center p-5 min-w-full"
+              key={slide.id}
+              initial="hidden"
+              animate={selectedIndex === index ? "enter" : "exit"}
+              variants={slideVariants}
+              transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }} // Smooth cubic-bezier transition
+            >
+              {/* Text Section */}
+              <div
+                className="w-2/3 p-8 rounded-lg shadow-md"
+                style={{ backgroundColor: slide.bgColor }}
               >
-                {headphoneData.map((item) => {
-                  return (
-                    <UpdateFollower
-                      mouseOptions={{
-                        backgroundColor: item.bgColor,
-                        zIndex: 9999,
-                        followSpeed: 0.5,
-                        scale: 5,
-                        text: "View Details",
-                        textFontSize: "3px",
-                      }}
-                    >
-                      <div
-                        key={item.id}
-                        onClick={() => handleActiveData(item)}
-                        className="cursor-pointer space-y-3 hover:scale-105 transition-all"
-                      >
-                        <div className="flex justify-center">
-                          <img
-                            src={item.image}
-                            alt=""
-                            className={`w-[80px] img-shadow ${
-                              activeData.image === item.image
-                                ? "opacity-100 scale-110"
-                                : "opacity-50"
-                            }`}
-                          />
-                        </div>
-                        <div className="!mt-6 space-y-1 text-center">
-                          <p className="text-base line-through opacity-50">
-                            {item.price}
-                          </p>
-                          <p className="text-xl font-bold">{item.price}</p>
-                          {/* <p className="text-xs font-normal text-nowrap">
-                            {item.modal}
-                          </p> */}
-                        </div>
-                      </div>
-                    </UpdateFollower>
-                  );
-                })}
-              </motion.div>
-            </div>
-          </div>
-
-          {/* ______ Hero Image ______ */}
-          <div className="flex flex-col justify-center items-center relative order-1 md:order-2 ">
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={activeData.id}
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: 0, ease: easeInOut }}
-                exit={{
-                  opacity: 0,
-                  // scale: 0.9,
-                  x: -100,
-
-                  transition: {
-                    duration: 0.4,
-                  },
-                }}
-                src={activeData.image}
-                alt=""
-                className="w-[150px] md:w-[200px] xl:w-[490px] img-shadow relative z-10"
-              />
-            </AnimatePresence>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeData.id}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.4, delay: 0, ease: easeInOut }}
-                exit={{
-                  opacity: 0,
-                  // scale: 0.9,
-
-                  transition: {
-                    duration: 0.4,
-                  },
-                }}
-                className="text-white/5 text-[300px] font-poppins font-extrabold absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0"
-              >
-                {activeData.modal}
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </div>
-      </motion.section>
-      <div className="container py-14 md:py-24">
-        {/* header section */}
-        <div className="space-y-4 p-6 text-center max-w-[600px] mx-auto mb-5">
-          <h1 className="uppercase text-2xl font-bold font-serif text-black-500 whitespace-nowrap">
-            Speaking the language of Your Industry
-          </h1>
-          <p className="text-black-500 font-secondary text-xl leading-7">
-            We tailor agile and resilient IT solutions to your business by
-            addressing each domain's unique risks, opportunities, and best
-            practices.
-          </p>
-        </div>
-        {/* cards section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 ">
-          {subjectList.map((subject) => {
-            return (
-              <motion.div
-                key={subject.id}
-                initial={{ opacity: 0, x: -200 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 100,
-                  delay: subject.delay,
-                }}
-                className="border border-secondary/20 p-4 flex justify-start items-center gap-4 hover:!scale-105 hover:!shadow-xl duration-200 cursor-pointer"
-              >
-                <div
-                  style={{
-                    backgroundColor: "black", // Circular black background
-                    borderRadius: "50%", // Make it circular
-                    width: "50px", // Adjust size as needed
-                    height: "50px", // Adjust size as needed
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <div
-                    style={{
-                      color: subject.color, // Use subject.color for other icons
-                      fontSize: "2rem", // Adjust this value for bigger icons
-                    }}
-                  >
-                    {subject.icon}
-                  </div>
+                <h2 className="text-3xl font-handwritting text-gold">
+                  {slide.title}
+                </h2>
+                <p className="mt-4 text-xl font-handwritting text-white">
+                  {slide.subtitle}
+                </p>
+                {/* Navigation Buttons */}
+                <div className="flex items-center mt-8">
+                  {/* Navigation Arrows */}
+                  <button className="arrow-button left" onClick={scrollPrev}>
+                    &larr;
+                  </button>
+                  <button className="arrow-button right" onClick={scrollNext}>
+                    &rarr;
+                  </button>
                 </div>
-                <p>{subject.name}</p>
-              </motion.div>
-            );
-          })}
+              </div>
+  
+              {/* Image Section */}
+              <div className="w-1/3 flex justify-center items-center">
+                <motion.img
+                  src={slide.image}
+                  alt={slide.title}
+                  className="rounded-lg w-40 h-40 object-contain"
+                  initial={{ scale: 0.8 }}
+                  animate={{ scale: 1 }}
+                  exit={{ scale: 0.8 }}
+                  transition={{ duration: 0.5 }} // Smooth scale transition
+                />
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
+    </div>
 
       <div>
         <div className="container py-14">
@@ -608,6 +498,59 @@ const Industries = () => {
               </motion.button>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="container py-14 md:py-24">
+        {/* header section */}
+        <div className="space-y-4 p-6 text-center max-w-[600px] mx-auto mb-5">
+          <h1 className="uppercase text-2xl font-bold font-serif text-black-500 whitespace-nowrap">
+            Speaking the language of Your Industry
+          </h1>
+          <p className="text-black-500 font-secondary text-xl leading-7">
+            We tailor agile and resilient IT solutions to your business by
+            addressing each domain's unique risks, opportunities, and best
+            practices.
+          </p>
+        </div>
+        {/* cards section */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 ">
+          {subjectList.map((subject) => {
+            return (
+              <motion.div
+                key={subject.id}
+                initial={{ opacity: 0, x: -200 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  delay: subject.delay,
+                }}
+                className="border border-secondary/20 p-4 flex justify-start items-center gap-4 hover:!scale-105 hover:!shadow-xl duration-200 cursor-pointer"
+              >
+                <div
+                  style={{
+                    backgroundColor: "black", // Circular black background
+                    borderRadius: "50%", // Make it circular
+                    width: "50px", // Adjust size as needed
+                    height: "50px", // Adjust size as needed
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: subject.color, // Use subject.color for other icons
+                      fontSize: "2rem", // Adjust this value for bigger icons
+                    }}
+                  >
+                    {subject.icon}
+                  </div>
+                </div>
+                <p>{subject.name}</p>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </>

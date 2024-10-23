@@ -46,14 +46,14 @@ const Newsletter = () => {
       </motion.div>
 
       {/* Validation Message (Optional) */}
-      <motion.p
+      {/* <motion.p
         variants={SlideUp(0.5)}
         initial="initial"
         whileInView="animate"
         className="text-xs text-red-500 text-center"
       >
         Please enter a valid email address.
-      </motion.p>
+      </motion.p> */}
     </div>
   );
 };

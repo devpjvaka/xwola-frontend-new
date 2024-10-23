@@ -1,7 +1,8 @@
 import React from "react";
-import Banner2_ from "../../assets/banner2.png";
+import Banner2_ from "../../assets/empower3.jpg";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animation";
+import { Link  } from "react-router-dom";
 
 const Banner2 = () => {
   return (
@@ -34,6 +35,7 @@ const Banner2 = () => {
             
 
             <div>
+            <Link to="/contactus">
               <motion.button
                 variants={SlideUp(0.6)}
                 initial="initial"
@@ -43,6 +45,7 @@ const Banner2 = () => {
               >
                 Contact Us
               </motion.button>
+              </Link>
             </div>
           </div>
 

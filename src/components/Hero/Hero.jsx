@@ -1,7 +1,9 @@
 import React from "react";
-import HeroPng from "../../assets/home_img 1.png";
+import HeroPng from "../../assets/img_tst 1.png";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animation";
+import { Link  } from "react-router-dom";
+
 
 const Hero = () => {
   return (
@@ -35,7 +37,7 @@ const Hero = () => {
               a time.
             </motion.p>
 
-            <div className="space-x-4">
+            <div className="space-x-4 md:space-y-0 md:flex md:space-x-4">
               <motion.button
                 variants={SlideUp(0.8)}
                 initial="initial"
@@ -45,14 +47,19 @@ const Hero = () => {
               >
                 Get started
               </motion.button>
+
+              <Link to="/contactus">
+
               <motion.button
                 variants={SlideUp(1.1)}
                 initial="initial"
                 animate="animate"
                 className="primary-btn uppercase"
               >
+               
                 Contact Us
               </motion.button>
+              </Link>
             </div>
           </div>
           {/* Images Section */}

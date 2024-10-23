@@ -79,3 +79,61 @@
     height: 50px;
     margin:0 40px;
   }
+  .arrow-button {
+    transition: background-color 0.2s;
+    width: 40px; /* Set a fixed width for arrow buttons */
+    height: 40px; /* Set a fixed height for arrow buttons */
+    display: flex; /* Flexbox to center the content */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for buttons */
+    border: none; /* Remove default border */
+    border-radius: 50%; /* Round buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin: 10px 5px; /* Add margin around buttons */
+  }
+  
+  .arrow-button:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Change background on hover */
+  }
+  
+  /* Other existing styles remain unchanged */
+  .embla {
+    overflow: hidden;
+    width: 100%;
+    position: relative; /* Ensure the parent has relative positioning */
+  }
+  
+  .embla__container {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .embla__slide {
+    min-width: 100%;
+    transition: transform 0.3s;
+  }
+  
+  .embla__slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+  
+  .p-8 {
+    padding: 2rem;
+  }
+  
+  
+  
+  .text-white {
+    color: white;
+  }
+  
+  .rounded-lg {
+    border-radius: 0.5rem;
+  }
+  
+  .shadow-md {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }

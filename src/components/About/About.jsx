@@ -12,33 +12,31 @@ import Brand6 from "../../assets/brands/rb.png";
 import icon1 from "../../assets/About/icon1.png";
 import icon2 from "../../assets/About/icon2.png";
 import icon3 from "../../assets/About/icon3.png";
-import image1 from "../../assets/About/image1.jpg";
-import image2 from "../../assets/About/image2.jpg";
-import image3 from "../../assets/About/image3.jpg";
-import image4 from "../../assets/About/image4.jpg";
-import Icon1 from "../../assets/icons/Icon1.png";
-import Icon2 from "../../assets/icons/Icon2.png";
-import Icon3 from "../../assets/icons/Icon3.png";
-import Icon4 from "../../assets/icons/Icon4.png";
-import Icon5 from "../../assets/icons/Icon5.png";
-import Icon6 from "../../assets/icons/Icon6.png";
-import Icon7 from "../../assets/icons/Icon7.png";
-import Icon8 from "../../assets/icons/Icon8.png";
+import image1 from "../../assets/About/image1.jpg"
+
+// import Icon1 from "../../assets/icons/Icon1.png";
+// import Icon2 from "../../assets/icons/Icon2.png";
+// import Icon3 from "../../assets/icons/Icon3.png";
+// import Icon4 from "../../assets/icons/Icon4.png";
+// import Icon5 from "../../assets/icons/Icon5.png";
+// import Icon6 from "../../assets/icons/Icon6.png";
+// import Icon7 from "../../assets/icons/Icon7.png";
+// import Icon8 from "../../assets/icons/Icon8.png";
 import ourmission from "../../assets/About/ourmission.png";
 import ourvision from "../../assets/About/ourvision.png";
 import CountUp from "react-countup"; // Import CountUp for animated counter
 import { useInView } from "react-intersection-observer"; // To detect when the section is visible
 
-const services = [
-  { id: 1, icon: Icon1, description: "Custom Software Development" },
-  { id: 2, icon: Icon2, description: "Web Development" },
-  { id: 3, icon: Icon3, description: "Dedicated Development Team" },
-  { id: 4, icon: Icon4, description: "Product Development" },
-  { id: 5, icon: Icon5, description: "E-Commerce" },
-  { id: 6, icon: Icon6, description: "Mobile Apps" },
-  { id: 7, icon: Icon7, description: "Testing & QA" },
-  { id: 8, icon: Icon8, description: "UI/UX Design" },
-];
+// const services = [
+//   { id: 1, icon: Icon1, description: "Custom Software Development" },
+//   { id: 2, icon: Icon2, description: "Web Development" },
+//   { id: 3, icon: Icon3, description: "Dedicated Development Team" },
+//   { id: 4, icon: Icon4, description: "Product Development" },
+//   { id: 5, icon: Icon5, description: "E-Commerce" },
+//   { id: 6, icon: Icon6, description: "Mobile Apps" },
+//   { id: 7, icon: Icon7, description: "Testing & QA" },
+//   { id: 8, icon: Icon8, description: "UI/UX Design" },
+// ];
 const coreValues = [
   { id: 1, heading: "Integrity", content: "We uphold the highest standards of integrity in all our actions." },
   { id: 2, heading: "Innovation", content: "We cultivate an environment where imagination and innovation thrive." },
@@ -207,7 +205,7 @@ const About = () => {
       </div>
 
       {/* Our Clients Section */}
-      <div className="py-24 max-w-6xl w-full mx-auto mt-10">
+      <div className="py-10 max-w-6xl w-full mx-auto mt-10">
         <div className="flex flex-col justify-center items-center text-center">
           <motion.h2
             variants={SlideUp(0.2)}
@@ -280,13 +278,13 @@ const About = () => {
       </div>
 
       {/* Our Core Value Section */}
-      <div className="relative z-10 py-20 sm:py-20">
+      <div className="relative z-10 py-14 sm:py-20">
         <h2 className="text-2xl sm:text-3xl xl:text-4xl font-bold text-center mb-6 sm:mb-8 text-black">
           Our Guiding Principles
         </h2>
 
         {/* Padding container */}
-        <div className="px-4 sm:px-8 lg:px-16">
+        <div className="px-10 sm:px-8 lg:px-16">
           {/* Background and Grid container */}
           <div
             className="relative bg-cover bg-center rounded-5xl overflow-hidden"
@@ -301,7 +299,7 @@ const About = () => {
             }}
           >
             {/* Content grid for desktop */}
-            <div className="hidden lg:grid grid-cols-4 w-full h-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full h-full">
               {coreValues.map((value, index) => {
                 return (
                   <motion.div
@@ -344,35 +342,9 @@ const About = () => {
             </div>
 
 
-            {/* Content grid for mobile */}
-            <div className="lg:hidden grid grid-cols-1 w-full h-auto">
-              {coreValues.map((value, index) => {
-                return (
-                  <motion.div
-                    key={value.id}
-                    className="relative group overflow-hidden bg-black bg-opacity-60 flex flex-col justify-end items-center border-b border-white p-6"
-                  >
-                    <div className="absolute inset-0 bg-black bg-opacity-40 z-0 transition-all duration-500 group-hover:blur-md group-hover:bg-black group-hover:bg-opacity-60" />
 
-                    <motion.div
-                      className="relative text-center z-10"
-                      variants={{
-                        initial: { y: 150, opacity: 1 },
-                        hover: { y: -150, opacity: 1 },
-                      }}
-                      transition={{ duration: 0.6 }}
-                    >
-                      <motion.h3 className="text-xl font-bold text-white mb-4">
-                        {value.heading}
-                      </motion.h3>
-                      <motion.p className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                        {value.content}
-                      </motion.p>
-                    </motion.div>
-                  </motion.div>
-                );
-              })}
-            </div>
+          
+           
           </div>
         </div>
       </div>
@@ -440,7 +412,7 @@ const About = () => {
 
       {/* why xwola section */}
 
-      <div className="py-20 max-w-6xl w-full mx-auto mt-10">
+      <div className="py-14 max-w-6xl w-full mx-auto mt-10">
         <div className="flex flex-col justify-center items-center text-center">
           <motion.h1
             variants={SlideUp(0.2)}
