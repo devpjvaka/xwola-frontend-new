@@ -26,7 +26,8 @@ import Icon7 from "../../assets/icons/Icon7.png";
 import Icon8 from "../../assets/icons/Icon8.png";
 import ourmission from "../../assets/About/ourmission.png";
 import ourvision from "../../assets/About/ourvision.png";
-//import count from  "../../components/About/count";
+import CountUp from "react-countup"; // Import CountUp for animated counter
+import { useInView } from "react-intersection-observer"; // To detect when the section is visible
 
 const services = [
   { id: 1, icon: Icon1, description: "Custom Software Development" },
@@ -40,13 +41,26 @@ const services = [
 ];
 const coreValues = [
   { id: 1, heading: "Integrity", content: "We uphold the highest standards of integrity in all our actions." },
-  { id: 2, heading: "Innovation", content: "We foster a culture of creativity and innovation." },
+  { id: 2, heading: "Innovation", content: "We cultivate an environment where imagination and innovation thrive." },
   { id: 3, heading: "Teamwork", content: "We work together, across boundaries, to meet the needs of our customers." },
   { id: 4, heading: "Excellence", content: "We strive to exceed expectations in everything we do." },
   // Add more core values as needed
 ];
-
+const numericData = [
+  { id: 1, number: 200, label: "Projects Completed" },
+  { id: 2, number: 50, label: "Clients Served" },
+  { id: 3, number: 10, label: "Years of Experience" },
+  { id: 4, number: 5, label: "Countries Reached" },
+];
 const About = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true, // Animation runs only once
+    threshold: 0.2, // Trigger when 20% of the section is visible
+  });
+  // Debugging: Check if the section is in view
+  console.log('Is the section in view?', inView);
+
+
   return (
     <>
       <section className="relative">
@@ -55,12 +69,12 @@ const About = () => {
           <motion.img
             src={aboutus}
             alt="Hero"
-            className="w-full h-full object-cover rounded-3xl"
+            className="w-full h-full object-cover"
             initial={{ scale: 1.05 }} // Start slightly zoomed in
             whileInView={{ scale: 1 }} // Scale back to normal
             transition={{ duration: 1 }} // Animation duration
           />
-          <div className="absolute inset-0 bg-black opacity-50 rounded-3xl" />{" "}
+          <div className="absolute inset-0 bg-black opacity-50 " />{" "}
           {/* Transparent black overlay */}
         </div>
 
@@ -102,8 +116,38 @@ const About = () => {
           </div>
         </div>
       </section>
-     
-      
+      {/* Numeric Data Section */}
+      <section className="py-24 bg-white-100" ref={ref}>
+        <div className="container mx-auto">
+          <h2 className="text-3xl xl:text-4xl font-bold text-center mb-10">
+            Our Achievements
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+            {numericData.map((data) => (
+              <div key={data.id} className="flex flex-col items-center">
+                {/* Debugging: Log data values to ensure they are correct */}
+                {console.log('Rendering CountUp for:', data.label, data.number)}
+
+                {/* Only render CountUp when inView is true */}
+                {inView ? (
+                  <CountUp
+                    start={0}
+                    end={data.number}
+                    duration={2.5}
+                    separator=","
+                    className="text-4xl font-extrabold text-gold"
+                  />
+                ) : (
+                  <span className="text-4xl font-extrabold text-gold">0</span>
+                )}
+                <p className="mt-4 text-lg font-semibold text-gray-700">
+                  {data.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Mission & Vision Section */}
       <div className="py-20">
@@ -262,7 +306,8 @@ const About = () => {
                 return (
                   <motion.div
                     key={value.id}
-                    className="relative group overflow-hidden bg-black bg-opacity-60 flex flex-col justify-end items-center h-full border-t border-white p-6 lg:p-8"
+                    className={`relative group overflow-hidden bg-black bg-opacity-60 flex flex-col justify-end items-center h-full border-t border-white p-6 lg:p-8 ${index % 4 !== 3 ? "border-r border-white" : ""
+                      }`} // Add border-r except for the last column
                     initial="initial"
                     whileHover="hover"
                     style={{
@@ -288,10 +333,7 @@ const About = () => {
 
                       {/* Content initially hidden */}
                       <motion.p
-                        className="text-white"
-                        initial={{ opacity: 0 }} // Initially hidden
-                        animate={{ opacity: 1 }} // Become visible when the parent moves
-                        transition={{ duration: 0.6 }} // Smooth transition for content
+                        className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                       >
                         {value.content}
                       </motion.p>
@@ -300,6 +342,7 @@ const About = () => {
                 );
               })}
             </div>
+
 
             {/* Content grid for mobile */}
             <div className="lg:hidden grid grid-cols-1 w-full h-auto">
@@ -333,13 +376,6 @@ const About = () => {
           </div>
         </div>
       </div>
-
-
-
-
-
-
-
       {/* Our Services Section */}
       {/* < section className="py-20" >
         <motion.h2
@@ -410,7 +446,7 @@ const About = () => {
             variants={SlideUp(0.2)}
             initial="initial"
             whileInView="animate"
-            className="text-3xl xl:text-4xl font-bold mb-5" 
+            className="text-3xl xl:text-4xl font-bold mb-5"
           >
             Why Xwola
           </motion.h1>
