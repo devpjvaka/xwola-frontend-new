@@ -33,8 +33,8 @@ const ServicesBanner1 = () => {
               variants={SlideUp(0.2)}
               initial="initial"
               animate="animate"
-              className="text-4xl font-bold font-serif"
-            >
+              className="text-4xl text-yellow-500 font-handwritting underline decoration-black decoration-2"
+              >
               Software Development
             </motion.h1>
 
@@ -42,7 +42,7 @@ const ServicesBanner1 = () => {
               variants={SlideUp(0.4)}
               initial="initial"
               animate="animate"
-              className="text-gray-500 font-secondary text-xl leading-7"
+              className=" font-handwritting  text-xl leading-7"
             >
               Software development is a collaborative process where creativity,
               innovation, and problem-solving come together to build solutions
@@ -88,7 +88,7 @@ const ServicesBanner1 = () => {
                 variants={SlideUp(0.6)}
                 initial="initial"
                 animate="animate"
-                className="primary-btn  bg-black text-white 
+                className="primary-btn font-handwritting  bg-black text-white 
               shadow-[5px_5px_0px_0px_#6c6c6c]"
               >
                 Discover Now

@@ -264,11 +264,14 @@ const Industries = () => {
     <>
       <div className=" mx-auto mt-16 bg-black p-8">
         {/* Carousel Viewport */}
-        <div className=" container embla w-full h-[500px]" ref={emblaRef}>
-          <div className="embla__container flex">
+        <div
+          className="container embla w-full h-auto md:h-[500px]"
+          ref={emblaRef}
+        >
+          <div className="embla__container flex w-full">
             {images.map((slide, index) => (
               <motion.div
-                className="embla__slide flex items-center p-5 min-w-full"
+                className="embla__slide flex flex-col md:flex-row items-center p-5 w-full" // Stack on small screens, side-by-side on medium+
                 key={slide.id}
                 initial="hidden"
                 animate={selectedIndex === index ? "enter" : "exit"}
@@ -277,33 +280,40 @@ const Industries = () => {
               >
                 {/* Text Section */}
                 <div
-                  className="w-2/3 p-8 rounded-lg shadow-md"
+                  className="w-full md:w-2/3 p-4 md:p-8 rounded-lg shadow-md" // Full width on small, 2/3 on larger screens
                   style={{ backgroundColor: slide.bgColor }}
                 >
-                  <h2 className="text-3xl font-handwritting text-gold">
+                  <h2 className="text-2xl md:text-3xl font-handwritting text-gold">
                     {slide.title}
                   </h2>
-                  <p className="mt-4 text-xl font-handwritting text-white">
+                  <p className="mt-2 md:mt-4 text-base md:text-xl font-handwritting text-white">
                     {slide.subtitle}
                   </p>
                   {/* Navigation Buttons */}
-                  <div className="flex items-center mt-8">
-                    {/* Navigation Arrows */}
-                    <button className="arrow-button left" onClick={scrollPrev}>
+                  <div className="flex items-center mt-4 md:mt-8">
+                    <button
+                      className="arrow-button left text-sm p-2"
+                      onClick={scrollPrev}
+                    >
                       &larr;
                     </button>
-                    <button className="arrow-button right" onClick={scrollNext}>
+                    <button
+                      className="arrow-button right text-sm p-2"
+                      onClick={scrollNext}
+                    >
                       &rarr;
                     </button>
                   </div>
                 </div>
 
                 {/* Image Section */}
-                <div className="w-1/3 flex justify-center items-center">
+                <div className="w-full md:w-1/3 flex justify-center items-center mt-4 md:mt-0">
+                  {" "}
+                  {/* Stack below text on small screens */}
                   <motion.img
                     src={slide.image}
                     alt={slide.title}
-                    className="rounded-lg w-40 h-40 object-contain"
+                    className="rounded-lg w-24 h-24 md:w-40 md:h-40 object-contain" // Adjusted image size for mobile
                     initial={{ scale: 0.8 }}
                     animate={{ scale: 1 }}
                     exit={{ scale: 0.8 }}
@@ -318,7 +328,7 @@ const Industries = () => {
 
       <div>
         <div className="container py-14">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
             {/* Image section */}
             <div className="flex flex-col justify-center">
               <motion.img
@@ -332,15 +342,12 @@ const Industries = () => {
             </div>
 
             {/* Text section */}
-            <div
-              className="space-y-5 flex justify-center 
-          flex-col"
-            >
+            <div className="space-y-5 flex justify-center flex-col">
               <motion.h1
                 variants={SlideUp(0.2)}
                 initial="initial"
                 whileInView="animate"
-                className="text-4xl font-bold font-serif"
+                className="text-3xl md:text-4xl text-yellow-500 font-handwritting underline decoration-black decoration-2 whitespace-normal"
               >
                 Telecommunications
               </motion.h1>
@@ -349,15 +356,13 @@ const Industries = () => {
                 variants={SlideUp(0.4)}
                 initial="initial"
                 whileInView="animate"
-                className="text-gray-500 font-secondary text-xl leading-7"
+                className="text-gray-500 font-handwritting text-lg md:text-xl leading-7"
               >
                 Telecom software development provides telcos with powerful
                 solutions that automate service and business operations, while
                 enabling the seamless introduction of new, value-added customer
                 offerings.
                 <span className="block mt-4">
-                  {" "}
-                  {/* Adjust mt-4 for more or less spacing */}
                   We specialize in Telecommunications Retail, offering
                   comprehensive solutions for the sale of telecom products,
                   including SIM cards, mobile plans, devices, and accessories.
@@ -372,8 +377,7 @@ const Industries = () => {
                   variants={SlideUp(0.6)}
                   initial="initial"
                   animate="animate"
-                  className="primary-btn  bg-black text-white 
-              shadow-[5px_5px_0px_0px_#6c6c6c]"
+                  className="primary-btn font-handwritting bg-black text-white shadow-[5px_5px_0px_0px_#6c6c6c]"
                 >
                   Discover Now
                 </motion.button>
@@ -384,17 +388,28 @@ const Industries = () => {
       </div>
       <div>
         <div className="container py-14">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+            {/* Image section */}
+            <div className="flex flex-col justify-center order-1 md:order-2">
+              {/* Image appears first on mobile */}
+              <motion.img
+                initial={{ x: 100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                src={Retails}
+                alt="Retail"
+                className="w-[95%] md:w-full mx-auto"
+              />
+            </div>
+
             {/* Text section */}
-            <div
-              className="space-y-5 flex justify-center 
-          flex-col xl:max-w-[500px]"
-            >
+            <div className="space-y-5 flex justify-center flex-col xl:max-w-[500px] order-2 md:order-1">
+              {/* Text appears second on mobile */}
               <motion.h1
                 variants={SlideUp(0.2)}
                 initial="initial"
                 whileInView="animate"
-                className="text-4xl font-bold font-serif"
+                className="text-4xl text-yellow-500 font-handwritting underline decoration-black decoration-2"
               >
                 Retail
               </motion.h1>
@@ -403,16 +418,18 @@ const Industries = () => {
                 variants={SlideUp(0.4)}
                 initial="initial"
                 whileInView="animate"
-                className="text-gray-500  text-xl leading-7"
+                className="text-gray-500 text-xl leading-7 font-handwritting"
               >
                 We specialize in{" "}
-                <span className="font-bold text-xl">Telecommunications</span>
+                <span className="font-handwritting text-xl">
+                  Telecommunications
+                </span>
                 <br />
-                <span className="font-bold text-md">Retail</span>, providing
-                comprehensive solutions for selling telecom products such as SIM
-                cards, mobile plans, devices, and accessories. Our goal is to
-                create seamless retail experiences that empower telecom
-                businesses to effectively manage and grow their customer
+                <span className="font-handwritting text-md">Retail</span>,
+                providing comprehensive solutions for selling telecom products
+                such as SIM cards, mobile plans, devices, and accessories. Our
+                goal is to create seamless retail experiences that empower
+                telecom businesses to effectively manage and grow their customer
                 offerings.
               </motion.p>
 
@@ -421,30 +438,20 @@ const Industries = () => {
                   variants={SlideUp(0.6)}
                   initial="initial"
                   whileInView="animate"
-                  className="primary-btn bg-black text-white 
+                  className="primary-btn font-handwritting bg-black text-white 
               shadow-[5px_5px_0px_0px_#6c6c6c]"
                 >
                   Discover Now
                 </motion.button>
               </div>
             </div>
-
-            {/* Image section */}
-            <div className="flex flex-col justify-center">
-              <motion.img
-                initial={{ x: 100, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                src={Retails}
-                alt=""
-                className="w-[95%] md:w-full mx-auto"
-              />
-            </div>
           </div>
         </div>
       </div>
       <div className="container py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+          {" "}
+          {/* Ensure top alignment for md and large screens */}
           {/* Image section */}
           <div className="flex flex-col justify-center">
             <motion.img
@@ -456,29 +463,27 @@ const Industries = () => {
               className="w-[95%] md:w-full mx-auto"
             />
           </div>
-
           {/* Text section */}
-          <div
-            className="space-y-5 flex justify-center 
-          flex-col"
-          >
+          <div className="space-y-5 flex justify-center flex-col">
             <motion.h1
               variants={SlideUp(0.2)}
               initial="initial"
               whileInView="animate"
-              className="text-4xl font-bold font-serif"
+              className="text-4xl text-yellow-500 font-handwritting underline decoration-black decoration-2"
             >
-              Events & Hospitality{" "}
+              Events & Hospitality
             </motion.h1>
 
             <motion.p
               variants={SlideUp(0.4)}
               initial="initial"
               whileInView="animate"
-              className="text-gray-500 font-secondary text-xl leading-7"
+              className="text-gray-500 font-handwritting text-xl leading-7"
             >
               Our focus lies in{" "}
-              <span className="font-bold text-md">Events & Hospitality</span>
+              <span className="font-handwritting text-md">
+                Events & Hospitality
+              </span>
               <br />
               providing tailored solutions that enhance guest experiences and
               streamline event management. Our mission is to craft unforgettable
@@ -491,8 +496,8 @@ const Industries = () => {
                 variants={SlideUp(0.6)}
                 initial="initial"
                 whileInView="animate"
-                className="primary-btn  bg-black text-white 
-              shadow-[5px_5px_0px_0px_#6c6c6c]"
+                className="primary-btn font-handwritting bg-black text-white 
+          shadow-[5px_5px_0px_0px_#6c6c6c]"
               >
                 Discover Now
               </motion.button>
@@ -503,15 +508,16 @@ const Industries = () => {
       <div className="container py-14 md:py-24">
         {/* header section */}
         <div className="space-y-4 p-6 text-center max-w-[600px] mx-auto mb-5">
-          <h1 className="uppercase text-2xl font-bold font-serif text-black-500 whitespace-nowrap">
+          <h1 className="uppercase text-2xl md:text-3xl font-handwritting text-yellow-500 underline decoration-black decoration-2 whitespace-normal md:whitespace-nowrap">
             Speaking the language of Your Industry
           </h1>
-          <p className="text-black-500 font-secondary text-xl leading-7">
+          <p className="text-black-500 font-handwritting text-lg md:text-xl leading-7">
             We tailor agile and resilient IT solutions to your business by
             addressing each domain's unique risks, opportunities, and best
             practices.
           </p>
         </div>
+
         {/* cards section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 ">
           {subjectList.map((subject) => {
@@ -525,7 +531,7 @@ const Industries = () => {
                   stiffness: 100,
                   delay: subject.delay,
                 }}
-                className="border border-secondary/20 p-4 flex justify-start items-center gap-4 hover:!scale-105 hover:!shadow-xl duration-200 cursor-pointer"
+                className="border border-secondary/20 p-4 flex justify-start font-handwritting items-center gap-4 hover:!scale-105 hover:!shadow-xl duration-200 cursor-pointer"
               >
                 <div
                   style={{

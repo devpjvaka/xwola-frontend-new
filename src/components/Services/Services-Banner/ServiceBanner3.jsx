@@ -9,29 +9,27 @@ const ServicesBanner3 = () => {
   return (
     <div>
       <div className="container py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start"> {/* Change items-center to items-start for top alignment */}
+          
           {/* Image section */}
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-start"> {/* Use justify-start to align the image at the top */}
             <motion.img
               initial={{ x: -100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
               src={AIDATAScience}
-              alt=""
+              alt="AI and Data Science"
               className="w-[95%] md:w-full mx-auto rounded-lg"
             />
           </div>
 
           {/* Text section */}
-          <div
-            className="space-y-5 flex justify-center 
-          flex-col"
-          >
+          <div className="space-y-5 flex justify-start flex-col"> {/* Use justify-start to align text at the top */}
             <motion.h1
               variants={SlideUp(0.2)}
               initial="initial"
               animate="animate"
-              className="text-4xl font-bold font-serif"
+              className="text-4xl text-yellow-500 font-handwritting underline decoration-black decoration-2"
             >
               AI & Data Science
             </motion.h1>
@@ -58,7 +56,7 @@ const ServicesBanner3 = () => {
                 variants={SlideUp(0.6)}
                 initial="initial"
                 animate="animate"
-                className="primary-btn  bg-black text-white 
+                className="primary-btn font-handwritting bg-black text-white 
               shadow-[5px_5px_0px_0px_#6c6c6c]"
               >
                 Discover Now

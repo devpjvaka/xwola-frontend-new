@@ -142,34 +142,37 @@ const slideVariants = {
 const Services = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
   const [selectedIndex, setSelectedIndex] = useState(0);
-
+ 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi.selectedScrollSnap());
   }, [emblaApi]);
-
+ 
   useEffect(() => {
     if (!emblaApi) return;
     emblaApi.on("select", onSelect);
   }, [emblaApi, onSelect]);
-
+ 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
   }, [emblaApi]);
-
+ 
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
-
+ 
   return (
     <>
       <div className=" mx-auto mt-16 bg-black p-8">
         {/* Carousel Viewport */}
-        <div className=" container embla w-full h-[500px]" ref={emblaRef}>
-          <div className="embla__container flex">
+        <div
+          className="container embla w-full h-auto md:h-[500px]"
+          ref={emblaRef}
+        >
+          <div className="embla__container flex w-full">
             {images.map((slide, index) => (
               <motion.div
-                className="embla__slide flex items-center p-5 min-w-full"
+                className="embla__slide flex flex-col md:flex-row items-center p-5 w-full" // Stack on small screens, side-by-side on medium+
                 key={slide.id}
                 initial="hidden"
                 animate={selectedIndex === index ? "enter" : "exit"}
@@ -178,33 +181,40 @@ const Services = () => {
               >
                 {/* Text Section */}
                 <div
-                  className="w-2/3 p-8 rounded-lg shadow-md"
+                  className="w-full md:w-2/3 p-4 md:p-8 rounded-lg shadow-md" // Full width on small, 2/3 on larger screens
                   style={{ backgroundColor: slide.bgColor }}
                 >
-                  <h2 className="text-3xl font-handwritting text-gold">
+                  <h2 className="text-2xl md:text-3xl font-handwritting text-gold">
                     {slide.title}
                   </h2>
-                  <p className="mt-4 text-xl font-handwritting text-white">
+                  <p className="mt-2 md:mt-4 text-base md:text-xl font-handwritting text-white">
                     {slide.subtitle}
                   </p>
                   {/* Navigation Buttons */}
-                  <div className="flex items-center mt-8">
-                    {/* Navigation Arrows */}
-                    <button className="arrow-button left" onClick={scrollPrev}>
+                  <div className="flex items-center mt-4 md:mt-8">
+                    <button
+                      className="arrow-button left text-sm p-2"
+                      onClick={scrollPrev}
+                    >
                       &larr;
                     </button>
-                    <button className="arrow-button right" onClick={scrollNext}>
+                    <button
+                      className="arrow-button right text-sm p-2"
+                      onClick={scrollNext}
+                    >
                       &rarr;
                     </button>
                   </div>
                 </div>
-
+ 
                 {/* Image Section */}
-                <div className="w-1/3 flex justify-center items-center">
+                <div className="w-full md:w-1/3 flex justify-center items-center mt-4 md:mt-0">
+                  {" "}
+                  {/* Stack below text on small screens */}
                   <motion.img
                     src={slide.image}
                     alt={slide.title}
-                    className="rounded-lg w-40 h-40 object-contain"
+                    className="rounded-lg w-24 h-24 md:w-40 md:h-40 object-contain" // Adjusted image size for mobile
                     initial={{ scale: 0.8 }}
                     animate={{ scale: 1 }}
                     exit={{ scale: 0.8 }}

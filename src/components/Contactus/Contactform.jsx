@@ -193,7 +193,6 @@ export default function ContactForm() {
     >
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 flex items-center justify-center h-screen">
         <div className="w-full h-full">
-          <h1 className="text-center">My Google Map</h1>
           {/* Google Map iframe */}
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509373!2d144.9537363155042!3d-37.81720997975159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf5779f1dfac69b4e!2sGoogle%20Australia!5e0!3m2!1sen!2sus!4v1621940222067!5m2!1sen!2sus"
@@ -215,7 +214,7 @@ export default function ContactForm() {
         <div className="px-6 lg:px-8">
           <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
             <motion.h2
-              className="text-4xl font-handwritting tracking-tight text-gray-900"
+              className="text-4xl font-handwritting tracking-tight text-yellow-500 underline decoration-black decoration-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
@@ -223,7 +222,7 @@ export default function ContactForm() {
               Let's work together
             </motion.h2>
             <motion.p
-              className="mt-4 text-lg leading-8 text-gray-600"
+              className="mt-4 text-lg leading-8 text-gray-600 font-handwritting"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -248,7 +247,7 @@ export default function ContactForm() {
                 >
                   <label
                     htmlFor="first-name"
-                    className="block text-sm font-semibold text-gray-900"
+                    className="block text-sm font-handwritting text-gray-900"
                   >
                     First name
                   </label>
@@ -257,7 +256,7 @@ export default function ContactForm() {
                     name="first-name"
                     type="text"
                     autoComplete="given-name"
-                    className="mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
+                    className="mt-2 block w-full font-handwritting rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
                     placeholder="John"
                   />
                 </motion.div>
@@ -269,7 +268,7 @@ export default function ContactForm() {
                 >
                   <label
                     htmlFor="last-name"
-                    className="block text-sm font-semibold text-gray-900"
+                    className="block text-sm font-handwritting text-gray-900"
                   >
                     Last name
                   </label>
@@ -278,7 +277,7 @@ export default function ContactForm() {
                     name="last-name"
                     type="text"
                     autoComplete="family-name"
-                    className="mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
+                    className="mt-2 block w-full font-handwritting rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
                     placeholder="Doe"
                   />
                 </motion.div>
@@ -291,7 +290,7 @@ export default function ContactForm() {
                 >
                   <label
                     htmlFor="email"
-                    className="block text-sm font-semibold text-gray-900"
+                    className="block text-sm font-handwritting text-gray-900"
                   >
                     Email
                   </label>
@@ -300,9 +299,9 @@ export default function ContactForm() {
                     name="email"
                     type="email"
                     autoComplete="email"
-                    className="mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
+                    className="mt-2 block w-full rounded-md border-0  font-handwritting px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
                     placeholder="you@example.com"
-                  />
+                  /> 
                 </motion.div>
 
                 <motion.div
@@ -313,7 +312,7 @@ export default function ContactForm() {
                 >
                   <label
                     htmlFor="company"
-                    className="block text-sm font-semibold text-gray-900"
+                    className="block text-sm font-handwritting text-gray-900"
                   >
                     Company
                   </label>
@@ -322,7 +321,7 @@ export default function ContactForm() {
                     name="company"
                     type="text"
                     autoComplete="organization"
-                    className="mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
+                    className="mt-2 block w-full  font-handwritting rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
                     placeholder="Your Company"
                   />
                 </motion.div>
@@ -335,7 +334,7 @@ export default function ContactForm() {
                 >
                   <label
                     htmlFor="phone"
-                    className="block text-sm font-semibold text-gray-900"
+                    className="block text-sm font-handwritting text-gray-900"
                   >
                     Phone
                   </label>
@@ -344,7 +343,7 @@ export default function ContactForm() {
                     name="phone"
                     type="tel"
                     autoComplete="tel"
-                    className="mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
+                    className="mt-2 block w-full font-handwritting rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
                     placeholder="+1234567890"
                   />
                 </motion.div>
@@ -357,7 +356,7 @@ export default function ContactForm() {
                 >
                   <label
                     htmlFor="message"
-                    className="block text-sm font-semibold text-gray-900"
+                    className="block text-sm font-handwritting text-gray-900"
                   >
                     How can we help you?
                   </label>
@@ -365,7 +364,7 @@ export default function ContactForm() {
                     id="message"
                     name="message"
                     rows={4}
-                    className="mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
+                    className="mt-2 block font-handwritting w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
                     placeholder="Your message"
                   />
                 </motion.div>
@@ -378,7 +377,7 @@ export default function ContactForm() {
               >
                 <motion.button
                   type="submit"
-                  className="primary-btn"
+                  className="primary-btn font-handwritting"
                   whileHover={{ scale: 1.05 }} // Scale effect on hover
                   whileTap={{ scale: 0.95 }} // Scale effect on tap/click
                 >
