@@ -1,6 +1,6 @@
 import React from "react";
 
-import aboutus from "../../assets/About/aboutus.jpg";
+import aboutus from "../../assets/About/hero_abt 1.jpg";
 import { motion } from "framer-motion";
 import { SlideLeft, SlideUp, SlideRight } from "../../animation/animation";
 import Brand1 from "../../assets/brands/arenase.png";
@@ -12,7 +12,7 @@ import Brand6 from "../../assets/brands/rb.png";
 import icon1 from "../../assets/About/icon1.png";
 import icon2 from "../../assets/About/icon2.png";
 import icon3 from "../../assets/About/icon3.png";
-import image1 from "../../assets/About/image1.jpg"
+import image1 from "../../assets/About/principles.jpg"
 
 // import Icon1 from "../../assets/icons/Icon1.png";
 // import Icon2 from "../../assets/icons/Icon2.png";
@@ -22,8 +22,8 @@ import image1 from "../../assets/About/image1.jpg"
 // import Icon6 from "../../assets/icons/Icon6.png";
 // import Icon7 from "../../assets/icons/Icon7.png";
 // import Icon8 from "../../assets/icons/Icon8.png";
-import ourmission from "../../assets/About/ourmission.png";
-import ourvision from "../../assets/About/ourvision.png";
+import ourmission from "../../assets/About/ourmission 1.jpg";
+import ourvision from "../../assets/About/ourvision.jpg";
 import CountUp from "react-countup"; // Import CountUp for animated counter
 import { useInView } from "react-intersection-observer"; // To detect when the section is visible
 
@@ -41,7 +41,7 @@ const coreValues = [
   { id: 1, heading: "Integrity", content: "We uphold the highest standards of integrity in all our actions." },
   { id: 2, heading: "Innovation", content: "We cultivate an environment where imagination and innovation thrive." },
   { id: 3, heading: "Teamwork", content: "We work together, across boundaries, to meet the needs of our customers." },
-  { id: 4, heading: "Excellence", content: "We strive to exceed expectations in everything we do." },
+  { id: 4, heading: "Excellence", content: "We work to surpass expectations in all that we undertake." },
   // Add more core values as needed
 ];
 const numericData = [
@@ -117,13 +117,13 @@ const About = () => {
       {/* Numeric Data Section */}
       <section className="py-24 bg-white-100" ref={ref}>
         <div className="container mx-auto">
-          <h2 className="text-3xl xl:text-4xl font-bold text-center mb-10">
+          <h2 className="text-3xl xl:text-4xl font-handwritting text-center mb-10">
             Our Achievements
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {numericData.map((data) => (
               <div key={data.id} className="flex flex-col items-center">
-                {/* Debugging: Log data values to ensure they are correct */}
+                {/* Log data for debugging */}
                 {console.log('Rendering CountUp for:', data.label, data.number)}
 
                 {/* Only render CountUp when inView is true */}
@@ -133,12 +133,13 @@ const About = () => {
                     end={data.number}
                     duration={2.5}
                     separator=","
-                    className="text-4xl font-extrabold text-gold"
+                    className="text-4xl font-handwritting text-[#b27200]"
+                    suffix="+" // Adding the prefix "+" here
                   />
                 ) : (
-                  <span className="text-4xl font-extrabold text-gold">0</span>
+                  <span className="text-4xl font-handwritting text-[#b27200]">0</span>
                 )}
-                <p className="mt-4 text-lg font-semibold text-gray-700">
+                <p className="mt-4 text-lg font-handwritting text-gray-700">
                   {data.label}
                 </p>
               </div>
@@ -149,60 +150,57 @@ const About = () => {
 
       {/* Mission & Vision Section */}
       <div className="py-20">
-        <h2 className="text-3xl xl:text-4xl font-bold text-center mb-8">
+        <h2 className="text-3xl xl:text-4xl font-handwritting text-center mb-10">
           Shaping Our Mission and Vision
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2  max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto">
           {/* Mission Section */}
-          <div className="flex flex-col justify-center p-6 border border-black-300 rounded-lg transition-all duration-300 hover:bg-black hover:text-white">
-            <h3 className="text-2xl font-bold mb-4 ">Our Mission</h3>
-            <p className="text-lg text-black-600">
-              Our mission is to empower businesses with robust and scalable
-              custom technology solutions tailored to their unique needs. We
-              build lasting relationships through deep industry expertise,
-              understanding, and relentless pursuit of excellence.
+          <div className="flex flex-col justify-center p-6 border border-gold rounded-lg transition-all duration-300 hover:bg-black hover:text-white group">
+            <h3 className="text-2xl font-handwritting mb-4 transition-colors duration-300 group-hover:text-transparent bg-clip-text bg-gradient-to-r from-gold to-white">Our Mission</h3>
+            <p className="text-lg text-black-600 font-handwritting transition-colors duration-300 group-hover:text-white">
+              Our mission is to empower businesses with robust and scalable custom technology solutions tailored to their unique needs. We build lasting relationships through deep industry expertise, understanding, and relentless pursuit of excellence.
             </p>
           </div>
+
           {/* Image for Mission */}
           <motion.div
             variants={SlideLeft(0.6)}
             whileInView={"animate"}
             initial="initial"
-            className="flex items-center justify-center p-6 border border-black-300  rounded-lg"
+            className="flex items-center justify-center p-6 border border-black-300 rounded-lg"
           >
             <img
               src={ourmission}
               alt="Mission Image"
-              className="w-full h-full object-cover  rounded-lg"
+              className="w-full h-full object-cover rounded-lg"
             />
           </motion.div>
-          {/* Image for Vision */}
+
+          {/* Image for Vision (order-last on mobile) */}
           <motion.div
             variants={SlideRight(0.8)}
             whileInView={"animate"}
             initial="initial"
-            className="flex items-center justify-center p-6 border border-black-300 rounded-lg"
+            className="flex items-center justify-center p-6 border border-black-300 rounded-lg order-last md:order-none"
           >
             <img
               src={ourvision}
               alt="Vision Image"
-              className="w-full h-full object-cover  rounded-lg"
+              className="w-full h-full object-cover rounded-lg"
             />
           </motion.div>
 
           {/* Vision Section */}
-          <div className="flex flex-col justify-center p-6 border border-black-300 rounded-lg transition-all duration-300 hover:bg-black hover:text-white">
-            <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
-            <p className="text-lg text-black-600">
-              Our vision is fueled by a commitment to continuous innovation. We
-              combine cutting-edge software development with strategic
-              consulting to deliver impactful solutions that optimize business
-              potential and drive sustainable growth.
+          <div className="flex flex-col justify-center p-6 border border-gold rounded-lg transition-all duration-300 hover:bg-black hover:text-white group">
+            <h3 className="text-2xl font-handwritting mb-4 transition-colors duration-300 group-hover:text-gold">Our Vision</h3>
+            <p className="text-lg text-black-600 font-handwritting transition-colors duration-300 group-hover:text-white">
+              Our vision is fueled by a commitment to continuous innovation. We combine cutting-edge software development with strategic consulting to deliver impactful solutions that optimize business potential and drive sustainable growth.
             </p>
           </div>
         </div>
       </div>
+
 
       {/* Our Clients Section */}
       <div className="py-10 max-w-6xl w-full mx-auto mt-10">
@@ -211,15 +209,15 @@ const About = () => {
             variants={SlideUp(0.2)}
             initial="initial"
             whileInView={"animate"}
-            className="text-3xl xl:text-4xl font-bold mb-5"
+            className="text-3xl xl:text-4xl font-handwritting mb-5"
           >
-            Our Clientele
+            Our Clientes
           </motion.h2>
           <motion.p
             variants={SlideUp(0.2)}
             initial="initial"
             whileInView={"animate"}
-            className="text-lg md:text-xl text-gray-500 max-w-4xl mb-5"
+            className="flex flex-col text-base md:text-lg lg:text-xl text-gray-500 max-w-4xl mb-5 font-handwritting leading-relaxed text-justify px-4 sm:px-6" // Added padding for mobile and larger screens
           >
             At Xwola, we are proud to serve a diverse clientele across various
             industries, providing tailored software solutions that empower their
@@ -227,6 +225,7 @@ const About = () => {
             unique needs has established strong partnerships built on trust and
             excellence.
           </motion.p>
+
         </div>
       </div>
 
@@ -278,76 +277,68 @@ const About = () => {
       </div>
 
       {/* Our Core Value Section */}
-      <div className="relative z-10 py-14 sm:py-20">
-        <h2 className="text-2xl sm:text-3xl xl:text-4xl font-bold text-center mb-6 sm:mb-8 text-black">
+      <div className="relative z-10 py-8 sm:py-10 md:py-16 lg:py-20">
+        <h2 className="text-3xl sm:text-2xl md:text-3xl xl:text-4xl font-handwritting text-center mb-4 sm:mb-6 md:mb-8 text-black">
           Our Guiding Principles
         </h2>
 
         {/* Padding container */}
-        <div className="px-10 sm:px-8 lg:px-16">
+        <div className="px-4 sm:px-6 md:px-8 lg:px-16">
           {/* Background and Grid container */}
           <div
             className="relative bg-cover bg-center rounded-5xl overflow-hidden"
             style={{
               backgroundImage: `url(${image1})`,
-              backgroundSize: "150% auto",
+              backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
-              height: "60vh", // Adjust height for desktop
-              maxWidth: "100%", // Ensure full width on smaller screens
+              height: "50vh", // Adjusted height for mobile screens
+              maxWidth: "100%",
               margin: "0 auto",
             }}
           >
-            {/* Content grid for desktop */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full h-full">
-              {coreValues.map((value, index) => {
-                return (
+            {/* Responsive grid layout */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 w-full h-full">
+              {coreValues.map((value, index) => (
+                <motion.div
+                  key={value.id}
+                  className={`relative group overflow-hidden bg-black bg-opacity-60 flex flex-col justify-center sm:justify-end items-center h-full border-t border-white p-4 sm:p-6 lg:p-8 ${index % 4 !== 3 ? "border-r border-white" : ""}`}
+                  initial="initial"
+                  whileHover="hover"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    borderBottom: index < coreValues.length - 1 ? "1px solid white" : "none",
+                  }}
+                >
+                  {/* Background overlay with hover effect */}
+                  <div className="absolute inset-0 bg-black bg-opacity-40 z-0 transition-all duration-500 group-hover:blur-md group-hover:bg-black group-hover:bg-opacity-60" />
+
+                  {/* Heading and content container */}
                   <motion.div
-                    key={value.id}
-                    className={`relative group overflow-hidden bg-black bg-opacity-60 flex flex-col justify-end items-center h-full border-t border-white p-6 lg:p-8 ${index % 4 !== 3 ? "border-r border-white" : ""
-                      }`} // Add border-r except for the last column
-                    initial="initial"
-                    whileHover="hover"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      borderBottom: index < coreValues.length - 1 ? "1px solid white" : "none",
-                    }}
+                    className="relative text-center z-10 flex flex-col items-center justify-center sm:justify-end h-full font-handwritting"
+                    initial={{ y: 0 }}
+                    whileHover={{ y: -20 }}
+                    transition={{ duration: 0.6 }}
                   >
-                    {/* Background layer with transition effect */}
-                    <div className="absolute inset-0 bg-black bg-opacity-40 z-0 transition-all duration-500 group-hover:blur-md group-hover:bg-black group-hover:bg-opacity-60" />
+                    {/* Heading with adjusted position */}
+                    <h3 className="relative text-base sm:text-lg md:text-xl lg:text-2xl font-handwritting text-white mb-2 sm:mb-3 lg:mb-4 opacity-100 transition-opacity duration-500 after:content-[''] after:absolute after:bottom-[-6px] after:left-1/2 after:w-0 after:h-[2px] after:bg-gold after:transition-all after:duration-500 group-hover:after:w-full group-hover:after:left-0">
+                      {value.heading}
+                    </h3>
 
-                    {/* Heading and Content container */}
-                    <motion.div
-                      className="relative text-center z-10 flex flex-col items-center justify-end h-full"
-                      initial={{ y: 0 }} // Initial position
-                      whileHover={{ y: -100 }} // Move up on hover
-                      transition={{ duration: 0.6 }} // Smooth transition
-                    >
-                      {/* Heading always visible */}
-                      <h3 className="text-xl font-bold text-white mb-4 opacity-100 transition-opacity duration-500">
-                        {value.heading}
-                      </h3>
-
-                      {/* Content initially hidden */}
-                      <motion.p
-                        className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                      >
-                        {value.content}
-                      </motion.p>
-                    </motion.div>
+                    {/* Content appears on hover */}
+                    <motion.p className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-xs sm:text-sm md:text-base lg:text-lg">
+                      {value.content}
+                    </motion.p>
                   </motion.div>
-                );
-              })}
+                </motion.div>
+              ))}
             </div>
-
-
-
-          
-           
           </div>
         </div>
       </div>
+
+
       {/* Our Services Section */}
       {/* < section className="py-20" >
         <motion.h2
@@ -418,7 +409,7 @@ const About = () => {
             variants={SlideUp(0.2)}
             initial="initial"
             whileInView="animate"
-            className="text-3xl xl:text-4xl font-bold mb-5"
+            className="text-3xl xl:text-4xl font-handwritting mb-5"
           >
             Why Xwola
           </motion.h1>
@@ -426,7 +417,7 @@ const About = () => {
             variants={SlideUp(0.4)}
             initial="initial"
             whileInView="animate"
-            className="text-lg md:text-xl text-gray-500 max-w-4xl mb-5"
+            className="text-lg md:text-xl text-gray-500 max-w-4xl mb-5 font-handwritting text-justify px-4 sm:px-6" // Added padding for mobile and larger screens
           >
             We leverage our extensive experience and talented resource pool to deliver
             the top-notch IT services for businesses globally. Over the years, we have
@@ -434,12 +425,12 @@ const About = () => {
             long term relations.
           </motion.p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-20 font-handwritting  text-justify">
             {[
               {
                 icon: icon1,
                 title: 'One - Stop Solutions',
-                description: 'We offer end-to-end IT services, design, development, quality assurance with a dedicated group of experts for various industry domains and technologies.',
+                description: 'We offer end-to-end IT services,design,development, quality assurance with a dedicated group of experts for various industry domains and technologies.',
               },
               {
                 icon: icon2,
@@ -457,14 +448,15 @@ const About = () => {
                 variants={SlideUp(0.6 + index * 0.2)} // Adjusted animation timing
                 initial="initial"
                 whileInView="animate"
-                className="space-y-6 text-center md:px-4 xl:px-8"
+                className="space-y-6 text-center md:px-6 xl:px-10 border border-gray-300 p-8 rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 max-w-[300px] mx-auto" // Increased width to 300px
               >
-                <img src={item.icon} alt="" className="w-24 h-24 mx-auto" /> {/* Center icon */}
-                <p className="text-3xl font-semibold">{item.title}</p>
-                <p>{item.description}</p>
+                <img src={item.icon} alt={item.title} className="w-24 h-24 mx-auto" /> {/* Centered icon */}
+                <p className="text-3xl font-handwritting   ">{item.title}</p>
+                <p className="text-justify">{item.description}</p>
               </motion.div>
             ))}
           </div>
+
         </div>
       </div>
 

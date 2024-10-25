@@ -1,5 +1,5 @@
 import React from "react";
-import Banner1 from "../../assets/team1.jpg";
+import Banner1 from "../../assets/team2.jpg";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animation";
 
@@ -29,7 +29,7 @@ const Banner = () => {
               variants={SlideUp(0.2)}
               initial="initial"
               whileInView={"animate"}
-              className="text-4xl font-bold font-serif"
+              className="text-4xl font-handwritting "
             >
               We believe that a team makes any project better
             </motion.h1>
@@ -38,7 +38,7 @@ const Banner = () => {
               variants={SlideUp(0.4)}
               initial="initial"
               whileInView={"animate"}
-              className="text-gray-500 text-lg leading-7"
+              className="text-gray-500 text-lg leading-7 font-handwritting  text-justify "
             >
               At Xwola, we understand that collaboration is at the heart of every successful project. A strong team brings together diverse skills, experiences, and perspectives, enabling us to tackle challenges more effectively and innovate beyond boundaries. We believe that when talented individuals unite with a shared vision, the possibilities are endless. Whether it's crafting solutions, delivering exceptional service, or driving your vision forward, our team works together to make every project better and more impactful. Let Xwola be your partner in transforming ideas into reality.
             </motion.p>
@@ -46,19 +46,19 @@ const Banner = () => {
               variants={SlideUp(0.6)}
               initial="initial"
               whileInView="animate"
-              className="flex gap-3"
+              className="flex gap-10 "
             >
-              <div className="max-w-[80px] space-y-2">
-                <p className="text-3xl font-bold font-serif"> 15 </p>
-                <p className="text-gray-500 text-sm"> Years of Experiance </p>
+              <div className="max-w-[80px] space-y-1">
+                <p className="text-3xl font-handwritting justify-center text-center  " > 15 </p>
+                <p className="text-gray-500 text-sm font-handwritting justify-center text-center"> Years of Experiance </p>
               </div>
-              <div className="max-w-[80px] space-y-2">
-                <p className="text-3xl font-bold font-serif"> 350 </p>
-                <p className="text-gray-500 text-sm"> Happy Clients </p>
+              <div className="max-w-[80px] space-y-1">
+                <p className="text-3xl font-handwritting justify-center text-center "> 350 </p>
+                <p className="text-gray-500 text-sm font-handwritting justify-center text-center"> Happy Clients </p>
               </div>
-              <div className="max-w-[80px] space-y-2">
-                <p className="text-3xl font-bold font-serif"> 34 </p>
-                <p className="text-gray-500 text-sm"> Award Gained </p>
+              <div className="max-w-[80px] space-y-1">
+                <p className="text-3xl font-handwritting justify-center text-center "> 34 </p>
+                <p className="text-gray-500 text-sm font-handwritting justify-center text-center"> Award Gained </p>
               </div>
             </motion.div>
             
@@ -69,7 +69,7 @@ const Banner = () => {
                 initial="initial"
                 animate="animate"
                 className="primary-btn  bg-black text-white 
-              shadow-[5px_5px_0px_0px_#6c6c6c]"
+              shadow-[5px_5px_0px_0px_#6c6c6c] font-handwritting mt-5 "
               >
                 Discover Now
               </motion.button>
