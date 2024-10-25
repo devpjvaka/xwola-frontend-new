@@ -1,5 +1,5 @@
 import React from "react";
-import Banner1 from "../../assets/team1.jpg";
+import Banner1 from "../../assets/team1 1.jpg";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animation";
 
@@ -29,7 +29,7 @@ const Banner = () => {
               variants={SlideUp(0.2)}
               initial="initial"
               whileInView={"animate"}
-              className="text-4xl font-bold font-serif"
+              className="text-4xl font-handwritting "
             >
               We believe that a team makes any project better
             </motion.h1>
