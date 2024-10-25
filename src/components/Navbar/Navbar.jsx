@@ -54,8 +54,8 @@ const Navbar = () => {
               to={link.link}
               className={({ isActive }) =>
                 isActive
-                  ? "mx-4 md:text-md lg:text-lg font-semibold underline decoration-line decoration-2 decoration-yellow-500 underline-offset-4"
-                  : "mx-4 md:text-md lg:text-lg font-semibold"
+                  ? "mx-4 md:text-md lg:text-lg font-handwritting underline decoration-line decoration-2 decoration-yellow-500 underline-offset-4"
+                  : "mx-4 md:text-md lg:text-lg font-handwritting"
               }
             >
               {link.title}
