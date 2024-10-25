@@ -13,6 +13,7 @@ import About from "./components/About/About";
 import ContactForm from "./components/Contactus/Contactform";
 import Industries from "./components/Industries/Industries";
 
+
 const Home = () => (
   <>
     <Hero />
@@ -36,6 +37,7 @@ const App = () => {
           <Route path="/services" element={<Services />} />
           <Route path="/contactus" element={<ContactForm />} />
           <Route path="/industries" element={<Industries/> } />
+          <Route path="/home" element={<Home/> } />
         </Routes>
         <Footer />
       </main>

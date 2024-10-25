@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import { motion } from "framer-motion";
 
+
+ 
 export default function ContactForm() {
 
   return (
@@ -13,7 +15,7 @@ export default function ContactForm() {
     >
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 flex items-center justify-center h-screen">
         <div className="w-full h-full">
-          <h1 className="text-center">Our Company</h1>
+          <h1 className="text-center font-handwritting">Our Company</h1>
           {/* Google Map iframe */}
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15227.761978159817!2d78.3623529128652!3d17.414643109877158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9422532fb3f7%3A0xc793fad03d2e2af1!2sManikonda%2C%20Telangana%2C%20India!5e0!3m2!1sen!2sde!4v1729685440896!5m2!1sen!2sde"

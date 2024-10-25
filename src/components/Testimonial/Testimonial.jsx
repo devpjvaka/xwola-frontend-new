@@ -31,53 +31,41 @@ const TestimonialData = [
 const Testimonial = () => {
   return (
     <div className="py-14">
-      {/* heading title */}
-      <div
-        className="space-y-4 text-center max-w-[550px]
-       mx-auto mb-8"
-      ></div>
+      {/* Heading title */}
+      <div className="space-y-4 text-center max-w-[550px] mx-auto mb-8"></div>
 
-      {/* Testimonial cards  */}
-
+      {/* Testimonial cards */}
       <div className="bg-black p-12">
-        <div
-          className=" container grid grid-cols-1 md:grid-cols-3 
-        gap-6"
-        >
+        <div className="container grid grid-cols-1 md:grid-cols-3 gap-6">
           {TestimonialData.map((card) => {
             return (
               <div
-                kex={card.id}
-                className="border-[1px] border-gray-500 p-5
-              text-white group hover:bg-white duration-300 "
+                key={card.id}
+                className="border-[1px] border-gray-500 p-5 text-white group hover:bg-white duration-300"
               >
                 {/* Upper Section */}
-
-                {
-                  <div
-                    className="flex flex-row items-center 
-                gap-3"
-                  >
-                    <img
-                      src={card.img}
-                      alt=""
-                      className="w-[60px] rounded-full"
-                    />
-                    <div>
-                      <p className="text-sm font-bold group-hover:text-black ">
-                        {card.name}
-                      </p>
-                      <p className="text-gray-400 text-xs group-hover:text-black">
-                        {card.designation}
-                      </p>
-                    </div>
-                    <div className="text-xs mt-2">⭐⭐⭐⭐⭐</div>
+                <div className="flex flex-col md:flex-row items-center gap-3">
+                  <img
+                    src={card.img}
+                    alt=""
+                    className="w-[60px] rounded-full"
+                  />
+                  <div className="flex-grow">
+                    <p className="text-sm font-handwritting group-hover:text-black">
+                      {card.name}
+                    </p>
+                    <p className="text-gray-400 text-xs group-hover:text-black font-handwritting">
+                      {card.designation}
+                    </p>
                   </div>
-                }
+                </div>
+
+                {/* Star Rating Section */}
+                <div className="text-xs mt-2 text-center md:text-left">⭐⭐⭐⭐⭐</div>
 
                 {/* Button Section */}
                 <div className="mt-5 border-t-2 border-gray-500/40 pt-5">
-                  <p className="text-sm text-gray-300 group-hover:text-black">
+                  <p className="text-sm text-gray-300 group-hover:text-black font-handwritting">
                     {card.text}
                   </p>
                 </div>
@@ -87,6 +75,7 @@ const Testimonial = () => {
         </div>
       </div>
     </div>
+
   );
 };
 

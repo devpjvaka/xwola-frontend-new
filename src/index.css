@@ -2,13 +2,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer components {
   .primary-btn {
     @apply text-sm font-semibold border-[1px] border-black px-4 py-2 shadow-[5px_5px_0px_0px] duration-300;
   }
+
   .primary-btn:hover {
     @apply bg-black text-white shadow-[5px_5px_0px_0px_#6c6c6c];
   }
+
   @screen lg {
     .primary-btn {
       @apply text-base;
@@ -27,6 +30,7 @@
     filter: drop-shadow(-6px 6px 10px rgba(0, 0, 0, 0.4));
   }
 }
+
 .style {
   margin: 0;
   padding: 0;
@@ -61,17 +65,13 @@
   z-index: 2;
 }
 
-
 /* Left-side gradient */
-
 .logos:before {
   left: 0;
   background: linear-gradient(to right, white, rgba(255, 255, 255, 0));
 }
 
-
 /* Right-side gradient */
-
 .logos:after {
   right: 0;
   background: linear-gradient(to left, white, rgba(255, 255, 255, 0));
@@ -90,29 +90,48 @@
   height: 50px;
   margin: 0 40px;
 }
+
+@media (max-width: 640px) {
+  .logos-slide {
+    gap: 2rem; /* Adjust gap for mobile screens */
+  }
+}
+
 .arrow-button {
   transition: background-color 0.2s;
-  width: 40px; /* Set a fixed width for arrow buttons */
-  height: 40px; /* Set a fixed height for arrow buttons */
-  display: flex; /* Flexbox to center the content */
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
-  background-color: rgba(255, 255, 255, 0.8); /* Light background for buttons */
-  border: none; /* Remove default border */
-  border-radius: 50%; /* Round buttons */
-  cursor: pointer; /* Pointer cursor on hover */
-  margin: 10px 5px; /* Add margin around buttons */
+  width: 40px;
+  /* Set a fixed width for arrow buttons */
+  height: 40px;
+  /* Set a fixed height for arrow buttons */
+  display: flex;
+  /* Flexbox to center the content */
+  align-items: center;
+  /* Center vertically */
+  justify-content: center;
+  /* Center horizontally */
+  background-color: rgba(255, 255, 255, 0.8);
+  /* Light background for buttons */
+  border: none;
+  /* Remove default border */
+  border-radius: 50%;
+  /* Round buttons */
+  cursor: pointer;
+  /* Pointer cursor on hover */
+  margin: 10px 5px;
+  /* Add margin around buttons */
 }
 
 .arrow-button:hover {
-  background-color: rgba(0, 0, 0, 0.1); /* Change background on hover */
+  background-color: rgba(0, 0, 0, 0.1);
+  /* Change background on hover */
 }
 
 /* Other existing styles remain unchanged */
 .embla {
   overflow: hidden;
   width: 100%;
-  position: relative; /* Ensure the parent has relative positioning */
+  position: relative;
+  /* Ensure the parent has relative positioning */
 }
 
 .embla__container {
@@ -147,12 +166,34 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes moveBall {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(calc(100vw - 10px), calc(100vh - 10px));
-  }
+/* Add this CSS to your stylesheet */
+.star-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
+.star-container .text-xs {
+  font-size: 0.75rem;
+  /* Adjust as needed */
+  margin-top: 0.5rem;
+  /* Adjust as needed */
+  white-space: nowrap;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+  .star-container {
+    justify-content: flex-start;
+    /* Align stars to the start */
+  }
+
+  .star-container .text-xs {
+    font-size: 0.65rem;
+    /* Smaller font size for small screens */
+    margin-top: 0.25rem;
+    /* Adjust margin for small screens */
+  }
+}
