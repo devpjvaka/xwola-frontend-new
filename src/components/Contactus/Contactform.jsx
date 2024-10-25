@@ -2,188 +2,8 @@ import React, { useState } from "react";
 
 import { motion } from "framer-motion";
 
-
-// const ContactForm = () => {
-//   const [formData, setFormData] = useState({
-//     firstName: "",
-//     lastName: "",
-//     company: "",
-//     email: "",
-//     phone: "",
-//     message: "",
-//     agreed: false,
-//   });
-
-//   // Handle form input changes
-//   const handleChange = (e) => {
-//     const { name, value, type, checked } = e.target;
-//     setFormData({
-//       ...formData,
-//       [name]: type === "checkbox" ? checked : value,
-//     });
-//   };
-
-//   // Handle form submission
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     console.log("Form submitted:", formData);
-//     // Submit form logic here
-//   };
-
-//   return (
-//     <div className="bg-white px-6 py-24 sm:py-24 lg:px-8">
-//       <div className="max-w-2xl mx-auto text-center">
-//         <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
-//           Contact Us
-//         </h2>
-//         <p className="mt-4 text-lg leading-6 text-black-700">
-//           Get in touch with us, and we will gladly get back to you as soon as possible.
-//           If you need a professional team, Xwola will be happy to assist you in making
-//           your vision a reality.
-//         </p>
-//       </div>
-//       <form onSubmit={handleSubmit} className="mt-16 max-w-xl mx-auto sm:mt-20">
-//         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-//           <div>
-//             <label
-//               htmlFor="firstName"
-//               className="block text-sm font-semibold leading-6 text-black"
-//             >
-//               First name
-//             </label>
-//             <input
-//               type="text"
-//               name="firstName"
-//               id="firstName"
-//               value={formData.firstName}
-//               onChange={handleChange}
-//               className="mt-2 block w-full rounded-md border-gray-300 shadow-sm bg-white text-black placeholder-gray-500 focus:ring-black focus:border-black sm:text-sm"
-//               placeholder="John"
-//             />
-//           </div>
-//           <div>
-//             <label
-//               htmlFor="lastName"
-//               className="block text-sm font-semibold leading-6 text-black"
-//             >
-//               Last name
-//             </label>
-//             <input
-//               type="text"
-//               name="lastName"
-//               id="lastName"
-//               value={formData.lastName}
-//               onChange={handleChange}
-//               className="mt-2 block w-full rounded-md border-gray-300 shadow-sm bg-white text-black placeholder-gray-500 focus:ring-black focus:border-black sm:text-sm"
-//               placeholder="Doe"
-//             />
-//           </div>
-//           <div className="sm:col-span-2">
-//             <label
-//               htmlFor="company"
-//               className="block text-sm font-semibold leading-6 text-black"
-//             >
-//               Company
-//             </label>
-//             <input
-//               type="text"
-//               name="company"
-//               id="company"
-//               value={formData.company}
-//               onChange={handleChange}
-//               className="mt-2 block w-full rounded-md border-gray-300 shadow-sm bg-white text-black placeholder-gray-500 focus:ring-black focus:border-black sm:text-sm"
-//               placeholder="Your Company"
-//             />
-//           </div>
-//           <div className="sm:col-span-2">
-//             <label
-//               htmlFor="email"
-//               className="block text-sm font-semibold leading-6 text-black"
-//             >
-//               Email
-//             </label>
-//             <input
-//               type="email"
-//               name="email"
-//               id="email"
-//               value={formData.email}
-//               onChange={handleChange}
-//               className="mt-2 block w-full rounded-md border-gray-300 shadow-sm bg-white text-black placeholder-gray-500 focus:ring-black focus:border-black sm:text-sm"
-//               placeholder="you@example.com"
-//             />
-//           </div>
-//           <div className="sm:col-span-2">
-//             <label
-//               htmlFor="phone"
-//               className="block text-sm font-semibold leading-6 text-black"
-//             >
-//               Phone number
-//             </label>
-//             <input
-//               type="tel"
-//               name="phone"
-//               id="phone"
-//               value={formData.phone}
-//               onChange={handleChange}
-//               className="mt-2 block w-full rounded-md border-gray-300 shadow-sm bg-white text-black placeholder-gray-500 focus:ring-black focus:border-black sm:text-sm"
-//               placeholder="+1234567890"
-//             />
-//           </div>
-//           <div className="sm:col-span-2">
-//             <label
-//               htmlFor="message"
-//               className="block text-sm font-semibold leading-6 text-black"
-//             >
-//               How can we help you?
-//             </label>
-//             <textarea
-//               name="message"
-//               id="message"
-//               rows="4"
-//               value={formData.message}
-//               onChange={handleChange}
-//               className="mt-2 block w-full rounded-md border-gray-300 shadow-sm bg-white text-black placeholder-gray-500 focus:ring-black focus:border-black sm:text-sm"
-//               placeholder="Your message"
-//             />
-//           </div>
-//           <div className="flex items-start sm:col-span-2">
-//             <div className="flex h-5 items-center">
-//               <input
-//                 id="agreed"
-//                 name="agreed"
-//                 type="checkbox"
-//                 checked={formData.agreed}
-//                 onChange={handleChange}
-//                 className="h-4 w-4 text-black border-gray-400 rounded bg-white focus:ring-black"
-//               />
-//             </div>
-//             <div className="ml-3 text-sm">
-//               <label htmlFor="agreed" className="font-medium text-black">
-//                 By selecting this, you agree to our{" "}
-//                 <a href="#" className="font-semibold text-black underline">
-//                   privacy policy
-//                 </a>
-//                 .
-//               </label>
-//             </div>
-//           </div>
-//         </div>
-//         <div className="mt-10">
-//           <button
-//             type="submit"
-//             className="w-full bg-black text-white font-semibold rounded-md px-4 py-2.5 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
-//           >
-//             Submit
-//           </button>
-//         </div>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default ContactForm;
- 
 export default function ContactForm() {
+
   return (
     <motion.div
       className="relative bg-white"
@@ -193,9 +13,10 @@ export default function ContactForm() {
     >
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 flex items-center justify-center h-screen">
         <div className="w-full h-full">
+          <h1 className="text-center">Our Company</h1>
           {/* Google Map iframe */}
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509373!2d144.9537363155042!3d-37.81720997975159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf5779f1dfac69b4e!2sGoogle%20Australia!5e0!3m2!1sen!2sus!4v1621940222067!5m2!1sen!2sus"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15227.761978159817!2d78.3623529128652!3d17.414643109877158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9422532fb3f7%3A0xc793fad03d2e2af1!2sManikonda%2C%20Telangana%2C%20India!5e0!3m2!1sen!2sde!4v1729685440896!5m2!1sen!2sde"
             width="100%"
             height="100%"
             style={{ border: 0 }}
@@ -214,7 +35,8 @@ export default function ContactForm() {
         <div className="px-6 lg:px-8">
           <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
             <motion.h2
-              className="text-4xl font-handwritting tracking-tight text-yellow-500 underline decoration-black decoration-2"
+              className="text-4xl font-handwritting tracking-tight text-black" // Use black for text
+              style={{ textShadow: "1px 1px 2px gray" }} // Optional shadow effect for depth
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
@@ -227,9 +49,9 @@ export default function ContactForm() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Get in touch with us, and we will gladly get back to you as soon as
-              possible. If you need a professional team, Xwola will be happy to
-              assist you in making your vision a reality.
+              Get in touch with us, and we will gladly get back to you as soon
+              as possible. If you need a professional team, Xwola will be happy
+              to assist you in making your vision a reality.
             </motion.p>
             <motion.form
               action="#"
@@ -256,7 +78,7 @@ export default function ContactForm() {
                     name="first-name"
                     type="text"
                     autoComplete="given-name"
-                    className="mt-2 block w-full font-handwritting rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
+                    className="mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black font-handwritting"
                     placeholder="John"
                   />
                 </motion.div>
@@ -277,7 +99,7 @@ export default function ContactForm() {
                     name="last-name"
                     type="text"
                     autoComplete="family-name"
-                    className="mt-2 block w-full font-handwritting rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
+                    className="font-handwritting mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
                     placeholder="Doe"
                   />
                 </motion.div>
@@ -299,9 +121,9 @@ export default function ContactForm() {
                     name="email"
                     type="email"
                     autoComplete="email"
-                    className="mt-2 block w-full rounded-md border-0  font-handwritting px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
+                    className="font-handwritting mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
                     placeholder="you@example.com"
-                  /> 
+                  />
                 </motion.div>
 
                 <motion.div
@@ -321,7 +143,7 @@ export default function ContactForm() {
                     name="company"
                     type="text"
                     autoComplete="organization"
-                    className="mt-2 block w-full  font-handwritting rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
+                    className="font-handwritting mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
                     placeholder="Your Company"
                   />
                 </motion.div>
@@ -343,7 +165,7 @@ export default function ContactForm() {
                     name="phone"
                     type="tel"
                     autoComplete="tel"
-                    className="mt-2 block w-full font-handwritting rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
+                    className="font-handwritting mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
                     placeholder="+1234567890"
                   />
                 </motion.div>
@@ -364,7 +186,7 @@ export default function ContactForm() {
                     id="message"
                     name="message"
                     rows={4}
-                    className="mt-2 block font-handwritting w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
+                    className="font-handwritting mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-black"
                     placeholder="Your message"
                   />
                 </motion.div>

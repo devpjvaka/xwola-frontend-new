@@ -65,7 +65,7 @@ const Navbar = () => {
 
         {/* Button section for Desktop */}
         <div className="hidden md:block">
-        <Link to="/contactus" className="primary-btn w-full">Get In touch</Link>
+        <Link to="/contactus" className="primary-btn w-full font-handwritting">Get In touch</Link>
         </div>
 
         {/* Mobile menu button */}
@@ -97,7 +97,7 @@ const Navbar = () => {
           ))}
           {/* Button section for Mobile */}
           <div className="mt-4">
-          <Link to="/contactus" className="primary-btn w-full">Get In touch</Link>
+          <Link to="/contactus" className="primary-btn  w-full font-handwritting">Get In touch</Link>
           </div>
         </div>
       )}

@@ -1,19 +1,15 @@
 import React from "react";
-// import Banner1 from "../../assets/banner.png";
-import Software_dev from "../../../assets/Services/Banners/SoftwareDevelopment.png";
-
-// import ServicesBanner1 from "../../../components/Services/Services-Banner/ServiceBanner1";
-
+import Software_dev from "../../../assets/Services/Banners/SoftwareDevelopment.jpg";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../../animation/animation";
-
+ 
 const ServicesBanner1 = () => {
   return (
     <div>
       <div className="container py-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
           {/* Image section */}
-          <div className="flex flex-col justify-center">
+          <div>
             <motion.img
               initial={{ x: -100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -23,26 +19,25 @@ const ServicesBanner1 = () => {
               className="w-[95%] md:w-full mx-auto rounded-lg"
             />
           </div>
-
+ 
           {/* Text section */}
-          <div
-            className="space-y-5 flex justify-center 
-          flex-col"
-          >
+          <div className="space-y-5">
             <motion.h1
               variants={SlideUp(0.2)}
               initial="initial"
               animate="animate"
-              className="text-4xl text-yellow-500 font-handwritting underline decoration-black decoration-2"
-              >
-              Software Development
+              className="text-3xl text-black-500 font-handwritting relative"
+            >
+              <span className="text-black px-2 py-1 rounded">
+                Software Development
+              </span>
             </motion.h1>
-
+ 
             <motion.p
               variants={SlideUp(0.4)}
               initial="initial"
               animate="animate"
-              className=" font-handwritting  text-xl leading-7"
+              className="text-gray-500 font-handwritting text-xl leading-7 text-center md:text-left text-justify"
             >
               Software development is a collaborative process where creativity,
               innovation, and problem-solving come together to build solutions
@@ -51,45 +46,15 @@ const ServicesBanner1 = () => {
               stakeholders work closely to bring ideas to life. Each team member
               plays a crucial role, whether in coding, testing, designing, or
               project management, ensuring that the final product is both
-              functional and user-friendly.
-              <span className="block mt-4">
-                In a thriving software company, collaboration drives progress.
-                Teams work together, leveraging diverse skill sets and
-                expertise, to create cutting-edge applications and systems that
-                adapt to evolving market needs. By fostering a culture of
-                continuous learning and shared responsibility, the development
-                process becomes not just about building software but about
-                building together for success
-              </span>
+              functional and user-friendly.      
             </motion.p>
-
-            {/* <motion.div
-              variants={SlideUp(0.6)}
-              initial="initial"
-              whileInView="animate"
-              className="flex gap-3"
-            >
-              <div className="max-w-[80px] space-y-2">
-                <p className="text-3xl font-bold font-serif"> 15 </p>
-                <p className="text-gray-500 text-sm"> Years of Experiance </p>
-              </div>
-              <div className="max-w-[80px] space-y-2">
-                <p className="text-3xl font-bold font-serif"> 350 </p>
-                <p className="text-gray-500 text-sm"> Happy Clients </p>
-              </div>
-              <div className="max-w-[80px] space-y-2">
-                <p className="text-3xl font-bold font-serif"> 34 </p>
-                <p className="text-gray-500 text-sm"> Award Gained </p>
-              </div>
-            </motion.div> */}
-
+ 
             <div>
               <motion.button
                 variants={SlideUp(0.6)}
                 initial="initial"
                 animate="animate"
-                className="primary-btn font-handwritting  bg-black text-white 
-              shadow-[5px_5px_0px_0px_#6c6c6c]"
+                className="primary-btn font-handwritting bg-black text-white shadow-[5px_5px_0px_0px_#6c6c6c] mt-8"
               >
                 Discover Now
               </motion.button>
@@ -100,5 +65,5 @@ const ServicesBanner1 = () => {
     </div>
   );
 };
-
+ 
 export default ServicesBanner1;

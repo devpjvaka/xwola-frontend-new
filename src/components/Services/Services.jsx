@@ -1,6 +1,6 @@
-import AI from "../../assets/Services/Services_/ai_1.png";
-import DevOps from "../../assets/Services/Services_/support&maintenance.png";
-import DigitalExperiance from "../../assets/Services/Services_/digitalexperience_1.png";
+import AI from "../../assets/Services/Services_/ai&datascience (1).jpg";
+import DevOps from "../../assets/Services/Services_/SupportMaintenance2.jpg";
+import DigitalExperiance from "../../assets/Services/Services_/digitalexperience.jpg";
 import { UpdateFollower } from "react-mouse-follower";
 import { FaVectorSquare } from "react-icons/fa";
 import { FaPenSquare } from "react-icons/fa";
@@ -106,8 +106,7 @@ const images = [
     image: DigitalExperiance,
     title: "Software Development",
     subtitle:
-      "Xwola delivers innovative, scalable software solutions, specializing in mobile and web development for transformative digital experiences.",
-    price: "$40",
+      "Xwola specializes in creating scalable, innovative software solutions across mobile and web platforms, delivering transformative digital experiences that drive user engagement and empower businesses to thrive in a digital-first world.",
     modal: "Digital",
     bgColor: "#000000",
   },
@@ -116,9 +115,7 @@ const images = [
     image: DevOps,
     title: "Support & Maintenance",
     subtitle:
-      "Support & Maintenance ensures the smooth operation of software and IT systems through ongoing troubleshooting, updates, and user support",
-    price: "$100",
-    modal: "Zero",
+      "Support & Maintenance ensures the smooth operation of software and IT systems through ongoing troubleshooting, timely updates, and dedicated user support, helping organizations to minimize downtime and maximize productivity.",
     bgColor: "#000000",
   },
   {
@@ -126,102 +123,127 @@ const images = [
     image: AI,
     title: "AI & Data Science",
     subtitle:
-      "AI & Data Science use advanced algorithms to analyze data, uncover insights, and enable smart decision-making across industries with huge scope",
-    price: "$100",
-    modal: "Cola",
+      "AI & Data Science leverage advanced algorithms to analyze vast amounts of data, uncover valuable insights, and enable informed decision-making across industries, driving innovation and offering significant potential for growth and efficiency.",
     bgColor: "#000000",
   },
 ];
 
-const slideVariants = {
-  hidden: { opacity: 0, scale: 0.8, x: 100 },
-  enter: { opacity: 1, scale: 1, x: 0 },
-  exit: { opacity: 0, scale: 0.8, x: -100 },
-};
+;
+
 
 const Services = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false }); // Set loop to false for custom logic
   const [selectedIndex, setSelectedIndex] = useState(0);
- 
+  const [direction, setDirection] = useState('forward'); // Track the scroll direction
+
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi.selectedScrollSnap());
   }, [emblaApi]);
- 
+
   useEffect(() => {
     if (!emblaApi) return;
-    emblaApi.on("select", onSelect);
+    emblaApi.on('select', onSelect);
   }, [emblaApi, onSelect]);
- 
+
   const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
+    if (emblaApi) {
+      emblaApi.scrollPrev();
+      setDirection('backward');
+    }
   }, [emblaApi]);
- 
+
   const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
+    if (emblaApi) {
+      emblaApi.scrollNext();
+      setDirection('forward');
+    }
   }, [emblaApi]);
- 
+
+  // Auto slide functionality
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const interval = setInterval(() => {
+      if (direction === 'forward') {
+        // When moving forward, if at last slide, reverse direction
+        if (selectedIndex === images.length - 1) {
+          setDirection('backward');
+          emblaApi.scrollPrev();
+        } else {
+          scrollNext(); // Scroll to next
+        }
+      } else {
+        // When moving backward, if at first slide, reverse direction
+        if (selectedIndex === 0) {
+          setDirection('forward');
+          emblaApi.scrollNext();
+        } else {
+          scrollPrev(); // Scroll to previous
+        }
+      }
+    }, 3000); // Change the slide every 3 seconds
+
+    return () => clearInterval(interval); // Cleanup the interval on component unmount
+  }, [emblaApi, scrollNext, scrollPrev, direction, selectedIndex]);
+
   return (
     <>
-      <div className=" mx-auto mt-16 bg-black p-8">
+      <div className="mx-auto mt-16 bg-black p-8 relative"> {/* Added relative for positioning buttons */}
         {/* Carousel Viewport */}
-        <div
-          className="container embla w-full h-auto md:h-[500px]"
-          ref={emblaRef}
-        >
+        <div className="container embla w-full h-auto md:h-[500px]" ref={emblaRef}>
           <div className="embla__container flex w-full">
             {images.map((slide, index) => (
-              <motion.div
+              <div
                 className="embla__slide flex flex-col md:flex-row items-center p-5 w-full" // Stack on small screens, side-by-side on medium+
                 key={slide.id}
-                initial="hidden"
-                animate={selectedIndex === index ? "enter" : "exit"}
-                variants={slideVariants}
-                transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }} // Smooth cubic-bezier transition
+                style={{
+                  opacity: selectedIndex === index ? 1 : 0,
+                  transform: selectedIndex === index ? 'scale(1)' : 'scale(0.9)', // Slightly smaller scale for non-active slides
+                  transition: 'opacity 0.6s ease, transform 0.6s ease', // Increased transition duration
+                }}
               >
                 {/* Text Section */}
                 <div
                   className="w-full md:w-2/3 p-4 md:p-8 rounded-lg shadow-md" // Full width on small, 2/3 on larger screens
                   style={{ backgroundColor: slide.bgColor }}
                 >
-                  <h2 className="text-2xl md:text-3xl font-handwritting text-gold">
+                  <h2 className="text-4xl md:text-3xl font-handwritting text-justify text-gold">
                     {slide.title}
                   </h2>
-                  <p className="mt-2 md:mt-4 text-base md:text-xl font-handwritting text-white">
+                  <p className="mt-2 md:mt-4 text-base md:text-xl font-handwritting text-justify text-white">
                     {slide.subtitle}
                   </p>
                   {/* Navigation Buttons */}
-                  <div className="flex items-center mt-4 md:mt-8">
+                  <div className="flex items-center mt-20 md:mt-10">
                     <button
                       className="arrow-button left text-sm p-2"
                       onClick={scrollPrev}
                     >
-                      &larr;
+                      &larr; {/* Left Arrow */}
                     </button>
                     <button
                       className="arrow-button right text-sm p-2"
                       onClick={scrollNext}
                     >
-                      &rarr;
+                      &rarr; {/* Right Arrow */}
                     </button>
                   </div>
                 </div>
- 
+
                 {/* Image Section */}
                 <div className="w-full md:w-1/3 flex justify-center items-center mt-4 md:mt-0">
-                  {" "}
-                  {/* Stack below text on small screens */}
-                  <motion.img
+                  <img
                     src={slide.image}
                     alt={slide.title}
                     className="rounded-lg w-24 h-24 md:w-40 md:h-40 object-contain" // Adjusted image size for mobile
-                    initial={{ scale: 0.8 }}
-                    animate={{ scale: 1 }}
-                    exit={{ scale: 0.8 }}
-                    transition={{ duration: 0.5 }} // Smooth scale transition
+                    style={{
+                      transform: 'scale(1)', // Initial scale
+                      transition: 'transform 0.5s', // Smooth scale transition
+                    }}
                   />
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
