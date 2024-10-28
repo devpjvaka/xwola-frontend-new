@@ -3,14 +3,14 @@ import Banner2_ from "../../assets/empower4.jpg";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animation";
 import { Link } from "react-router-dom";
-
+ 
 const Banner2 = () => {
   return (
     <div>
       <div className="container py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
           {/* Image section - First on mobile, second on desktop */}
-          <div className="flex flex-col justify-center md:order-2">
+          <div className="self-start md:order-2">
             <motion.img
               initial={{ x: 100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -20,26 +20,23 @@ const Banner2 = () => {
               className="w-[95%] md:w-full mx-auto"
             />
           </div>
-
+ 
           {/* Text section - Second on mobile, first on desktop */}
-          <div
-            className="space-y-5 flex justify-center 
-          flex-col font-handwritting md:order-1"
-          >
+          <div className="space-y-5 self-start font-handwritting md:order-1">
             <motion.h1
               variants={SlideUp(0.2)}
               initial="initial"
-              whileInView={"animate"}
-              className="text-4xl font-handwritting "
+              whileInView="animate"
+              className="text-4xl font-handwritting"
             >
               Empowering ideas, transforming possibilities.
             </motion.h1>
-
+ 
             <motion.p
               variants={SlideUp(0.4)}
               initial="initial"
               whileInView="animate"
-              className="text-gray-500 text-lg leading-7 font-handwritting  text-justify"
+              className="text-gray-500 text-lg leading-7 font-handwritting text-justify"
             >
               At Xwola, we believe that every idea holds the potential to shape
               the future. Our mission is to empower those ideas by providing the
@@ -51,15 +48,14 @@ const Banner2 = () => {
               side, your ideas can drive change, unlock new opportunities, and
               lead to a brighter future.
             </motion.p>
-
+ 
             <div>
               <Link to="/contactus">
                 <motion.button
                   variants={SlideUp(0.6)}
                   initial="initial"
                   whileInView="animate"
-                  className="primary-btn bg-black text-white 
-                  shadow-[5px_5px_0px_0px_#6c6c6c] font-handwritting mt-5"
+                  className="primary-btn bg-black text-white shadow-[5px_5px_0px_0px_#6c6c6c] font-handwritting mt-5"
                 >
                   Contact Us
                 </motion.button>
@@ -71,5 +67,6 @@ const Banner2 = () => {
     </div>
   );
 };
-
+ 
 export default Banner2;
+ 

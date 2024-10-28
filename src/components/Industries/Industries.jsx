@@ -241,7 +241,7 @@ const Industries = () => {
   };
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [direction, setDirection] = useState('forward'); // Track the scroll direction
+  const [direction, setDirection] = useState("forward"); // Track the scroll direction
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -265,10 +265,10 @@ const Industries = () => {
     if (!emblaApi) return;
 
     const interval = setInterval(() => {
-      if (direction === 'forward') {
+      if (direction === "forward") {
         // When moving forward, if at last slide, reverse direction
         if (selectedIndex === images.length - 1) {
-          setDirection('backward');
+          setDirection("backward");
           emblaApi.scrollPrev();
         } else {
           scrollNext(); // Scroll to next
@@ -276,7 +276,7 @@ const Industries = () => {
       } else {
         // When moving backward, if at first slide, reverse direction
         if (selectedIndex === 0) {
-          setDirection('forward');
+          setDirection("forward");
           emblaApi.scrollNext();
         } else {
           scrollPrev(); // Scroll to previous
@@ -286,7 +286,6 @@ const Industries = () => {
 
     return () => clearInterval(interval); // Cleanup the interval on component unmount
   }, [emblaApi, scrollNext, scrollPrev, direction, selectedIndex]);
-
 
   return (
     <>
@@ -554,13 +553,13 @@ const Industries = () => {
         </div>
 
         {/* Cards Section */}
-        <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 md:grid-cols-3 lg:grid-cols-4">
           {subjectList.map((subject, index) => {
             const animations = {
               initial: {
                 opacity: 0,
-                x: index % 2 === 0 ? -200 : 200,
-                y: index % 3 === 0 ? -50 : 50,
+                x: index % 2 === 0 ? -50 : 50,
+                y: index % 3 === 0 ? -20 : 20,
               },
               whileInView: { opacity: 1, x: 0, y: 0 },
               transition: {
@@ -576,7 +575,7 @@ const Industries = () => {
                 initial={animations.initial}
                 whileInView={animations.whileInView}
                 transition={animations.transition}
-                viewport={{ once: false, amount: 0.01 }} // Very low threshold for instant trigger on mobile
+                viewport={{ once: true, amount: 0.02 }} // Very low threshold for instant trigger on mobile
                 className="border border-secondary/20 p-3 sm:p-4 md:p-6 flex items-center gap-2 sm:gap-4 hover:!scale-105 hover:!shadow-xl duration-200 cursor-pointer"
               >
                 {/* Icon Section */}
@@ -605,7 +604,6 @@ const Industries = () => {
           })}
         </div>
       </div>
-      has context menu
     </>
   );
 };
