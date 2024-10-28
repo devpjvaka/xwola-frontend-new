@@ -21,7 +21,7 @@ const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className="container py-4 flex justify-between items-center mt-4" // Added margin-top
+        className="container mx-auto px-10 py-4 flex justify-between items-center mt-4"
       >
         {/* Logo section */}
         <Link to="/">
@@ -49,7 +49,10 @@ const Navbar = () => {
 
         {/* Contact Button for Desktop (only visible on large screens) */}
         <div className="hidden lg:block">
-          <Link to="/contactus" className="primary-btn w-full font-handwritting uppercase">
+          <Link
+            to="/contactus"
+            className="primary-btn w-full font-handwritting uppercase"
+          >
             Get In Touch
           </Link>
         </div>
@@ -60,11 +63,14 @@ const Navbar = () => {
             onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
             className="text-lg p-2 bg-yellow-500 text-white rounded"
           >
-            {isMobileMenuOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
+            {isMobileMenuOpen ? (
+              <XMarkIcon className="h-6 w-6" />
+            ) : (
+              <Bars3Icon className="h-6 w-6" />
+            )}
           </button>
         </div>
       </motion.div>
-
 
       {/* Mobile Link section (only visible on medium and smaller screens) */}
       {isMobileMenuOpen && (
@@ -84,7 +90,10 @@ const Navbar = () => {
           ))}
           {/* Button section for Mobile */}
           <div className="mt-4">
-            <Link to="/contactus" className="primary-btn w-full font-handwritting">
+            <Link
+              to="/contactus"
+              className="primary-btn w-full font-handwritting"
+            >
               Get In Touch
             </Link>
           </div>

@@ -2,12 +2,12 @@ import React from "react";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animation";
 import { Link } from "react-router-dom";
-import { Typewriter } from 'react-simple-typewriter'; // Importing the Typewriter component
+import { Typewriter } from "react-simple-typewriter"; // Importing the Typewriter component
 import HeroPng from "../../assets/img_tst 2.png"; // Assuming this is the path to the image
 
 const Hero = () => {
   return (
-    <div className="container">
+    <div className="container mx-auto px-10">
       <div className="grid grid-cols-1 md:grid-cols-2 md:min-h-[500px] gap-10">
         {/* Text Section */}
         <div
@@ -20,10 +20,11 @@ const Hero = () => {
             whileInView={"animate"}
             className="text-4xl font-handwritting"
           >
-            <span className="text-black">Innovating Today</span> for the Digital Solutions of{" "}
-            <span style={{ color: '#b27200' }}>
+            <span className="text-black">Innovating Today</span> for the Digital
+            Solutions of{" "}
+            <span style={{ color: "#b27200" }}>
               <Typewriter
-                words={['Tomorrow']}
+                words={["Tomorrow"]}
                 loop={false} // Set to false if you don't want the typing to repeat
                 cursor
                 cursorStyle="|"
@@ -32,8 +33,6 @@ const Hero = () => {
                 delaySpeed={1000}
               />
             </span>
-
-
           </motion.h1>
 
           <motion.p
@@ -42,9 +41,10 @@ const Hero = () => {
             whileInView={"animate"}
             className="text-lg text-gray-500 font-handwritting  text-justify"
           >
-            At Xwola, we build innovative software solutions that empower businesses to thrive.
-            Our team focuses on cutting-edge technology and user-driven design to solve modern challenges.
-            From scalable applications to tailored services,we create tools for today’s needs.
+            At Xwola, we build innovative software solutions that empower
+            businesses to thrive. Our team focuses on cutting-edge technology
+            and user-driven design to solve modern challenges. From scalable
+            applications to tailored services,we create tools for today’s needs.
             Together,we’re shaping the digital future,one solution at a time.
           </motion.p>
 
@@ -54,7 +54,7 @@ const Hero = () => {
               initial="initial"
               animate="animate"
               className="primary-btn uppercase bg-black text-white shadow-[5px_5px_0px_0px_#6c6c6c] font-handwritting w-full md:w-auto"
-              style={{ minWidth: '150px' }} // Ensures both buttons have the same minimum width
+              style={{ minWidth: "150px" }} // Ensures both buttons have the same minimum width
             >
               Get started
             </motion.button>
@@ -65,14 +65,12 @@ const Hero = () => {
                 initial="initial"
                 animate="animate"
                 className="primary-btn uppercase font-handwritting w-full md:w-auto"
-                style={{ minWidth: '150px' }} // Ensures both buttons have the same minimum width
+                style={{ minWidth: "150px" }} // Ensures both buttons have the same minimum width
               >
                 Contact Us
               </motion.button>
             </Link>
           </div>
-
-
         </div>
 
         {/* Images Section */}
