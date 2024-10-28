@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { SlideUp } from "../../animation/animation";
- 
+
 const TestimonialData = [
   {
     id: 1,
@@ -25,7 +25,7 @@ const TestimonialData = [
     text: "They not only understood our goals but took them to the next level. Their creativity and professionalism made the entire process smooth and enjoyable. Highly recommended!",
   },
 ];
- 
+
 const Testimonial = () => {
   return (
     <div className="py-10 px-4 sm:px-8 lg:py-14 bg-gray-100">
@@ -40,10 +40,11 @@ const Testimonial = () => {
           What Our Clients Say
         </h2>
         <p className="text-gray-600 text-base sm:text-lg font-handwritting">
-          We value our clients' feedback and are proud of the impact we make together.
+          We value our clients' feedback and are proud of the impact we make
+          together.
         </p>
       </motion.div>
- 
+
       {/* Testimonial Cards */}
       <div className="bg-black py-8 px-4 sm:px-10 lg:px-12 rounded-lg shadow-lg">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -53,7 +54,7 @@ const Testimonial = () => {
               variants={SlideUp(0.4)}
               initial="initial"
               whileInView="animate"
-              className="p-6 border border-gray-600 rounded-lg bg-black text-white transition-all duration-300 transform hover:bg-white hover:shadow-lg"
+              className="group p-6 border border-gray-600 rounded-lg bg-black text-white transition-all duration-300 transform hover:bg-white hover:shadow-lg"
             >
               {/* Upper Section */}
               <div className="flex items-center gap-4 mb-4">
@@ -72,12 +73,12 @@ const Testimonial = () => {
                   </p>
                 </div>
               </div>
- 
+
               {/* Star Rating Section */}
               <div className="text-yellow-500 text-sm text-center mb-4 md:text-left">
                 ⭐⭐⭐⭐⭐
               </div>
- 
+
               {/* Testimonial Text */}
               <div className="border-t border-gray-500 pt-4">
                 <p className="text-sm text-gray-300 group-hover:text-black font-handwritting">
@@ -91,5 +92,5 @@ const Testimonial = () => {
     </div>
   );
 };
- 
+
 export default Testimonial;
