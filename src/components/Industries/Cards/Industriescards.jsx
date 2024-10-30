@@ -87,7 +87,7 @@ const Industriescards = () => {
       </div>
  
       {/* Cards Section */}
-      <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 md:grid-cols-3 font-handwritting lg:grid-cols-4">
         {subjectList.map((subject, index) => {
           const animations = {
             initial: {
@@ -109,7 +109,7 @@ const Industriescards = () => {
               initial={animations.initial}
               whileInView={animations.whileInView}
               transition={animations.transition}
-              viewport={{ once: true, amount: 0.02 }} // Very low threshold for instant trigger on mobile
+              viewport={{ once: false, amount: 0.02 }} // Very low threshold for instant trigger on mobile
               className="border border-secondary/20 p-3 sm:p-4 md:p-6 flex items-center gap-2 sm:gap-4 hover:!scale-105 hover:!shadow-xl duration-200 cursor-pointer"
             >
               {/* Icon Section */}

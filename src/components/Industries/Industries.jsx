@@ -238,14 +238,9 @@ const slideVariants = {
 };
 
 const Industries = () => {
-  const [activeData, setActiveData] = React.useState(headphoneData[0]);
-
-  const handleActiveData = (data) => {
-    setActiveData(data);
-  };
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [direction, setDirection] = useState("forward"); // Track the scroll direction
+  const [direction, setDirection] = useState("forward");
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -258,45 +253,36 @@ const Industries = () => {
   }, [emblaApi, onSelect]);
 
   const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
+    if (emblaApi) {
+      emblaApi.scrollPrev();
+      setDirection("backward");
+    }
   }, [emblaApi]);
 
   const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
+    if (emblaApi) {
+      emblaApi.scrollNext();
+      setDirection("forward");
+    }
   }, [emblaApi]);
-  // Auto slide functionality
+
   useEffect(() => {
     if (!emblaApi) return;
 
     const interval = setInterval(() => {
       if (direction === "forward") {
-        // When moving forward, if at last slide, reverse direction
-        if (selectedIndex === images.length - 1) {
-          setDirection("backward");
-          emblaApi.scrollPrev();
-        } else {
-          scrollNext(); // Scroll to next
-        }
+        selectedIndex === images.length - 1 ? scrollPrev() : scrollNext();
       } else {
-        // When moving backward, if at first slide, reverse direction
-        if (selectedIndex === 0) {
-          setDirection("forward");
-          emblaApi.scrollNext();
-        } else {
-          scrollPrev(); // Scroll to previous
-        }
+        selectedIndex === 0 ? scrollNext() : scrollPrev();
       }
-    }, 3000); // Change the slide every 3 seconds
+    }, 3000);
 
-    return () => clearInterval(interval); // Cleanup the interval on component unmount
+    return () => clearInterval(interval);
   }, [emblaApi, scrollNext, scrollPrev, direction, selectedIndex]);
 
   return (
     <>
-      <div className="mx-auto mt-16 bg-black p-8 relative">
-        {" "}
-        {/* Added relative for positioning buttons */}
-        {/* Carousel Viewport */}
+      <div className="mx-auto mt-16 bg-black p-6 md:p-8">
         <div
           className="container embla w-full h-auto md:h-[500px]"
           ref={emblaRef}
@@ -304,39 +290,38 @@ const Industries = () => {
           <div className="embla__container flex w-full">
             {images.map((slide, index) => (
               <div
-                className="embla__slide flex flex-col md:flex-row items-center p-5 w-full" // Stack on small screens, side-by-side on medium+
                 key={slide.id}
+                className="embla__slide flex flex-col md:flex-row items-center p-5 w-full"
                 style={{
                   opacity: selectedIndex === index ? 1 : 0,
                   transform:
-                    selectedIndex === index ? "scale(1)" : "scale(0.9)", // Slightly smaller scale for non-active slides
-                  transition: "opacity 0.6s ease, transform 0.6s ease", // Increased transition duration
+                    selectedIndex === index ? "scale(1)" : "scale(0.95)",
+                  transition: "opacity 0.6s ease, transform 0.6s ease",
                 }}
               >
                 {/* Text Section */}
                 <div
-                  className="w-full md:w-2/3 p-4 md:p-8 rounded-lg shadow-md" // Full width on small, 2/3 on larger screens
+                  className="w-full md:w-2/3 p-4 md:p-8 rounded-lg shadow-md"
                   style={{ backgroundColor: slide.bgColor }}
                 >
-                  <h2 className="text-4xl md:text-3xl font-handwritting text-justify text-gold">
+                  <h2 className="text-xl md:text-3xl font-handwritting text-gold text-center md:text-left">
                     {slide.title}
                   </h2>
-                  <p className="mt-2 md:mt-4 text-base md:text-xl font-handwritting text-justify text-white">
+                  <p className="mt-2 text-sm md:text-lg text-white text-justify font-handwritting">
                     {slide.subtitle}
                   </p>
-                  {/* Navigation Buttons */}
-                  <div className="flex items-center mt-20 md:mt-10">
+                  <div className="flex justify-between mt-8 md:mt-6">
                     <button
-                      className="arrow-button left text-sm p-2"
                       onClick={scrollPrev}
+                      className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-600"
                     >
-                      &larr; {/* Left Arrow */}
+                      &larr;
                     </button>
                     <button
-                      className="arrow-button right text-sm p-2"
                       onClick={scrollNext}
+                      className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-600"
                     >
-                      &rarr; {/* Right Arrow */}
+                      &rarr;
                     </button>
                   </div>
                 </div>
@@ -346,11 +331,7 @@ const Industries = () => {
                   <img
                     src={slide.image}
                     alt={slide.title}
-                    className="rounded-lg w-24 h-24 md:w-40 md:h-40 object-contain" // Adjusted image size for mobile
-                    style={{
-                      transform: "scale(1)", // Initial scale
-                      transition: "transform 0.5s", // Smooth scale transition
-                    }}
+                    className="rounded-lg w-24 h-24 md:w-40 md:h-40 object-cover transition-transform duration-300 transform hover:scale-105"
                   />
                 </div>
               </div>
@@ -361,10 +342,8 @@ const Industries = () => {
       <IndustrieBanner1 />
       <IndustrieBanner2 />
       <IndustrieBanner3 />
-
       <Industriescards />
     </>
   );
 };
-
 export default Industries;
