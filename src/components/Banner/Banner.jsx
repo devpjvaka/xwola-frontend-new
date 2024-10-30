@@ -118,7 +118,7 @@ const Banner = () => {
           </motion.div>
 
           <motion.button
-            className="primary-btn font-handwritting bg-black text-white px-4 py-1 mt-6 shadow-[5px_5px_0px_0px_#6c6c6c] hover:shadow-md inline-block w-auto"
+            className="primary-btn font-handwritting bg-black text-white px-4 py-1 mt-6 shadow-[5px_5px_0px_0px_#6c6c6c] hover:shadow-md inline-block w-full"
             onClick={() => setPopoverOpen(!popoverOpen)}
           >
             Discover Now

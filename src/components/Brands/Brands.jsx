@@ -70,39 +70,37 @@ const Brands = () => {
             We are trusted by the world’s most innovative teams
           </p>
 
-          {/* Container for logos */}
-          <div className="logos group relative overflow-hidden whitespace-nowrap py-8 sm:py-10 [mask-image:_linear-gradient(to_right,_transparent_0,_white_64px,_white_calc(100%-64px),_transparent_100%)] scroll-snap-type-x mandatory snap-x snap-mandatory">
-
-            {/* First logo row with responsive spacing */}
-            <div className="logos-slide flex justify-center gap-4 sm:gap-8 lg:gap-16 snap-center">
-              <img className="inline h-8 sm:h-12 lg:h-16" src={Brand1} alt="Brand 1" />
-              <img className="inline h-8 sm:h-12 lg:h-16" src={Brand2} alt="Brand 2" />
-              <img className="inline h-8 sm:h-12 lg:h-16" src={Brand3} alt="Brand 3" />
-              <img className="inline h-8 sm:h-12 lg:h-16" src={Brand4} alt="Brand 4" />
-              <img className="inline h-8 sm:h-12 lg:h-16" src={Brand5} alt="Brand 5" />
-              <img className="inline h-8 sm:h-12 lg:h-16 ml-4 sm:ml-8 lg:ml-16" src={Brand6} alt="Brand 6" />
-            </div>
-
-            {/* Duplicate logo row for seamless scrolling */}
-            <div className="logos-slide flex justify-center gap-4 sm:gap-8 lg:gap-16 snap-center">
-              <img className="inline h-8 sm:h-12 lg:h-16" src={Brand1} alt="Brand 1" />
-              <img className="inline h-8 sm:h-12 lg:h-16" src={Brand2} alt="Brand 2" />
-              <img className="inline h-8 sm:h-12 lg:h-16" src={Brand3} alt="Brand 3" />
-              <img className="inline h-8 sm:h-12 lg:h-16" src={Brand4} alt="Brand 4" />
-              <img className="inline h-8 sm:h-12 lg:h-16" src={Brand5} alt="Brand 5" />
-              <img className="inline h-8 sm:h-12 lg:h-16 ml-4 sm:ml-8 lg:ml-16" src={Brand6} alt="Brand 6" />
+          {/* Container for logos with infinite loop animation */}
+          <div className="carousel relative overflow-hidden py-8 sm:py-10">
+            <div className="carousel-track flex animate-scroll gap-4 sm:gap-8 lg:gap-16">
+              {/* Original logo row */}
+              {[Brand1, Brand2, Brand3, Brand4, Brand5, Brand6].map(
+                (brand, index) => (
+                  <img
+                    key={index}
+                    className="h-8 sm:h-12 lg:h-16"
+                    src={brand}
+                    alt={`Brand ${index + 1}`}
+                  />
+                )
+              )}
+              {/* Duplicate logo row for seamless scroll */}
+              {[Brand1, Brand2, Brand3, Brand4, Brand5, Brand6].map(
+                (brand, index) => (
+                  <img
+                    key={index + 6}
+                    className="h-8 sm:h-12 lg:h-16"
+                    src={brand}
+                    alt={`Brand ${index + 7}`}
+                  />
+                )
+              )}
             </div>
           </div>
         </section>
       </div>
-
-
-
-
     </>
   );
 };
-
-
 
 export default Brands;

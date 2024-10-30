@@ -462,56 +462,22 @@
 // };
  
 // export default About;
- 
 import React from "react";
 import aboutus from "../../assets/About/hero_abt 1.jpg";
 import { motion } from "framer-motion";
 import { SlideLeft, SlideUp, SlideRight } from "../../animation/animation";
-import Brand1 from "../../assets/brands/arenase.png";
-import Brand2 from "../../assets/brands/eaufladen.png";
-import Brand3 from "../../assets/brands/itopup.png";
-import Brand4 from "../../assets/brands/phl.png";
-import Brand5 from "../../assets/brands/pj.png";
-import Brand6 from "../../assets/brands/rb.png";
-import icon1 from "../../assets/About/icon1.png";
-import icon2 from "../../assets/About/icon2.png";
-import icon3 from "../../assets/About/icon3.png";
-import image1 from "../../assets/About/principles.jpg";
-import ourmission from "../../assets/About/ourmission 1.jpg";
-import ourvision from "../../assets/About/ourvision.jpg";
-import CountUp from "react-countup";
+ 
 import { useInView } from "react-intersection-observer";
  
-const coreValues = [
-  {
-    id: 1,
-    heading: "Integrity",
-    content: "We uphold the highest standards of integrity in all our actions.",
-  },
-  {
-    id: 2,
-    heading: "Innovation",
-    content:
-      "We cultivate an environment where imagination and innovation thrive.",
-  },
-  {
-    id: 3,
-    heading: "Teamwork",
-    content:
-      "We work together, across boundaries, to meet the needs of our customers.",
-  },
-  {
-    id: 4,
-    heading: "Excellence",
-    content: "We work to surpass expectations in all that we undertake.",
-  },
-];
-const numericData = [
-  { id: 1, number: 200, label: "Projects Completed" },
-  { id: 2, number: 50, label: "Clients Served" },
-  { id: 3, number: 10, label: "Years of Experience" },
-  { id: 4, number: 5, label: "Countries Reached" },
-];
+ 
+import Clients from "./clients";
+ 
+import MissionAndVision from "./missionAndvision";
+import Achievements from "./achivements";
+import CoreValues from "./coreValues";
+ 
+ 
+ 
  
 const About = () => {
   const [ref, inView] = useInView({
@@ -566,185 +532,16 @@ const About = () => {
           </div>
         </div>
       </section>
- 
-      <section className="py-16 bg-gray-100" ref={ref}>
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl xl:text-4xl font-handwritting mb-10">
-            Our Achievements
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {numericData.map((data) => (
-              <div key={data.id} className="flex flex-col items-center">
-                {inView ? (
-                  <CountUp
-                    start={0}
-                    end={data.number}
-                    duration={2.5}
-                    separator=","
-                    className="text-4xl font-handwritting text-[#b27200]"
-                    suffix="+"
-                  />
-                ) : (
-                  <span className="text-4xl font-handwritting text-[#b27200]">
-                    0
-                  </span>
-                )}
-                <p className="mt-2 text-lg font-handwritting text-gray-700">
-                  {data.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
- 
-      <div className="py-20">
-        <h2 className="text-3xl xl:text-4xl font-handwritting text-center mb-10">
-          Our Mission and Vision
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto px-6 gap-6">
-          <MissionVisionSection
-            title="Our Mission"
-            description="Our mission is to empower businesses with robust and scalable custom technology solutions tailored to their unique needs."
-            imageSrc={ourmission}
-            direction="left"
-          />
-          <MissionVisionSection
-            title="Our Vision"
-            description="Our vision is fueled by a commitment to continuous innovation. We combine cutting-edge software development with strategic consulting."
-            imageSrc={ourvision}
-            direction="right"
-          />
-        </div>
-      </div>
- 
-      <div className="py-10 max-w-6xl mx-auto text-center px-6 bg-gradient-to-b from-gray-50 to-gray-100 rounded-lg shadow-lg">
-        <motion.h2
-          variants={SlideUp(0.2)}
-          initial="initial"
-          whileInView="animate"
-          className="text-3xl xl:text-4xl font-handwritting mb-5"
-        >
-          Our Clients
-        </motion.h2>
-        {/* Animated underline */}
-        <div className="w-16 h-[2px] mx-auto bg-yellow-500 my-2 relative">
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: "100%" }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="absolute h-[2px] bg-yellow-500 bottom-0 left-0"
-          />
-        </div>
- 
-        <motion.p
-          variants={SlideUp(0.2)}
-          initial="initial"
-          whileInView="animate"
-          className="text-base md:text-lg lg:text-xl text-gray-500 max-w-4xl mx-auto mb-8 font-handwritting leading-relaxed"
-        >
-          At Xwola, we are proud to serve a diverse clientele across various
-          industries, providing tailored software solutions that empower their
-          growth and drive innovation. Our commitment to understanding their
-          unique needs has established strong partnerships built on trust and
-          excellence.
-        </motion.p>
- 
-        <div className="flex flex-wrap justify-center lg:justify-between gap-6">
-          {[Brand1, Brand2, Brand3, Brand4, Brand5, Brand6].map(
-            (brand, index) => (
-              <motion.img
-                key={index}
-                variants={SlideUp(0.2 + index * 0.2)}
-                initial="initial"
-                whileInView="animate"
-                src={brand}
-                alt={`Brand ${index + 1}`}
-                className="w-[120px] sm:w-[150px] transition-transform duration-300 transform hover:scale-110 hover:rotate-2 hover:shadow-lg hover:shadow-yellow-400/40"
-              />
-            )
-          )}
-        </div>
-      </div>
- 
-      <div className="relative z-10 py-8 sm:py-10 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-16">
-        <h2 className="text-3xl sm:text-2xl md:text-3xl xl:text-4xl font-handwritting text-center mb-4 sm:mb-6 md:mb-8">
-          Our Guiding Principles
-        </h2>
-        <div
-          className="relative bg-cover bg-center rounded-5xl overflow-hidden"
-          style={{
-            backgroundImage: `url(${image1})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            height: "50vh",
-          }}
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 w-full h-full">
-            {coreValues.map((value, index) => (
-              <CoreValueCard
-                key={value.id}
-                title={value.heading}
-                description={value.content}
-                isRightBorder={index % 4 !== 3}
-                isBottomBorder={index < coreValues.length - 1}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
+      <Achievements/>
+      <MissionAndVision/>
+      <Clients/>
+      <CoreValues/>
     </>
   );
 };
  
-// Reusable Mission & Vision Section Component
-const MissionVisionSection = ({ title, description, imageSrc, direction }) => (
-  <div
-    className={`flex flex-col ${
-      direction === "right" ? "md:order-last" : ""
-    } items-center md:items-start space-y-6 text-center md:text-left`}
-  >
-    <motion.div className="p-6 border border-gold rounded-lg transition-all duration-300 hover:bg-black hover:text-white">
-      <h3 className="text-2xl font-handwritting mb-4">{title}</h3>
-      <p className="text-lg text-gray-700 font-handwritting">{description}</p>
-    </motion.div>
-    <motion.img
-      src={imageSrc}
-      alt={`${title} Image`}
-      className="w-full h-full object-cover rounded-lg border border-gray-300"
-    />
-  </div>
-);
  
-// Reusable Core Values Card
-const CoreValueCard = ({
-  title,
-  description,
-  isRightBorder,
-  isBottomBorder,
-}) => (
-  <motion.div
-    className={`relative p-4 sm:p-6 lg:p-8 group overflow-hidden bg-black bg-opacity-60 flex flex-col items-center justify-center h-full border-white transition-all duration-300 ease-in-out transform ${
-      isRightBorder ? "border-r" : ""
-    } ${isBottomBorder ? "border-b" : ""}`}
-    initial={{ y: 0 }}
-    whileHover={{ y: -10 }}
-  >
-    {/* Background overlay with opacity change on hover */}
-    <div className="absolute inset-0 bg-black bg-opacity-40 z-0 transition-all duration-500 group-hover:bg-opacity-60" />
  
-    {/* Title with underline effect */}
-    <h3 className="relative z-10 text-base sm:text-lg md:text-xl lg:text-2xl font-handwritting text-white mb-3 group-hover:text-yellow-500 transition-colors duration-300">
-      {title}
-      <span className="absolute left-1/2 bottom-[-4px] w-0 h-[2px] bg-yellow-500 transition-all duration-500 transform -translate-x-1/2 group-hover:w-full" />
-    </h3>
  
-    {/* Content appears on hover */}
-    <p className="relative z-10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-xs sm:text-sm md:text-base lg:text-lg text-center mt-2">
-      {description}
-    </p>
-  </motion.div>
-);
  
 export default About;
- 

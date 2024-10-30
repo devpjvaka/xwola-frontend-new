@@ -3,7 +3,7 @@ import Logo from "../../assets/Logo_gold.png";
 import { Link, NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
- 
+
 const NavLinks = [
   { id: 1, title: "Home", link: "/home" },
   { id: 2, title: "About", link: "/about" },
@@ -11,10 +11,10 @@ const NavLinks = [
   { id: 4, title: "Industries", link: "/industries" },
   { id: 5, title: "Contact us", link: "/contactus" },
 ];
- 
+
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
- 
+
   return (
     <nav className="w-full border-b border-gray-200 shadow-sm bg-white">
       <motion.div
@@ -27,7 +27,7 @@ const Navbar = () => {
         <Link to="/">
           <img src={Logo} alt="logo" className="w-40" />
         </Link>
- 
+
         {/* Desktop Links Section */}
         <div className="hidden lg:flex space-x-6">
           {NavLinks.map((link) => (
@@ -44,7 +44,7 @@ const Navbar = () => {
             </NavLink>
           ))}
         </div>
- 
+
         {/* Desktop Contact Button */}
         <Link
           to="/contactus"
@@ -52,7 +52,7 @@ const Navbar = () => {
         >
           Get In Touch
         </Link>
- 
+
         {/* Mobile menu button */}
         <div className="lg:hidden">
           <button
@@ -67,7 +67,7 @@ const Navbar = () => {
           </button>
         </div>
       </motion.div>
- 
+
       {/* Mobile Links Section */}
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-white shadow-md p-4">
@@ -84,16 +84,18 @@ const Navbar = () => {
               {link.title}
             </NavLink>
           ))}
-          <Link
-            to="/contactus"
-            className="primary-btn uppercase font-handwritting block mt-4"
-          >
-            Get In Touch
-          </Link>
+          <div className="mt-4">
+            <Link
+              to="/contactus"
+              className="primary-btn w-full font-handwritting text-base px-4 py-2 sm:text-lg sm:px-6 sm:py-3" // Adjusts for mobile
+            >
+              Get In Touch
+            </Link>
+          </div>
         </div>
       )}
     </nav>
   );
 };
- 
+
 export default Navbar;
