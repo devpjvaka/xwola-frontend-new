@@ -60,47 +60,39 @@ import { SlideUp } from "../../animation/animation";
 // };
 const Brands = () => {
   return (
-    <>
-      <div className="container py-10 px-2 sm:px-0">
-        <section className="bg-white py-6 text-black">
-          <h2 className="mb-2 text-center text-2xl sm:text-3xl lg:text-4xl font-handwritting leading-7 sm:leading-8">
-            Our Clients
-          </h2>
-          <p className="text-gray-500 text-center font-handwritting text-sm sm:text-base lg:text-lg leading-6 sm:leading-7">
-            We are trusted by the world’s most innovative teams
-          </p>
+    <div className="container py-10 px-2 sm:px-0">
+      <section className="bg-white py-6 text-black">
+        <h2 className="mb-2 text-center text-2xl sm:text-3xl lg:text-4xl font-handwritting leading-7 sm:leading-8">
+          Our Clients
+        </h2>
+        <p className="text-gray-500 text-center font-handwritting text-sm sm:text-base lg:text-lg leading-6 sm:leading-7">
+          We are trusted by the world’s most innovative teams
+        </p>
 
-          {/* Container for logos with infinite loop animation */}
-          <div className="carousel relative overflow-hidden py-8 sm:py-10">
-            <div className="carousel-track flex animate-scroll gap-4 sm:gap-8 lg:gap-16">
-              {/* Original logo row */}
-              {[Brand1, Brand2, Brand3, Brand4, Brand5, Brand6].map(
-                (brand, index) => (
-                  <img
-                    key={index}
-                    className="h-8 sm:h-12 lg:h-16"
-                    src={brand}
-                    alt={`Brand ${index + 1}`}
-                  />
-                )
-              )}
-              {/* Duplicate logo row for seamless scroll */}
-              {[Brand1, Brand2, Brand3, Brand4, Brand5, Brand6].map(
-                (brand, index) => (
-                  <img
-                    key={index + 6}
-                    className="h-8 sm:h-12 lg:h-16"
-                    src={brand}
-                    alt={`Brand ${index + 7}`}
-                  />
-                )
-              )}
-            </div>
+        {/* Infinite Scroll Container */}
+        <div className="relative overflow-hidden py-8 sm:py-10">
+          <div className="flex animate-scroll gap-8 w-[200%]">
+            {/* Logo Rows */}
+            {[...Array(2)].map((_, loopIndex) => (
+              <div className="flex gap-8" key={loopIndex}>
+                {[Brand1, Brand2, Brand3, Brand4, Brand5, Brand6].map(
+                  (brand, index) => (
+                    <img
+                      key={`${loopIndex}-${index}`}
+                      className="h-8 sm:h-12 lg:h-16"
+                      src={brand}
+                      alt={`Brand ${index + 1}`}
+                    />
+                  )
+                )}
+              </div>
+            ))}
           </div>
-        </section>
-      </div>
-    </>
+        </div>
+      </section>
+    </div>
   );
 };
+
 
 export default Brands;

@@ -12,13 +12,12 @@ import Footer from "./components/Footer/Footer";
 import About from "./components/About/About";
 import ContactForm from "./components/Contactus/Contactform";
 import Industries from "./components/Industries/Industries";
-
+import ScrollToTop from "./components/scrollTop"; // Adjust path if needed
 
 const Home = () => (
   <>
     <Hero />
     <Brands />
-    {/* <Services /> */}
     <Banner />
     <Banner2 />
     <Testimonial />
@@ -29,6 +28,7 @@ const Home = () => (
 const App = () => {
   return (
     <Router>
+      <ScrollToTop /> {/* Ensures each route change scrolls to top */}
       <main className="overflow-x-hidden">
         <Navbar />
         <Routes>
@@ -36,8 +36,8 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contactus" element={<ContactForm />} />
-          <Route path="/industries" element={<Industries/> } />
-          <Route path="/home" element={<Home/> } />
+          <Route path="/industries" element={<Industries />} />
+          <Route path="/home" element={<Home />} />
         </Routes>
         <Footer />
       </main>
