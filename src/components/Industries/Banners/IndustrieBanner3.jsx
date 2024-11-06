@@ -79,7 +79,7 @@ const IndustrieBanner3 = () => {
             variants={SlideUp(0.4)}
             initial="initial"
             whileInView="animate"
-            className="text-gray-500 font-handwritting text-xl leading-7 mt-4 text-justify"
+            className="text-gray-600 font-handwritting text-base md:text-lg leading-relaxed md:leading-8 "
           >
             Our focus lies in{" "}
             <span className="font-handwritting text-md">
@@ -96,7 +96,7 @@ const IndustrieBanner3 = () => {
             className="primary-btn font-handwritting bg-black text-white px-6 py-2 mt-6 shadow-[5px_5px_0px_0px_#6c6c6c] hover:shadow-md"
             onClick={() => setPopoverOpen(!popoverOpen)}
           >
-            Discover Now
+            Learn more
           </motion.button>
 
           {/* Popover with Enhanced Animation */}

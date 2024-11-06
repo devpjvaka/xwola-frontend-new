@@ -82,8 +82,8 @@ const IndustrieBanner1 = () => {
               variants={SlideUp(0.4)}
               initial="initial"
               whileInView="animate"
-              className="text-gray-500 font-handwritting text-lg md:text-xl leading-7 text-justify"
-            >
+              className="text-gray-600 font-handwritting text-base md:text-lg leading-relaxed md:leading-8 "
+              >
               Telecom software development provides telcos with powerful
               solutions that automate service and business operations while
               enabling the seamless introduction of new, value-added customer
@@ -103,7 +103,7 @@ const IndustrieBanner1 = () => {
                 className="primary-btn font-handwritting bg-black text-white px-6 py-2 mt-6 shadow-[5px_5px_0px_0px_#6c6c6c] hover:shadow-md"
                 onClick={() => setPopoverOpen(!popoverOpen)}
               >
-                Discover Now
+                Learn more
               </motion.button>
 
               {/* Popover with Enhanced Animation */}

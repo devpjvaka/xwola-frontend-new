@@ -32,7 +32,7 @@ const Banner2 = () => {
             variants={SlideUp(0.2)}
             initial="initial"
             whileInView="animate"
-            className="text-3xl sm:text-4xl font-handwritting leading-tight"
+            className="text-3xl sm:text-4xl font-serif leading-tight"
           >
             Empowering ideas, transforming possibilities.
           </motion.h1>
@@ -42,7 +42,7 @@ const Banner2 = () => {
             variants={SlideUp(0.4)}
             initial="initial"
             whileInView="animate"
-            className="text-gray-500 text-base sm:text-lg leading-relaxed font-handwritting"
+            className="text-gray-500 text-base sm:text-lg leading-relaxed font-serif"
           >
             At Xwola, we believe that every idea holds the potential to shape the future. Our mission is to empower
             those ideas by providing the expertise, technology, and innovation needed to bring them to life. We
@@ -59,9 +59,9 @@ const Banner2 = () => {
                 variants={SlideUp(0.6)}
                 initial="initial"
                 whileInView="animate"
-                className="primary-btn bg-black text-white shadow-[5px_5px_0px_0px_#6c6c6c] font-handwritting mt-5"
+                className="primary-btn bg-black text-white shadow-[5px_5px_0px_0px_#6c6c6c] font-serif mt-5"
               >
-                Contact Us
+                Contact us
               </motion.button>
             </Link>
           </div>

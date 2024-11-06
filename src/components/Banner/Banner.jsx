@@ -73,7 +73,7 @@ const Banner = () => {
             variants={SlideUp(0.2)}
             initial="initial"
             whileInView="animate"
-            className="text-3xl sm:text-4xl font-handwritting leading-tight"
+            className="text-3xl sm:text-4xl font-serif leading-tight"
           >
             We believe that a team makes any project better
           </motion.h1>
@@ -83,7 +83,7 @@ const Banner = () => {
             variants={SlideUp(0.4)}
             initial="initial"
             whileInView="animate"
-            className="text-gray-500 text-base sm:text-lg leading-relaxed font-handwritting"
+            className="text-gray-500 text-base sm:text-lg leading-relaxed font-serif"
           >
             At Xwola, we understand that collaboration is at the heart of every
             successful project. A strong team brings together diverse skills,
@@ -118,10 +118,11 @@ const Banner = () => {
           </motion.div>
 
           <motion.button
-            className="primary-btn font-handwritting bg-black text-white px-4 py-1 mt-6 shadow-[5px_5px_0px_0px_#6c6c6c] hover:shadow-md inline-block w-full"
+            className="primary-btn font-serif bg-black text-white px-4 py-1 mt-6 shadow-[5px_5px_0px_0px_#6c6c6c] hover:shadow-md inline-block w-auto" // Use w-auto to shrink to content
+            style={{ width: '150px' }} // Optional: specify exact width
             onClick={() => setPopoverOpen(!popoverOpen)}
           >
-            Discover Now
+            Learn more
           </motion.button>
 
           {/* Popover with Enhanced Animation */}
@@ -161,14 +162,14 @@ const Banner = () => {
                   >
                     Upcoming Features
                   </motion.h3>
-                  <p className="text-gray-700 font-handwritting text-lg">
+                  <p className="text-gray-700 font-serif text-lg">
                     This page is under construction. Please check back soon for
                     updates!
                   </p>
                   
                   <motion.button
                     onClick={() => setPopoverOpen(false)}
-                    className="primary-btn text-2xl font-handwritting mb-3 text-gradient bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent hover:text-black transition duration-300"
+                    className="primary-btn text-2xl font-serif mb-3 text-gradient bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent hover:text-black transition duration-300"
                   >
                     Close
                   </motion.button>

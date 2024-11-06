@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
- 
+
 export default function ContactForm() {
   return (
     <motion.div
@@ -20,7 +20,7 @@ export default function ContactForm() {
           loading="lazy"
         ></iframe>
       </div>
- 
+
       {/* Contact Form Section */}
       <motion.div
         className="pb-20 pt-16 sm:pb-32 sm:pt-24 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:pt-32"
@@ -31,13 +31,16 @@ export default function ContactForm() {
         <div className="px-6 lg:px-8">
           <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
             <motion.h2
-              className="text-3xl sm:text-4xl font-handwritting tracking-tight text-black"
+              className="text-3xl sm:text-4xl font-handwritting tracking-tight text-black relative inline-block"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
+              style={{ display: "inline-block" }} // Ensure it doesn't stretch beyond content width
             >
               Let's work together
+           
             </motion.h2>
+
             <motion.p
               className="mt-4 text-lg leading-8 text-gray-600 font-handwritting"
               initial={{ opacity: 0, x: -50 }}
@@ -48,7 +51,7 @@ export default function ContactForm() {
               as possible. If you need a professional team, Xwola will be happy
               to assist you in making your vision a reality.
             </motion.p>
- 
+
             <motion.form
               action="#"
               method="POST"
@@ -67,7 +70,7 @@ export default function ContactForm() {
                   placeholder="John"
                   delay={0.6}
                 />
- 
+
                 {/* Last Name Input */}
                 <InputField
                   label="Last name"
@@ -77,7 +80,7 @@ export default function ContactForm() {
                   placeholder="Doe"
                   delay={0.7}
                 />
- 
+
                 {/* Email Input */}
                 <InputField
                   label="Email"
@@ -88,7 +91,7 @@ export default function ContactForm() {
                   delay={0.8}
                   fullWidth
                 />
- 
+
                 {/* Company Input */}
                 <InputField
                   label="Company"
@@ -99,7 +102,7 @@ export default function ContactForm() {
                   delay={0.9}
                   fullWidth
                 />
- 
+
                 {/* Phone Input */}
                 <InputField
                   label="Phone"
@@ -110,7 +113,7 @@ export default function ContactForm() {
                   delay={1}
                   fullWidth
                 />
- 
+
                 {/* Message Textarea */}
                 <motion.div
                   className="sm:col-span-2"
@@ -133,7 +136,7 @@ export default function ContactForm() {
                   />
                 </motion.div>
               </div>
- 
+
               {/* Submit Button */}
               <motion.div
                 className="mt-10 flex justify-end border-t border-gray-300 pt-8"
@@ -157,9 +160,17 @@ export default function ContactForm() {
     </motion.div>
   );
 }
- 
+
 // InputField Component for Reusability
-const InputField = ({ label, id, name, type, placeholder, delay, fullWidth }) => (
+const InputField = ({
+  label,
+  id,
+  name,
+  type,
+  placeholder,
+  delay,
+  fullWidth,
+}) => (
   <motion.div
     className={fullWidth ? "sm:col-span-2" : ""}
     initial={{ opacity: 0, scale: 0.8 }}

@@ -222,3 +222,9 @@
   width: calc(200%); /* Double width for seamless scroll */
   animation: scroll 15s linear infinite; /* Adjust duration for speed */
 }
+.black-underline {
+  text-decoration: underline;          /* Applies underline */
+  text-decoration-color: black;       /* Set the underline color to black */
+}
+
+
