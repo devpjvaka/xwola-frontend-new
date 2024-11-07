@@ -129,13 +129,13 @@ const ServicesBanner1 = () => {
 
         {/* Text Section */}
         <div className="space-y-6 text-center md:text-left">
-          <motion.h1 className="text-2xl md:text-3xl text-black font-handwritting">
+          <motion.h1 className="text-2xl md:text-3xl text-black">
             <span className="bg-gray-100 px-3 py-1 rounded">
               Software Development
             </span>
           </motion.h1>
 
-          <motion.p className="text-gray-600 font-handwritting text-base md:text-lg leading-relaxed md:leading-8">
+          <motion.p className="text-gray-600 text-base md:text-lg leading-relaxed md:leading-8">
             Software development is a collaborative process where creativity,
             innovation, and problem-solving come together to build solutions
             that address real-world challenges. At the heart of software
@@ -179,7 +179,7 @@ const ServicesBanner1 = () => {
                   style={{ transformStyle: "preserve-3d" }}
                 >
                   <motion.h3
-                    className="text-2xl font-handwritting mb-3 text-gradient bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent"
+                    className="text-2xl  mb-3 text-gradient bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent"
                     variants={shimmerVariants}
                     animate="shimmer"
                     style={{
@@ -190,14 +190,14 @@ const ServicesBanner1 = () => {
                   >
                     Upcoming Features
                   </motion.h3>
-                  <p className="text-gray-700 font-handwritting text-lg">
+                  <p className="text-gray-700  text-lg">
                   This page is under construction. Please check back soon for
                   updates!
                   </p>
                  
                   <motion.button
                     onClick={() => setPopoverOpen(false)}
-                    className="primary-btn text-2xl font-handwritting mb-3 text-gradient bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent hover:text-black transition duration-300"
+                    className="primary-btn text-2xl  mb-3 text-gradient bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent hover:text-black transition duration-300"
                   >
                     Close
                   </motion.button>

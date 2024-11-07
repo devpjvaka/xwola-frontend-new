@@ -36,10 +36,10 @@ const Testimonial = () => {
         whileInView="animate"
         className="text-center max-w-[550px] mx-auto mb-10"
       >
-        <h2 className="text-2xl sm:text-3xl font-serif text-black">
+        <h2 className="text-2xl sm:text-3xl  text-black">
           What Our Clients Say
         </h2>
-        <p className="text-gray-600 text-base sm:text-lg font-serif">
+        <p className="text-gray-600 text-base sm:text-lg ">
           We value our clients' feedback and are proud of the impact we make
           together.
         </p>
@@ -65,10 +65,10 @@ const Testimonial = () => {
                   loading="lazy"
                 />
                 <div>
-                  <p className="text-lg font-serif group-hover:text-black">
+                  <p className="text-lg  group-hover:text-black">
                     {testimonial.name}
                   </p>
-                  <p className="text-gray-400 text-sm group-hover:text-black font-serif">
+                  <p className="text-gray-400 text-sm group-hover:text-black">
                     {testimonial.designation}
                   </p>
                 </div>
@@ -81,7 +81,7 @@ const Testimonial = () => {
 
               {/* Testimonial Text */}
               <div className="border-t border-gray-500 pt-4">
-                <p className="text-sm text-gray-300 group-hover:text-black font-serif">
+                <p className="text-sm text-gray-300 group-hover:text-black ">
                   {testimonial.text}
                 </p>
               </div>

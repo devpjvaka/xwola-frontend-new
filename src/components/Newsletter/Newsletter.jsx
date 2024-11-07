@@ -11,7 +11,7 @@ const Newsletter = () => {
           variants={SlideUp(0.2)}
           initial="initial"
           whileInView="animate"
-          className="text-2xl sm:text-3xl font-serif text-center text-black"
+          className="text-2xl sm:text-3xl text-center text-black"
         >
           Join Our Newsletter
         </motion.h1>
@@ -21,7 +21,7 @@ const Newsletter = () => {
           variants={SlideUp(0.3)}
           initial="initial"
           whileInView="animate"
-          className="text-gray-700 text-center mx-auto max-w-[450px] text-base sm:text-lg leading-relaxed font-serif"
+          className="text-gray-700 text-center mx-auto max-w-[450px] text-base sm:text-lg leading-relaxed "
         >
           Get the latest updates, industry trends, and exclusive content delivered
           straight to your inbox. Stay connected with Xwola for all the insights
@@ -33,7 +33,7 @@ const Newsletter = () => {
           variants={SlideUp(0.4)}
           initial="initial"
           whileInView="animate"
-          className="flex flex-col sm:flex-row justify-center items-center gap-3 mt-6 font-handwritting"
+          className="flex flex-col sm:flex-row justify-center items-center gap-3 mt-6 "
         >
           <input
             type="email"
@@ -42,7 +42,7 @@ const Newsletter = () => {
             className="w-full sm:w-[300px] px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-black focus:outline-none transition-all text-black placeholder-gray-500"
           />
           <button
-            className="w-full sm:w-auto px-6 py-3 bg-black text-white rounded-lg shadow-md  hover:bg-gray-800 transition duration-300 focus:ring-2 focus:ring-black focus:ring-offset-2 font-serif"
+            className="w-full sm:w-auto px-6 py-3 bg-black text-white rounded-lg shadow-md  hover:bg-gray-800 transition duration-300 focus:ring-2 focus:ring-black focus:ring-offset-2 "
           >
             Subscribe
           </button>

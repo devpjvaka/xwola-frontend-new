@@ -29,13 +29,13 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Links Section */}
-        <div className="hidden lg:flex space-x-6">
+        <div className="hidden lg:flex space-x-6 ">
           {NavLinks.map((link) => (
             <NavLink
               key={link.id}
               to={link.link}
               className={({ isActive }) =>
-                `text-md lg:text-lg font-serif ${
+                `text-md lg:text-xl  ${
                   isActive ? "underline decoration-yellow-500" : ""
                 }`
               }
@@ -48,7 +48,7 @@ const Navbar = () => {
         {/* Desktop Contact Button */}
         <Link
           to="/contactus"
-          className="hidden lg:block primary-btn  font-serif"
+          className="hidden lg:block primary-btn"
         >
           Get In touch
         </Link>
@@ -76,7 +76,7 @@ const Navbar = () => {
               key={link.id}
               to={link.link}
               className={({ isActive }) =>
-                `block py-2 text-md font-serif ${
+                `block py-2 text-md  ${
                   isActive ? "underline decoration-yellow-500" : ""
                 }`
               }
@@ -87,7 +87,7 @@ const Navbar = () => {
           <div className="mt-4">
             <Link
               to="/contactus"
-              className="primary-btn w-full font-serif text-base px-4 py-2 sm:text-lg sm:px-6 sm:py-3" // Adjusts for mobile
+              className="primary-btn w-full  text-base px-4 py-2 sm:text-lg sm:px-6 sm:py-3" // Adjusts for mobile
             >
               Get In Touch
             </Link>

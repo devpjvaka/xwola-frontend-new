@@ -63,10 +63,10 @@ const logos = [Brand1, Brand2, Brand3, Brand4, Brand5, Brand6];
 const Brands = () => {
   return (
     <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
-      <h2 className="mb-2 text-center text-2xl sm:text-3xl lg:text-4xl font-serif leading-7 sm:leading-8">
+      <h2 className="mb-2 text-center text-2xl sm:text-3xl lg:text-4xl  leading-7 sm:leading-8 ">
         Our Clients
       </h2>
-      <p className="text-gray-500 text-center font-serif text-sm sm:text-base lg:text-lg leading-6 sm:leading-7 mb-6">
+      <p className="text-gray-500 text-center text-sm sm:text-base lg:text-lg leading-6 sm:leading-7 mb-6">
         We are trusted by the world’s most innovative teams
       </p>
       

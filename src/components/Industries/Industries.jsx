@@ -301,7 +301,7 @@ const Industries = () => {
                   style={{ backgroundColor: slide.bgColor }}
                 >
                   <h2
-                    className="text-xl md:text-3xl font-handwritting text-gold text-center md:text-left inline-block relative"
+                    className="text-xl md:text-3xl text-gold text-center md:text-left inline-block relative"
                     style={{
                       backgroundImage: "linear-gradient(90deg, black, #FFD700)",
                       backgroundClip: "text",
@@ -321,7 +321,7 @@ const Industries = () => {
                       }}
                     ></span>
                   </h2>
-                  <p className="mt-2 text-sm md:text-lg text-white  font-handwritting">
+                  <p className="mt-2 text-sm md:text-lg text-white">
                     {slide.subtitle}
                   </p>
                   <div className="flex justify-between mt-8 md:mt-6">

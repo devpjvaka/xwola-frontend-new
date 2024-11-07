@@ -132,7 +132,7 @@ const ServiceBanner2 = () => {
             variants={SlideUp(0.2)}
             initial="initial"
             animate="animate"
-            className="text-2xl md:text-3xl text-black font-handwritting"
+            className="text-2xl md:text-3xl text-black "
           >
             <span className="bg-gray-100 px-3 py-1 rounded break-words">
               {" "}
@@ -145,7 +145,7 @@ const ServiceBanner2 = () => {
             variants={SlideUp(0.4)}
             initial="initial"
             animate="animate"
-            className="text-gray-600 font-handwritting text-base md:text-lg leading-relaxed md:leading-8"
+            className="text-gray-600  text-base md:text-lg leading-relaxed md:leading-8"
           >
             Support & Maintenance is essential to ensure the long-term success
             and smooth operation of any software solution. It goes beyond the
@@ -200,7 +200,7 @@ const ServiceBanner2 = () => {
                   >
                     Upcoming Features
                   </motion.h3>
-                  <p className="text-gray-700 font-handwritting text-lg">
+                  <p className="text-gray-700  text-lg">
                     This page is under construction. Please check back soon for
                     updates!
                   </p>

@@ -156,11 +156,11 @@ const Industriescards = () => {
     <div className="container py-14 md:py-24">
       {/* Header Section */}
       <div className="relative space-y-4 px-4 py-6 md:py-8 text-center max-w-[600px] mx-auto mb-5">
-        <h1 className="uppercase text-xl sm:text-2xl md:text-3xl black-underline font-handwritting text-[#b27200] relative z-10">
+        <h1 className="uppercase text-xl sm:text-2xl md:text-3xl black-underline text-[#b27200] relative z-10">
           Speaking the language of Your Industry
         </h1>
 
-        <p className="text-black-500 font-handwritting text-base sm:text-lg md:text-xl leading-6 sm:leading-7">
+        <p className="text-black-500  text-base sm:text-lg md:text-xl leading-6 sm:leading-7">
           We tailor agile and resilient IT solutions to your business by
           addressing each domain's unique risks, opportunities, and best
           practices.
@@ -168,7 +168,7 @@ const Industriescards = () => {
       </div>
 
       {/* Cards Section */}
-      <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 md:grid-cols-3 font-handwritting lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 md:grid-cols-3  lg:grid-cols-4">
         {subjectList.map((subject, index) => {
           const animations = {
             initial: { opacity: 0, x: index % 2 === 0 ? -50 : 50, y: index % 3 === 0 ? -20 : 20 },

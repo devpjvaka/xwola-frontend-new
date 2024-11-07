@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -81,7 +80,7 @@
 
 .logos-slide {
   display: inline-block;
-  animation: 15s slide infinite linear;
+  animation: 10s slide infinite linear;
 }
 
 .logos:hover .logos-slide {

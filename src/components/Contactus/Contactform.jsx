@@ -31,7 +31,7 @@ export default function ContactForm() {
         <div className="px-6 lg:px-8">
           <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
             <motion.h2
-              className="text-3xl sm:text-4xl font-handwritting tracking-tight text-black relative inline-block"
+              className="text-3xl sm:text-4xl  tracking-tight text-black relative inline-block"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
@@ -42,7 +42,7 @@ export default function ContactForm() {
             </motion.h2>
 
             <motion.p
-              className="mt-4 text-lg leading-8 text-gray-600 font-handwritting"
+              className="mt-4 text-lg leading-8 text-gray-600 "
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -123,7 +123,7 @@ export default function ContactForm() {
                 >
                   <label
                     htmlFor="message"
-                    className="block text-sm font-handwritting text-gray-900"
+                    className="block text-sm  text-gray-900"
                   >
                     How can we help you?
                   </label>
@@ -131,7 +131,7 @@ export default function ContactForm() {
                     id="message"
                     name="message"
                     rows={4}
-                    className="mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder-gray-400 focus:ring-2 focus:ring-black font-handwritting"
+                    className="mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder-gray-400 focus:ring-2 focus:ring-black "
                     placeholder="Your message"
                   />
                 </motion.div>
@@ -146,7 +146,7 @@ export default function ContactForm() {
               >
                 <motion.button
                   type="submit"
-                  className="bg-black text-white px-6 py-3 rounded-lg font-handwritting transition duration-200 hover:bg-gray-800 focus:ring-2 focus:ring-offset-2 focus:ring-black"
+                  className="bg-black text-white px-6 py-3 rounded-lg transition duration-200 hover:bg-gray-800 focus:ring-2 focus:ring-offset-2 focus:ring-black"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >

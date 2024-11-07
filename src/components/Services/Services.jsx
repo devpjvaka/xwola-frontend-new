@@ -123,7 +123,7 @@ const Services = () => {
                       }}
                     ></span>
                   </h2>
-                  <p className="mt-2 text-sm md:text-lg text-white  font-handwritting">
+                  <p className="mt-2 text-sm md:text-lg text-white">
                     {slide.subtitle}
                   </p>
                   <div className="flex justify-between mt-8 md:mt-6">

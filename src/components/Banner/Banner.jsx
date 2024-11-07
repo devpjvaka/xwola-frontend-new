@@ -73,7 +73,7 @@ const Banner = () => {
             variants={SlideUp(0.2)}
             initial="initial"
             whileInView="animate"
-            className="text-3xl sm:text-4xl font-serif leading-tight"
+            className="text-3xl sm:text-4xl leading-tight"
           >
             We believe that a team makes any project better
           </motion.h1>
@@ -83,7 +83,7 @@ const Banner = () => {
             variants={SlideUp(0.4)}
             initial="initial"
             whileInView="animate"
-            className="text-gray-500 text-base sm:text-lg leading-relaxed font-serif"
+            className="text-gray-500 text-base sm:text-lg leading-relaxed "
           >
             At Xwola, we understand that collaboration is at the heart of every
             successful project. A strong team brings together diverse skills,
@@ -101,7 +101,7 @@ const Banner = () => {
             variants={SlideUp(0.6)}
             initial="initial"
             whileInView="animate"
-            className="flex justify-center md:justify-start gap-6 md:gap-10"
+            className="flex justify-center md:justify-start gap-6 md:gap-10 text-[#b27200]"
           >
             {[
               { number: 15, label: "Years of Experience" },
@@ -118,7 +118,7 @@ const Banner = () => {
           </motion.div>
 
           <motion.button
-            className="primary-btn font-serif bg-black text-white px-4 py-1 mt-6 shadow-[5px_5px_0px_0px_#6c6c6c] hover:shadow-md inline-block w-auto" // Use w-auto to shrink to content
+            className="primary-btn  bg-black text-white px-4 py-1 mt-6 shadow-[5px_5px_0px_0px_#6c6c6c] hover:shadow-md inline-block w-auto" // Use w-auto to shrink to content
             style={{ width: '150px' }} // Optional: specify exact width
             onClick={() => setPopoverOpen(!popoverOpen)}
           >
@@ -151,7 +151,7 @@ const Banner = () => {
                   style={{ transformStyle: "preserve-3d" }}
                 >
                   <motion.h3
-                    className="text-2xl font-handwritting mb-3 text-gradient bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent"
+                    className="text-2xl  mb-3 text-gradient bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent"
                     variants={shimmerVariants}
                     animate="shimmer"
                     style={{
@@ -162,14 +162,14 @@ const Banner = () => {
                   >
                     Upcoming Features
                   </motion.h3>
-                  <p className="text-gray-700 font-serif text-lg">
+                  <p className="text-gray-70 text-lg">
                     This page is under construction. Please check back soon for
                     updates!
                   </p>
                   
                   <motion.button
                     onClick={() => setPopoverOpen(false)}
-                    className="primary-btn text-2xl font-serif mb-3 text-gradient bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent hover:text-black transition duration-300"
+                    className="primary-btn text-2xl mb-3 text-gradient bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent hover:text-black transition duration-300"
                   >
                     Close
                   </motion.button>
