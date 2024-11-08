@@ -283,10 +283,7 @@ const Industries = () => {
   return (
     <>
       <div className="mx-auto mt-16 bg-black p-6 md:p-8">
-        <div
-          className="container embla w-full h-auto md:h-[500px]"
-          ref={emblaRef}
-        >
+        <div className="container embla w-full h-auto md:h-[500px]" ref={emblaRef}>
           <div className="embla__container flex w-full">
             {images.map((slide, index) => (
               <div
@@ -294,8 +291,7 @@ const Industries = () => {
                 className="embla__slide flex flex-col md:flex-row items-center p-5 w-full"
                 style={{
                   opacity: selectedIndex === index ? 1 : 0,
-                  transform:
-                    selectedIndex === index ? "scale(1)" : "scale(0.95)",
+                  transform: selectedIndex === index ? "scale(1)" : "scale(0.95)",
                   transition: "opacity 0.6s ease, transform 0.6s ease",
                 }}
               >
@@ -304,10 +300,28 @@ const Industries = () => {
                   className="w-full md:w-2/3 p-4 md:p-8 rounded-lg shadow-md"
                   style={{ backgroundColor: slide.bgColor }}
                 >
-                  <h2 className="text-xl md:text-3xl  text-gold text-center md:text-left">
+                  <h2
+                    className="text-xl md:text-3xl text-gold text-center md:text-left inline-block relative"
+                    style={{
+                      backgroundImage: "linear-gradient(90deg, black, #FFD700)",
+                      backgroundClip: "text",
+                      textFillColor: "transparent",
+                    }}
+                  >
                     {slide.title}
+                    <span
+                      style={{
+                        position: "absolute",
+                        left: 0,
+                        bottom: -2, // Adjust to position underline closer or farther
+                        width: "100%",
+                        height: "4px", // Thickness of the underline
+                        backgroundImage: "linear-gradient(90deg, #FFD700, black)", // Underline gradient
+                        borderRadius: "2px", // Rounding the underline edges
+                      }}
+                    ></span>
                   </h2>
-                  <p className="mt-2 text-sm md:text-lg text-white text-justify ">
+                  <p className="mt-2 text-sm md:text-lg text-white">
                     {slide.subtitle}
                   </p>
                   <div className="flex justify-between mt-8 md:mt-6">
@@ -325,7 +339,7 @@ const Industries = () => {
                     </button>
                   </div>
                 </div>
-
+  
                 {/* Image Section */}
                 <div className="w-full md:w-1/3 flex justify-center items-center mt-4 md:mt-0">
                   <img
@@ -345,5 +359,9 @@ const Industries = () => {
       <Industriescards />
     </>
   );
+  
+  
 };
+
+
 export default Industries;

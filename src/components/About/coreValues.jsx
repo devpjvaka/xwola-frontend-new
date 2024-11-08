@@ -41,15 +41,15 @@ const CoreValueCard = ({
   >
     {/* Background overlay with opacity change on hover */}
     <div className="absolute inset-0 bg-black bg-opacity-40 z-0 transition-all duration-500 group-hover:bg-opacity-60" />
-
-    {/* Title with reduced margin */}
-    <h3 className="relative z-10 text-base sm:text-lg md:text-xl lg:text-2xl  text-white mb-1 group-hover:text-yellow-500 transition-colors duration-300">
+ 
+    {/* Title with underline effect */}
+    <h3 className="relative z-10 text-base sm:text-lg md:text-xl lg:text-2xl font-handwritting text-white mb-1 group-hover:text-yellow-500 transition-colors duration-300 ">
       {title}
       <span className="absolute left-1/2 bottom-[-4px] w-0 h-[2px] bg-yellow-500 transition-all duration-500 transform -translate-x-1/2 group-hover:w-full" />
     </h3>
-
-    {/* Content with reduced margin */}
-    <p className="relative z-10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-xs sm:text-sm md:text-base lg:text-lg text-center mt-1">
+ 
+    {/* Content appears on hover */}
+    <p className="relative z-10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-xs sm:text-sm md:text-base lg:text-lg text-center mt-1 ">
       {description}
     </p>
   </motion.div>

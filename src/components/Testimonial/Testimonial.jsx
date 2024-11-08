@@ -36,7 +36,7 @@ const Testimonial = () => {
         whileInView="animate"
         className="text-center max-w-[550px] mx-auto mb-10"
       >
-        <h2 className="text-2xl sm:text-3xl  text-black py-5">
+        <h2 className="text-2xl sm:text-3xl  text-black">
           What Our Clients Say
         </h2>
         <p className="text-gray-600 text-base sm:text-lg ">
@@ -68,7 +68,7 @@ const Testimonial = () => {
                   <p className="text-lg  group-hover:text-black">
                     {testimonial.name}
                   </p>
-                  <p className="text-gray-400 text-sm group-hover:text-black ">
+                  <p className="text-gray-400 text-sm group-hover:text-black">
                     {testimonial.designation}
                   </p>
                 </div>

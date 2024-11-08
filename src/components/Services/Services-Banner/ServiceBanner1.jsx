@@ -129,13 +129,13 @@ const ServicesBanner1 = () => {
 
         {/* Text Section */}
         <div className="space-y-6 text-center md:text-left">
-          <motion.h1 className="text-2xl md:text-3xl text-black ">
+          <motion.h1 className="text-2xl md:text-3xl text-black">
             <span className="bg-gray-100 px-3 py-1 rounded">
               Software Development
             </span>
           </motion.h1>
 
-          <motion.p className="text-gray-600  text-base md:text-lg leading-relaxed md:leading-8">
+          <motion.p className="text-gray-600 text-base md:text-lg leading-relaxed md:leading-8">
             Software development is a collaborative process where creativity,
             innovation, and problem-solving come together to build solutions
             that address real-world challenges. At the heart of software
@@ -150,7 +150,7 @@ const ServicesBanner1 = () => {
             className="primary-btn  bg-black text-white px-6 py-2 mt-6 shadow-[5px_5px_0px_0px_#6c6c6c] hover:shadow-md"
             onClick={() => setPopoverOpen(!popoverOpen)}
           >
-            Discover Now
+            Learn more
           </motion.button>
 
           {/* Popover with Enhanced Animation */}

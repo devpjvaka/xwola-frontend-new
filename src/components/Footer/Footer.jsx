@@ -15,7 +15,7 @@ const Footer = () => {
             <div className="flex items-center justify-center md:justify-start">
               <img src={Logo} alt="Xwola Logo" className="w-32" loading="lazy" />
             </div>
-            <p className="text-gray-700">
+            <p className="text-gray-700 ">
               Manikonda Jagir, Telangana-505089, India
             </p>
           </div>
@@ -23,7 +23,7 @@ const Footer = () => {
           {/* Footer Links Section */}
           <div className="grid grid-cols-2 gap-6">
             <div className="space-y-3">
-              <h2 className="text-lg ">About Us</h2>
+              <h2 className="text-lg">About Us</h2>
               <ul className="text-gray-600 text-sm space-y-2">
                 <li>
                   <a href="#" className="hover:text-black transition ">Our Story</a>
@@ -37,13 +37,13 @@ const Footer = () => {
               </ul>
             </div>
             <div className="space-y-3">
-              <h2 className="text-lg  ">Support</h2>
+              <h2 className="text-lg">Support</h2>
               <ul className="text-gray-600 text-sm space-y-2">
                 <li>
                   <a href="#" className="hover:text-black transition ">FAQ's</a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-black transition ">Privacy Policy</a>
+                  <a href="#" className="hover:text-black transitio">Privacy Policy</a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-black transition ">Terms of Use</a>
@@ -64,7 +64,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center justify-center md:justify-start space-x-2">
                 <FaMessage />
-                <a href="mailto:hello@xwola.tech" className="hover:text-black transition">
+                <a href="mailto:hello@xwola.tech" className="hover:text-black transition ">
                   hello@xwola.tech
                 </a>
               </li>

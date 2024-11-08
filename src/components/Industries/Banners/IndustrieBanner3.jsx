@@ -79,7 +79,7 @@ const IndustrieBanner3 = () => {
             variants={SlideUp(0.4)}
             initial="initial"
             whileInView="animate"
-            className="text-gray-500  text-xl leading-7 mt-4 text-justify"
+            className="text-gray-600  text-base md:text-lg leading-relaxed md:leading-8 "
           >
             Our focus lies in{" "}
             <span className=" text-md">
@@ -93,10 +93,10 @@ const IndustrieBanner3 = () => {
           </motion.p>
           <div>
           <motion.button
-            className="primary-btn bg-black text-white px-6 py-2 mt-6 shadow-[5px_5px_0px_0px_#6c6c6c] hover:shadow-md"
+            className="primary-btn  bg-black text-white px-6 py-2 mt-6 shadow-[5px_5px_0px_0px_#6c6c6c] hover:shadow-md"
             onClick={() => setPopoverOpen(!popoverOpen)}
           >
-            Discover Now
+            Learn more
           </motion.button>
 
           {/* Popover with Enhanced Animation */}
@@ -143,7 +143,7 @@ const IndustrieBanner3 = () => {
                  
                   <motion.button
                     onClick={() => setPopoverOpen(false)}
-                    className="primary-btn text-2xl mb-3 text-gradient bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent hover:text-black transition duration-300"
+                    className="primary-btn text-2xl  mb-3 text-gradient bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent hover:text-black transition duration-300"
                   >
                     Close
                   </motion.button>

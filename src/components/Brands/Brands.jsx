@@ -58,48 +58,54 @@ import { SlideUp } from "../../animation/animation";
 //     </>
 //   );
 // };
+const logos = [Brand1, Brand2, Brand3, Brand4, Brand5, Brand6];
+
 const Brands = () => {
   return (
-    <>
-      <div className="container py-10 px-2 sm:px-0 relative">
-        <section className="bg-white py-6 text-black relative">
-          <h2 className="mb-2 text-center text-2xl sm:text-3xl lg:text-4xl leading-7 sm:leading-8">
-            Our Clients
-          </h2>
-          <p className="text-gray-500 text-center  text-sm sm:text-base lg:text-lg leading-6 sm:leading-7">
-            We are trusted by the world’s most innovative teams
-          </p>
-
-          {/* Carousel container */}
-          <div className="infinite-carousel overflow-hidden py-8 sm:py-10">
-            <div className="carousel-track flex gap-4 sm:gap-8 lg:gap-16">
-              {/* Original row of brand logos */}
-              {[Brand1, Brand2, Brand3, Brand4, Brand5, Brand6].map((brand, index) => (
-                <img
-                  key={index}
-                  className="h-8 sm:h-12 lg:h-16"
-                  src={brand}
-                  alt={`Brand ${index + 1}`}
-                />
-              ))}
-              {/* Duplicate row of brand logos for smooth transition */}
-              {[Brand1, Brand2, Brand3, Brand4, Brand5, Brand6].map((brand, index) => (
-                <img
-                  key={index + 6}
-                  className="h-8 sm:h-12 lg:h-16"
-                  src={brand}
-                  alt={`Brand ${index + 7}`}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
+    <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
+      <h2 className="mb-2 text-center text-2xl sm:text-3xl lg:text-4xl  leading-7 sm:leading-8 ">
+        Our Clients
+      </h2>
+      <p className="text-gray-500 text-center text-sm sm:text-base lg:text-lg leading-6 sm:leading-7 mb-6">
+        We are trusted by the world’s most innovative teams
+      </p>
+      
+      {/* Added margin below the paragraph */}
+      <div
+        className="w-full inline-flex flex-nowrap overflow-hidden mb-4" // Add 'mb-4' for spacing
+        style={{
+          maskImage:
+            "linear-gradient(to right, transparent 0, black 128px, black calc(100% - 128px), transparent 100%)",
+        }}
+      >
+        <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll">
+          {[...logos, ...logos].map((logo, index) => (
+            <li key={index}>
+              <img
+                src={logo}
+                alt={`Brand Logo ${index + 1}`}
+                className="h-12 w-auto"
+              />
+            </li>
+          ))}
+        </ul>
+        <ul
+          className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll"
+          aria-hidden="true"
+        >
+          {[...logos, ...logos].map((logo, index) => (
+            <li key={index}>
+              <img
+                src={logo}
+                alt={`Brand Logo ${index + 1}`}
+                className="h-12 w-auto"
+              />
+            </li>
+          ))}
+        </ul>
       </div>
-
-
-    </>
+    </div>
   );
 };
-
 
 export default Brands;

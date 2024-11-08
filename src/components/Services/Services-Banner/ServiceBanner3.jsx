@@ -82,7 +82,7 @@ const ServicesBanner3 = () => {
             variants={SlideUp(0.4)}
             initial="initial"
             animate="animate"
-            className="text-gray-600  text-base md:text-lg leading-relaxed md:leading-8 text-justify"
+            className="text-gray-600  text-base md:text-lg leading-relaxed md:leading-8 "
           >
             AI & Data Science are at the forefront of our software services,
             empowering businesses to make smarter decisions through data-driven
@@ -99,7 +99,7 @@ const ServicesBanner3 = () => {
             className="primary-btn  bg-black text-white px-6 py-2 mt-6 shadow-[5px_5px_0px_0px_#6c6c6c] hover:shadow-md"
             onClick={() => setPopoverOpen(!popoverOpen)}
           >
-            Discover Now
+            Learn more
           </motion.button>
 
           {/* Popover with Enhanced Animation */}
@@ -128,7 +128,7 @@ const ServicesBanner3 = () => {
                   style={{ transformStyle: "preserve-3d" }}
                 >
                   <motion.h3
-                    className="text-2xl mb-3 text-gradient bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent"
+                    className="text-2xl  mb-3 text-gradient bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent"
                     variants={shimmerVariants}
                     animate="shimmer"
                     style={{

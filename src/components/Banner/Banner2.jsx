@@ -32,7 +32,7 @@ const Banner2 = () => {
             variants={SlideUp(0.2)}
             initial="initial"
             whileInView="animate"
-            className="text-3xl sm:text-4xl  leading-tight"
+            className="text-3xl sm:text-4xl leading-tight"
           >
             Empowering ideas, transforming possibilities.
           </motion.h1>
@@ -61,7 +61,7 @@ const Banner2 = () => {
                 whileInView="animate"
                 className="primary-btn bg-black text-white shadow-[5px_5px_0px_0px_#6c6c6c]  mt-5"
               >
-                Contact Us
+                Contact us
               </motion.button>
             </Link>
           </div>

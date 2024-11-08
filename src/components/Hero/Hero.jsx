@@ -39,7 +39,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-lg text-gray-700 "
+            className="text-lg text-gray-600 "
           >
             At Xwola, we build innovative software solutions that empower
             businesses to thrive. Our team focuses on cutting-edge technology
@@ -55,10 +55,10 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
-                className="primary-btn bg-black text-white shadow w-full md:w-auto"
+                className="primary-btn  bg-black text-white shadow  w-full md:w-auto"
                 style={{ minWidth: "150px" }}
               >
-                G<span className="lowercase">et started</span>
+                Get started
               </motion.button>
 
 
@@ -68,10 +68,10 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.9, duration: 0.6 }}
-                className="primary-btn   w-full md:w-auto"
+                className="primary-btn w-full md:w-auto"
                 style={{ minWidth: "150px" }}
               >
-                C<span className="lowercase">ontact Us</span>
+                Contact us
               </motion.button>
             </Link>
           </div>

@@ -73,7 +73,7 @@ const Banner = () => {
             variants={SlideUp(0.2)}
             initial="initial"
             whileInView="animate"
-            className="text-3xl sm:text-4xl  leading-tight"
+            className="text-3xl sm:text-4xl leading-tight"
           >
             We believe that a team makes any project better
           </motion.h1>
@@ -118,11 +118,11 @@ const Banner = () => {
           </motion.div>
 
           <motion.button
-            className="primary-btn bg-black text-white px-4 py-1 mt-6 shadow-[5px_5px_0px_0px_#6c6c6c] hover:shadow-md inline-block w-auto" // Use w-auto to shrink to content
+            className="primary-btn  bg-black text-white px-4 py-1 mt-6 shadow-[5px_5px_0px_0px_#6c6c6c] hover:shadow-md inline-block w-auto" // Use w-auto to shrink to content
             style={{ width: '150px' }} // Optional: specify exact width
             onClick={() => setPopoverOpen(!popoverOpen)}
           >
-            Discover Now
+            Learn more
           </motion.button>
 
 
@@ -163,7 +163,7 @@ const Banner = () => {
                   >
                     Upcoming Features
                   </motion.h3>
-                  <p className="text-gray-700  text-lg">
+                  <p className="text-gray-70 text-lg">
                     This page is under construction. Please check back soon for
                     updates!
                   </p>

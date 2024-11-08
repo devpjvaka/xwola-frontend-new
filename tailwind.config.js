@@ -1,37 +1,3 @@
-// /** @type {import('tailwindcss').Config} */
-// export default {
-//     content: [
-//         "./index.html",
-//         "./src/**/*.{js,ts,jsx,tsx}",
-//     ],
-//     theme: {
-//         extend: {
-//             colors: {
-//                 gold: '#FFD700',
-//             },
-//             fontFamily: {
-//                 sans: ["Poppins", "sans-serif"],
-//                 handwritting: ["Merienda", "cursive"],
-//             },
-//             container: {
-//                 center: true,
-//                 padding: {
-//                     DEFAULT: "1rem",
-//                     sm: "2rem",
-//                     lg: "4rem",
-//                     xl: "5rem",
-//                     "2xl": "6rem",
-//                 }
-//             }
-
-//         },
-//     },
-//     plugins: [
-//         // other plugins
-//         require('@tailwindcss/forms'),
-//     ],
-// }
-
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
@@ -41,13 +7,9 @@ export default {
     theme: {
         extend: {
             colors: {
-                gold: '#FFD700',
+                gold: "#FFD700", // Custom gold color
             },
-            fontFamily: {
-                sans: ['Noto Sans Ethiopic', 'sans-serif'],
-            },
-
-
+           
             container: {
                 center: true,
                 padding: {
@@ -56,21 +18,20 @@ export default {
                     lg: "4rem",
                     xl: "5rem",
                     "2xl": "6rem",
-                }
-            },
-            keyframes: {
-                scroll: {
-                    '0%': { transform: 'translateX(0)' },
-                    '100%': { transform: 'translateX(-100%)' },
                 },
             },
+            // Define animation settings
             animation: {
-                scroll: 'scroll 20s linear infinite',
+                'infinite-scroll': 'infinite-scroll 25s linear infinite',
+            },
+            // Define keyframes for the animation
+            keyframes: {
+                'infinite-scroll': {
+                    from: { transform: 'translateX(0)' },
+                    to: { transform: 'translateX(-100%)' },
+                },
             },
         },
     },
-    plugins: [
-        require('@tailwindcss/forms'),
-    ],
-
-}
+    plugins: [],
+};

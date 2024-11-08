@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import MapComponent from "./mapComponent";
 
 export default function ContactForm() {
   return (
@@ -46,7 +45,9 @@ export default function ContactForm() {
               style={{ display: "inline-block" }}
             >
               Let's work together
+           
             </motion.h2>
+
             <motion.p
               className="mt-4 text-lg leading-8 text-gray-600"
               initial={{ opacity: 0, x: -50 }}
