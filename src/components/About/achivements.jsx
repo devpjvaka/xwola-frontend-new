@@ -17,7 +17,7 @@ const Achievements = () => {
   return (
     <section className="py-16 bg-gray-100" ref={ref}>
       <div className="container mx-auto px-6 text-center">
-        <h2 className="text-3xl xl:text-4xl font-handwritting mb-10">
+        <h2 className="text-3xl xl:text-4xl  mb-10">
           Our Achievements
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -29,15 +29,15 @@ const Achievements = () => {
                   end={data.number}
                   duration={2.5}
                   separator=","
-                  className="text-4xl font-handwritting text-[#b27200]"
+                  className="text-4xl  text-[#b27200]"
                   suffix="+"
                 />
               ) : (
-                <span className="text-4xl font-handwritting text-[#b27200]">
+                <span className="text-4xl  text-[#b27200]">
                   0
                 </span>
               )}
-              <p className="mt-2 text-lg font-handwritting text-gray-700">
+              <p className="mt-2 text-lg text-gray-700">
                 {data.label}
               </p>
             </div>

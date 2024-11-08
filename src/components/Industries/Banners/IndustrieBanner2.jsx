@@ -72,7 +72,7 @@ const IndustrieBanner2 = () => {
               variants={SlideUp(0.2)}
               initial="initial"
               animate="animate"
-              className="text-2xl md:text-3xl text-black font-handwritting"
+              className="text-2xl md:text-3xl text-black "
             >
               <span className="bg-gray-100 px-3 py-1 rounded">Retail</span>
             </motion.h1>
@@ -81,14 +81,14 @@ const IndustrieBanner2 = () => {
               variants={SlideUp(0.4)}
               initial="initial"
               whileInView="animate"
-              className="text-gray-500 text-xl leading-7 font-handwritting mt-4 text-justify"
+              className="text-gray-500 text-xl leading-7  mt-4 text-justify"
             >
               We specialize in{" "}
-              <span className="font-handwritting text-xl">
+              <span className=" text-xl">
                 Telecommunications
               </span>
               <br />
-              <span className="font-handwritting text-md">Retail</span>,
+              <span className=" text-md">Retail</span>,
               providing comprehensive solutions for selling telecom products
               such as SIM cards, mobile plans, devices, and accessories. Our
               goal is to create seamless retail experiences that empower telecom
@@ -98,7 +98,7 @@ const IndustrieBanner2 = () => {
 
             <div>
             <motion.button
-            className="primary-btn font-handwritting bg-black text-white px-6 py-2 mt-6 shadow-[5px_5px_0px_0px_#6c6c6c] hover:shadow-md"
+            className="primary-btn  bg-black text-white px-6 py-2 mt-6 shadow-[5px_5px_0px_0px_#6c6c6c] hover:shadow-md"
             onClick={() => setPopoverOpen(!popoverOpen)}
           >
             Discover Now
@@ -130,7 +130,7 @@ const IndustrieBanner2 = () => {
                   style={{ transformStyle: "preserve-3d" }}
                 >
                   <motion.h3
-                    className="text-2xl font-handwritting mb-3 text-gradient bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent"
+                    className="text-2xl  mb-3 text-gradient bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent"
                     variants={shimmerVariants}
                     animate="shimmer"
                     style={{
@@ -141,14 +141,14 @@ const IndustrieBanner2 = () => {
                   >
                     Upcoming Features
                   </motion.h3>
-                  <p className="text-gray-700 font-handwritting text-lg">
+                  <p className="text-gray-700 text-lg">
                   This page is under construction. Please check back soon for
                   updates!
                   </p>
                  
                   <motion.button
                     onClick={() => setPopoverOpen(false)}
-                    className="primary-btn text-2xl font-handwritting mb-3 text-gradient bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent hover:text-black transition duration-300"
+                    className="primary-btn text-2xl mb-3 text-gradient bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent hover:text-black transition duration-300"
                   >
                     Close
                   </motion.button>

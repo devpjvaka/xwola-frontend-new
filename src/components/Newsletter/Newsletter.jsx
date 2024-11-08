@@ -11,7 +11,7 @@ const Newsletter = () => {
           variants={SlideUp(0.2)}
           initial="initial"
           whileInView="animate"
-          className="text-2xl sm:text-3xl font-handwritting text-center text-black"
+          className="text-2xl sm:text-3xl  text-center text-black"
         >
           Join Our Newsletter
         </motion.h1>
@@ -21,7 +21,7 @@ const Newsletter = () => {
           variants={SlideUp(0.3)}
           initial="initial"
           whileInView="animate"
-          className="text-gray-700 text-center mx-auto max-w-[450px] text-base sm:text-lg leading-relaxed font-handwritting"
+          className="text-gray-700 text-center mx-auto max-w-[450px] text-base sm:text-lg leading-relaxed "
         >
           Get the latest updates, industry trends, and exclusive content delivered
           straight to your inbox. Stay connected with Xwola for all the insights
@@ -33,7 +33,7 @@ const Newsletter = () => {
           variants={SlideUp(0.4)}
           initial="initial"
           whileInView="animate"
-          className="flex flex-col sm:flex-row justify-center items-center gap-3 mt-6 font-handwritting"
+          className="flex flex-col sm:flex-row justify-center items-center gap-3 mt-6 "
         >
           <input
             type="email"

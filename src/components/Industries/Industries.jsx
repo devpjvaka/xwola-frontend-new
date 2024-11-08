@@ -304,10 +304,10 @@ const Industries = () => {
                   className="w-full md:w-2/3 p-4 md:p-8 rounded-lg shadow-md"
                   style={{ backgroundColor: slide.bgColor }}
                 >
-                  <h2 className="text-xl md:text-3xl font-handwritting text-gold text-center md:text-left">
+                  <h2 className="text-xl md:text-3xl  text-gold text-center md:text-left">
                     {slide.title}
                   </h2>
-                  <p className="mt-2 text-sm md:text-lg text-white text-justify font-handwritting">
+                  <p className="mt-2 text-sm md:text-lg text-white text-justify ">
                     {slide.subtitle}
                   </p>
                   <div className="flex justify-between mt-8 md:mt-6">
