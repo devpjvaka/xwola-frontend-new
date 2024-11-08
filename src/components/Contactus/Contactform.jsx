@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import MapComponent from "./mapComponent";
+ 
 export default function ContactForm() {
   return (
     <motion.div
@@ -9,40 +10,45 @@ export default function ContactForm() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      {/* Google Map Section */}
-      <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 flex items-center justify-center h-96 lg:h-screen">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15227.761978159817!2d78.3623529128652!3d17.414643109877158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9422532fb3f7%3A0xc793fad03d2e2af1!2sManikonda%2C%20Telangana%2C%20India!5e0!3m2!1sen!2sde!4v1729685440896!5m2!1sen!2sde"
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-        ></iframe>
-      </div>
-
-      {/* Contact Form Section */}
-      <motion.div
-        className="pb-20 pt-16 sm:pb-32 sm:pt-24 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:pt-32"
-        initial={{ opacity: 0, x: -100 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        <div className="px-6 lg:px-8">
-          <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
+      <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 px-6 lg:px-8 py-12">
+        {/* Google Map Section */}
+        <motion.div
+          className="order-1 lg:order-2 w-full lg:w-1/3 flex items-center justify-center mx-auto lg:mx-0 -ml-4 lg:-ml-16" // Adjusted for mobile screens
+          initial={{ opacity: 0, y: 0 }}
+          animate={{ opacity: 1, y: 30 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              border: 0,
+            }}
+          >
+            <MapComponent />
+          </div>
+        </motion.div>
+ 
+ 
+        {/* Contact Form Section */}
+        <motion.div
+          className="order-2 lg:order-1 w-full lg:w-1/2 lg:ml-40" // Changed order for responsiveness
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <div className="max-w-xl">
             <motion.h2
-              className="text-3xl sm:text-4xl  tracking-tight text-black relative inline-block"
+              className="text-3xl sm:text-4xl tracking-tight text-black relative inline-block"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-              style={{ display: "inline-block" }} // Ensure it doesn't stretch beyond content width
+              style={{ display: "inline-block" }}
             >
               Let's work together
-           
             </motion.h2>
-
             <motion.p
-              className="mt-4 text-lg leading-8 text-gray-600 "
+              className="mt-4 text-lg leading-8 text-gray-600"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -51,7 +57,7 @@ export default function ContactForm() {
               as possible. If you need a professional team, Xwola will be happy
               to assist you in making your vision a reality.
             </motion.p>
-
+ 
             <motion.form
               action="#"
               method="POST"
@@ -70,7 +76,6 @@ export default function ContactForm() {
                   placeholder="John"
                   delay={0.6}
                 />
-
                 {/* Last Name Input */}
                 <InputField
                   label="Last name"
@@ -80,7 +85,6 @@ export default function ContactForm() {
                   placeholder="Doe"
                   delay={0.7}
                 />
-
                 {/* Email Input */}
                 <InputField
                   label="Email"
@@ -91,7 +95,6 @@ export default function ContactForm() {
                   delay={0.8}
                   fullWidth
                 />
-
                 {/* Company Input */}
                 <InputField
                   label="Company"
@@ -102,7 +105,6 @@ export default function ContactForm() {
                   delay={0.9}
                   fullWidth
                 />
-
                 {/* Phone Input */}
                 <InputField
                   label="Phone"
@@ -113,7 +115,6 @@ export default function ContactForm() {
                   delay={1}
                   fullWidth
                 />
-
                 {/* Message Textarea */}
                 <motion.div
                   className="sm:col-span-2"
@@ -123,7 +124,7 @@ export default function ContactForm() {
                 >
                   <label
                     htmlFor="message"
-                    className="block text-sm  text-gray-900"
+                    className="block text-sm text-gray-900"
                   >
                     How can we help you?
                   </label>
@@ -131,12 +132,11 @@ export default function ContactForm() {
                     id="message"
                     name="message"
                     rows={4}
-                    className="mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder-gray-400 focus:ring-2 focus:ring-black "
+                    className="mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder-gray-400 focus:ring-2 focus:ring-black"
                     placeholder="Your message"
                   />
                 </motion.div>
               </div>
-
               {/* Submit Button */}
               <motion.div
                 className="mt-10 flex justify-end border-t border-gray-300 pt-8"
@@ -155,12 +155,12 @@ export default function ContactForm() {
               </motion.div>
             </motion.form>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </motion.div>
   );
 }
-
+ 
 // InputField Component for Reusability
 const InputField = ({
   label,
@@ -177,18 +177,16 @@ const InputField = ({
     animate={{ opacity: 1, scale: 1 }}
     transition={{ duration: 0.6, delay }}
   >
-    <label
-      htmlFor={id}
-      className="block text-sm font-handwritting text-gray-900"
-    >
+    <label htmlFor={id} className="block text-sm text-gray-900">
       {label}
     </label>
     <input
       id={id}
       name={name}
       type={type}
-      className="mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder-gray-400 focus:ring-2 focus:ring-black font-handwritting"
+      className="mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder-gray-400 focus:ring-2 focus:ring-black"
       placeholder={placeholder}
     />
   </motion.div>
 );
+ 
