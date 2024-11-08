@@ -19,7 +19,7 @@ const Clients = () => {
         variants={SlideUp(0.2)}
         initial="initial"
         whileInView="animate"
-        className="text-3xl xl:text-4xl font-handwritting mb-5"
+        className="text-3xl xl:text-4xl mb-5"
       >
         Our Clients
       </motion.h2>
@@ -38,7 +38,7 @@ const Clients = () => {
         variants={SlideUp(0.2)}
         initial="initial"
         whileInView="animate"
-        className="text-base md:text-lg lg:text-xl text-gray-500 max-w-4xl mx-auto mb-8 font-handwritting leading-relaxed"
+        className="text-base md:text-lg lg:text-xl text-gray-500 max-w-4xl mx-auto mb-8 leading-relaxed"
       >
         At Xwola, we are proud to serve a diverse clientele across various
         industries, providing tailored software solutions that empower their

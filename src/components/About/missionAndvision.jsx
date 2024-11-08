@@ -5,26 +5,29 @@ import ourvision from "../../assets/About/ourvision.jpg";
  
 // Reusable Mission and Vision Section Component
 const MissionVisionSection = ({ title, description, imageSrc, direction }) => (
-    <div
-        className={`flex flex-col ${direction === "right" ? "md:order-last" : ""
-            } items-center md:items-start space-y-6 text-center md:text-left`}
+    <motion.div
+        className={`flex flex-col ${direction === "right" ? "md:order-last" : ""}
+            items-center md:items-start space-y-6 text-center md:text-left p-6 border border-gold rounded-lg transition-all duration-300 hover:bg-black group`}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
     >
-        <motion.div className="p-6 border border-gold rounded-lg transition-all duration-300 hover:bg-black group">
-            <h3 className="text-2xl font-handwritting mb-4 group-hover:text-white">{title}</h3>
-            <p className="text-lg text-gray-700 font-handwritting group-hover:text-white">{description}</p>
-        </motion.div>
+        <h3 className="text-2xl  mb-4 group-hover:text-gold">{title}</h3>
+        <p className="text-lg text-gray-700  group-hover:text-white">{description}</p>
+        
+        {/* Image within the same container */}
         <motion.img
             src={imageSrc}
             alt={`${title} Image`}
-            className="w-full h-full object-cover rounded-lg border border-gray-300"
+            className="w-full h-full object-cover rounded-lg border border-gray-300 mt-4 transition-transform duration-300 group-hover:scale-105"
         />
-    </div>
+    </motion.div>
 );
- 
+
 const MissionAndVision = () => {
     return (
         <div className="py-20">
-            <h2 className="text-3xl xl:text-4xl font-handwritting text-center mb-10">
+            <h2 className="text-3xl xl:text-4xl  text-center mb-10">
                 Our Mission and Vision
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto px-6 gap-6">
@@ -44,6 +47,5 @@ const MissionAndVision = () => {
         </div>
     );
 };
- 
- 
+
 export default MissionAndVision;

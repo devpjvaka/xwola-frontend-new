@@ -44,9 +44,10 @@ export default {
                 gold: '#FFD700',
             },
             fontFamily: {
-                sans: ["Poppins", "sans-serif"],
-                handwritting: ["Merienda", "cursive"],
+                sans: ['Noto Sans Ethiopic', 'sans-serif'],
             },
+
+
             container: {
                 center: true,
                 padding: {
@@ -71,4 +72,5 @@ export default {
     plugins: [
         require('@tailwindcss/forms'),
     ],
+
 }

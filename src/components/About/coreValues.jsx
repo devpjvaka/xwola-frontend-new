@@ -1,6 +1,7 @@
-import React from "react";
+import React from "react"; 
 import { motion } from "framer-motion";
 import image1 from "../../assets/About/principles.jpg";
+
 const coreValues = [
   {
     id: 1,
@@ -23,7 +24,7 @@ const coreValues = [
     content: "We work to surpass expectations in all that we undertake.",
   },
 ];
- 
+
 // Reusable Core Values Card
 const CoreValueCard = ({
   title,
@@ -40,24 +41,25 @@ const CoreValueCard = ({
   >
     {/* Background overlay with opacity change on hover */}
     <div className="absolute inset-0 bg-black bg-opacity-40 z-0 transition-all duration-500 group-hover:bg-opacity-60" />
- 
-    {/* Title with underline effect */}
-    <h3 className="relative z-10 text-base sm:text-lg md:text-xl lg:text-2xl font-handwritting text-white mb-3 group-hover:text-yellow-500 transition-colors duration-300">
+
+    {/* Title with reduced margin */}
+    <h3 className="relative z-10 text-base sm:text-lg md:text-xl lg:text-2xl  text-white mb-1 group-hover:text-yellow-500 transition-colors duration-300">
       {title}
       <span className="absolute left-1/2 bottom-[-4px] w-0 h-[2px] bg-yellow-500 transition-all duration-500 transform -translate-x-1/2 group-hover:w-full" />
     </h3>
- 
-    {/* Content appears on hover */}
-    <p className="relative z-10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-xs sm:text-sm md:text-base lg:text-lg text-center mt-2 ">
+
+    {/* Content with reduced margin */}
+    <p className="relative z-10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-xs sm:text-sm md:text-base lg:text-lg text-center mt-1">
       {description}
     </p>
   </motion.div>
 );
- 
+
 const CoreValues = () => {
   return (
     <div className="relative z-10 py-8 sm:py-10 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-16">
-      <h2 className="text-3xl sm:text-2xl md:text-3xl xl:text-4xl font-handwritting text-center mb-4 sm:mb-6 md:mb-8">
+      <h2 className="text-3xl sm:text-2xl md:text-3xl xl:text-4xl 
+      text-center mb-4 sm:mb-6 md:mb-8">
         Our Guiding Principles
       </h2>
       <div
@@ -69,7 +71,7 @@ const CoreValues = () => {
           height: "50vh",
         }}
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 font-handwritting  md:grid-cols-2 lg:grid-cols-4 w-full h-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-2 lg:grid-cols-4 w-full h-full">
           {coreValues.map((value, index) => (
             <CoreValueCard
               key={value.id}
@@ -84,5 +86,5 @@ const CoreValues = () => {
     </div>
   );
 };
- 
+
 export default CoreValues;

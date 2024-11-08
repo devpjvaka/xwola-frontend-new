@@ -14,7 +14,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-handwritting"
+            className="text-4xl md:text-5xl "
           >
             <span className="text-black">Innovating Today</span> for the Digital
             Solutions of{" "}
@@ -39,7 +39,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-lg text-gray-500 font-handwritting"
+            className="text-lg text-gray-700 "
           >
             At Xwola, we build innovative software solutions that empower
             businesses to thrive. Our team focuses on cutting-edge technology
@@ -55,21 +55,23 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
-                className="primary-btn uppercase bg-black text-white shadow font-handwritting w-full md:w-auto"
+                className="primary-btn bg-black text-white shadow w-full md:w-auto"
                 style={{ minWidth: "150px" }}
               >
-                Get Started
+                G<span className="lowercase">et started</span>
               </motion.button>
+
+
             </Link>
             <Link to="/contactus">
               <motion.button
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.9, duration: 0.6 }}
-                className="primary-btn uppercase font-handwritting w-full md:w-auto"
+                className="primary-btn   w-full md:w-auto"
                 style={{ minWidth: "150px" }}
               >
-                Contact Us
+                C<span className="lowercase">ontact Us</span>
               </motion.button>
             </Link>
           </div>

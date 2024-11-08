@@ -60,37 +60,44 @@ import { SlideUp } from "../../animation/animation";
 // };
 const Brands = () => {
   return (
-    <div className="container py-10 px-2 sm:px-0">
-      <section className="bg-white py-6 text-black">
-        <h2 className="mb-2 text-center text-2xl sm:text-3xl lg:text-4xl font-handwritting leading-7 sm:leading-8">
-          Our Clients
-        </h2>
-        <p className="text-gray-500 text-center font-handwritting text-sm sm:text-base lg:text-lg leading-6 sm:leading-7">
-          We are trusted by the world’s most innovative teams
-        </p>
+    <>
+      <div className="container py-10 px-2 sm:px-0 relative">
+        <section className="bg-white py-6 text-black relative">
+          <h2 className="mb-2 text-center text-2xl sm:text-3xl lg:text-4xl leading-7 sm:leading-8">
+            Our Clients
+          </h2>
+          <p className="text-gray-500 text-center  text-sm sm:text-base lg:text-lg leading-6 sm:leading-7">
+            We are trusted by the world’s most innovative teams
+          </p>
 
-        {/* Infinite Scroll Container */}
-        <div className="relative overflow-hidden py-8 sm:py-10">
-          <div className="flex animate-scroll gap-8 w-[200%]">
-            {/* Logo Rows */}
-            {[...Array(2)].map((_, loopIndex) => (
-              <div className="flex gap-8" key={loopIndex}>
-                {[Brand1, Brand2, Brand3, Brand4, Brand5, Brand6].map(
-                  (brand, index) => (
-                    <img
-                      key={`${loopIndex}-${index}`}
-                      className="h-8 sm:h-12 lg:h-16"
-                      src={brand}
-                      alt={`Brand ${index + 1}`}
-                    />
-                  )
-                )}
-              </div>
-            ))}
+          {/* Carousel container */}
+          <div className="infinite-carousel overflow-hidden py-8 sm:py-10">
+            <div className="carousel-track flex gap-4 sm:gap-8 lg:gap-16">
+              {/* Original row of brand logos */}
+              {[Brand1, Brand2, Brand3, Brand4, Brand5, Brand6].map((brand, index) => (
+                <img
+                  key={index}
+                  className="h-8 sm:h-12 lg:h-16"
+                  src={brand}
+                  alt={`Brand ${index + 1}`}
+                />
+              ))}
+              {/* Duplicate row of brand logos for smooth transition */}
+              {[Brand1, Brand2, Brand3, Brand4, Brand5, Brand6].map((brand, index) => (
+                <img
+                  key={index + 6}
+                  className="h-8 sm:h-12 lg:h-16"
+                  src={brand}
+                  alt={`Brand ${index + 7}`}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+
+
+    </>
   );
 };
 

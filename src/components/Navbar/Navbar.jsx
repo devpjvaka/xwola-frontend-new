@@ -35,7 +35,7 @@ const Navbar = () => {
               key={link.id}
               to={link.link}
               className={({ isActive }) =>
-                `text-md lg:text-lg font-handwritting ${
+                `text-md lg:text-lg  ${
                   isActive ? "underline decoration-yellow-500" : ""
                 }`
               }
@@ -48,9 +48,9 @@ const Navbar = () => {
         {/* Desktop Contact Button */}
         <Link
           to="/contactus"
-          className="hidden lg:block primary-btn uppercase font-handwritting"
+          className="hidden lg:block primary-btn  "
         >
-          Get In Touch
+          Get<span className="lowercase"> In Touch</span> 
         </Link>
 
         {/* Mobile menu button */}
@@ -76,7 +76,7 @@ const Navbar = () => {
               key={link.id}
               to={link.link}
               className={({ isActive }) =>
-                `block py-2 text-md font-handwritting ${
+                `block py-2 text-md ${
                   isActive ? "underline decoration-yellow-500" : ""
                 }`
               }
@@ -87,9 +87,9 @@ const Navbar = () => {
           <div className="mt-4">
             <Link
               to="/contactus"
-              className="primary-btn w-full font-handwritting text-base px-4 py-2 sm:text-lg sm:px-6 sm:py-3" // Adjusts for mobile
+              className="primary-btn w-full  text-base px-4 py-2 sm:text-lg sm:px-6 sm:py-3" // Adjusts for mobile
             >
-              Get In Touch
+              Get in touch
             </Link>
           </div>
         </div>

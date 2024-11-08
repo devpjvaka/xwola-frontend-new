@@ -468,13 +468,15 @@ import { motion } from "framer-motion";
 import { SlideLeft, SlideUp, SlideRight } from "../../animation/animation";
  
 import { useInView } from "react-intersection-observer";
+import Achivements from"../../components/About/achivements";
+import MissionAndVision from"../../components/About/missionAndvision";
+import Clients from"../../components/About/clients";
+import CoreValues from"../../components/About/coreValues";
  
+
  
-import Clients from "./clients";
- 
-import MissionAndVision from "./missionAndvision";
-import Achievements from "./achivements";
-import CoreValues from "./coreValues";
+
+
  
  
  
@@ -511,7 +513,7 @@ const About = () => {
                 duration: 0.6,
                 delay: 0.4,
               }}
-              className="text-4xl md:text-5xl font-handwritting text-white"
+              className="text-4xl md:text-5xl  text-white"
             >
               At{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white">
@@ -524,7 +526,7 @@ const About = () => {
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.4, delay: 0.6 }}
-              className="text-lg text-white font-handwritting"
+              className="text-lg text-white "
             >
               We specialize in crafting custom technology solutions,
               transforming your ideas into exceptional digital experiences.
@@ -532,10 +534,11 @@ const About = () => {
           </div>
         </div>
       </section>
-      <Achievements/>
+      <Achivements/>
       <MissionAndVision/>
       <Clients/>
       <CoreValues/>
+      
     </>
   );
 };
