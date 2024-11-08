@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import MapComponent from "./mapComponent";
+ 
 export default function ContactForm() {
   return (
     <motion.div
@@ -27,8 +28,8 @@ export default function ContactForm() {
             <MapComponent />
           </div>
         </motion.div>
-
-
+ 
+ 
         {/* Contact Form Section */}
         <motion.div
           className="order-2 lg:order-1 w-full lg:w-1/2 lg:ml-40" // Changed order for responsiveness
@@ -45,9 +46,7 @@ export default function ContactForm() {
               style={{ display: "inline-block" }}
             >
               Let's work together
-           
             </motion.h2>
-
             <motion.p
               className="mt-4 text-lg leading-8 text-gray-600"
               initial={{ opacity: 0, x: -50 }}
@@ -58,7 +57,7 @@ export default function ContactForm() {
               as possible. If you need a professional team, Xwola will be happy
               to assist you in making your vision a reality.
             </motion.p>
-
+ 
             <motion.form
               action="#"
               method="POST"
@@ -161,7 +160,7 @@ export default function ContactForm() {
     </motion.div>
   );
 }
-
+ 
 // InputField Component for Reusability
 const InputField = ({
   label,
@@ -190,3 +189,4 @@ const InputField = ({
     />
   </motion.div>
 );
+ 
