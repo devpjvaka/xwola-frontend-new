@@ -225,7 +225,7 @@
 
 .carousel-track {
   display: flex;
-  animation: infiniteScroll 20s linear infinite; /* Adjust the duration for speed */
+  animation: infiniteScroll 1ms linear infinite; /* Adjust the duration for speed */
 }
 
 /* Keyframes for infinite scrolling */

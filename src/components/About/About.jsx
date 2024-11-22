@@ -489,8 +489,8 @@ const About = () => {
  
   return (
     <>
-      <section className="relative">
-        <div className="absolute inset-0">
+      <section className="relative  mt-16">
+        <div className="absolute inset-0 " >
           <motion.img
             src={aboutus}
             alt="Hero"

@@ -63,10 +63,10 @@ const logos = [Brand1, Brand2, Brand3, Brand4, Brand5, Brand6];
 const Brands = () => {
   return (
     <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
-      <h2 className="mb-2 text-center text-2xl sm:text-3xl lg:text-4xl  leading-7 sm:leading-8 ">
+      <h2 className=" text-center text-2xl sm:text-3xl lg:text-4xl  leading-7 sm:leading-8 mb-2">
         Our Clients
       </h2>
-      <p className="text-gray-500 text-center text-sm sm:text-base lg:text-lg leading-6 sm:leading-7 mb-6">
+      <p className="text-gray-500 text-center text-sm sm:text-base lg:text-lg leading-6 sm:leading-7 mb-10">
         We are trusted by the world’s most innovative teams
       </p>
       
@@ -78,7 +78,7 @@ const Brands = () => {
             "linear-gradient(to right, transparent 0, black 128px, black calc(100% - 128px), transparent 100%)",
         }}
       >
-        <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll">
+        <ul className=" md-5 flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll">
           {[...logos, ...logos].map((logo, index) => (
             <li key={index}>
               <img

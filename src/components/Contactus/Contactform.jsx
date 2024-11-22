@@ -1,16 +1,16 @@
-import React from "react";
+import React from "react"; 
 import { motion } from "framer-motion";
 import MapComponent from "./mapComponent";
- 
+
 export default function ContactForm() {
-  return (
+  return ( 
     <motion.div
       className="relative bg-white"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 px-6 lg:px-8 py-12">
+      <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 px-6 lg:px-8 py-24">
         {/* Google Map Section */}
         <motion.div
           className="order-1 lg:order-2 w-full lg:w-1/3 flex items-center justify-center mx-auto lg:mx-0 -ml-4 lg:-ml-16" // Adjusted for mobile screens
@@ -28,8 +28,8 @@ export default function ContactForm() {
             <MapComponent />
           </div>
         </motion.div>
- 
- 
+
+
         {/* Contact Form Section */}
         <motion.div
           className="order-2 lg:order-1 w-full lg:w-1/2 lg:ml-40" // Changed order for responsiveness
@@ -57,11 +57,11 @@ export default function ContactForm() {
               as possible. If you need a professional team, Xwola will be happy
               to assist you in making your vision a reality.
             </motion.p>
- 
+
             <motion.form
               action="#"
               method="POST"
-              className="mt-12 space-y-6"
+              className="mt-12 space-y-6" 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.5 }}
@@ -78,7 +78,7 @@ export default function ContactForm() {
                 />
                 {/* Last Name Input */}
                 <InputField
-                  label="Last name"
+                  label="Last name" 
                   id="last-name"
                   name="last-name"
                   type="text"
@@ -160,7 +160,7 @@ export default function ContactForm() {
     </motion.div>
   );
 }
- 
+
 // InputField Component for Reusability
 const InputField = ({
   label,
@@ -189,4 +189,3 @@ const InputField = ({
     />
   </motion.div>
 );
- 

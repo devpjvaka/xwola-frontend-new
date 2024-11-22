@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ourmission from "../../assets/About/ourmission 1.jpg";
-import ourvision from "../../assets/About/ourvision.jpg";
+import ourvision from "../../assets/About/vision.png";
  
 // Reusable Mission and Vision Section Component
 const MissionVisionSection = ({ title, description, imageSrc, direction }) => (

@@ -49,7 +49,7 @@ const Banner = () => {
     },
   };
   return (
-    <div className="container mx-auto py-10 px-4 sm:px-8 lg:py-14">
+    <div className="container mx-auto py-10 px-4 sm:px-8 lg:py-14 mt-5">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-start">
         {/* Image Section */}
         <motion.div
@@ -118,8 +118,8 @@ const Banner = () => {
           </motion.div>
 
           <motion.button
-            className="primary-btn  bg-black text-white px-4 py-1 mt-6 shadow-[5px_5px_0px_0px_#6c6c6c] hover:shadow-md inline-block w-auto" // Use w-auto to shrink to content
-            style={{ width: '150px' }} // Optional: specify exact width
+            className="primary-btn bg-black text-white shadow-[5px_5px_0px_0px_#6c6c6c] mt-5 mx-auto sm:mx-0"
+            style={{ width: '150px' }}
             onClick={() => setPopoverOpen(!popoverOpen)}
           >
             Learn more
