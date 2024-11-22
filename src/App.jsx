@@ -14,7 +14,7 @@ import ContactForm from "./components/Contactus/Contactform";
 import Industries from "./components/Industries/Industries";
 import ScrollToTop from "./components/scrollTop"; // Adjust path if needed
 import GetStarted from "./components/Hero/GetStarted/getStarted";
-
+import SoftwareDevelopment from "./components/Services/catogeries/softwareDevelopment"
 const Home = () => (
   <>
     <Hero />
