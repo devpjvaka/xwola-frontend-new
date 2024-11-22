@@ -282,8 +282,11 @@ const Industries = () => {
 
   return (
     <>
-      <div className="mx-auto mt-16 bg-black p-6 md:p-8">
-        <div className="container embla w-full h-auto md:h-[500px]" ref={emblaRef}>
+       <div className="mx-auto mt-16 bg-black p-6 md:p-8">
+        <div
+          className="container embla w-full h-auto md:h-[500px]"
+          ref={emblaRef}
+        >
           <div className="embla__container flex w-full">
             {images.map((slide, index) => (
               <div
@@ -291,7 +294,8 @@ const Industries = () => {
                 className="embla__slide flex flex-col md:flex-row items-center p-5 w-full"
                 style={{
                   opacity: selectedIndex === index ? 1 : 0,
-                  transform: selectedIndex === index ? "scale(1)" : "scale(0.95)",
+                  transform:
+                    selectedIndex === index ? "scale(1)" : "scale(0.95)",
                   transition: "opacity 0.6s ease, transform 0.6s ease",
                 }}
               >
@@ -301,7 +305,7 @@ const Industries = () => {
                   style={{ backgroundColor: slide.bgColor }}
                 >
                   <h2
-                    className="text-xl md:text-3xl text-gold text-center md:text-left inline-block relative"
+                    className="text-xl md:text-3xl font-handwritting text-gold text-center md:text-left inline-block relative"
                     style={{
                       backgroundImage: "linear-gradient(90deg, black, #FFD700)",
                       backgroundClip: "text",
@@ -313,23 +317,26 @@ const Industries = () => {
                       style={{
                         position: "absolute",
                         left: 0,
-                        bottom: -2, // Adjust to position underline closer or farther
+                        bottom: -2,
                         width: "100%",
-                        height: "4px", // Thickness of the underline
-                        backgroundImage: "linear-gradient(90deg, #FFD700, black)", // Underline gradient
-                        borderRadius: "2px", // Rounding the underline edges
+                        height: "4px",
+                        backgroundImage:
+                          "linear-gradient(90deg, #FFD700, black)",
+                        borderRadius: "2px",
                       }}
                     ></span>
                   </h2>
                   <p className="mt-2 text-sm md:text-lg text-white">
                     {slide.subtitle}
                   </p>
-                  <div className="flex justify-between mt-8 md:mt-6">
+
+                  {/* Arrow Buttons Below Text for Tablets and Laptops */}
+                  <div className="hidden md:flex justify-between mt-6">
                     <button
                       onClick={scrollPrev}
                       className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-600"
                     >
-                      &larr;
+                      &larr; 
                     </button>
                     <button
                       onClick={scrollNext}
@@ -339,14 +346,30 @@ const Industries = () => {
                     </button>
                   </div>
                 </div>
-  
+
                 {/* Image Section */}
-                <div className="w-full md:w-1/3 flex justify-center items-center mt-4 md:mt-0">
+                <div className="w-full md:w-1/3 flex flex-col items-center">
                   <img
                     src={slide.image}
                     alt={slide.title}
                     className="rounded-lg w-24 h-24 md:w-40 md:h-40 object-cover transition-transform duration-300 transform hover:scale-105"
                   />
+
+                  {/* Arrow Buttons Below Image for Mobile Screens */}
+                  <div className="flex md:hidden justify-between mt-4 w-full">
+                    <button
+                      onClick={scrollPrev}
+                      className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-600"
+                    >
+                      &larr; 
+                    </button>
+                    <button
+                      onClick={scrollNext}
+                      className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-600"
+                    >
+                      &rarr;
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}

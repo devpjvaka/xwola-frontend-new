@@ -23,6 +23,8 @@ export default {
             // Define animation settings
             animation: {
                 'infinite-scroll': 'infinite-scroll 25s linear infinite',
+                "spin-slow": "spin 8s linear infinite",
+
             },
             // Define keyframes for the animation
             keyframes: {

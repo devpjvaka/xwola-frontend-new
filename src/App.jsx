@@ -41,6 +41,7 @@ const App = () => {
           <Route path="/getStarted" element={<GetStarted />} />
           
           <Route path="/home" element={<Home />} />
+          <Route path="/softwaredevelopment" element={<SoftwareDevelopment />} />
         </Routes>
         <Footer />
       </main>

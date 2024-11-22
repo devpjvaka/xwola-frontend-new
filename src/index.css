@@ -238,7 +238,6 @@
   }
 }
 
-
 .carousel-with-borders {
   position: relative;
   overflow: hidden;
@@ -264,7 +263,6 @@
   right: 0;
   background: linear-gradient(to left, rgba(255, 255, 255, 0.9), transparent);
 }
-
 
 /* GlobeComponent.css */
 .globe-container {
@@ -299,8 +297,75 @@
   background-color: #ddd;
 }
 .black-underline {
-  text-decoration: underline;          /* Applies underline */
-  text-decoration-color: black;       /* Set the underline color to black */
+  text-decoration: underline; /* Applies underline */
+  text-decoration-color: black; /* Set the underline color to black */
 }
 
+.smoke-effect {
+  background: url('path-to-your-smoke-image.png') repeat;
+  animation: smoke 10s linear infinite;
+}
 
+@keyframes smoke {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+/* Add this to your global styles */
+@keyframes wiggle {
+  0% { transform: rotateX(0) rotateY(0); }
+  50% { transform: rotateX(10deg) rotateY(10deg); }
+  100% { transform: rotateX(0) rotateY(0); }
+}
+
+.wiggling-text {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: bold;
+  color: transparent;
+  background: linear-gradient(to right, #FBBF24, #F59E0B, #A1A1AA);
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: wiggle 1s infinite;
+  transition: transform 0.1s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+.wiggling-text:hover {
+  animation: wiggle 0.5s ease-out;
+}
+
+/* For the 3D effect */
+.wiggling-text-3d {
+  perspective: 1000px;
+}
+
+.wiggling-text-3d:hover {
+  transform: rotateY(20deg) rotateX(15deg);
+  transition: transform 0.3s ease-out;
+}
+@keyframes laser-pass {
+  0% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.animate-laser {
+  animation: laser-pass 5s linear infinite;
+  background: linear-gradient(to bottom, #fab116, #fab116);
+  opacity: 0.8;
+  width: 100%;
+  height: 200%; /* To ensure the animation flows smoothly */
+  position: absolute;
+  top: -50%; /* Starts before the line */
+  left: 0;
+}

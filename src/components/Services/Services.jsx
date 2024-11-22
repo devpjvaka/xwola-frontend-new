@@ -6,6 +6,9 @@ import DigitalExperiance from "../../assets/Services/Services_/digitalexperience
 import ServicesBanner1 from "../../components/Services/Services-Banner/ServiceBanner1";
 import ServicesBanner2 from "../../components/Services/Services-Banner/ServiceBanner2";
 import ServicesBanner3 from "../../components/Services/Services-Banner/ServiceBanner3";
+import ServicesBanner4 from "../../components/Services/Services-Banner/ServiceBanner4";
+
+import { motion, AnimatePresence } from "framer-motion";
 
 const images = [
   {
@@ -79,7 +82,7 @@ const Services = () => {
 
   return (
     <>
-      <div className="mx-auto mt-16 bg-black p-6 md:p-8">
+     <div className="mx-auto mt-16 bg-black p-6 md:p-8">
         <div
           className="container embla w-full h-auto md:h-[500px]"
           ref={emblaRef}
@@ -114,24 +117,26 @@ const Services = () => {
                       style={{
                         position: "absolute",
                         left: 0,
-                        bottom: -2, // Adjust to position underline closer or farther
+                        bottom: -2,
                         width: "100%",
-                        height: "4px", // Thickness of the underline
+                        height: "4px",
                         backgroundImage:
-                          "linear-gradient(90deg, #FFD700, black)", // Underline gradient
-                        borderRadius: "2px", // Rounding the underline edges
+                          "linear-gradient(90deg, #FFD700, black)",
+                        borderRadius: "2px",
                       }}
                     ></span>
                   </h2>
                   <p className="mt-2 text-sm md:text-lg text-white">
                     {slide.subtitle}
                   </p>
-                  <div className="flex justify-between mt-8 md:mt-6">
+
+                  {/* Arrow Buttons Below Text for Tablets and Laptops */}
+                  <div className="hidden md:flex justify-between mt-6">
                     <button
                       onClick={scrollPrev}
                       className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-600"
                     >
-                      &larr;
+                      &larr; 
                     </button>
                     <button
                       onClick={scrollNext}
@@ -143,12 +148,28 @@ const Services = () => {
                 </div>
 
                 {/* Image Section */}
-                <div className="w-full md:w-1/3 flex justify-center items-center mt-4 md:mt-0">
+                <div className="w-full md:w-1/3 flex flex-col items-center">
                   <img
                     src={slide.image}
                     alt={slide.title}
                     className="rounded-lg w-24 h-24 md:w-40 md:h-40 object-cover transition-transform duration-300 transform hover:scale-105"
                   />
+
+                  {/* Arrow Buttons Below Image for Mobile Screens */}
+                  <div className="flex md:hidden justify-between mt-4 w-full">
+                    <button
+                      onClick={scrollPrev}
+                      className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-600"
+                    >
+                      &larr; 
+                    </button>
+                    <button
+                      onClick={scrollNext}
+                      className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-600"
+                    >
+                      &rarr;
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -158,6 +179,8 @@ const Services = () => {
       <ServicesBanner1 />
       <ServicesBanner2 />
       <ServicesBanner3 />
+      <ServicesBanner4 />
+
     </>
   );
 };
