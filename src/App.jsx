@@ -13,6 +13,7 @@ import About from "./components/About/About";
 import ContactForm from "./components/Contactus/Contactform";
 import Industries from "./components/Industries/Industries";
 import ScrollToTop from "./components/scrollTop"; // Adjust path if needed
+import SoftwareDevelopment from "./components/Services/catogeries/softwareDevelopment/softwaredevelopment";
 
 const Home = () => (
   <>
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="/contactus" element={<ContactForm />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/softwaredevelopment" element={<SoftwareDevelopment />} />
         </Routes>
         <Footer />
       </main>
