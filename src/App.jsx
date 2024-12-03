@@ -15,20 +15,17 @@ import Industries from "./components/Industries/Industries";
 import ScrollToTop from "./components/scrollTop"; // Adjust path if needed
 import GetStarted from "./components/Hero/GetStarted/getStarted";
 import SoftwareDevelopment from "./components/Services/catogeries/softwareDevelopment/softwaredevelopment";
-<<<<<<< HEAD
 import Telicommunications from "./components/Industries/pages/telicommunications/telicommunications";
 import Retail from "./components/Industries/pages/retail/retail";
 import EventsAndHospitality from "./components/Industries/pages/events&hospitatily/events&hospitatily";
 import Team from "./components/Banner/team";
-const Home = () => ( 
-=======
+
 import SupportMaintanace from "./components/Services/catogeries/supportMaintance/supportmaintanace";
 import Seo from "./components/Services/catogeries/seo/seo";
 import Ai from "./components/Services/catogeries/ai/ai";
 
 
 const Home = () => (
->>>>>>> pravallika_beta_v3
   <>
     <Hero />
     <Brands />
@@ -55,19 +52,16 @@ const App = () => {
           
           <Route path="/home" element={<Home />} />
           <Route path="/softwaredevelopment" element={<SoftwareDevelopment />} />
-<<<<<<< HEAD
           <Route path="/telicommunications" element={<Telicommunications/>} />
           <Route path="/retail" element={<Retail/>} />
           <Route path="/events&hospitatily" element={<EventsAndHospitality/>} />
           <Route path="/team" element={<Team/>} />
           
-=======
           <Route path="/supportmaintanace" element={<SupportMaintanace />} />
           <Route path="/seo" element={<Seo />} />
           <Route path="/ai" element={<Ai />} />
 
 
->>>>>>> pravallika_beta_v3
         </Routes>
         <Footer />
       </main>

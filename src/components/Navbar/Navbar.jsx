@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // import React, { useState } from "react";
 // import Logo from "../../assets/Logo_gold.png";
 // import { Link, NavLink } from "react-router-dom";
@@ -284,33 +283,18 @@ import {
 
 const NavLinks = [
   { id: 1, title: "Home", link: "/home" },
-=======
-import React, { useState } from "react";
-import Logo from "../../assets/Logo_gold.png";
-import { Link, NavLink } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Bars3Icon, XMarkIcon, ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
-
-const NavLinks = [
-  { id: 1, title: "Home", link: "/home", subMenu: [] },
->>>>>>> pravallika_beta_v3
   {
     id: 2,
     title: "About",
     link: "/about",
-<<<<<<< HEAD
     submenu: [
 
     ],
-=======
-    subMenu: ["Our Story", "Mission", "Team","Our Story", "Mission", "Team","Our Story", "Mission", "Team"],
->>>>>>> pravallika_beta_v3
   },
   {
     id: 3,
     title: "Services",
     link: "/services",
-<<<<<<< HEAD
     submenu: [
       { id: "3-1", title: "Web Development", link: "/services/web" },
       { id: "3-2", title: "Mobile Development", link: "/services/mobile" },
@@ -319,14 +303,10 @@ const NavLinks = [
       { id: "3-5", title: "Web Development", link: "/services/web" },
       { id: "3-6", title: "Mobile Development", link: "/services/mobile" },
     ],
-=======
-    subMenu: ["Web Development", "App Development", "SEO","Web Development", "App Development", "SEO","Web Development", "App Development", "SEO"],
->>>>>>> pravallika_beta_v3
   },
   {
     id: 4,
     title: "Industries",
-<<<<<<< HEAD
     link: "/Industries",
     submenu: [
       { id: "4-1", title: "Telecommunication", link: "/telicommunications" },
@@ -336,17 +316,10 @@ const NavLinks = [
     ],
   },
   { id: 5, title: "Contact ", link: "/contactus" },
-=======
-    link: "/industries",
-    subMenu: ["Healthcare", "Finance", "Education","Healthcare", "Finance", "Education","Healthcare", "Finance", "Education"],
-  },
-  { id: 5, title: "Contact", link: "/contactus", subMenu: [] },
->>>>>>> pravallika_beta_v3
 ];
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-<<<<<<< HEAD
   const [openMenuId, setOpenMenuId] = useState(null);
   const [isDesktopView, setIsDesktopView] = useState(true);
   const megaMenuRef = useRef(null);
@@ -381,14 +354,6 @@ const Navbar = () => {
     };
   }, []);
 
-=======
-  const [activeDropdown, setActiveDropdown] = useState(null);
-
-  const toggleDropdown = (id) => {
-    setActiveDropdown(activeDropdown === id ? null : id);
-  };
-
->>>>>>> pravallika_beta_v3
   return (
     <nav className="w-full fixed top-0 left-0 z-50 border-b border-gray-200 shadow-sm bg-white">
       <motion.div
