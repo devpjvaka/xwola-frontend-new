@@ -14,9 +14,9 @@ import Faqs from "../../../Services/catogeries/softwareDevelopment/faqs";
 import Softwaretypes from "../../../Services/catogeries/softwareDevelopment/championhighlight";
 import Byindustryspecific from "../../../Services/catogeries/softwareDevelopment/byindustryspecific";
 import Bytechnology from "../../../Services/catogeries/softwareDevelopment/bytechnology";
-import Clientsreview from  "../../../Services/catogeries/softwareDevelopment/clientsreview";
-import Softwaresupportindustry from  "../../../Services/catogeries/softwareDevelopment/softwaresupportindustry";
-import Softwaredevelopmentsteps from  "../../../Services/catogeries/softwareDevelopment/softwaredevelopmentsteps";
+import Clientsreview from "../../../Services/catogeries/softwareDevelopment/clientsreview";
+import Softwaresupportindustry from "../../../Services/catogeries/softwareDevelopment/softwaresupportindustry";
+import Softwaredevelopmentsteps from "../../../Services/catogeries/softwareDevelopment/softwaredevelopmentsteps";
 
 // const SoftwareDevelopment = () => {
 //   const [ref, inView] = useInView({
@@ -109,7 +109,7 @@ const SoftwareDevelopment = () => {
               transition={{ duration: 1, ease: "easeOut" }}
             >
               <motion.h1
-                className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-500 to-gray-300"
+                className="text-4xl md:text-6xl font-bold  text-[#fab116] "
                 style={{
                   transform: `rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`, // Dynamic 3D rotation based on cursor
                 }}
@@ -139,9 +139,14 @@ const SoftwareDevelopment = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.9 }}
               >
-                <button className="bg-yellow-500 text-black py-3 px-8 rounded-lg font-semibold hover:bg-yellow-600 transition duration-200">
-                  Get in Touch
-                </button>
+                <a href="/contactus" className="inline-block">
+                  <button
+                    type="button"
+                    className="rounded-lg bg-[#fab116] px-6 py-3 text-lg font-semibold text-black shadow-md "
+                  >
+                    Get in touch
+                  </button>
+                </a>
               </motion.div>
             </motion.div>
 
@@ -167,21 +172,17 @@ const SoftwareDevelopment = () => {
       {/* Additional Sections */}
       <Status />
       <SoftwareServices />
-      <BestPractice />
-      <Achieve />
+      {/* <BestPractice /> */}
+      {/* <Achieve />
       <Howwehelp />
-      <Scenario />
+      <Scenario /> */}
       <Faqs />
-      <Softwaretypes />
+      {/* <Softwaretypes />
       <Byindustryspecific />
       <Bytechnology />
-      <Clientsreview />
+      <Clientsreview /> */}
       <Softwaresupportindustry />
       <Softwaredevelopmentsteps />
-
-
-
-
     </>
   );
 };

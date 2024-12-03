@@ -7,7 +7,7 @@ const Achieve = () => {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <div className="bg-gray-400 py-16 px-8" ref={ref}>
+    <div className="bg-black py-16 px-8" ref={ref}>
       <div className="container mx-auto flex flex-col md:flex-row items-center gap-8">
         
         {/* Image Section (Left Side) */}
@@ -34,21 +34,21 @@ const Achieve = () => {
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 1 }}
         >
-          <div className="bg-gray-100 text-gray-600 px-4 py-2 rounded-md inline-block mb-4">
+          <div className="bg-gray-300 text-black px-4 py-2 rounded-md inline-block mb-4">
             What makes Our Company different
           </div>
-          <h1 className="text-4xl text-yellow-400 mb-4 leading-tight">
+          <h1 className="text-4xl text-[#fab116] mb-4 leading-tight">
             We achieve project success{" "}
-            <span className="text-black">no matter what</span>
+            <span className="text-white">no matter what</span>
           </h1>
-          <p className="text-lg text-gray-800 mb-6">
+          <p className="text-xl text-white  mb-6">
             Our company does not pass mere project administration off as project
             management, which, unfortunately, often happens in the market. We
             practice real project management, achieving project success for our
             clients no matter what.
           </p>
           <motion.button
-            className="bg-yellow-600 text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2 hover:bg-blue-700 transition duration-300"
+            className="bg-[#fab116] text-black px-6 py-3 rounded-lg font-semibold flex items-center gap-2 hover:bg-blue-700 transition duration-300"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >

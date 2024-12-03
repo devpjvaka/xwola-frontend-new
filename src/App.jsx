@@ -15,6 +15,11 @@ import Industries from "./components/Industries/Industries";
 import ScrollToTop from "./components/scrollTop"; // Adjust path if needed
 import GetStarted from "./components/Hero/GetStarted/getStarted";
 import SoftwareDevelopment from "./components/Services/catogeries/softwareDevelopment/softwaredevelopment";
+import SupportMaintanace from "./components/Services/catogeries/supportMaintance/supportmaintanace";
+import Seo from "./components/Services/catogeries/seo/seo";
+import Ai from "./components/Services/catogeries/ai/ai";
+
+
 const Home = () => (
   <>
     <Hero />
@@ -42,6 +47,11 @@ const App = () => {
           
           <Route path="/home" element={<Home />} />
           <Route path="/softwaredevelopment" element={<SoftwareDevelopment />} />
+          <Route path="/supportmaintanace" element={<SupportMaintanace />} />
+          <Route path="/seo" element={<Seo />} />
+          <Route path="/ai" element={<Ai />} />
+
+
         </Routes>
         <Footer />
       </main>

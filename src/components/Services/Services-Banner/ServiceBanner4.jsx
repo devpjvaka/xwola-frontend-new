@@ -1,7 +1,9 @@
-import Seo from "../../../assets/Services/Banners/Seo.webp";
+import Seo from "../../../assets/Services/Banners/seo copy.jpg";
 import { motion, AnimatePresence } from "framer-motion";
 import { SlideUp } from "../../../animation/animation";
 import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 const ServiceBanner4 = () => {
   const [popoverOpen, setPopoverOpen] = useState(false);
   const popoverRef = useRef(null);
@@ -56,11 +58,11 @@ const ServiceBanner4 = () => {
           initial={{ x: 100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="order-1 md:order-2 flex justify-center"
+          className="order-1 md:order-2 flex justify-cente h-[500px] w-[680px]"
         >
           <img
             src={Seo}
-            alt="Support and Maintenance"
+            alt="SEO"
             className="w-full max-w-md md:max-w-full rounded-lg shadow-lg"
           />
         </motion.div>
@@ -93,65 +95,17 @@ const ServiceBanner4 = () => {
             engines like Google. A well-executed SEO strategy helps businesses
             connect with their target audience and achieve long-term growth.
           </motion.p>
-          <motion.button
-            className="primary-btn  bg-black text-white px-6 py-2 mt-6 shadow-[5px_5px_0px_0px_#6c6c6c] hover:shadow-md"
-            onClick={() => setPopoverOpen(!popoverOpen)}
-          >
-            Learn more
-          </motion.button>
-
-          {/* Popover with Enhanced Animation */}
-          <AnimatePresence>
-            {popoverOpen && (
-              <div
-                className="fixed inset-0 flex items-center justify-center z-50"
-                onClick={() => setPopoverOpen(false)}
-              >
-                {/* Background overlay with blur effect */}
-                <motion.div
-                  className="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-sm"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 0.6 }}
-                  exit={{ opacity: 0 }}
-                />
-
-                {/* Increased height and width for the popover box */}
-                <motion.div
-                  ref={popoverRef}
-                  className="relative z-10 bg-white border border-gray-200 rounded-xl shadow-xl p-8 w-3/4 h-3/4 md:max-w-2xl mx-auto flex flex-col items-center justify-center text-center space-y-4"
-                  variants={popoverVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  style={{ transformStyle: "preserve-3d" }}
-                >
-                  <motion.h3
-                    className="text-2xl  mb-3 text-gradient bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent"
-                    variants={shimmerVariants}
-                    animate="shimmer"
-                    style={{
-                      backgroundSize: "200%",
-                      backgroundPosition: "0%",
-                      WebkitBackgroundClip: "text",
-                    }}
-                  >
-                    Upcoming Features
-                  </motion.h3>
-                  <p className="text-gray-700  text-lg">
-                    This page is under construction. Please check back soon for
-                    updates!
-                  </p>
-
-                  <motion.button
-                    onClick={() => setPopoverOpen(false)}
-                    className="primary-btn text-2xl  mb-3 text-gradient bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent hover:text-black transition duration-300"
-                  >
-                    Close
-                  </motion.button>
-                </motion.div>
-              </div>
-            )}
-          </AnimatePresence>
+          <Link to="/seo">
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className="primary-btn  bg-black text-white shadow  w-full md:w-auto"
+              style={{ minWidth: "150px" }}
+            >
+              Learn more
+            </motion.button>
+          </Link>
         </div>
       </div>
     </div>

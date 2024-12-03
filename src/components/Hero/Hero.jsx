@@ -6,7 +6,7 @@ import HeroPng from "../../assets/home_img.jpg";
 
 const Hero = () => {
   return (
-    <section className="container mx-auto px-4 py-16 mt-15">
+    <section className="container mx-auto px-4 py-16 mt-15 ">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Image Section */}
         <div className="order-1 md:order-2 flex justify-center md:justify-end items-start">

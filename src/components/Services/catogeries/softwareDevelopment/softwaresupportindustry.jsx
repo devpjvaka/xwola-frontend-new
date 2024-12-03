@@ -98,53 +98,101 @@
 // };
 
 // export default IndustryGrid;
+import { motion } from "framer-motion";
+
 import React from "react";
-import { FaStethoscope, FaGraduationCap, FaBolt, FaFilm, FaGasPump, FaShoppingCart, FaTruck, FaPlane, FaLandmark } from "react-icons/fa";
+import {
+  FaStethoscope,
+  FaBroadcastTower,
+  FaBolt,
+  FaFilm,
+  FaGasPump,
+  FaShoppingCart,
+  FaTruck,
+  FaHotel,
+  FaLandmark,
+} from "react-icons/fa";
 
 const industries = [
-  { id: 1, title: "Fintech & Insurance", icon: <FaStethoscope />, href: "/fintech-insurance" },
-  { id: 2, title: "Education", icon: <FaGraduationCap />, href: "/education" },
-  { id: 3, title: "Energy and Utilities", icon: <FaBolt />, href: "/energy-utilities" },
-  { id: 4, title: "Healthcare", icon: <FaStethoscope />, href: "/healthcare" },
-  { id: 5, title: "Media & Entertainment", icon: <FaFilm />, href: "/media-entertainment" },
-  { id: 6, title: "Oil & Gas, Mining", icon: <FaGasPump />, href: "/oil-gas-mining" },
-  { id: 7, title: "Retail & Ecommerce", icon: <FaShoppingCart />, href: "/retail-ecommerce" },
-  { id: 8, title: "Logistics & Distribution", icon: <FaTruck />, href: "/logistics-distribution" },
-  { id: 9, title: "Travel & Hospitality", icon: <FaPlane />, href: "/travel-hospitality" },
-  { id: 10, title: "Public Sector", icon: <FaLandmark />, href: "/public-sector" },
-  
+  // { id: 1, title: "Fintech & Insurance", icon: <FaStethoscope />, href: "/fintech-insurance" },
+  {
+    id: 2,
+    title: "Telecommunication",
+    icon: <FaBroadcastTower />,
+    href: "/telecommunication",
+  },
+  // { id: 3, title: "Energy and Utilities", icon: <FaBolt />, href: "/energy-utilities" },
+  // { id: 4, title: "Healthcare", icon: <FaStethoscope />, href: "/healthcare" },
+  // { id: 5, title: "Media & Entertainment", icon: <FaFilm />, href: "/media-entertainment" },
+  // { id: 6, title: "Oil & Gas, Mining", icon: <FaGasPump />, href: "/oil-gas-mining" },
+  {
+    id: 7,
+    title: "Retail",
+    icon: <FaShoppingCart />,
+    href: "/retail-ecommerce",
+  },
+  // { id: 8, title: "Logistics & Distribution", icon: <FaTruck />, href: "/logistics-distribution" },
+  {
+    id: 9,
+    title: "Event & Hospitality",
+    icon: <FaHotel />,
+    href: "/travel-hospitality",
+  },
+  // { id: 10, title: "Public Sector", icon: <FaLandmark />, href: "/public-sector" },
 ];
 
 const Softwaresupportindustry = () => {
   return (
     <div className="container mx-auto px-4 py-10">
       {/* Heading Section */}
-      <div className="text-center mb-8">
-        <h1 className="text-2xl md:text-3xl font-bold text-yellow-500">
+      <div className="mb-8">
+        <motion.h1
+          className="text-2xl md:text-3xl font-bold text-black relative inline-block"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           Industries We Work With
-        </h1>
-        <p className="mt-4 text-gray-600 text-lg">
-          We outshine at delivering the best software development services as per the customers’ requirements, be it small size companies in their beginning phase or mid-size businesses looking for growth or large organizations actively making efforts to expand.
-        </p>
+          {/* Underline Spread Effect */}
+          <motion.div
+            className="absolute bottom-0 left-0 w-full h-[2px] bg-[#fab116] origin-left scale-x-0"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          />
+        </motion.h1>
+        <motion.p
+          className="mt-4 text-gray-600 text-lg"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+        >
+          We outshine at delivering the best software development services as
+          per the customers’ requirements, be it small size companies in their
+          beginning phase or mid-size businesses looking for growth or large
+          organizations actively making efforts to expand.
+        </motion.p>
       </div>
 
       {/* Grid Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-0 border-l border-gray-200 border-r ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-0 border-l border-gray-200 border-r">
         {industries.map((industry, index) => (
-          <a
+          <motion.a
             key={industry.id}
             href={industry.href}
-            className={`flex flex-col items-center p-6 bg-white transition  hover:bg-gray-100 border-gray-200 ${
-              index >= 5 && "border-t" // Add a horizontal line only for the middle rows
-            } ${index % 5 !== 4 ? "border-r" : ""}`} // Add vertical lines except for the last column
+            className={`flex flex-col items-center p-6 bg-white transition hover:bg-gray-100 border-gray-200 ${
+              index >= 5 && "border-t"
+            } ${index % 5 !== 4 ? "border-r" : ""}`}
+            whileHover={{ scale: 1.05, rotate: 1 }}
+            transition={{ duration: 0.3 }}
           >
             {/* Icon */}
-            <div className="text-yellow-400 text-4xl mb-4">{industry.icon}</div>
+            <div className="text-[#fab116] text-4xl mb-4">{industry.icon}</div>
             {/* Title */}
             <h2 className="text-center text-lg font-semibold text-gray-800">
               {industry.title}
             </h2>
-          </a>
+          </motion.a>
         ))}
       </div>
     </div>

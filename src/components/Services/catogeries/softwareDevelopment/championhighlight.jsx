@@ -114,7 +114,7 @@ const Softwaretypes = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <span className="bg-gradient-to-r from-gold to-white text-black py-3 rounded-lg inline-block font-semibold text-4xl">
+        <span className="bg-gradient-to-r from-[#fab116]  to-white text-black py-3 rounded-lg inline-block font-semibold text-4xl">
           Laying the 
         </span>
         <span className="text-3xl text-black ml-2">

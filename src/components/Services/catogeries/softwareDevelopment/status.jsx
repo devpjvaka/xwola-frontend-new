@@ -9,13 +9,13 @@ const Status = () => {
           <h1 className="text-sm font-bold text-white/80 dark:text-white sm:text-lg md:text-3xl">
             <CountUp end={234} suffix="+" duration={2.75} />
           </h1>
-          <h1 className="sm:text-md text-xs text-white md:text-lg">Clients</h1>
+          <h1 className="sm:text-md text-xs text-white md:text-lg">Projects</h1>
         </div>
         <div className="flex  flex-col items-center justify-center">
           <h1 className="text-sm font-bold text-white/80 dark:text-white sm:text-lg md:text-3xl">
-            <CountUp end={56} suffix="+" duration={2.75} />
+            <CountUp end={10} suffix="+" duration={2.75} />
           </h1>
-          <h1 className=" sm:text-md text-xs text-white md:text-lg">projects</h1>
+          <h1 className=" sm:text-md text-xs text-white md:text-lg">Years of Experience</h1>
         </div>
         <div className="flex flex-col items-center justify-center">
           <h1 className="text-sm font-bold text-white/80 dark:text-white sm:text-lg md:text-3xl">
@@ -26,8 +26,8 @@ const Status = () => {
         <div className="flex flex-col items-center justify-center">
           <h1 className="text-sm font-bold text-white/80 dark:text-white sm:text-lg md:text-3xl">
             <CountUp
-              start={-875.039}
-              end={160527.012}
+              start={1}
+              end={5}
               duration={2.75}
               separator=" "
               // decimals={4}
@@ -35,7 +35,7 @@ const Status = () => {
               suffix="+"
             />
           </h1>
-          <h1 className="sm:text-md text-xs text-white md:text-lg">Clients</h1>
+          <h1 className="sm:text-md text-xs text-white md:text-lg">Countries Reached</h1>
         </div>
       </div>
     </section>
