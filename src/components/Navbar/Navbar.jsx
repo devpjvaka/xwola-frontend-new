@@ -403,7 +403,6 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Links */}
-<<<<<<< HEAD
         <div className="hidden lg:flex space-x-6 items-center">
           {NavLinks.map((link) => (
             <div
@@ -418,22 +417,11 @@ const Navbar = () => {
                 to={link.link}
                 className={({ isActive }) =>
                   `text-md lg:text-xl ${isActive ? "underline decoration-yellow-500" : ""
-=======
-        <div className="hidden lg:flex space-x-6">
-          {NavLinks.map((link) => (
-            <div key={link.id} className="relative flex items-center ">
-              <NavLink
-                to={link.link}
-                className={({ isActive }) =>
-                  `text-md lg:text-[17px] font-bold  flex items-center ${
-                    isActive ? "underline decoration-yellow-500 underline-offset-8" : ""
->>>>>>> pravallika_beta_v3
                   }`
                 }
               >
                 {link.title}
               </NavLink>
-<<<<<<< HEAD
               {link.submenu && (
                 <button className="ml-2 focus:outline-none">
                   {openMenuId === link.id ? (
@@ -443,49 +431,11 @@ const Navbar = () => {
                   )}
                 </button>
               )}
-=======
-              {link.subMenu.length > 0 && (
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    toggleDropdown(link.id);
-                  }}
-                  className="ml-1 focus:outline-none "
-                  aria-label="Toggle dropdown menu"
-                >
-                  {activeDropdown === link.id ? (
-                    <ChevronUpIcon className="h-4 w-4 " />
-                  ) : (
-                    <ChevronDownIcon className="h-4 w-4 " />
-                  )}
-                </button>
-              )}
-
-              {activeDropdown === link.id && (
-                <div className="absolute top-full left-0 mt-6 bg-white shadow-lg z-40 p-4 grid grid-cols-3 gap-x-4 gap-y-2"
-                   style={{ minWidth: "400px", maxWidth: "900px" }}
-                   >
-                  {link.subMenu.map((item, index) => (
-                    <Link
-                      key={index}
-                      to={`/${item.toLowerCase().replace(/ /g, "-")}`}
-                      className="block px-4 py-2 hover:bg-gray-100 text-sm"
-                    >
-                      {item}
-                    </Link>
-                  ))}
-                </div>
-              )}
->>>>>>> pravallika_beta_v3
             </div>
           ))}
         </div>
 
-<<<<<<< HEAD
         {/* Desktop Contact Button */}
-=======
-        {/* Contact Button */}
->>>>>>> pravallika_beta_v3
         <Link to="/contactus" className="hidden lg:block primary-btn">
           Get in Touch
         </Link>
@@ -501,7 +451,6 @@ const Navbar = () => {
         </div>
       </motion.div>
 
-<<<<<<< HEAD
       {/* Mega Menu */}
       {isDesktopView &&
         openMenuId &&
@@ -533,29 +482,16 @@ const Navbar = () => {
         <div className="lg:hidden bg-white shadow-md p-4">
           {NavLinks.map((link) => (
             <div key={link.id} className="mb-4">
-=======
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white shadow-md p-4">
-          {NavLinks.map((link) => (
-            <div key={link.id} className="mb-2">
->>>>>>> pravallika_beta_v3
               <div className="flex justify-between items-center">
                 <NavLink
                   to={link.link}
                   className={({ isActive }) =>
-<<<<<<< HEAD
                     `block text-md font-medium ${isActive ? "underline decoration-yellow-500" : ""
-=======
-                    `block py-2 text-md ${
-                      isActive ? "underline decoration-yellow-500" : ""
->>>>>>> pravallika_beta_v3
                     }`
                   }
                 >
                   {link.title}
                 </NavLink>
-<<<<<<< HEAD
                 {link.submenu && (
                   <button
                     onClick={() => toggleMenu(link.id)}
@@ -565,22 +501,10 @@ const Navbar = () => {
                       <ChevronUpIcon className="w-5 h-5 text-gray-600" />
                     ) : (
                       <ChevronDownIcon className="w-5 h-5 text-gray-600" />
-=======
-                {link.subMenu.length > 0 && (
-                  <button
-                    onClick={() => toggleDropdown(link.id)}
-                    className="focus:outline-none"
-                  >
-                    {activeDropdown === link.id ? (
-                      <ChevronUpIcon className="h-4 w-4" />
-                    ) : (
-                      <ChevronDownIcon className="h-4 w-4" />
->>>>>>> pravallika_beta_v3
                     )}
                   </button>
                 )}
               </div>
-<<<<<<< HEAD
               {link.submenu && openMenuId === link.id && (
                 <div className="ml-4 mt-2">
                   {link.submenu.map((submenu) => (
@@ -590,17 +514,6 @@ const Navbar = () => {
                       className="block text-sm py-1 hover:underline"
                     >
                       {submenu.title}
-=======
-              {activeDropdown === link.id && (
-                <div className="ml-4 bg-gray-100 mt-2 p-2 rounded">
-                  {link.subMenu.map((item, index) => (
-                    <Link
-                      key={index}
-                      to={`/${item.toLowerCase().replace(/ /g, "-")}`}
-                      className="block py-1 text-sm"
-                    >
-                      {item}
->>>>>>> pravallika_beta_v3
                     </Link>
                   ))}
                 </div>
@@ -608,16 +521,11 @@ const Navbar = () => {
             </div>
           ))}
           <div className="mt-4">
-<<<<<<< HEAD
             <Link
               to="/contactus"
               className="primary-btn w-full text-base px-4 py-2 sm:text-lg sm:px-6 sm:py-3"
             >
               Get in touch
-=======
-            <Link to="/contactus" className="primary-btn w-full text-base px-4 py-2 sm:text-lg sm:px-6 sm:py-3">
-              Get in Touch
->>>>>>> pravallika_beta_v3
             </Link>
           </div>
         </div>
@@ -625,110 +533,4 @@ const Navbar = () => {
     </nav>
   );
 };
-<<<<<<< HEAD
 export default Navbar;
-=======
-
-export default Navbar;
-// import React, { useState } from "react";
-// import Logo from "../../assets/Logo_gold.png";
-// import { Link, NavLink } from "react-router-dom";
-// import { motion } from "framer-motion";
-// import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
- 
-// const NavLinks = [
-//   { id: 1, title: "Home", link: "/home" },
-//   { id: 2, title: "About", link: "/about" },
-//   { id: 3, title: "Services", link: "/services" },
-//   { id: 4, title: "Industries", link: "/industries" },
-//   { id: 5, title: "Contact us", link: "/contactus" },
-// ];
- 
-// const Navbar = () => {
-//   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
- 
-//   return (
-//     <nav className="w-full border-b border-gray-200 shadow-sm bg-white">
-//       <motion.div
-//         initial={{ y: -100 }}
-//         animate={{ y: 0 }}
-//         transition={{ duration: 0.5 }}
-//         className="container mx-auto px-4 py-4 flex justify-between items-center"
-//       >
-//         {/* Logo section */}
-//         <Link to="/">
-//           <img src={Logo} alt="logo" className="w-40" />
-//         </Link>
- 
-//         {/* Desktop Links Section with Megamenu */}
-//         <div className="hidden lg:flex space-x-6 relative">
-//           {NavLinks.map((link) => (
-//             <div key={link.id} className="group">
-//               <NavLink
-//                 to={link.link}
-//                 className={({ isActive }) =>
-//                   `text-md lg:text-xl ${
-//                     isActive ? "underline decoration-yellow-500" : ""
-//                   }`
-//                 }
-//               >
-//                 {link.title}
-//               </NavLink>
-//             </div>
-//           ))}
-//         </div>
- 
-//         {/* Desktop Contact Button */}
-//         <Link to="/contactus" className="hidden lg:block primary-btn">
-//           Get In touch
-//         </Link>
- 
-//         {/* Mobile menu button */}
-//         <div className="lg:hidden">
-//           <button
-//             onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
-//             className="p-2 text-white bg-yellow-500 rounded focus:outline-none"
-//           >
-//             {isMobileMenuOpen ? (
-//               <XMarkIcon className="h-6 w-6" />
-//             ) : (
-//               <Bars3Icon className="h-6 w-6" />
-//             )}
-//           </button>
-//         </div>
-//       </motion.div>
- 
-//       {/* Mobile Links Section */}
-//       {isMobileMenuOpen && (
-//         <div className="lg:hidden bg-white shadow-md p-4">
-//           {NavLinks.map((link) => (
-//             <NavLink
-//               key={link.id}
-//               to={link.link}
-//               className={({ isActive }) =>
-//                 `block py-2 text-md ${
-//                   isActive ? "underline decoration-yellow-500" : ""
-//                 }`
-//               }
-//             >
-//               {link.title}
-//             </NavLink>
-//           ))}
-//           <div className="mt-4">
-//             <Link
-//               to="/contactus"
-//               className="primary-btn w-full text-base px-4 py-2 sm:text-lg sm:px-6 sm:py-3" // Adjusts for mobile
-//             >
-//               Get in touch
-//             </Link>
-//           </div>
-//         </div>
-//       )}
-//     </nav>
-//   );
-// };
- 
-// export default Navbar;
- 
- 
->>>>>>> pravallika_beta_v3
