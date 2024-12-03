@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Banner1 from "../../assets/team2.jpg";
 import { motion, AnimatePresence } from "framer-motion";
 import { SlideUp } from "../../animation/animation";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   const [popoverOpen, setPopoverOpen] = useState(false);
@@ -15,7 +16,7 @@ const Banner = () => {
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
+    return () => {33
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
@@ -116,7 +117,7 @@ const Banner = () => {
               </div>
             ))}
           </motion.div>
-
+          <Link to = "/team">
           <motion.button
             className="primary-btn bg-black text-white shadow-[5px_5px_0px_0px_#6c6c6c] mt-5 mx-auto sm:mx-0"
             style={{ width: '150px' }}
@@ -124,60 +125,10 @@ const Banner = () => {
           >
             Learn more
           </motion.button>
+          </Link>
 
 
-          {/* Popover with Enhanced Animation */}
-          <AnimatePresence>
-            {popoverOpen && (
-              <div
-                className="fixed inset-0 flex items-center justify-center z-50"
-                onClick={() => setPopoverOpen(false)}
-              >
-                {/* Background overlay with blur effect */}
-                <motion.div
-                  className="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-sm"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 0.6 }}
-                  exit={{ opacity: 0 }}
-                />
-
-                {/* Increased height and width for the popover box */}
-                <motion.div
-                  ref={popoverRef}
-                  className="relative z-10 bg-white border border-gray-200 rounded-xl shadow-xl p-8 w-3/4 h-3/4 md:max-w-2xl mx-auto flex flex-col items-center justify-center text-center space-y-4"
-                  variants={popoverVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  style={{ transformStyle: "preserve-3d" }}
-                >
-                  <motion.h3
-                    className="text-2xl  mb-3 text-gradient bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent"
-                    variants={shimmerVariants}
-                    animate="shimmer"
-                    style={{
-                      backgroundSize: "200%",
-                      backgroundPosition: "0%",
-                      WebkitBackgroundClip: "text",
-                    }}
-                  >
-                    Upcoming Features
-                  </motion.h3>
-                  <p className="text-gray-70 text-lg">
-                    This page is under construction. Please check back soon for
-                    updates!
-                  </p>
-
-                  <motion.button
-                    onClick={() => setPopoverOpen(false)}
-                    className="primary-btn text-2xl mb-3 text-gradient bg-gradient-to-r from-black to-gray-500 bg-clip-text text-transparent hover:text-black transition duration-300"
-                  >
-                    Close
-                  </motion.button>
-                </motion.div>
-              </div>
-            )}
-          </AnimatePresence>
+          
         </div>
       </div>
     </div>

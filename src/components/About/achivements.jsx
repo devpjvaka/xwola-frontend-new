@@ -1,20 +1,21 @@
-import React from "react";
+import React from "react"; 
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 const Achievements = () => {
   const { ref, inView } = useInView({
-    triggerOnce: true,
+    triggerOnce: true, 
+     
     threshold: 0.2,
-  });
- 
+  });    
+  
   const numericData = [
     { id: 1, number: 200, label: "Projects Completed" },
     { id: 2, number: 50, label: "Clients Served" },
     { id: 3, number: 10, label: "Years of Experience" },
     { id: 4, number: 5, label: "Countries Reached" },
-  ];
+  ]; 
  
-  return (
+  return (    
     <section className="py-16 bg-gray-100" ref={ref}>
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-3xl xl:text-4xl  mb-10">

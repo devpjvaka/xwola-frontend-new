@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SlideUp } from "../../../animation/animation";
 import Retails from "../../../assets/Industries/retail1 1.jpg";
+import { Link } from "react-router-dom";
 
 const IndustrieBanner2 = () => {
   const [popoverOpen, setPopoverOpen] = useState(false);
@@ -94,12 +95,14 @@ const IndustrieBanner2 = () => {
             </motion.p>
 
             <div>
+            <Link to = "/retail">
               <motion.button
                 className="primary-btn bg-black text-white px-6 py-2 mt-6 shadow-[5px_5px_0px_0px_#6c6c6c] hover:shadow-md"
                 onClick={() => setPopoverOpen(!popoverOpen)}
               >
                 Learn more
               </motion.button>
+              </Link>
 
               {/* Popover with Enhanced Animation */}
               <AnimatePresence>

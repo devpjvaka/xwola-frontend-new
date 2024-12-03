@@ -7,8 +7,18 @@ export default {
     theme: {
         extend: {
             colors: {
-                gold: "#FFD700", // Custom gold color
+                gold: "#FFD700",
+                 // Custom gold color
             },
+            fontFamily: {
+                sans: [
+                  '"Inter var", sans-serif',
+                  {
+                    fontFeatureSettings: '"cv11", "ss01"',
+                    fontVariationSettings: '"opsz" 32'
+                  },
+                ],
+              },
            
             container: {
                 center: true,

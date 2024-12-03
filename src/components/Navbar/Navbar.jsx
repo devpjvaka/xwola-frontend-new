@@ -170,23 +170,190 @@
 // };
 
 // export default Navbar;
-import React, { useState } from "react";
+// import React, { useState } from "react";
+// import Logo from "../../assets/Logo_gold.png";
+// import { Link, NavLink } from "react-router-dom";
+// import { motion } from "framer-motion";
+// import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+
+// const NavLinks = [
+//   { id: 1, title: "Home", link: "/home" },
+//   { id: 2, title: "About", link: "/about" },
+//   { id: 3, title: "Services", link: "/services" },
+//   { id: 4, title: "Industries", link: "/industries" },
+//   { id: 5, title: "Contact us", link: "/contactus" },
+// ];
+
+// const Navbar = () => {
+//   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+//   return (
+//     <nav className="w-full border-b border-gray-200 shadow-sm bg-white">
+//       <motion.div
+//         initial={{ y: -100 }}
+//         animate={{ y: 0 }}
+//         transition={{ duration: 0.5 }}
+//         className="container mx-auto px-4 py-4 flex justify-between items-center"
+//       >
+//         {/* Logo section */}
+//         <Link to="/">
+//           <img src={Logo} alt="logo" className="w-40" />
+//         </Link>
+
+//         {/* Desktop Links Section with Megamenu */}
+//         <div className="hidden lg:flex space-x-6 relative">
+//           {NavLinks.map((link) => (
+//             <div key={link.id} className="group">
+//               <NavLink
+//                 to={link.link}
+//                 className={({ isActive }) =>
+//                   `text-md lg:text-xl ${
+//                     isActive ? "underline decoration-yellow-500" : ""
+//                   }`
+//                 }
+//               >
+//                 {link.title}
+//               </NavLink>
+//             </div>
+//           ))}
+//         </div>
+
+//         {/* Desktop Contact Button */}
+//         <Link to="/contactus" className="hidden lg:block primary-btn">
+//           Get In touch
+//         </Link>
+
+//         {/* Mobile menu button */}
+//         <div className="lg:hidden">
+//           <button
+//             onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
+//             className="p-2 text-white bg-yellow-500 rounded focus:outline-none"
+//           >
+//             {isMobileMenuOpen ? (
+//               <XMarkIcon className="h-6 w-6" />
+//             ) : (
+//               <Bars3Icon className="h-6 w-6" />
+//             )}
+//           </button>
+//         </div>
+//       </motion.div>
+
+//       {/* Mobile Links Section */}
+//       {isMobileMenuOpen && (
+//         <div className="lg:hidden bg-white shadow-md p-4">
+//           {NavLinks.map((link) => (
+//             <NavLink
+//               key={link.id}
+//               to={link.link}
+//               className={({ isActive }) =>
+//                 `block py-2 text-md ${
+//                   isActive ? "underline decoration-yellow-500" : ""
+//                 }`
+//               }
+//             >
+//               {link.title}
+//             </NavLink>
+//           ))}
+//           <div className="mt-4">
+//             <Link
+//               to="/contactus"
+//               className="primary-btn w-full text-base px-4 py-2 sm:text-lg sm:px-6 sm:py-3" // Adjusts for mobile
+//             >
+//               Get in touch
+//             </Link>
+//           </div>
+//         </div>
+//       )}
+//     </nav>
+//   );
+// };
+
+// export default Navbar;
+
+import React, { useState, useEffect, useRef } from "react"; // Updated import statement
 import Logo from "../../assets/Logo_gold.png";
 import { Link, NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
- 
+import {
+  Bars3Icon,
+  XMarkIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+} from "@heroicons/react/24/outline";
+
 const NavLinks = [
   { id: 1, title: "Home", link: "/home" },
-  { id: 2, title: "About", link: "/about" },
-  { id: 3, title: "Services", link: "/services" },
-  { id: 4, title: "Industries", link: "/industries" },
-  { id: 5, title: "Contact us", link: "/contactus" },
+  {
+    id: 2,
+    title: "About",
+    link: "/about",
+    submenu: [
+
+    ],
+  },
+  {
+    id: 3,
+    title: "Services",
+    link: "/services",
+    submenu: [
+      { id: "3-1", title: "Web Development", link: "/services/web" },
+      { id: "3-2", title: "Mobile Development", link: "/services/mobile" },
+      { id: "3-3", title: "Web Development", link: "/services/web" },
+      { id: "3-4", title: "Mobile Development", link: "/services/mobile" },
+      { id: "3-5", title: "Web Development", link: "/services/web" },
+      { id: "3-6", title: "Mobile Development", link: "/services/mobile" },
+    ],
+  },
+  {
+    id: 4,
+    title: "Industries",
+    link: "/Industries",
+    submenu: [
+      { id: "4-1", title: "Telecommunication", link: "/telicommunications" },
+      { id: "4-6", title: "Retail", link: "/retail" },
+      { id: "4-1", title: "Events & Hospitality", link: "/events&hospitatily" },
+
+    ],
+  },
+  { id: 5, title: "Contact ", link: "/contactus" },
 ];
- 
+
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
- 
+  const [openMenuId, setOpenMenuId] = useState(null);
+  const [isDesktopView, setIsDesktopView] = useState(true);
+  const megaMenuRef = useRef(null);
+
+  const toggleMenu = (id) => {
+    setOpenMenuId((prev) => (prev === id ? null : id));
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktopView(window.innerWidth >= 1024);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        megaMenuRef.current &&
+        !megaMenuRef.current.contains(event.target)
+      ) {
+        setOpenMenuId(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <nav className="w-full border-b border-gray-200 shadow-sm bg-white">
       <motion.div
@@ -195,35 +362,50 @@ const Navbar = () => {
         transition={{ duration: 0.5 }}
         className="container mx-auto px-4 py-4 flex justify-between items-center"
       >
-        {/* Logo section */}
+        {/* Logo */}
         <Link to="/">
           <img src={Logo} alt="logo" className="w-40" />
         </Link>
- 
-        {/* Desktop Links Section with Megamenu */}
-        <div className="hidden lg:flex space-x-6 relative">
+
+        {/* Desktop Links */}
+        <div className="hidden lg:flex space-x-6 items-center">
           {NavLinks.map((link) => (
-            <div key={link.id} className="group">
+            <div
+              key={link.id}
+              className="relative flex items-center"
+              onMouseEnter={() => link.submenu && setOpenMenuId(link.id)}
+              onMouseLeave={() =>
+                link.submenu && openMenuId !== link.id && setOpenMenuId(null)
+              }
+            >
               <NavLink
                 to={link.link}
                 className={({ isActive }) =>
-                  `text-md lg:text-xl ${
-                    isActive ? "underline decoration-yellow-500" : ""
+                  `text-md lg:text-xl ${isActive ? "underline decoration-yellow-500" : ""
                   }`
                 }
               >
                 {link.title}
               </NavLink>
+              {link.submenu && (
+                <button className="ml-2 focus:outline-none">
+                  {openMenuId === link.id ? (
+                    <ChevronUpIcon className="w-5 h-5 text-gray-600 hover:text-yellow-500 transition duration-200" />
+                  ) : (
+                    <ChevronDownIcon className="w-5 h-5 text-gray-600 hover:text-yellow-500 transition duration-200" />
+                  )}
+                </button>
+              )}
             </div>
           ))}
         </div>
- 
+
         {/* Desktop Contact Button */}
         <Link to="/contactus" className="hidden lg:block primary-btn">
           Get In touch
         </Link>
- 
-        {/* Mobile menu button */}
+
+        {/* Mobile Menu Button */}
         <div className="lg:hidden">
           <button
             onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
@@ -237,27 +419,80 @@ const Navbar = () => {
           </button>
         </div>
       </motion.div>
- 
-      {/* Mobile Links Section */}
+
+      {/* Mega Menu */}
+      {isDesktopView &&
+        openMenuId &&
+        NavLinks.find((link) => link.id === openMenuId)?.submenu && (
+          <div
+            ref={megaMenuRef}
+            className="absolute top-16 left-0 w-full bg-white shadow-lg z-50"
+            onMouseEnter={() => setOpenMenuId(openMenuId)}
+            onMouseLeave={() => setOpenMenuId(null)}
+          >
+            <div className="container mx-auto p-6 grid grid-cols-1 gap-6">
+              {NavLinks.find((link) => link.id === openMenuId).submenu.map((submenu, index) => (
+                // You can keep it as a flex or grid layout
+                <div key={submenu.id} className="col-span-1">
+                  <Link
+                    to={submenu.link}
+                    className="block text-lg hover:underline mb-2"
+                  >
+                    {submenu.title}
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+      {/* Mobile Links */}
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-white shadow-md p-4">
           {NavLinks.map((link) => (
-            <NavLink
-              key={link.id}
-              to={link.link}
-              className={({ isActive }) =>
-                `block py-2 text-md ${
-                  isActive ? "underline decoration-yellow-500" : ""
-                }`
-              }
-            >
-              {link.title}
-            </NavLink>
+            <div key={link.id} className="mb-4">
+              <div className="flex justify-between items-center">
+                <NavLink
+                  to={link.link}
+                  className={({ isActive }) =>
+                    `block text-md font-medium ${isActive ? "underline decoration-yellow-500" : ""
+                    }`
+                  }
+                >
+                  {link.title}
+                </NavLink>
+                {link.submenu && (
+                  <button
+                    onClick={() => toggleMenu(link.id)}
+                    className="ml-2 focus:outline-none"
+                  >
+                    {openMenuId === link.id ? (
+                      <ChevronUpIcon className="w-5 h-5 text-gray-600" />
+                    ) : (
+                      <ChevronDownIcon className="w-5 h-5 text-gray-600" />
+                    )}
+                  </button>
+                )}
+              </div>
+              {link.submenu && openMenuId === link.id && (
+                <div className="ml-4 mt-2">
+                  {link.submenu.map((submenu) => (
+                    <Link
+                      key={submenu.id}
+                      to={submenu.link}
+                      className="block text-sm py-1 hover:underline"
+                    >
+                      {submenu.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
           <div className="mt-4">
             <Link
               to="/contactus"
-              className="primary-btn w-full text-base px-4 py-2 sm:text-lg sm:px-6 sm:py-3" // Adjusts for mobile
+              className="primary-btn w-full text-base px-4 py-2 sm:text-lg sm:px-6 sm:py-3"
             >
               Get in touch
             </Link>
@@ -267,7 +502,4 @@ const Navbar = () => {
     </nav>
   );
 };
- 
 export default Navbar;
- 
- 

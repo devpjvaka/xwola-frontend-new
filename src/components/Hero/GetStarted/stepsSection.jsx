@@ -10,8 +10,8 @@ const stepsData = [
 
 const StepsSection = () => {
   return (
-    <section className="py-20 px-6 bg-gradient-to-b from-black to-gray-900 text-white">
-      <h2 className="text-4xl font-bold text-center mb-12 text-gold">How to Get Started</h2>
+    <section className="py-20 px-6 bg-white text-white">
+      <h2 className="text-4xl font-bold text-center mb-12 text-black">How to Get Started</h2>
       {/* Grid layout */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {stepsData.map((step, index) => (
