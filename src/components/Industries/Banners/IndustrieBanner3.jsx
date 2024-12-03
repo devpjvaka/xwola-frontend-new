@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { SlideUp } from "../../../animation/animation";
 import Events from "../../../assets/Industries/events1 2.jpg";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const IndustrieBanner3 = () => {
   const [popoverOpen, setPopoverOpen] = useState(false);
@@ -90,14 +91,17 @@ const IndustrieBanner3 = () => {
             streamline event management. Our mission is to craft unforgettable
             moments through exceptional service, innovative technology, and
             meticulous planning.
+            
           </motion.p>
           <div>
+          <Link to = "/events&hospitatily"> 
           <motion.button
             className="primary-btn  bg-black text-white px-6 py-2 mt-6 shadow-[5px_5px_0px_0px_#6c6c6c] hover:shadow-md"
             onClick={() => setPopoverOpen(!popoverOpen)}
           >
             Learn more
           </motion.button>
+          </Link>
 
           {/* Popover with Enhanced Animation */}
           <AnimatePresence>

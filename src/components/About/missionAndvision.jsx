@@ -13,7 +13,7 @@ const MissionVisionSection = ({ title, description, imageSrc, direction }) => (
         viewport={{ once: true }}
     >
         <h3 className="text-2xl  mb-4 group-hover:text-gold">{title}</h3>
-        <p className="text-lg text-gray-700  group-hover:text-white">{description}</p>
+        <p className="text-lg text-gray-700  group-hover:text-white ">{description}</p>
         
         {/* Image within the same container */}
         <motion.img

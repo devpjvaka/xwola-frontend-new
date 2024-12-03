@@ -61,7 +61,7 @@ const IndustrieBanner1 = () => {
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
               src={Tele}
-              alt="Telecommunications illustration" // Added alt text for accessibility
+              alt=""
               className="w-[95%] md:w-full mx-auto rounded-lg shadow-md" // Rounded corners and shadow for aesthetics
             />
           </div>
@@ -102,7 +102,7 @@ const IndustrieBanner1 = () => {
             <div>
              
               {/* Popover with Enhanced Animation */}
-              <Link to="/">
+              <Link to = "/telicommunications">
                 <motion.button
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}

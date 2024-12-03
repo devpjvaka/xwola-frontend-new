@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
-import HeroPng from "../../assets/home_img.jpg";
+import HeroPng from "../../assets/home.png";
 
 const Hero = () => {
   return (
@@ -50,7 +50,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-lg text-gray-600"
+            className="text-xl text-base text-gray-500"
           >
             At Xwola, we build innovative software solutions that empower businesses
             to thrive. Our team focuses on cutting-edge technology and user-driven
