@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import React, { useState } from "react";
-import Logo from "../../assets/Logo_gold.png";
-import { Link, NavLink } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Bars3Icon, XMarkIcon, ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
-
-const NavLinks = [
-  { id: 1, title: "Home", link: "/home", subMenu: [] },
-=======
 // import React, { useState } from "react";
 // import Logo from "../../assets/Logo_gold.png";
 // import { Link, NavLink } from "react-router-dom";
@@ -293,26 +283,18 @@ import {
 
 const NavLinks = [
   { id: 1, title: "Home", link: "/home" },
->>>>>>> divya_beta_v3
   {
     id: 2,
     title: "About",
     link: "/about",
-<<<<<<< HEAD
-    subMenu: ["Our Story", "Mission", "Team","Our Story", "Mission", "Team","Our Story", "Mission", "Team"],
-=======
     submenu: [
 
     ],
->>>>>>> divya_beta_v3
   },
   {
     id: 3,
     title: "Services",
     link: "/services",
-<<<<<<< HEAD
-    subMenu: ["Web Development", "App Development", "SEO","Web Development", "App Development", "SEO","Web Development", "App Development", "SEO"],
-=======
     submenu: [
       { id: "3-1", title: "Web Development", link: "/services/web" },
       { id: "3-2", title: "Mobile Development", link: "/services/mobile" },
@@ -321,17 +303,10 @@ const NavLinks = [
       { id: "3-5", title: "Web Development", link: "/services/web" },
       { id: "3-6", title: "Mobile Development", link: "/services/mobile" },
     ],
->>>>>>> divya_beta_v3
   },
   {
     id: 4,
     title: "Industries",
-<<<<<<< HEAD
-    link: "/industries",
-    subMenu: ["Healthcare", "Finance", "Education","Healthcare", "Finance", "Education","Healthcare", "Finance", "Education"],
-  },
-  { id: 5, title: "Contact", link: "/contactus", subMenu: [] },
-=======
     link: "/Industries",
     submenu: [
       { id: "4-1", title: "Telecommunication", link: "/telicommunications" },
@@ -341,19 +316,10 @@ const NavLinks = [
     ],
   },
   { id: 5, title: "Contact ", link: "/contactus" },
->>>>>>> divya_beta_v3
 ];
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-<<<<<<< HEAD
-  const [activeDropdown, setActiveDropdown] = useState(null);
-
-  const toggleDropdown = (id) => {
-    setActiveDropdown(activeDropdown === id ? null : id);
-  };
-
-=======
   const [openMenuId, setOpenMenuId] = useState(null);
   const [isDesktopView, setIsDesktopView] = useState(true);
   const megaMenuRef = useRef(null);
@@ -388,7 +354,6 @@ const Navbar = () => {
     };
   }, []);
 
->>>>>>> divya_beta_v3
   return (
     <nav className="w-full fixed top-0 left-0 z-50 border-b border-gray-200 shadow-sm bg-white">
       <motion.div
@@ -403,16 +368,6 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Links */}
-<<<<<<< HEAD
-        <div className="hidden lg:flex space-x-6">
-          {NavLinks.map((link) => (
-            <div key={link.id} className="relative flex items-center ">
-              <NavLink
-                to={link.link}
-                className={({ isActive }) =>
-                  `text-md lg:text-[17px] font-bold  flex items-center ${
-                    isActive ? "underline decoration-yellow-500 underline-offset-8" : ""
-=======
         <div className="hidden lg:flex space-x-6 items-center">
           {NavLinks.map((link) => (
             <div
@@ -427,46 +382,11 @@ const Navbar = () => {
                 to={link.link}
                 className={({ isActive }) =>
                   `text-md lg:text-xl ${isActive ? "underline decoration-yellow-500" : ""
->>>>>>> divya_beta_v3
                   }`
                 }
               >
                 {link.title}
               </NavLink>
-<<<<<<< HEAD
-              {link.subMenu.length > 0 && (
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    toggleDropdown(link.id);
-                  }}
-                  className="ml-1 focus:outline-none "
-                  aria-label="Toggle dropdown menu"
-                >
-                  {activeDropdown === link.id ? (
-                    <ChevronUpIcon className="h-4 w-4 " />
-                  ) : (
-                    <ChevronDownIcon className="h-4 w-4 " />
-                  )}
-                </button>
-              )}
-
-              {activeDropdown === link.id && (
-                <div className="absolute top-full left-0 mt-6 bg-white shadow-lg z-40 p-4 grid grid-cols-3 gap-x-4 gap-y-2"
-                   style={{ minWidth: "400px", maxWidth: "900px" }}
-                   >
-                  {link.subMenu.map((item, index) => (
-                    <Link
-                      key={index}
-                      to={`/${item.toLowerCase().replace(/ /g, "-")}`}
-                      className="block px-4 py-2 hover:bg-gray-100 text-sm"
-                    >
-                      {item}
-                    </Link>
-                  ))}
-                </div>
-              )}
-=======
               {link.submenu && (
                 <button className="ml-2 focus:outline-none">
                   {openMenuId === link.id ? (
@@ -476,16 +396,11 @@ const Navbar = () => {
                   )}
                 </button>
               )}
->>>>>>> divya_beta_v3
             </div>
           ))}
         </div>
 
-<<<<<<< HEAD
-        {/* Contact Button */}
-=======
         {/* Desktop Contact Button */}
->>>>>>> divya_beta_v3
         <Link to="/contactus" className="hidden lg:block primary-btn">
           Get in Touch
         </Link>
