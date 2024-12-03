@@ -57,7 +57,7 @@ const Howwehelp = () => {
             }}
             viewport={{ once: false }} // Only trigger animation once
           >
-            <span className="bg-yellow-500 text-black px-3 py-3 rounded-lg inline-block">
+            <span className="bg-[#fab116] text-black px-3 py-3 rounded-lg inline-block">
               How
             </span>{" "}
             We Help

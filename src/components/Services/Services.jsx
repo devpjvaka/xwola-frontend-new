@@ -105,7 +105,7 @@ const Services = () => {
                   style={{ backgroundColor: slide.bgColor }}
                 >
                   <h2
-                    className="text-xl md:text-3xl font-handwritting text-gold text-center md:text-left inline-block relative"
+                    className="text-xl md:text-3xl font-handwritting text-gold text-center md:text-left inline-block relative mt-4"
                     style={{
                       backgroundImage: "linear-gradient(90deg, black, #FFD700)",
                       backgroundClip: "text",
@@ -117,16 +117,16 @@ const Services = () => {
                       style={{
                         position: "absolute",
                         left: 0,
-                        bottom: -2,
+                        bottom: -8,
                         width: "100%",
-                        height: "4px",
+                        height: "6px",
                         backgroundImage:
                           "linear-gradient(90deg, #FFD700, black)",
                         borderRadius: "2px",
                       }}
                     ></span>
                   </h2>
-                  <p className="mt-2 text-sm md:text-lg text-white">
+                  <p className="mt-7 text-sm md:text-lg text-white">
                     {slide.subtitle}
                   </p>
 

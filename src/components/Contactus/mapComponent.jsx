@@ -22,7 +22,7 @@ const MapComponent = () => {
       >
         <NavigationControl position="top-left" />
         <Marker latitude={17.3954} longitude={78.3831}>
-          <div className="p-1 bg-red-500 text-white rounded-full">📍</div>
+          <div className="p-1 bg-[#fab116] text-white rounded-full">📍</div>
         </Marker>
       </Map>
     </div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ServiceAccordion from "./serviceacoordian"; // Adjust the path to your ServiceAccordion component
+import { useNavigate } from "react-router-dom";
 
 const features = [
   {
@@ -26,7 +27,7 @@ const features = [
       {
         title: "What industries do you specialize in?",
         content:
-          "Having practical experience with 30+ industries, we give special attention to healthcare, BFSI, retail, manufacturing, telecoms, energy, transportation, and professional services. Whatever industry you’re focused on, ScienceSoft’s consultants can help you adhere to the region-specific sectoral regulations, such as HIPAA, PCI DSS, SEC, NYDFS, CCPA, GDRP, SAMA, and more.",
+          "Having practical experience with 30+ industries, we give special attention to healthcare, BFSI, retail, manufacturing, telecoms, energy, transportation, and professional services. Whatever industry you’re focused on, Xwola consultants can help you adhere to the region-specific sectoral regulations, such as HIPAA, PCI DSS, SEC, NYDFS, CCPA, GDRP, SAMA, and more.",
       },
       {
         title:
@@ -56,22 +57,27 @@ const features = [
 
 const Faqs = () => {
   const [selectedFeature, setSelectedFeature] = useState(0); // Default to the first feature
+  const navigate = useNavigate(); // React Router navigation function
+
+  const handleNavigation = () => {
+    navigate("/some-link");
+  };
 
   return (
     <div className="">
       <div className="container w-full p-8 py-16">
         {/* Heading with FAQ in a box */}
         <div className="flex mb-8">
-          <div className="bg-black text-yellow-500 text-2xl font-bold py-1 px-3 rounded-lg mr-2">
-            FAQ
-          </div>
-          <h2 className="text-3xl font-semibold text-gray-800">
-            about Our Software Engineering Services
-          </h2>
+          <span className="bg-gradient-to-r from-[#fab116]  to-white text-black py-3 rounded-lg inline-block font-semibold text-3xl ">
+            FAQ{" "}
+          </span>
+          <span className="text-3xl text-black ml-2 mt-3">
+            about Our Software Engineering Services{" "}
+          </span>
         </div>
 
         {/* Section to display the accordion */}
-        <div className="mt-12">
+        <div className="mt-12 ">
           <ServiceAccordion
             sections={features[selectedFeature].sections.map((section) => ({
               ...section,
@@ -79,7 +85,7 @@ const Faqs = () => {
                 <div>
                   {/* Heading above the content */}
                   {section.heading && (
-                    <h3 className="text-xl font-medium text-gray-800 mb-4">
+                    <h3 className="text-xl font-medium text-gray-800 mb-4 ">
                       {section.heading}
                     </h3>
                   )}
@@ -94,12 +100,15 @@ const Faqs = () => {
                   {/* Button below the rows */}
                   {section.button && (
                     <div className="mt-4">
-                      <a
-                        href={section.button.link}
-                        className="inline-block py-2 px-6 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300"
+                      <button
+                        type="button"
+                        className="rounded bg-indigo-50 px-2 py-1 text-xs font-semibold text-black shadow-sm hover:bg-[#fab116]"
+                        onClick={() =>
+                          (window.location.href = section.button.link)
+                        }
                       >
                         {section.button.text}
-                      </a>
+                      </button>
                     </div>
                   )}
                 </div>
@@ -108,11 +117,13 @@ const Faqs = () => {
           />
         </div>
         <div className="flex justify-center mt-8">
-          <a
-            href="/some-link"
-            className="text-white justify-center bg-black px-6 py-3 rounded-lg transition duration-200"
-          >
-            See all questions
+          <a href="" className="inline-block">
+            <button
+              type="button"
+              className=" mt-2 rounded-lg border border-black text-black px-4 py-2 text-sm sm:text-lg  hover:bg-black hover:text-white transition"
+            >
+              See all quetions
+            </button>
           </a>
         </div>
       </div>
