@@ -1,5 +1,5 @@
 import React from "react";
-import Steps from "../../../../assets/Services/catogeries/softwaredevelopment/sd 1.jpg";
+import Steps from "../../../../assets/Services/catogeries/softwaredevelopment/sd 2.webp";
 
 // const features = [
 //   {
@@ -150,7 +150,7 @@ const ServiceFeatures = () => (
           <img
             src={Steps}
             alt="Office Work"
-            className="rounded-lg object-cover shadow-md mx-auto items-center w-full h-auto md:h-[400px]"
+            className="rounded-lg object-cover shadow-md mx-auto items-center w-[490px] h-auto md:h-[400px]"
           />
         </div>
       </div>

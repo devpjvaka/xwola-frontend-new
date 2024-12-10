@@ -1,4 +1,4 @@
-import Seo from "../../../assets/Services/Banners/seo copy.jpg";
+import Seo from "../../../assets/Services/Banners/seo 1.webp";
 import { motion, AnimatePresence } from "framer-motion";
 import { SlideUp } from "../../../animation/animation";
 import React, { useState, useRef, useEffect } from "react";
@@ -21,49 +21,20 @@ const ServiceBanner4 = () => {
     };
   }, []);
 
-  // Animation variants for the popover
-  const popoverVariants = {
-    hidden: { scale: 0.8, opacity: 0, rotateY: -10 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      rotateY: 0,
-      transition: {
-        duration: 0.6,
-        type: "spring",
-        stiffness: 90,
-        damping: 15,
-      },
-    },
-    exit: {
-      scale: 0.8,
-      opacity: 0,
-      rotateY: 10,
-      transition: { duration: 0.3 },
-    },
-  };
-
-  const shimmerVariants = {
-    shimmer: {
-      backgroundPosition: ["-100%", "200%"],
-      transition: { duration: 3, repeat: Infinity },
-    },
-  };
-
   return (
-    <div className="py-12 px-4 md:py-24 md:px-8 bg-gray-50">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+    <div className="pt-20 lg:pt-24 bg-gray-50">
+      <div className="container mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
         {/* Image Section */}
         <motion.div
           initial={{ x: 100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="order-1 md:order-2 flex justify-cente h-[500px] w-[680px]"
+          className="order-1 md:order-2 flex justify-center mb-4"
         >
           <img
             src={Seo}
             alt="SEO"
-            className="w-full max-w-md md:max-w-full rounded-lg shadow-lg"
+            className="w-full h-auto max-w-full md:h-[500px] md:w-[680px] rounded-lg shadow-lg"
           />
         </motion.div>
 
@@ -76,8 +47,6 @@ const ServiceBanner4 = () => {
             className="text-2xl md:text-3xl text-black "
           >
             <span className="bg-gray-100 px-3 py-1 rounded break-words">
-              {" "}
-              {/* Added break-words class */}
               SEO
             </span>
           </motion.h1>
@@ -86,7 +55,7 @@ const ServiceBanner4 = () => {
             variants={SlideUp(0.4)}
             initial="initial"
             animate="animate"
-            className="text-gray-600  text-base md:text-lg leading-relaxed md:leading-8"
+            className="text-gray-600 text-base md:text-lg leading-relaxed md:leading-8"
           >
             SEO (Search Engine Optimization) is the process of improving a
             website's visibility in search engine results. It involves
@@ -100,8 +69,10 @@ const ServiceBanner4 = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
-              className="primary-btn  bg-black text-white shadow  w-full md:w-auto"
-              style={{ minWidth: "150px" }}
+              className="primary-btn bg-black text-white shadow w-auto mt-5 text-xs sm:text-sm md:text-base px-2 py-1 sm:px-4 sm:py-2 rounded"
+              style={{
+                minWidth: "80px",
+              }}
             >
               Learn more
             </motion.button>
@@ -111,4 +82,5 @@ const ServiceBanner4 = () => {
     </div>
   );
 };
+
 export default ServiceBanner4;

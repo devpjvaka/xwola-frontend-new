@@ -245,7 +245,6 @@ const Industries = () => {
       title: "Telecommunications",
       subtitle:
         "We provide advanced communication solutions that connect businesses and individuals across the globe, fostering seamless connectivity. Our services enhance collaboration, enabling organizations to operate efficiently and expand their reach worldwide.",
-  
       bgColor: "#000000",
     },
     {
@@ -254,17 +253,14 @@ const Industries = () => {
       title: "Retail",
       subtitle:
         "We empower retailers by providing innovative solutions designed to enhance customer experiences and streamline operational processes. Our approach focuses on maximizing efficiency and ensuring greater satisfaction for both businesses and their customers.",
-  
       bgColor: "#000000",
     },
-  
     {
       id: 3,
       image: Hospitality,
       title: "Events & Hospitality ",
       subtitle:
         "We enhance guest experiences through seamless event planning and exceptional hospitality, ensuring every detail is meticulously handled. Our dedicated team is committed to creating memorable moments that leave lasting impressions on all attendees.",
-  
       bgColor: "#000000",
     },
   ];
@@ -293,17 +289,9 @@ const Industries = () => {
 
   return (
     <>
-      <section className="mx-auto mt-16 bg-black p-6 md:p-8">
+      <section className="pt-20 lg:pt-24 mx-auto bg-black p-6 md:p-8">
         {/* Carousel Section */}
         <div className="relative flex flex-col justify-center items-center h-screen bg-black text-white overflow-hidden">
-          {/* Previous Button */}
-          {/* <button
-            className="absolute left-5 top-1/2 transform -translate-y-1/2 bg-gray-800 p-2 rounded-full z-10"
-            onClick={prevSlide}
-          >
-            ❮
-          </button> */}
-
           {/* Carousel Content */}
           <div className="flex items-center w-full">
             <AnimatePresence mode="wait">
@@ -336,14 +324,6 @@ const Industries = () => {
               </motion.div>
             </AnimatePresence>
           </div>
-
-          {/* Next Button */}
-          {/* <button
-            className="absolute right-5 top-1/2 transform -translate-y-1/2 bg-gray-800 p-2 rounded-full z-10"
-            onClick={nextSlide}
-          >
-            ❯
-          </button> */}
 
           {/* Dots Navigation */}
           <div className="absolute bottom-8 flex justify-center space-x-2">

@@ -84,8 +84,8 @@ const SoftwareDevelopment = () => {
   useEffect(() => {
     const handleMouseMove = (e) => {
       const { clientX, clientY } = e;
-      const rotateX = (clientY / window.innerHeight) * 30 - 15; // Adjust sensitivity for X axis rotation
-      const rotateY = (clientX / window.innerWidth) * 30 - 15; // Adjust sensitivity for Y axis rotation
+      const rotateX = (clientY / window.innerHeight) * 30 - 15; // Adjust sensitivity for X-axis rotation
+      const rotateY = (clientX / window.innerWidth) * 30 - 15; // Adjust sensitivity for Y-axis rotation
       setRotate({ x: rotateX, y: rotateY });
     };
 
@@ -97,7 +97,7 @@ const SoftwareDevelopment = () => {
 
   return (
     <>
-      <main className="bg-black pt-20 dark:bg-black">
+      <main className="bg-black pt-20 lg:pt-24 dark:bg-black">
         {/* Main Section */}
         <section className="container mx-auto px-4 py-16 md:py-24">
           <div className="flex flex-col md:flex-row gap-12 items-center justify-center">
@@ -109,7 +109,7 @@ const SoftwareDevelopment = () => {
               transition={{ duration: 1, ease: "easeOut" }}
             >
               <motion.h1
-                className="text-4xl md:text-6xl font-bold  text-[#fab116] "
+                className="text-4xl md:text-6xl font-bold text-[#fab116]"
                 style={{
                   transform: `rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`, // Dynamic 3D rotation based on cursor
                 }}
@@ -142,7 +142,7 @@ const SoftwareDevelopment = () => {
                 <a href="/contactus" className="inline-block">
                   <button
                     type="button"
-                    className="rounded-lg bg-[#fab116] px-6 py-3 text-lg font-semibold text-black shadow-md "
+                    className="rounded-lg bg-[#fab116] px-6 py-3 text-lg font-semibold text-black shadow-md"
                   >
                     Get in touch
                   </button>
@@ -169,8 +169,8 @@ const SoftwareDevelopment = () => {
         </section>
       </main>
 
-      {/* Additional Sections */}
-      <Status />
+     {/* Additional Sections */}
+     <Status />
       <SoftwareServices />
       {/* <BestPractice /> */}
       {/* <Achieve />
@@ -187,4 +187,5 @@ const SoftwareDevelopment = () => {
     </>
   );
 };
+
 export default SoftwareDevelopment;

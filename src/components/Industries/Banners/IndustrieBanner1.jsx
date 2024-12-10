@@ -22,68 +22,38 @@ const IndustrieBanner1 = () => {
     };
   }, []);
 
-  // Animation variants for the popover
-  const popoverVariants = {
-    hidden: { scale: 0.8, opacity: 0, rotateY: -10 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      rotateY: 0,
-      transition: {
-        duration: 0.6,
-        type: "spring",
-        stiffness: 90,
-        damping: 15,
-      },
-    },
-    exit: {
-      scale: 0.8,
-      opacity: 0,
-      rotateY: 10,
-      transition: { duration: 0.3 },
-    },
-  };
-
-  const shimmerVariants = {
-    shimmer: {
-      backgroundPosition: ["-100%", "200%"],
-      transition: { duration: 3, repeat: Infinity },
-    },
-  };
   return (
-    <div>
-      <div className="container py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+    <div className="pt-20 lg:pt-24 bg-white">
+      <div className="container mx-auto px-4 md:px-8 py-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           {/* Image section */}
-          <div className="flex flex-col justify-center">
+          <div className="flex justify-center">
             <motion.img
               initial={{ x: -100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
               src={Tele}
-              alt=""
-              className="w-[95%] md:w-full mx-auto rounded-lg shadow-md" // Rounded corners and shadow for aesthetics
+              alt="Telecommunications"
+              className="w-[90%] md:w-full rounded-lg shadow-md"
             />
           </div>
 
           {/* Text section */}
-          <div className="space-y-5 flex justify-center flex-col">
+          <div className="space-y-6">
             <motion.h1
               variants={SlideUp(0.2)}
               initial="initial"
               animate="animate"
-              className="text-2xl md:text-3xl text-black "
+              className="text-2xl md:text-4xl font-bold text-black"
             >
-              <span className="bg-gray-100 px-3 py-1 rounded">
-                Telecommunications
-              </span>
+              Telecommunications
             </motion.h1>
 
             <motion.p
               variants={SlideUp(0.4)}
               initial="initial"
-              whileInView="animate"
-              className="text-gray-600  text-base md:text-lg leading-relaxed md:leading-8 "
+              animate="animate"
+              className="text-gray-600 text-base md:text-lg leading-relaxed"
             >
               Telecom software development provides telcos with powerful
               solutions that automate service and business operations while
@@ -100,15 +70,12 @@ const IndustrieBanner1 = () => {
             </motion.p>
 
             <div>
-             
-              {/* Popover with Enhanced Animation */}
-              <Link to = "/telicommunications">
+              <Link to="/telicommunications">
                 <motion.button
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6, duration: 0.6 }}
-                  className="primary-btn  bg-black text-white shadow  w-full md:w-auto"
-                  style={{ minWidth: "150px" }}
+                  className="primary-btn bg-black text-white shadow w-full md:w-auto px-6 py-3 rounded-lg mt-5"
                 >
                   Learn more
                 </motion.button>
@@ -120,5 +87,6 @@ const IndustrieBanner1 = () => {
     </div>
   );
 };
+
 
 export default IndustrieBanner1;
