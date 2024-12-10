@@ -373,3 +373,18 @@
 .text-gold {
   color: #fab116; /* Gold color */
 }
+
+@media (min-width: 1024px) {
+  nav .relative.flex.items-center:hover > .absolute {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  nav .relative.flex.items-center > .absolute {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+}
