@@ -165,46 +165,46 @@
 //       </motion.div>
 
 //       {/* Mega Menu */}
-//       {isDesktopView &&
-//         openMenuId &&
-//         NavLinks.find((link) => link.id === openMenuId)?.submenu && (
-//           <div
-//             ref={megaMenuRef}
-//             className={`absolute top-full left-0 bg-white shadow-lg z-50`}
-//             onMouseEnter={() => setOpenMenuId(openMenuId)}
-//             onMouseLeave={() => setOpenMenuId(null)}
-//             style={{
-//               minWidth: "200px", // Adjust as needed for submenu width
-//               left: "50%", // Position submenu horizontally relative to the parent
-//               transform: "translateX(-50%)", // Center-align submenu under its parent
-//             }}
-//           >
-//             <div
-//               className={`container mx-auto ${openMenuId === 4
-//                 ? "flex flex-col items-start space-y-4 pl-4"
-//                 : "grid grid-cols-1 gap-6"
-//                 }`}
-//             >
-//               {NavLinks.find((link) => link.id === openMenuId).submenu.map(
-//                 (submenu) => (
-//                   <div
-//                     key={submenu.id}
-//                     className={`${openMenuId === 4 ? "w-full text-left" : ""
-//                       }`}
-//                   >
-//                     <Link
-//                       to={submenu.link}
-//                       className="block text-lg hover:underline"
-//                     >
-//                       {submenu.title}
-//                     </Link>
-//                   </div>
-//                 )
-//               )}
-//             </div>
-//           </div>
-//         )}
-//     </nav>
+//   {isDesktopView &&
+//     openMenuId &&
+//     NavLinks.find((link) => link.id === openMenuId)?.submenu && (
+//       <div
+//         ref={megaMenuRef}
+//         className={`absolute top-full left-0 bg-white shadow-lg z-50`}
+//         onMouseEnter={() => setOpenMenuId(openMenuId)}
+//         onMouseLeave={() => setOpenMenuId(null)}
+//         style={{
+//           minWidth: "200px", // Adjust as needed for submenu width
+//           left: "50%", // Position submenu horizontally relative to the parent
+//           transform: "translateX(-50%)", // Center-align submenu under its parent
+//         }}
+//       >
+//         <div
+//           className={`container mx-auto ${openMenuId === 4
+//             ? "flex flex-col items-start space-y-4 pl-4"
+//             : "grid grid-cols-1 gap-6"
+//             }`}
+//         >
+//           {NavLinks.find((link) => link.id === openMenuId).submenu.map(
+//             (submenu) => (
+//               <div
+//                 key={submenu.id}
+//                 className={`${openMenuId === 4 ? "w-full text-left" : ""
+//                   }`}
+//               >
+//                 <Link
+//                   to={submenu.link}
+//                   className="block text-lg hover:underline"
+//                 >
+//                   {submenu.title}
+//                 </Link>
+//               </div>
+//             )
+//           )}
+//         </div>
+//       </div>
+//     )}
+// </nav>
 //   );
 // };
 
@@ -407,7 +407,6 @@
 //     </header>
 //   );
 // };
-
 // export default Navbar;
 import React, { useState, useEffect, useRef } from "react";
 import Logo from "../../assets/Logo_gold.png";
@@ -418,26 +417,27 @@ import {
   XMarkIcon,
   ChevronDownIcon,
   ChevronUpIcon,
+  CpuChipIcon,
+  MagnifyingGlassIcon,
+  CodeBracketIcon,
+  WrenchIcon,
+  PhoneIcon,
+  ShoppingCartIcon,
+  CalendarDaysIcon,
 } from "@heroicons/react/24/outline";
-
-import { CodeBracketIcon, DevicePhoneMobileIcon, BuildingStorefrontIcon } from "@heroicons/react/24/outline";
 
 const NavLinks = [
   { id: 1, title: "Home", link: "/home" },
-  {
-    id: 2,
-    title: "About",
-    link: "/about",
-  },
+  { id: 2, title: "About", link: "/about" },
   {
     id: 3,
     title: "Services",
     link: "/services",
     submenu: [
       { id: "3-1", title: "Software Development", link: "/softwaredevelopment", icon: CodeBracketIcon },
-      { id: "3-2", title: "AI", link: "/ai", icon: DevicePhoneMobileIcon },
-      { id: "3-3", title: "SEO", link: "/seo", icon: DevicePhoneMobileIcon },
-      { id: "3-4", title: "Support & Maintance", link: "/supportmaintanace", icon: DevicePhoneMobileIcon },
+      { id: "3-2", title: "Artificial Intelligence", link: "/ai", icon: CpuChipIcon },
+      { id: "3-3", title: "Search Engine Optimization", link: "/seo", icon: MagnifyingGlassIcon },
+      { id: "3-4", title: "Support & Maintenance", link: "/supportmaintanace", icon: WrenchIcon },
     ],
   },
   {
@@ -445,20 +445,13 @@ const NavLinks = [
     title: "Industries",
     link: "/industries",
     submenu: [
-      { id: "4-1", title: "Telecommunication", link: "/telicommunications", icon: BuildingStorefrontIcon },
-      { id: "4-2", title: "Retail", link: "/retail", icon: BuildingStorefrontIcon },
-      { id: "4-3", title: "Events & Hospitality", link: "/events&hospitality", icon: BuildingStorefrontIcon },
-      // { id: "4-1", title: "Telecommunication", link: "/telicommunications", icon: BuildingStorefrontIcon },
-      // { id: "4-2", title: "Retail", link: "/retail", icon: BuildingStorefrontIcon },
-      // { id: "4-3", title: "Events & Hospitality", link: "/events&hospitality", icon: BuildingStorefrontIcon },
-      // { id: "4-1", title: "Telecommunication", link: "/telicommunications", icon: BuildingStorefrontIcon },
-      // { id: "4-2", title: "Retail", link: "/retail", icon: BuildingStorefrontIcon },
-      // { id: "4-3", title: "Events & Hospitality", link: "/events&hospitality", icon: BuildingStorefrontIcon },
+      { id: "4-1", title: "Telecommunication", link: "/telicommunications", icon: PhoneIcon },
+      { id: "4-2", title: "Retail", link: "/retail", icon: ShoppingCartIcon },
+      { id: "4-3", title: "Events & Hospitality", link: "/events&hospitality", icon: CalendarDaysIcon },
     ],
   },
   { id: 5, title: "Contact", link: "/contactus" },
 ];
-
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -482,19 +475,14 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        megaMenuRef.current &&
-        !megaMenuRef.current.contains(event.target)
-      ) {
+      if (megaMenuRef.current && !megaMenuRef.current.contains(event.target)) {
         setOpenMenuId(null);
         if (!isDesktopView) setMobileMenuOpen(false);
       }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isDesktopView]);
 
   return (
@@ -504,7 +492,7 @@ const Navbar = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
         className="container mx-auto px-4 py-4 flex justify-between items-center"
-        >
+      >
         {/* Logo */}
         <Link to="/">
           <img src={Logo} alt="logo" className="w-40" />
@@ -518,49 +506,51 @@ const Navbar = () => {
                 key={link.id}
                 className="relative flex items-center"
                 onMouseEnter={() => link.submenu && setOpenMenuId(link.id)}
-                onMouseLeave={() =>
-                  link.submenu && openMenuId !== link.id && setOpenMenuId(null)
-                }
+                onMouseLeave={() => link.submenu && openMenuId !== link.id && setOpenMenuId(null)}
               >
                 <NavLink
                   to={link.link}
                   className={({ isActive }) =>
-                    `text-md lg:text-xl ${isActive ? "underline decoration-yellow-500" : ""
-                    }`
+                    `text-md lg:text-xl ${isActive ? "underline decoration-yellow-500" : ""}`
                   }
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.title}
                 </NavLink>
                 {link.submenu && (
-                  <button className="ml-2 focus:outline-none">
-                    {openMenuId === link.id ? (
-                      <ChevronUpIcon className="w-5 h-5 text-gray-600 hover:text-yellow-500 transition duration-200" />
-                    ) : (
-                      <ChevronDownIcon className="w-5 h-5 text-gray-600 hover:text-yellow-500 transition duration-200" />
+                  <>
+                    <button className="ml-2 focus:outline-none">
+                      {openMenuId === link.id ? (
+                        <ChevronUpIcon className="w-5 h-5 text-gray-600 hover:text-yellow-500 transition duration-200" />
+                      ) : (
+                        <ChevronDownIcon className="w-5 h-5 text-gray-600 hover:text-yellow-500 transition duration-200" />
+                      )}
+                    </button>
+                    {openMenuId === link.id && (
+                      <motion.div
+                        ref={megaMenuRef}
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.3 }}
+                        className="absolute top-full left-0 w-[300px] mt-2 bg-white shadow-lg rounded-md py-4 z-50"
+                      >
+                        <div className="flex flex-col items-start gap-4 p-4">
+                          {link.submenu.map((submenu) => (
+                            <Link
+                              key={submenu.id}
+                              to={submenu.link}
+                              className="flex items-center gap-2 text-lg text-gray-800 hover:underline"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              <submenu.icon className="w-5 h-5 text-yellow-500" />
+                              {submenu.title}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
                     )}
-                  </button>
-                )}
-                {link.submenu && openMenuId === link.id && (
-                  <motion.div
-                    ref={megaMenuRef}
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute top-full left-0 w-[300px] mt-2 bg-white shadow-lg rounded-md py-4 z-50"
-                  >
-                    <div className="flex flex-col items-left gap-4 p-4">
-                      {link.submenu.map((submenu) => (
-                        <Link
-                          key={submenu.id}
-                          to={submenu.link}
-                          className="block text-lg text-gray-800 hover:underline"
-                        >
-                          {submenu.title}
-                        </Link>
-                      ))}
-                    </div>
-                  </motion.div>
+                  </>
                 )}
               </div>
             ))}
@@ -574,54 +564,73 @@ const Navbar = () => {
               onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 text-white bg-yellow-500 rounded focus:outline-none"
             >
-              {isMobileMenuOpen ? (
-                <XMarkIcon className="h-6 w-6" />
-              ) : (
-                <Bars3Icon className="h-6 w-6" />
-              )}
+              {isMobileMenuOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
             </button>
             {isMobileMenuOpen && (
               <div className="absolute top-full left-0 w-full bg-white shadow-lg rounded-md py-4 z-50">
                 <div className="flex flex-col items-start gap-4 px-4">
                   {NavLinks.map((link) => (
                     <div key={link.id} className="w-full">
-                      <button
-                        onClick={() =>
-                          link.submenu ? toggleMenu(link.id) : null
-                        }
-                        className="flex items-center justify-between w-full text-lg text-gray-800"
-                      >
-                        {link.title}
+                      <div className="flex items-center justify-between">
+                        <NavLink
+                          to={link.link}
+                          className={({ isActive }) =>
+                            `text-lg text-gray-800 hover:underline ${isActive ? "font-bold text-yellow-500" : ""
+                            }`
+                          }
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {link.title}
+                        </NavLink>
                         {link.submenu && (
-                          <span>
+                          <button
+                            onClick={() => toggleMenu(link.id)}
+                            className="flex items-center ml-2 text-gray-600"
+                          >
                             {openMenuId === link.id ? (
-                              <ChevronUpIcon className="w-5 h-5 text-gray-600" />
+                              <ChevronUpIcon className="w-5 h-5" />
                             ) : (
-                              <ChevronDownIcon className="w-5 h-5 text-gray-600" />
+                              <ChevronDownIcon className="w-5 h-5" />
                             )}
-                          </span>
+                          </button>
                         )}
-                      </button>
+                      </div>
+                      {/* Submenu Links */}
                       {link.submenu && openMenuId === link.id && (
                         <div className="flex flex-col gap-2 mt-2 pl-4">
                           {link.submenu.map((submenu) => (
-                            <Link
+                            <NavLink
                               key={submenu.id}
                               to={submenu.link}
-                              className="block text-md text-gray-600"
+                              className={({ isActive }) =>
+                                `block text-md text-gray-600 hover:underline ${isActive ? "font-bold text-yellow-500" : ""
+                                }`
+                              }
+                              onClick={() => setMobileMenuOpen(false)}
                             >
                               {submenu.title}
-                            </Link>
+                            </NavLink>
                           ))}
                         </div>
                       )}
                     </div>
                   ))}
+                  {/* Get In Touch Button */}
+                  <Link
+                    to="/contactus"
+                    className="primary-btn w-1/2 md:w-auto mt-5"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Get In Touch
+                  </Link>
                 </div>
               </div>
             )}
           </div>
         )}
+
+
+
 
         {/* Contact Button */}
         {isDesktopView && (

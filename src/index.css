@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -226,7 +225,8 @@
 
 .carousel-track {
   display: flex;
-  animation: infiniteScroll 1ms linear infinite; /* Adjust the duration for speed */
+  animation: infiniteScroll 1ms linear infinite;
+  /* Adjust the duration for speed */
 }
 
 /* Keyframes for infinite scrolling */
@@ -234,8 +234,10 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
-    transform: translateX(-100%); /* Move by half the width of the track */
+    transform: translateX(-100%);
+    /* Move by half the width of the track */
   }
 }
 
@@ -250,7 +252,8 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 40px; /* Adjust width as needed */
+  width: 40px;
+  /* Adjust width as needed */
   pointer-events: none;
   z-index: 10;
 }
@@ -297,9 +300,12 @@
 .zoom-controls button:hover {
   background-color: #ddd;
 }
+
 .black-underline {
-  text-decoration: underline; /* Applies underline */
-  text-decoration-color: black; /* Set the underline color to black */
+  text-decoration: underline;
+  /* Applies underline */
+  text-decoration-color: black;
+  /* Set the underline color to black */
 }
 
 .smoke-effect {
@@ -311,15 +317,25 @@
   0% {
     background-position: 0 0;
   }
+
   100% {
     background-position: 100% 100%;
   }
 }
+
 /* Add this to your global styles */
 @keyframes wiggle {
-  0% { transform: rotateX(0) rotateY(0); }
-  50% { transform: rotateX(10deg) rotateY(10deg); }
-  100% { transform: rotateX(0) rotateY(0); }
+  0% {
+    transform: rotateX(0) rotateY(0);
+  }
+
+  50% {
+    transform: rotateX(10deg) rotateY(10deg);
+  }
+
+  100% {
+    transform: rotateX(0) rotateY(0);
+  }
 }
 
 .wiggling-text {
@@ -348,13 +364,16 @@
   transform: rotateY(20deg) rotateX(15deg);
   transition: transform 0.3s ease-out;
 }
+
 @keyframes laser-pass {
   0% {
     transform: translateY(-100%);
   }
+
   50% {
     transform: translateY(50%);
   }
+
   100% {
     transform: translateY(100%);
   }
@@ -365,26 +384,43 @@
   background: linear-gradient(to bottom, #fab116, #fab116);
   opacity: 0.8;
   width: 100%;
-  height: 200%; /* To ensure the animation flows smoothly */
+  height: 200%;
+  /* To ensure the animation flows smoothly */
   position: absolute;
-  top: -50%; /* Starts before the line */
+  top: -50%;
+  /* Starts before the line */
   left: 0;
 }
+
 .text-gold {
-  color: #fab116; /* Gold color */
+  color: #fab116;
+  /* Gold color */
 }
 
 @media (min-width: 1024px) {
-  nav .relative.flex.items-center:hover > .absolute {
-    visibility: visible;
-    opacity: 1;
-    pointer-events: auto;
+
+  /* Parent element should have relative positioning */
+  nav .relative.flex.items-center {
+    position: relative;
   }
 
-  nav .relative.flex.items-center > .absolute {
+  /* Default state of the absolute element */
+  nav .relative.flex.items-center>.absolute {
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0s ease 0.3s;
+    /* delay visibility change until after opacity transition */
+  }
+
+  /* Hover state on any navlink triggers the mega-menu visibility */
+  nav .relative.flex.items-center:hover>.absolute,
+  nav .relative.flex.items-center .navlink:hover>.absolute {
+    /* Make sure navlink is correctly targeted */
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.3s ease, visibility 0s ease 0s;
+    /* instantly show visibility after opacity transition */
   }
 }

@@ -177,12 +177,14 @@ const EventsAndHospitalityPage = () => {
                         >
                             Discover Our Services
                         </button>
+                        <Link to="/contactus">
                         <button
                             type="button"
                             className="border border-[#fab116] text-[#fab116] px-4 py-2 text-sm sm:text-lg rounded-lg hover:bg-white hover:text-black transition"
                         >
-                            Learn More
+                            Get in touch
                         </button>
+                        </Link>
                     </motion.div>
                 </div>
             </section>
@@ -446,9 +448,11 @@ const EventsAndHospitalityPage = () => {
                         experiences with innovative solutions. Elevate your events with our
                         tailored software tools.
                     </p>
+                    <Link to ="/learnMore">
                     <button className="mt-2 rounded-lg border border-[#fab116] text-white px-4 py-2 text-sm sm:text-lg  hover:bg-white hover:text-black transition">
                         Learn More
                     </button>
+                    </Link>
                 </motion.div>
 
                 {/* Image Content */}

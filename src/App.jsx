@@ -18,13 +18,12 @@ import SoftwareDevelopment from "./components/Services/catogeries/softwareDevelo
 import SupportMaintanace from "./components/Services/catogeries/supportMaintance/supportmaintanace";
 import Seo from "./components/Services/catogeries/seo/seo";
 import Ai from "./components/Services/catogeries/ai/ai";
-
-
-
 import Telicommunications from "./components/Industries/pages/telicommunications/telicommunications";
 import Retail from "./components/Industries/pages/retail/retail";
 import EventsAndHospitality from "./components/Industries/pages/events&hospitatily/events&hospitality";
 import Team from "./components/Banner/team";
+import LearnMore from "./components/Industries/pages/events&hospitatily/learnMore";
+
 const Home = () => ( 
   <>
     <Hero />
@@ -61,6 +60,7 @@ const App = () => {
           <Route path="/retail" element={<Retail/>} />
           <Route path="/events&hospitality" element={<EventsAndHospitality/>} />
           <Route path="/team" element={<Team/>} />
+          <Route path="/learnMore" element={<LearnMore/>} />
           
         </Routes>
         <Footer />

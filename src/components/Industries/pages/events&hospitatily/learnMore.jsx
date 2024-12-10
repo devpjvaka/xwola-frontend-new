@@ -1,9 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import hero from "../../assets/banner1-team.png"
+import img from "../../../../assets/Industries/learn.webp"
 import { Link } from "react-router-dom";
 
-const Team = () => {
+const LearnMore = () => {
   return (
     <div className="bg-white text-black min-h-screen flex items-center justify-center">
       <motion.div
@@ -13,17 +13,18 @@ const Team = () => {
         className="container mx-auto px-4 py-16 text-center"
       >
         <h1 className="text-4xl font-bold mb-6 text-gold">
-          Learn More About Our Vision
+          Redefining Hospitality with Technology
         </h1>
         <p className="text-lg text-gray-700 mb-8">
-          At Xwola, we believe in the power of teamwork, collaboration, and
-          innovation to transform ideas into impactful solutions. Learn more
-          about our journey and how we aim to drive your projects forward.
+          Xwola brings seamless event management and personalized guest
+          experiences with innovative solutions. Elevate your events with our
+          tailored software tools.
         </p>
         <motion.img
-          src={hero}
+          src={img}
           alt="Learn More Visual"
-          className="w-full md:w-2/3 mx-auto rounded shadow-lg"
+          className="md:w-2/3  mx-auto rounded shadow-lg"
+          style={{ width: '700px', height: '400px' }}
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
         />
@@ -40,4 +41,4 @@ const Team = () => {
   );
 };
 
-export default Team;
+export default LearnMore;

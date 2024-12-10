@@ -57,10 +57,10 @@ const TestimonialsSection = () => {
             <p className="text-gray-300 italic mb-4">{testimonial.feedback}</p>
 
             {/* Name */}
-            <h3 className="text-lg font-bold text-gold mb-2">{testimonial.name}</h3>
+            <h3 className="text-lg font-bold text-[#fab116] mb-2">{testimonial.name}</h3>
 
             {/* Star Ratings */}
-            <div className="flex text-gold">
+            <div className="flex text-[#fab116]">
               {Array.from({ length: testimonial.rating }).map((_, i) => (
                 <span key={i}>&#9733;</span> // Star Unicode
               ))}

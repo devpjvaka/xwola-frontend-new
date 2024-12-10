@@ -22,9 +22,9 @@ const IndustrieBanner2 = () => {
   }, []);
 
   return (
-    <div className="pt-20 lg:pt-24 bg-white">
-      <div className="container mx-auto px-4 md:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    <div>
+      <div className="container mx-auto py-10 px-4 sm:px-8 lg:py-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Image section */}
           <div className="flex flex-col justify-center order-1 md:order-2">
             <motion.img

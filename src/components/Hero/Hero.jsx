@@ -65,7 +65,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
-                className="primary-btn bg-black text-white shadow w-full md:w-auto mb-2 mt-5"
+                className="primary-btn bg-black text-white shadow w-1/2 md:w-auto mb-2 mt-5"
                 style={{ minWidth: "150px" }}
               >
                 Get started
@@ -76,7 +76,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.9, duration: 0.6 }}
-                className="primary-btn w-full md:w-auto mt-5"
+                className="primary-btn w-1/2 md:w-auto mt-5"
                 style={{ minWidth: "150px" }}
               >
                 Contact us

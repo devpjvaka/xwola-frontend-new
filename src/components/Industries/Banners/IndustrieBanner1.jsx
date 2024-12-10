@@ -23,9 +23,9 @@ const IndustrieBanner1 = () => {
   }, []);
 
   return (
-    <div className="pt-20 lg:pt-24 bg-white">
-      <div className="container mx-auto px-4 md:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    <div>
+      <div className="container mx-auto py-10 px-4 sm:px-8 lg:py-14 mt-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Image section */}
           <div className="flex justify-center">
             <motion.img
@@ -39,7 +39,7 @@ const IndustrieBanner1 = () => {
           </div>
 
           {/* Text section */}
-          <div className="space-y-6">
+          <div className="space-y-5 flex justify-center text-center md:text-left flex-col">
             <motion.h1
               variants={SlideUp(0.2)}
               initial="initial"
@@ -70,12 +70,12 @@ const IndustrieBanner1 = () => {
             </motion.p>
 
             <div>
+
+              {/* Popover with Enhanced Animation */}
               <Link to="/telicommunications">
                 <motion.button
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6, duration: 0.6 }}
-                  className="primary-btn bg-black text-white shadow w-full md:w-auto px-6 py-3 rounded-lg mt-5"
+                  className="primary-btn bg-black text-white px-6 py-2 mt-6 shadow-[5px_5px_0px_0px_#6c6c6c] hover:shadow-md"
+                  onClick={() => setPopoverOpen(!popoverOpen)}
                 >
                   Learn more
                 </motion.button>
