@@ -64,7 +64,6 @@ import { Link } from "react-router-dom";
 //     </div>
 //   );
 // };
-
 const ServicesBanner1 = () => {
   const [popoverOpen, setPopoverOpen] = useState(false);
   const popoverRef = useRef(null);
@@ -82,38 +81,9 @@ const ServicesBanner1 = () => {
     };
   }, []);
 
-  // Animation variants for the popover
-  const popoverVariants = {
-    hidden: { scale: 0.8, opacity: 0, rotateY: -10 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      rotateY: 0,
-      transition: {
-        duration: 0.6,
-        type: "spring",
-        stiffness: 90,
-        damping: 15,
-      },
-    },
-    exit: {
-      scale: 0.8,
-      opacity: 0,
-      rotateY: 10,
-      transition: { duration: 0.3 },
-    },
-  };
-
-  const shimmerVariants = {
-    shimmer: {
-      backgroundPosition: ["-100%", "200%"],
-      transition: { duration: 3, repeat: Infinity },
-    },
-  };
-
   return (
-    <div className="py-12 px-4 md:py-24 md:px-8 bg-gray-50">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+    <div className="pt-20 lg:pt-24 bg-gray-50">
+      <div className="container mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
         {/* Image Section */}
         <motion.div
           initial={{ x: -100, opacity: 0 }}
@@ -129,7 +99,7 @@ const ServicesBanner1 = () => {
         </motion.div>
 
         {/* Text Section */}
-        <div className="space-y-6 text-center md:text-left">
+        <div className="space-y-6 text-center sm:text-left">
           <motion.h1 className="text-2xl md:text-3xl text-black">
             <span className="bg-gray-100 px-3 py-1 rounded">
               Software Development
@@ -148,23 +118,23 @@ const ServicesBanner1 = () => {
           </motion.p>
 
           <Link to="/softwaredevelopment">
-              <motion.button
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-                className="primary-btn  bg-black text-white shadow  w-full md:w-auto"
-                style={{ minWidth: "150px" }}
-              >
-                Learn more
-              </motion.button>
-
-
-            </Link>
-
-        
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className="primary-btn bg-black text-white shadow w-auto mt-5 text-xs sm:text-sm md:text-base px-2 py-1 sm:px-4 sm:py-2 rounded"
+              style={{
+                minWidth: "80px", // Smaller button for small screens
+              }}
+            >
+              Learn more
+            </motion.button>
+          </Link>
         </div>
       </div>
     </div>
   );
 };
+
+
 export default ServicesBanner1;

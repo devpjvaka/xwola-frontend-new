@@ -210,7 +210,7 @@ const Services = () => {
     },
     {
       id: 4,
-      title: "Seo",
+      title: "SEO",
       subtitle:
         "Boost your website's visibility with optimized content tailored for search engines, driving organic traffic and user engagement.",
       image: SEO,
@@ -219,7 +219,6 @@ const Services = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Auto transition every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
@@ -241,17 +240,9 @@ const Services = () => {
 
   return (
     <>
-      <section className="mx-auto mt-16 bg-black p-6 md:p-8">
+      <section className="pt-20 lg:pt-24 mx-auto bg-black p-6 md:p-8">
         {/* Carousel Section */}
         <div className="relative flex flex-col justify-center items-center h-screen bg-black text-white overflow-hidden">
-          {/* Previous Button */}
-          {/* <button
-            className="absolute left-5 top-1/2 transform -translate-y-1/2 bg-gray-800 p-2 rounded-full z-10"
-            onClick={prevSlide}
-          >
-            ❮
-          </button> */}
-
           {/* Carousel Content */}
           <div className="flex items-center w-full">
             <AnimatePresence mode="wait">
@@ -285,14 +276,6 @@ const Services = () => {
             </AnimatePresence>
           </div>
 
-          {/* Next Button */}
-          {/* <button
-            className="absolute right-5 top-1/2 transform -translate-y-1/2 bg-gray-800 p-2 rounded-full z-10"
-            onClick={nextSlide}
-          >
-            ❯
-          </button> */}
-
           {/* Dots Navigation */}
           <div className="absolute bottom-8 flex justify-center space-x-2">
             {carouselData.map((_, index) => (
@@ -314,4 +297,5 @@ const Services = () => {
     </>
   );
 };
+
 export default Services;

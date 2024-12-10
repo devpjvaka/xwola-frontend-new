@@ -21,37 +21,9 @@ const ServicesBanner3 = () => {
     };
   }, []);
 
-  // Animation variants for the popover
-  const popoverVariants = {
-    hidden: { scale: 0.8, opacity: 0, rotateY: -10 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      rotateY: 0,
-      transition: {
-        duration: 0.6,
-        type: "spring",
-        stiffness: 90,
-        damping: 15,
-      },
-    },
-    exit: {
-      scale: 0.8,
-      opacity: 0,
-      rotateY: 10,
-      transition: { duration: 0.3 },
-    },
-  };
-
-  const shimmerVariants = {
-    shimmer: {
-      backgroundPosition: ["-100%", "200%"],
-      transition: { duration: 3, repeat: Infinity },
-    },
-  };
   return (
-    <div className="py-12 px-4 md:py-24 md:px-8 bg-gray-50">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+    <div className="pt-20 lg:pt-24 bg-gray-50">
+      <div className="container mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
         {/* Image Section */}
         <motion.div
           initial={{ x: -100, opacity: 0 }}
@@ -72,7 +44,7 @@ const ServicesBanner3 = () => {
             variants={SlideUp(0.2)}
             initial="initial"
             animate="animate"
-            className="text-2xl md:text-3xl  text-black"
+            className="text-2xl md:text-3xl text-black"
           >
             <span className="bg-gray-100 px-3 py-1 rounded">
               AI & Data Science
@@ -83,7 +55,7 @@ const ServicesBanner3 = () => {
             variants={SlideUp(0.4)}
             initial="initial"
             animate="animate"
-            className="text-gray-600  text-base md:text-lg leading-relaxed md:leading-8 "
+            className="text-gray-600 text-base md:text-lg leading-relaxed md:leading-8"
           >
             AI & Data Science are at the forefront of our software services,
             empowering businesses to make smarter decisions through data-driven
@@ -97,12 +69,14 @@ const ServicesBanner3 = () => {
           </motion.p>
 
           <Link to="/ai">
-            <motion.button
+          <motion.button
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
-              className="primary-btn  bg-black text-white shadow  w-full md:w-auto"
-              style={{ minWidth: "150px" }}
+              className="primary-btn bg-black text-white shadow w-auto mt-5 text-xs sm:text-sm md:text-base px-2 py-1 sm:px-4 sm:py-2 rounded"
+              style={{
+                minWidth: "80px", // Smaller button for small screens
+              }}
             >
               Learn more
             </motion.button>
