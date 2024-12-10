@@ -300,129 +300,130 @@ const EventsAndHospitalityPage = () => {
             </section> */}
 
             <section id="features" className="py-12 sm:py-16 bg-white">
-    <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-        <motion.h2
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-black"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-        >
-             Key Features
-        </motion.h2>
-        <div className="grid grid-cols-2 gap-4 sm:gap-8 mt-8">
-            {[
-                {
-                    title: "Event Management Software",
-                    description: "Scheduling, attendee tracking, and analytics tools.",
-                    icon: (
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="w-12 h-12 text-black group-hover:text-white transition"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M8 7V3m8 4V3m-9 8h10m-6 4h2m7-13H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2z"
-                            />
-                        </svg>
-                    ),
-                },
-                {
-                    title: "Hospitality Solutions",
-                            description: "Enhance guest experiences with digital tools.",
-                            icon: (
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="w-12 h-12 text-black group-hover:text-white transition"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M5 13l4 4L19 7m2-5H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V4a2 2 0 00-2-2z"
-                                    />
-                                </svg>
-                            ),
-                },
-                {
-                    title: "Budget Tracking",
-                    description: "Track your event's expenses and revenue with real-time tools.",
-                    icon: (
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="w-12 h-12 text-black group-hover:text-white transition"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M8 16s-2 0-3-3 1-5 5-5h4s2 0 3 3-1 5-5 5H8zm-2 5h12a2 2 0 002-2v-4m-2 6h2m-16-2h2m0-4h12m-4 2v4m-4-4v4"
-                            />
-                        </svg>
-                    ),
-                },
-                {
-                    title: "Custom Integrations",
-                    description: "Tailored solutions for your unique needs.",
-                    icon: (
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="w-12 h-12 text-black group-hover:text-white transition"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M8 16s-2 0-3-3 1-5 5-5h4s2 0 3 3-1 5-5 5H8zm-2 5h12a2 2 0 002-2v-4m-2 6h2m-16-2h2m0-4h12m-4 2v4m-4-4v4"
-                            />
-                        </svg>
-                    ),
-                },
-            ].map((feature, index) => (
-                <motion.div
-                    key={index}
-                    className="bg-white p-4 sm:p-6 rounded-lg border border-black text-left hover:shadow-lg"
-                    initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{
-                        duration: 0.5,
-                        delay: index * 0.2,
-                        ease: "easeOut",
-                    }}
-                    whileHover={{
-                        scale: 1.05,
-                        boxShadow: "0px 10px 20px rgba(250, 177, 22, 0.4)",
-                    }}
-                    whileTap={{
-                        scale: 0.98,
-                        boxShadow: "0px 5px 10px rgba(250, 177, 22, 0.3)",
-                    }}
-                >
-                    <div className="mr-4">{feature.icon}</div>
-                    <h3 className="text-sm sm:text-base md:text-lg font-bold text-[#fab116]">
-                        {feature.title}
-                    </h3>
-                    <p className="mt-2 text-xs sm:text-sm text-gray-700">{feature.description}</p>
-                </motion.div>
-            ))}
-        </div>
-    </div>
-</section>
+                <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+                    <motion.h2
+                        className="text-2xl sm:text-3xl md:text-4xl font-bold text-black"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        Key Features
+                    </motion.h2>
+                    <div className="grid grid-cols-2 gap-4 sm:gap-8 mt-8">
+                        {[
+                            {
+                                title: "Event Management Software",
+                                description: "Scheduling, attendee tracking, and analytics tools.",
+                                icon: (
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="w-12 h-12 text-black group-hover:text-white transition"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M8 7V3m8 4V3m-9 8h10m-6 4h2m7-13H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2z"
+                                        />
+                                    </svg>
+                                ),
+                            },
+                            {
+                                title: "Hospitality Solutions",
+                                description: "Enhance guest experiences with digital tools.",
+                                icon: (
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="w-12 h-12 text-black group-hover:text-white transition"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M5 13l4 4L19 7m2-5H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V4a2 2 0 00-2-2z"
+                                        />
+                                    </svg>
+                                ),
+                            },
+                            {
+                                title: "Budget Tracking",
+                                description: "Track your event's expenses and revenue with real-time tools.",
+                                icon: (
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="w-12 h-12 text-black group-hover:text-white transition"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M8 16s-2 0-3-3 1-5 5-5h4s2 0 3 3-1 5-5 5H8zm-2 5h12a2 2 0 002-2v-4m-2 6h2m-16-2h2m0-4h12m-4 2v4m-4-4v4"
+                                        />
+                                    </svg>
+                                ),
+                            },
+                            { 
+                                title: "Custom Integrations",
+                                description: "Tailored solutions for your unique needs.",
+                                icon: (
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="w-12 h-12 text-black group-hover:text-white transition"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.66 3.93c.24-.8.34-1.65.29-2.5h-3.04a8.941 8.941 0 0 0-.92-2.12l2.16-2.16a10.054 10.054 0 0 0-1.41-1.41l-2.16 2.16a8.941 8.941 0 0 0-2.12-.92V2.66c-.85-.05-1.7.05-2.5.29V5.7c-.74.14-1.45.37-2.12.92L5.12 4.47A10.054 10.054 0 0 0 3.71 5.88l2.16 2.16c-.55.67-.78 1.38-.92 2.12H2.66c-.05.85.05 1.7.29 2.5h3.04c.14.74.37 1.45.92 2.12L4.47 18.88a10.054 10.054 0 0 0 1.41 1.41l2.16-2.16c.67.55 1.38.78 2.12.92v3.04c.8.24 1.65.34 2.5.29v-3.04c.74-.14 1.45-.37 2.12-.92l2.16 2.16c.44-.3.87-.64 1.27-1.05l-2.16-2.16c.55-.67.78-1.38.92-2.12h3.04c.24-.8.34-1.65.29-2.5h-3.04c-.14-.74-.37-1.45-.92-2.12z"
+                                        />
+                                    </svg>
+                                ),
+                            },
+
+                        ].map((feature, index) => (
+                            <motion.div
+                                key={index}
+                                className="bg-white p-4 sm:p-6 rounded-lg border border-black text-left hover:shadow-lg"
+                                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: index * 0.2,
+                                    ease: "easeOut",
+                                }}
+                                whileHover={{
+                                    scale: 1.05,
+                                    boxShadow: "0px 10px 20px rgba(250, 177, 22, 0.4)",
+                                }}
+                                whileTap={{
+                                    scale: 0.98,
+                                    boxShadow: "0px 5px 10px rgba(250, 177, 22, 0.3)",
+                                }}
+                            >
+                                <div className="mr-4">{feature.icon}</div>
+                                <h3 className="text-sm sm:text-base md:text-lg font-bold text-[#fab116]">
+                                    {feature.title}
+                                </h3>
+                                <p className="mt-2 text-xs sm:text-sm text-gray-700">{feature.description}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
 
 
 

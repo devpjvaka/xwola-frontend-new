@@ -23,7 +23,7 @@ import Ai from "./components/Services/catogeries/ai/ai";
 
 import Telicommunications from "./components/Industries/pages/telicommunications/telicommunications";
 import Retail from "./components/Industries/pages/retail/retail";
-import EventsAndHospitality from "./components/Industries/pages/events&hospitatily/events&hospitatily";
+import EventsAndHospitality from "./components/Industries/pages/events&hospitatily/events&hospitality";
 import Team from "./components/Banner/team";
 const Home = () => ( 
   <>
@@ -59,7 +59,7 @@ const App = () => {
 
           <Route path="/telicommunications" element={<Telicommunications/>} />
           <Route path="/retail" element={<Retail/>} />
-          <Route path="/events&hospitatily" element={<EventsAndHospitality/>} />
+          <Route path="/events&hospitality" element={<EventsAndHospitality/>} />
           <Route path="/team" element={<Team/>} />
           
         </Routes>

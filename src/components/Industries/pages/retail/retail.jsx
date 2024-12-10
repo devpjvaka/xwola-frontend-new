@@ -4,9 +4,11 @@ import heroimg from '../../../../assets/Industries/retail-hero.webp'
 import image1 from '../../../../assets/Industries/transfrom-ideas.webp'
 import { Link } from "react-router-dom";
 
+
 const Retail = () => {
     return (
         <div className="bg-black text-white">
+           
             {/* Hero Section */}
             <section
                 id="hero"
@@ -390,6 +392,7 @@ const Retail = () => {
                     </button>
                 </Link>
             </section>
+            
 
 
         </div>
