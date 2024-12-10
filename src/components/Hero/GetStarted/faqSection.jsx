@@ -25,7 +25,7 @@ const FaqSection = () => {
 
   return (
     <section className="py-20 px-6 bg-black text-white">
-      <h2 className="text-4xl font-bold text-center mb-12 text-gold">FAQs</h2>
+      <h2 className="text-4xl font-bold text-center mb-12 text-[#fab116]">FAQs</h2>
       <div className="space-y-8">
         {faqs.map((faq, index) => (
           <motion.div
@@ -36,7 +36,7 @@ const FaqSection = () => {
             transition={{ duration: 0.6, delay: index * 0.2 }}
             onClick={() => toggleFAQ(index)}
           >
-            <h3 className="text-xl font-bold text-gold flex justify-between items-center">
+            <h3 className="text-xl font-bold text-[#fab116] flex justify-between items-center">
               {faq.question}
               <span>{openIndex === index ? "−" : "+"}</span>
             </h3>

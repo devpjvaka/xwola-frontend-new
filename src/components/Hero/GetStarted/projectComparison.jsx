@@ -3,7 +3,7 @@ import React from 'react';
 function ProjectStartComparison() {
   return (
     <section className="container mx-auto px-4 py-8 md:px-6 md:py-12 rounded-3xl mt-8">
-      <h2 className="text-2xl md:text-3xl font-bold text-center text-gold mb-6 md:mb-8">
+      <h2 className="text-2xl md:text-3xl font-bold text-center text-black mb-6 md:mb-8">
         Such a Small Step, a Project Start May Still Be Dissatisfying
       </h2>
 

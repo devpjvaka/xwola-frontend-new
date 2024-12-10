@@ -23,7 +23,7 @@ const StepsSection = () => {
             transition={{ duration: 0.6, delay: index * 0.2 }}
           >
             <div className="text-5xl mb-4">{step.icon}</div>
-            <h3 className="text-xl font-bold text-gold mb-2">{step.title}</h3>
+            <h3 className="text-xl font-bold text-[#fab116] mb-2">{step.title}</h3>
             <p className="text-gray-300">{step.description}</p>
           </motion.div>
         ))}

@@ -67,13 +67,14 @@
 
 // export default GetStarted;
 import React, { useState } from "react";
- 
+
 import { motion } from "framer-motion";
 import heroimg from "../../../assets/getstartedbg.webp";
 import ProjectStartComparison from './projectComparison';
 import FaqSection from './faqSection';
 import StepsSection from './stepsSection';
 import TestimonialsSection from "./testimonialsSection";
+import { Link } from "react-router-dom";
 
 const GetStarted = () => {
   return (
@@ -85,8 +86,12 @@ const GetStarted = () => {
           backgroundImage: `url(${heroimg})`,
         }}
       >
-        {/* Transparent Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-60 z-0"></div>
+        <div
+          className="absolute inset-0 bg-black bg-opacity-60"
+          style={{
+            background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7))',
+          }}
+        ></div>
         <motion.h1
           className="text-5xl font-bold mb-4 z-10"
           initial={{ opacity: 0, y: -50 }}
@@ -96,7 +101,7 @@ const GetStarted = () => {
           Get Started with Xwola
         </motion.h1>
         <motion.p
-          className="text-gold text-lg mb-8 z-10"
+          className="text-[#fab116] text-lg mb-8 z-10"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -104,18 +109,13 @@ const GetStarted = () => {
           Start your journey to innovative software solutions today!
         </motion.p>
         
-        <motion.button
-          className="bg-gold text-black py-3 px-6 rounded-lg font-semibold hover:bg-white transition z-10"
-          whileHover={{ scale: 1.1 }}
-        >
-          Begin Now
-        </motion.button>
-        
+
+
       </section>
 
       {/* Steps Section */}
-      <StepsSection/>
-      
+      <StepsSection />
+
 
       <ProjectStartComparison />
       {/* Testimonials Section */}
