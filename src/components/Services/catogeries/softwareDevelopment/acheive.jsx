@@ -1,6 +1,7 @@
-import React from "react";
-import { motion, useInView } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import mountainImage from "../../../../assets/Services/catogeries/softwaredevelopment/mountain.jpg"; // Replace with the path to your image
+import CountUp from "react-countup";
 
 const Achieve = () => {
   const ref = React.useRef(null);
@@ -9,7 +10,7 @@ const Achieve = () => {
   return (
     <div className="bg-black py-16 px-8" ref={ref}>
       <div className="container mx-auto flex flex-col md:flex-row items-center gap-8">
-        
+
         {/* Image Section (Left Side) */}
         <motion.div
           className="w-full md:w-1/2 relative"

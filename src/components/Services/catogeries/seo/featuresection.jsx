@@ -156,7 +156,7 @@ const FeaturesSection = () => {
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto">
-        <div className="flex flex-col  w-full mb-20">
+        <div className="flex flex-col w-full mb-20">
           <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
             Why Choose Our SEO Services?
           </h1>
@@ -193,11 +193,42 @@ const FeaturesSection = () => {
                   src={item.imgSrc}
                 />
                 <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
-                  <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                    {item.title}
-                  </h1>
+                  <motion.h1
+                    className="title-font text-2xl  font-medium text-[#fab116] mb-3"
+                    initial="hidden"
+                    animate="visible"
+                    variants={{
+                      hidden: { opacity: 0 },
+                      visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+                    }}
+                  >
+                    {item.title.split("").map((char, i) => (
+                      <motion.span
+                        key={i}
+                        className="relative inline-block"
+                        initial={{ opacity: 0, y: "100%" }}
+                        animate={{ opacity: 1, y: "0%" }}
+                        transition={{
+                          duration: 0.4,
+                          delay: i * 0.05,
+                          ease: "easeOut",
+                        }}
+                      >
+                        {char}
+                        <motion.span
+                          initial={{ width: "0%" }}
+                          animate={{ width: "100%" }}
+                          transition={{
+                            duration: 0.4,
+                            delay: i * 0.05,
+                            ease: "easeOut",
+                          }}
+                        />
+                      </motion.span>
+                    ))}
+                  </motion.h1>
                   {item.paragraphs.map((paragraph, i) => (
-                    <p key={i} className="leading-relaxed mb-4">
+                    <p key={i} className="leading-relaxed text-xl mb-4">
                       {paragraph}
                     </p>
                   ))}

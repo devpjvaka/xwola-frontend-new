@@ -175,7 +175,7 @@ const SoftwareDevelopment = () => {
       {/* <BestPractice /> */}
       {/* <Achieve />
       <Howwehelp />
-      <Scenario /> */}
+      <Scenario /> 
       <Faqs />
       {/* <Softwaretypes />
       <Byindustryspecific />
@@ -183,6 +183,7 @@ const SoftwareDevelopment = () => {
       <Clientsreview /> */}
       <Softwaresupportindustry />
       <Softwaredevelopmentsteps />
+      <Faqs />
     </>
   );
 };

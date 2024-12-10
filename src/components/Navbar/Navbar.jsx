@@ -287,9 +287,7 @@ const NavLinks = [
     id: 2,
     title: "About",
     link: "/about",
-    submenu: [
-
-    ],
+    submenu: [],
   },
   {
     id: 3,
@@ -312,10 +310,9 @@ const NavLinks = [
       { id: "4-1", title: "Telecommunication", link: "/telicommunications" },
       { id: "4-6", title: "Retail", link: "/retail" },
       { id: "4-1", title: "Events & Hospitality", link: "/events&hospitatily" },
-
     ],
   },
-  { id: 5, title: "Contact ", link: "/contactus" },
+  { id: 5, title: "Contact", link: "/contactus" },
 ];
 
 const Navbar = () => {
@@ -381,7 +378,8 @@ const Navbar = () => {
               <NavLink
                 to={link.link}
                 className={({ isActive }) =>
-                  `text-md lg:text-xl ${isActive ? "underline decoration-yellow-500" : ""
+                  `text-md lg:text-xl ${
+                    isActive ? "underline decoration-yellow-500" : ""
                   }`
                 }
               >
@@ -411,7 +409,11 @@ const Navbar = () => {
             onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
             className="p-2 text-white bg-yellow-500 rounded focus:outline-none"
           >
-            {isMobileMenuOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
+            {isMobileMenuOpen ? (
+              <XMarkIcon className="h-6 w-6" />
+            ) : (
+              <Bars3Icon className="h-6 w-6" />
+            )}
           </button>
         </div>
       </motion.div>
@@ -427,8 +429,7 @@ const Navbar = () => {
             onMouseLeave={() => setOpenMenuId(null)}
           >
             <div className="container mx-auto p-6 grid grid-cols-1 gap-6">
-              {NavLinks.find((link) => link.id === openMenuId).submenu.map((submenu, index) => (
-                // You can keep it as a flex or grid layout
+              {NavLinks.find((link) => link.id === openMenuId).submenu.map((submenu) => (
                 <div key={submenu.id} className="col-span-1">
                   <Link
                     to={submenu.link}
@@ -451,7 +452,8 @@ const Navbar = () => {
                 <NavLink
                   to={link.link}
                   className={({ isActive }) =>
-                    `block text-md font-medium ${isActive ? "underline decoration-yellow-500" : ""
+                    `block text-md font-medium ${
+                      isActive ? "underline decoration-yellow-500" : ""
                     }`
                   }
                 >
@@ -498,4 +500,5 @@ const Navbar = () => {
     </nav>
   );
 };
+
 export default Navbar;

@@ -83,5 +83,4 @@ const BestPractices = () => {
     </div>
   );
 };
-
 export default BestPractices;

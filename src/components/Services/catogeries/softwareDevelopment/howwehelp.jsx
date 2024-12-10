@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { BsArrowUpRight } from "react-icons/bs";
 
+
 const features = [
   {
     title: "Software consulting",
@@ -158,5 +159,4 @@ const Howwehelp = () => {
     </div>
   );
 };
-
 export default Howwehelp;
