@@ -135,11 +135,13 @@ const Retail = () => {
                         <p className="mt-4 text-gray-900">
                             We blend creativity and technology to bring your vision to life. From innovative solutions to cutting-edge services, we're here to make a difference.
                         </p>
+                        <Link to ="/ideas">
                         <button
                             className="mt-6 bg-white border-2 border-[#fab116] text-black hover:bg-[#fab116] text-black font-semibold py-3 px-6 rounded-lg transition-all duration-300"
                         >
                             Learn More
                         </button>
+                        </Link>
                     </div>
 
                     {/* Image */}

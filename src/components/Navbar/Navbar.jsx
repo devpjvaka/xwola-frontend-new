@@ -418,7 +418,7 @@ import {
   ChevronDownIcon,
   ChevronUpIcon,
   CpuChipIcon,
-  MagnifyingGlassIcon,
+  MagnifyingGlassIcon, 
   CodeBracketIcon,
   WrenchIcon,
   PhoneIcon,
@@ -541,7 +541,10 @@ const Navbar = () => {
                               key={submenu.id}
                               to={submenu.link}
                               className="flex items-center gap-2 text-lg text-gray-800 hover:underline"
-                              onClick={() => setMobileMenuOpen(false)}
+                              onClick={() => {
+                                setMobileMenuOpen(false);
+                                setOpenMenuId(null); // Close submenu
+                              }}
                             >
                               <submenu.icon className="w-5 h-5 text-yellow-500" />
                               {submenu.title}
@@ -599,15 +602,16 @@ const Navbar = () => {
                       {link.submenu && openMenuId === link.id && (
                         <div className="flex flex-col gap-2 mt-2 pl-4">
                           {link.submenu.map((submenu) => (
-                            <NavLink
+                            <NavLink 
                               key={submenu.id}
                               to={submenu.link}
                               className={({ isActive }) =>
-                                `block text-md text-gray-600 hover:underline ${isActive ? "font-bold text-yellow-500" : ""
+                                `block flex items-center gap-2 text-md text-gray-600 hover:underline ${isActive ? "font-bold text-yellow-500" : ""
                                 }`
                               }
                               onClick={() => setMobileMenuOpen(false)}
                             >
+                              <submenu.icon className="w-4 h-4 text-yellow-500" />
                               {submenu.title}
                             </NavLink>
                           ))}

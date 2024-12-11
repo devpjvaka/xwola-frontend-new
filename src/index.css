@@ -6,7 +6,7 @@
   .primary-btn {
     @apply text-sm font-semibold border-[1px] border-black px-4 py-2 shadow-[5px_5px_0px_0px] duration-300;
   }
-
+ 
   .primary-btn:hover {
     @apply bg-black text-white shadow-[5px_5px_0px_0px_#6c6c6c];
   }
@@ -134,28 +134,28 @@
 
 /* Other existing styles remain unchanged */
 
-.embla {
+/* .embla {
   overflow: hidden;
   width: 100%;
-  position: relative;
+  position: relative; */
   /* Ensure the parent has relative positioning */
-}
+/* } */
 
-.embla__container {
+/* .embla__container {
   display: flex;
   gap: 1rem;
-}
+} */
 
-.embla__slide {
+/* .embla__slide {
   min-width: 100%;
   transition: transform 0.3s;
-}
+} */
 
-.embla__slide img {
+/* .embla__slide img {
   width: 100%;
   height: auto;
   border-radius: 0.5rem;
-}
+} */
 
 .p-8 {
   padding: 2rem;
@@ -268,50 +268,6 @@
   background: linear-gradient(to left, rgba(255, 255, 255, 0.9), transparent);
 }
 
-/* GlobeComponent.css */
-.globe-container {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.zoom-controls {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.zoom-controls button {
-  width: 30px;
-  height: 30px;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.8);
-  color: #333;
-  transition: background-color 0.3s;
-}
-
-.zoom-controls button:hover {
-  background-color: #ddd;
-}
-
-.black-underline {
-  text-decoration: underline;
-  /* Applies underline */
-  text-decoration-color: black;
-  /* Set the underline color to black */
-}
-
-.smoke-effect {
-  background: url('path-to-your-smoke-image.png') repeat;
-  animation: smoke 10s linear infinite;
-}
 
 @keyframes smoke {
   0% {
@@ -396,31 +352,18 @@
   color: #fab116;
   /* Gold color */
 }
-
 @media (min-width: 1024px) {
-
-  /* Parent element should have relative positioning */
-  nav .relative.flex.items-center {
-    position: relative;
-  }
-
-  /* Default state of the absolute element */
-  nav .relative.flex.items-center>.absolute {
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease, visibility 0s ease 0.3s;
-    /* delay visibility change until after opacity transition */
-  }
-
-  /* Hover state on any navlink triggers the mega-menu visibility */
-  nav .relative.flex.items-center:hover>.absolute,
-  nav .relative.flex.items-center .navlink:hover>.absolute {
-    /* Make sure navlink is correctly targeted */
+  nav .relative.flex.items-center:hover > .submenu {
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
-    transition: opacity 0.3s ease, visibility 0s ease 0s;
-    /* instantly show visibility after opacity transition */
+  }
+
+  nav .relative.flex.items-center > .submenu {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
 }
+

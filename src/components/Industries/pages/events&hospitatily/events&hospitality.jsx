@@ -180,7 +180,7 @@ const EventsAndHospitalityPage = () => {
                         <Link to="/contactus">
                         <button
                             type="button"
-                            className="border border-[#fab116] text-[#fab116] px-4 py-2 text-sm sm:text-lg rounded-lg hover:bg-white hover:text-black transition"
+                            className="border border-[#fab116] text-white px-4 py-2 text-sm sm:text-lg rounded-lg hover:bg-white hover:text-black transition"
                         >
                             Get in touch
                         </button>
