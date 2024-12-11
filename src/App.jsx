@@ -23,6 +23,7 @@ import Retail from "./components/Industries/pages/retail/retail";
 import EventsAndHospitality from "./components/Industries/pages/events&hospitatily/events&hospitality";
 import Team from "./components/Banner/team";
 import LearnMore from "./components/Industries/pages/events&hospitatily/learnMore";
+import Ideas from "./components/Industries/pages/retail/ideas";
 
 const Home = () => ( 
   <>
@@ -61,6 +62,7 @@ const App = () => {
           <Route path="/events&hospitality" element={<EventsAndHospitality/>} />
           <Route path="/team" element={<Team/>} />
           <Route path="/learnMore" element={<LearnMore/>} />
+          <Route path="/ideas" element={<Ideas/>} />
           
         </Routes>
         <Footer />

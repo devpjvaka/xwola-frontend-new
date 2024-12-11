@@ -28,10 +28,10 @@ const LearnMore = () => {
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
         />
-          <Link to = "/home">
+          <Link to ="/events&hospitality">
         <button
           className="primary-btn  text-black mt-10 px-6 py-3 rounded-md shadow-lg hover:shadow-xl transition duration-300"
-          onClick={() => (window.location.href = "/")}
+         
         >
           Go Back
         </button>

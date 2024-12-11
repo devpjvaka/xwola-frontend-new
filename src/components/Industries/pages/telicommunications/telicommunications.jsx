@@ -45,17 +45,17 @@ const Telicommunications = () => {
                     <div className="flex flex-col gap-4 sm:flex-row sm:justify-center sm:gap-8">
                         <button
                             type="button"
-                            className="rounded-lg bg-white border-2 border-[#fab116] text-black px-4 py-2 text-sm sm:text-lg shadow-sm hover:bg-[#fab116] transition"
+                            className=" rounded-lg bg-white border-2 border-[#fab116] px-4 py-2 text-sm sm:text-lg text-black shadow-sm hover:bg-[#fab116]"
                         >
                             Explore Solutions
                         </button>
-                        <Link to="/contactus">
-                        <button
-                            type="button"
-                            className="border border-[#fab116] text-white px-4 py-2 text-sm sm:text-lg rounded-lg hover:bg-white hover:text-black transition"
-                        >
-                            Get in Touch
-                        </button>
+                         <Link to="/contactus">
+                            <button
+                                type="button"
+                                className="border border-[#fab116] text-white px-4 py-2 text-sm sm:text-lg rounded-lg hover:bg-white hover:text-black transition"
+                            >
+                                Get in Touch
+                            </button>
                         </Link>
                     </div>
                 </motion.div>
