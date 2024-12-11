@@ -86,6 +86,27 @@ const ShowcaseSection = () => {
     };
   }, []);
 
+  const reviews = [
+    {
+      name: "Sophia Turner",
+      review:
+        "The AI tools provided by your team have transformed our business. From predictive analytics to intelligent automation, we’ve seen remarkable improvements in efficiency.",
+      rating: 5,
+    },
+    {
+      name: "James Richardson",
+      review:
+        "Your team’s custom AI solutions have exceeded our expectations. The models are accurate, and the customer support is fantastic. Highly recommend!",
+      rating: 4,
+    },
+    {
+      name: "Emily Carter",
+      review:
+        "Integrating your AI technology into our operations was seamless. The insights we’ve gained have given us a significant competitive advantage.",
+      rating: 5,
+    },
+  ];
+
   return (
     <section className="bg-gray-50 py-12 sm:py-16 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -97,7 +118,7 @@ const ShowcaseSection = () => {
             </h2>
             <p className="mt-4 text-gray-700">
               Our clients are the heart of everything we do. Their words inspire
-              us to keep delivering top-notch solutions
+              us to keep delivering top-notch solutions.
             </p>
             <div className="hidden lg:mt-8 lg:flex lg:gap-4">
               <button
@@ -146,12 +167,12 @@ const ShowcaseSection = () => {
           {/* Slider Section */}
           <div className="-mx-6 lg:col-span-2 lg:mx-0">
             <div ref={sliderRef} className="keen-slider">
-              {[...Array(3)].map((_, index) => (
+              {reviews.map((review, index) => (
                 <div key={index} className="keen-slider__slide">
                   <blockquote className="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
                     <div>
                       <div className="flex gap-0.5 text-black">
-                        {[...Array(5)].map((_, i) => (
+                        {[...Array(review.rating)].map((_, i) => (
                           <svg
                             key={i}
                             className="w-5 h-5"
@@ -165,16 +186,15 @@ const ShowcaseSection = () => {
                       </div>
                       <div className="mt-4">
                         <p className="text-2xl font-bold text-[#fab116] sm:text-3xl">
-                          Stayin' Alive
+                          {review.name}
                         </p>
                         <p className="mt-4 leading-relaxed text-gray-700">
-                          No, Rose, they are not breathing. And they have no
-                          arms or legs...
+                          {review.review}
                         </p>
                       </div>
                     </div>
                     <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
-                      &mdash; Michael Scott
+                      &mdash; {review.name}
                     </footer>
                   </blockquote>
                 </div>
@@ -232,3 +252,4 @@ const ShowcaseSection = () => {
 };
 
 export default ShowcaseSection;
+

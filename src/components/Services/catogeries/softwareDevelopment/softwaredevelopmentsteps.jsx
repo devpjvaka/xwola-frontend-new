@@ -74,7 +74,7 @@ import Steps from "../../../../assets/Services/catogeries/softwaredevelopment/sd
 // };
 
 const ServiceFeatures = () => (
-  <section className="text-gray-800 body-font bg-gray-50">
+  <section className="text-gray-800 body-font bg-black">
     <div className="container px-6 py-16 mx-auto">
       <div className="flex flex-wrap">
         {/* Text Section */}
@@ -100,7 +100,6 @@ const ServiceFeatures = () => (
               iconAdditionalPath: "M12 5a3 3 0 100-6 3 3 0 000 6z",
             },
             {
-           
               iconPath: "M22 4L12 14.01l-3-3",
             },
           ].map((item, index) => (
@@ -112,7 +111,7 @@ const ServiceFeatures = () => (
               <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
                 {index < 3 && (
                   <div
-                    className="h-full w-1 bg-gray-300 pointer-events-none"
+                    className="thread-line h-full w-1 pointer-events-none"
                     style={{ marginLeft: "20px" }}
                   ></div>
                 )}
@@ -138,8 +137,10 @@ const ServiceFeatures = () => (
 
               {/* Content */}
               <div className="ml-6">
-                <h3 className="text-lg font-semibold">{item.step}</h3>
-                <p className="mt-2 text-gray-700">{item.description}</p>
+                <h3 className="text-lg font-semibold text-[#fab116]">
+                  {item.step}
+                </h3>
+                <p className="mt-2 text-white">{item.description}</p>
               </div>
             </div>
           ))}
@@ -155,7 +156,48 @@ const ServiceFeatures = () => (
         </div>
       </div>
     </div>
+
+    {/* CSS for Continuous 3D Light Effect */}
+    <style jsx>{`
+      .thread-line {
+        background: linear-gradient(
+          to bottom,
+          #333333,
+          #555555,
+          #444444,
+          #555555,
+          #333333
+        );
+        position: relative;
+        overflow: hidden;
+      }
+      .thread-line::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.6) 50%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        background-size: 100% 200%;
+        animation: lightPassContinuous 2s linear infinite;
+      }
+      @keyframes lightPassContinuous {
+        from {
+          background-position: 0% 0%;
+        }
+        to {
+          background-position: 0% 100%;
+        }
+      }
+    `}</style>
   </section>
 );
+
 
 export default ServiceFeatures;

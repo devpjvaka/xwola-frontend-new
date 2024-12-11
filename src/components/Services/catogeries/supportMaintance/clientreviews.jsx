@@ -1,8 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
-import KeenSlider from "keen-slider";
+import React, { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import "keen-slider/keen-slider.min.css";
-import TestimonialsCard from "./reviewCard";
-
 // const testimonials = [
 //   {
 //     logo: Brand1,
@@ -304,174 +302,97 @@ import TestimonialsCard from "./reviewCard";
 //   );
 // };
 
-const reviews = [
-  {
-    name: "John Doe",
-    review:
-      "The team provided exceptional support and their quick response time saved us from several issues. Highly recommend!",
-    image: "https://picsum.photos/100/100?random=1",
-  },
-  {
-    name: "Jane Smith",
-    review:
-      "Their maintenance services are top-notch. They proactively identified and resolved potential issues before they became problems.",
-    image: "https://picsum.photos/100/100?random=2",
-  },
-  {
-    name: "Michael Brown",
-    review:
-      "A reliable team that ensures smooth operations and minimal downtime. Couldn't have asked for a better partner.",
-    image: "https://picsum.photos/100/100?random=3",
-  },
-  {
-    name: "Sarah Johnson",
-    review:
-      "Their professionalism and expertise are unmatched. My business runs seamlessly thanks to their maintenance support.",
-    image: "https://picsum.photos/100/100?random=4",
-  },
-  {
-    name: "Chris Davis",
-    review:
-      "The proactive approach and 24/7 availability have made all the difference. Truly a game-changer for us!",
-    image: "https://picsum.photos/100/100?random=5",
-  },
-  {
-    name: "Emily Clark",
-    review:
-      "Amazing service and support. They always go the extra mile to ensure everything is working perfectly.",
-    image: "https://picsum.photos/100/100?random=6",
-  },
-];
-
-const ClientsReviews = () => {
-  const sliderRef = useRef(null);
-  const [sliderInstance, setSliderInstance] = useState(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    const slider = new KeenSlider(sliderRef.current, {
-      loop: true,
-      mode: "snap",
-      slides: {
-        perView: 3,
-        spacing: 16,
-      },
-      defaultAnimation: {
-        duration: 750,
-      },
-      created: () => {
-        setCurrentSlide(1);
-      },
-      slideChanged: (s) => {
-        setCurrentSlide(s.track.details.rel + 1);
-      },
-    });
-
-    setSliderInstance(slider);
-
-    return () => slider.destroy();
-  }, []);
-
-  const handlePrev = () => sliderInstance?.prev();
-  const handleNext = () => sliderInstance?.next();
-
+const ClientReviews = () => {
   return (
-    <section className="bg-black">
-      <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        <h2 className="text-center text-4xl font-bold tracking-tight sm:text-5xl bg-gradient-to-r from-[#fab116] via-yellow-500 to-[#fab116] text-transparent bg-clip-text drop-shadow-lg">
-          Read Trusted Reviews from Our Customers
-        </h2>
-        <div className="mt-8 border border-black rounded-lg p-6">
-          <div ref={sliderRef} className="keen-slider">
-            {reviews.map((review, index) => (
-              <div
-                key={index}
-                className={`keen-slider__slide transition-opacity duration-500 transform ${
-                  currentSlide === index
-                    ? "opacity-100 scale-105"
-                    : "opacity-40 scale-95"
-                }`}
-              >
-                <blockquote className="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
-                  <div className="flex items-center gap-4">
-                    <img
-                      alt={review.name}
-                      src={review.image}
-                      className="w-20 h-20 rounded-full object-cover"
-                    />
-                    <div>
-                      <div className="flex justify-center gap-1 text-[#fab116]">
-                        {[...Array(5)].map((_, i) => (
-                          <svg
-                            key={i}
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="w-5 h-5"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                          >
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                          </svg>
-                        ))}
-                      </div>
-                      <p className="mt-1 text-lg font-medium text-gray-900">
-                        {review.name}
-                      </p>
-                    </div>
-                  </div>
-                  <p className="mt-4 text-gray-700">{review.review}</p>
-                </blockquote>
+    <div className="px-4 sm:px-6 lg:px-8 font-[sans-serif] mt-4">
+      <div className="max-w-6xl mx-auto text-center">
+        {/* Section Title */}
+        <motion.h2
+          className="text-gray-800 text-4xl sm:text-5xl font-extrabold mb-20"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          What our happy clients say
+        </motion.h2>
+
+        {/* Reviews */}
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6 mt-8">
+          {[
+            {
+              name: "John Doe",
+              position: "IT Manager at TechCorp",
+              image: "https://readymadeui.com/team-2.webp",
+              review:
+                "The support team at your company has been phenomenal. They resolved our issues quickly and ensured minimal downtime. Highly reliable!",
+              stars: 5,
+            },
+            {
+              name: "Jane Smith",
+              position: "Operations Head at Innovate Solutions",
+              image: "https://readymadeui.com/team-5.webp",
+              review:
+                "We’ve been using your maintenance services for over a year now, and it’s been a game changer. Our systems are always up to date and secure.",
+              stars: 4,
+            },
+            {
+              name: "Michael Lee",
+              position: "CEO of Visionary Tech",
+              image: "https://readymadeui.com/team-4.webp",
+              review:
+                "Their proactive monitoring and fast issue resolution have been critical for our operations. We’re extremely satisfied with their services.",
+              stars: 5,
+            },
+          ].map((client, index) => (
+            <motion.div
+              key={index}
+              className="bg-white border-2 rounded-3xl shadow-lg p-6 relative text-center"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              whileHover={{ scale: 1.05 }}
+            >
+              {/* Avatar */}
+              <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
+                <img
+                  src={client.image}
+                  alt={client.name}
+                  className="w-24 h-24 rounded-full border-4 border-white shadow-md"
+                />
               </div>
-            ))}
-          </div>
-          <div className="mt-6 flex items-center justify-center gap-4">
-            <button
-              aria-label="Previous slide"
-              className="text-white hover:text-gray-400"
-              onClick={handlePrev}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15.75 19.5L8.25 12l7.5-7.5"
-                />
-              </svg>
-            </button>
-            <p className="text-sm text-gray-200">
-              {currentSlide} / {reviews.length}
-            </p>
-            <button
-              aria-label="Next slide"
-              className="text-white hover:text-gray-400"
-              onClick={handleNext}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8.25 19.5L15.75 12l-7.5-7.5"
-                />
-              </svg>
-            </button>
-          </div>
+
+              {/* Card Content */}
+              <div className="mt-16">
+                <h4 className="text-gray-800 text-base font-bold">
+                  {client.name}
+                </h4>
+                <p className="mt-1 text-xs text-gray-500">{client.position}</p>
+                <p className="text-gray-800 text-sm leading-relaxed mt-4">
+                  {client.review}
+                </p>
+                <div className="flex justify-center mt-4 space-x-1">
+                  {[...Array(5)].map((_, starIndex) => (
+                    <svg
+                      key={starIndex}
+                      className={`w-4 ${
+                        starIndex < client.stars
+                          ? "fill-[#fab116]"
+                          : "fill-[#CED5D8]"
+                      }`}
+                      viewBox="0 0 14 13"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
+                    </svg>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
+export default ClientReviews;
 
-export default ClientsReviews;
