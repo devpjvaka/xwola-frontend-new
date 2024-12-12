@@ -89,7 +89,7 @@ const ServiceFeatures = () => (
             {
               step: "Flexible Scaling",
               description:
-                "Access a global talent pool of over 2000 software specialists. We help you scale development capacity effortlessly while your core team focuses on business goals.",
+                "Access a global talent pool of over 50 software specialists. We help you scale development capacity effortlessly while your core team focuses on business goals.",
               iconPath: "M22 12h-4l-3 9L9 3l-3 9H2",
             },
             {

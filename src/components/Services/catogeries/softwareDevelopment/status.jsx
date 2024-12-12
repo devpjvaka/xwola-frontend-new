@@ -17,12 +17,7 @@ const Status = () => {
           </h1>
           <h1 className=" sm:text-md text-xs text-white md:text-lg">Years of Experience</h1>
         </div>
-        <div className="flex flex-col items-center justify-center">
-          <h1 className="text-sm font-bold text-white/80 dark:text-white sm:text-lg md:text-3xl">
-            <CountUp end={234} suffix="k+" />
-          </h1>
-          <h1 className="sm:text-md text-xs text-white md:text-lg">Subscribers</h1>
-        </div>
+     
         <div className="flex flex-col items-center justify-center">
           <h1 className="text-sm font-bold text-white/80 dark:text-white sm:text-lg md:text-3xl">
             <CountUp
