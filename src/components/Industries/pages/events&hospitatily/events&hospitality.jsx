@@ -158,7 +158,7 @@ const EventsAndHospitalityPage = () => {
                         Crafting Exceptional Experiences with Xwola
                     </motion.h1>
                     <motion.p
-                        className="mt-4 text-sm sm:text-lg text-gray-300 max-w-xs sm:max-w-xl"
+                        className="mt-4 text-sm sm:text-lg text-white max-w-xs sm:max-w-xl"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.5, duration: 1 }}
@@ -171,19 +171,19 @@ const EventsAndHospitalityPage = () => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.8, duration: 1 }}
                     >
-                        <button
+                        {/* <button
                             type="button"
                             className="rounded-lg bg-white border-2 border-[#fab116] px-4 py-2 text-sm sm:text-lg text-black shadow-sm hover:bg-[#fab116]"
                         >
                             Discover Our Services
-                        </button>
+                        </button> */}
                         <Link to="/contactus">
-                        <button
-                            type="button"
-                            className="border border-[#fab116] text-white px-4 py-2 text-sm sm:text-lg rounded-lg hover:bg-white hover:text-black transition"
-                        >
-                            Get in touch
-                        </button>
+                            <button
+                                type="button"
+                                className="border border-[#fab116] text-white px-4 py-2 text-sm sm:text-lg rounded-lg hover:bg-white hover:text-black transition"
+                            >
+                                Get in touch
+                            </button>
                         </Link>
                     </motion.div>
                 </div>
@@ -374,7 +374,7 @@ const EventsAndHospitalityPage = () => {
                                     </svg>
                                 ),
                             },
-                            { 
+                            {
                                 title: "Custom Integrations",
                                 description: "Tailored solutions for your unique needs.",
                                 icon: (
@@ -432,7 +432,7 @@ const EventsAndHospitalityPage = () => {
 
 
             {/* About Section */}
-            <section className="py-20 px-6 sm:px-8 grid md:grid-cols-2 gap-12 items-center">
+            <section className="py-16 px-6 sm:px-8 lg:px-16 grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
                 {/* Text Content */}
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
@@ -440,18 +440,18 @@ const EventsAndHospitalityPage = () => {
                     transition={{ duration: 1 }}
                     className="text-center md:text-left"
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#fab116]">
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#fab116]">
                         Redefining Hospitality with Technology
                     </h2>
-                    <p className="mt-4 text-gray-300">
+                    <p className="mt-4 text-sm sm:text-base lg:text-lg md:text-left text-gray-300">
                         Xwola brings seamless event management and personalized guest
                         experiences with innovative solutions. Elevate your events with our
                         tailored software tools.
                     </p>
-                    <Link to ="/learnMore">
-                    <button className="mt-2 rounded-lg border border-[#fab116] text-white px-4 py-2 text-sm sm:text-lg  hover:bg-white hover:text-black transition">
-                        Learn More
-                    </button>
+                    <Link to="/learnMore">
+                        <button className="mt-4 rounded-lg border border-[#fab116] text-white px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4 text-sm sm:text-base lg:text-lg hover:bg-white hover:text-black transition">
+                            Learn More
+                        </button>
                     </Link>
                 </motion.div>
 
@@ -465,10 +465,12 @@ const EventsAndHospitalityPage = () => {
                     <img
                         src={image}
                         alt="Hospitality Solutions"
-                        className="rounded-lg shadow-lg ml-0 md:ml-32 max-w-full md:max-w-none"
+                        className="rounded-lg shadow-lg max-w-full md:max-w-[300px] lg:max-w-lg"
                     />
                 </motion.div>
             </section>
+
+
 
 
             <ModernSection />

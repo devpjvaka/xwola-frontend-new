@@ -43,12 +43,12 @@ const Telicommunications = () => {
                         Xwola brings seamless connectivity, cutting-edge solutions, and unparalleled customer experiences to the telecommunications industry.
                     </p>
                     <div className="flex flex-col gap-4 sm:flex-row sm:justify-center sm:gap-8">
-                        <button
+                        {/* <button
                             type="button"
-                            className=" rounded-lg bg-white border-2 border-[#fab116] px-4 py-2 text-sm sm:text-lg text-black shadow-sm hover:bg-[#fab116]"
+                            className=" rounded-lg bg-white border-2 border-[#fab116] px-4 py-2 text-sm sm:text-lg text-black shadow-sm hover:bg-[#fab116] md:px-8 md:py-4 "
                         >
                             Explore Solutions
-                        </button>
+                        </button> */}
                          <Link to="/contactus">
                             <button
                                 type="button"
@@ -81,7 +81,7 @@ const Telicommunications = () => {
                     </div>
 
                     <div className="grid lg:grid-cols-3 lg:gap-20 gap-6 mt-16 max-w-8xl">
-                        <div className="max-w-[500px] h-auto py-5 pl-14 pr-4 bg-white border-2 rounded-3xl relative">
+                        <div className="max-w-[360px] h-auto py-5 pl-14 pr-4 bg-white border-2 rounded-3xl relative">
                             <img src="https://readymadeui.com/team-2.webp" className="w-20 h-20 rounded-full absolute -left-10 top-0 bottom-0 my-auto border-2 border-[#fab116]" />
 
                             <div>
