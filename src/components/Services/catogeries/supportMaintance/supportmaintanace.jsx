@@ -65,18 +65,18 @@ const SupportMaintenance = () => {
               transition={{ duration: 0.6, delay: 0.8 }}
               className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
             >
-              <a href="/explore-solutions" className="inline-block">
+              {/* <a href="/explore-solutions" className="inline-block">
                 <button
                   type="button"
-                  className="rounded-lg bg-white border-2 border-[#fab116] text-black px-4 py-2 text-sm sm:text-lg shadow-sm hover:bg-[#fab116] transition"
+                  className="rounded-lg bg-white border-2 border-[#fab116] text-black px-4 py-2 text-sm sm:text-lg  shadow-sm hover:bg-[#fab116] transition"
                 >
                   Explore Services
                 </button>
-              </a>
+              </a> */}
               <a href="/contactus" className="inline-block">
                 <button
                   type="button"
-                  className="border border-[#fab116] text-white px-4 py-2 text-sm sm:text-lg rounded-lg  hover:text-white transition"
+                  className="border border-[#fab116] text-white px-4 py-2 text-sm sm:text-lg  rounded-lg  hover:text-white transition"
                 >
                   Get in Touch
                 </button>
