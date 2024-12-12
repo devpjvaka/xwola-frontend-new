@@ -11,7 +11,7 @@ const CallToActionSection = () => {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        Ready to Transform Your Business with AI?
+        Ready to Transform Your Business with SEO?
       </motion.h3>
       <motion.button
         className="mt-4 text-[#fab116] py-3 px-8 rounded-md font-semibold transition-all"
