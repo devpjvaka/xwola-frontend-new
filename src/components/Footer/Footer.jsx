@@ -59,7 +59,7 @@ const Footer = () => {
               <li className="flex items-center justify-center md:justify-start space-x-2">
                 <FaPhone />
                 <a href="tel:+91123456789" className="hover:text-black transition">
-                  +91 123456789
+                040-23561014g
                 </a>
               </li>
               <li className="flex items-center justify-center md:justify-start space-x-2">
