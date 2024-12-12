@@ -117,12 +117,12 @@ const Faqs = () => {
           />
         </div>
         <div className="flex justify-center mt-8">
-          <a href="" className="inline-block">
+          <a href="/contactus" className="inline-block">
             <button
               type="button"
               className=" mt-2 rounded-lg border border-black text-black px-4 py-2 text-sm sm:text-lg  hover:bg-black hover:text-white transition"
             >
-              See all quetions
+              Contact
             </button>
           </a>
         </div>
