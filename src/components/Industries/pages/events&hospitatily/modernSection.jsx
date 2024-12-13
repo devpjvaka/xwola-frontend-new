@@ -19,25 +19,25 @@ const ModernSection = () => {
                     {
                         
                         title: "Embarking on our journey with innovation and dedication.",
-                        year: "2020",
+                        year: "2021",
                         isComplete: true,
                     },
                     {
                        
                         title: "Expanding horizons, offering services to global clients.",
-                        year: "2021",
+                        year: "2022",
                         isComplete: true,
                     },
                     {
                         
                         title: "Introducing cutting-edge software solutions.",
-                        year: "2022",
+                        year: "2023",
                         isComplete: false,
                     },
                     {
                        
                         title: "Redefining industry standards and winning prestigious awards.",
-                        year: "2023",
+                        year: "2024",
                         isComplete: false,
                     },
                 ].map((item, index) => (
