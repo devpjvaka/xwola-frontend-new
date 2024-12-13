@@ -227,14 +227,14 @@ const HeroSection = () => {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, delay: 0.9 }}
                 >
-                  <a href="/getstarted" className="inline-block">
-                    <button
-                      type="button"
-                      className="rounded-lg bg-[#fab116] px-6 py-3 text-lg font-semibold text-black shadow-md "
-                    >
-                      Getstarted
-                    </button>
-                  </a>
+                  <a href="/contactus" className="inline-block">
+                  <button
+                    type="button"
+                    className=" mt-2 rounded-lg border-2 border-[#fab116] text-white px-4 py-2 text-sm sm:text-lg  hover:bg-black hover:text-white transition"
+                  >
+                    Get in touch
+                  </button>
+                </a>
                 </motion.div>
               </motion.div>
             </div>

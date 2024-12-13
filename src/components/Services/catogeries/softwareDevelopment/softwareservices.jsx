@@ -24,7 +24,7 @@ const SoftwareServices = () => {
         </h2>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -52,7 +52,7 @@ const SoftwareServices = () => {
                 }}
               />
               {/* Title */}
-              <h3 className="text-base sm:text-lg font-semibold text-gray-700">
+              <h3 className="text-sm sm:text-base font-semibold text-gray-700">
                 {service.title}
               </h3>
             </motion.div>
@@ -62,5 +62,6 @@ const SoftwareServices = () => {
     </div>
   );
 };
+
 
 export default SoftwareServices;

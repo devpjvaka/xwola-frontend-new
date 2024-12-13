@@ -72,7 +72,6 @@ import Steps from "../../../../assets/Services/catogeries/softwaredevelopment/sd
 //     </div>
 //   );
 // };
-
 const ServiceFeatures = () => (
   <section className="text-gray-800 body-font bg-black">
     <div className="container px-6 py-16 mx-auto">
@@ -112,7 +111,11 @@ const ServiceFeatures = () => (
                 {index < 3 && (
                   <div
                     className="thread-line h-full w-1 pointer-events-none"
-                    style={{ marginLeft: "20px" }}
+                    style={{
+                      position: "absolute",
+                      top: "50%", // Position at the middle of the icon
+                      transform: "translateY(-50%)",
+                    }}
                   ></div>
                 )}
               </div>
@@ -198,6 +201,7 @@ const ServiceFeatures = () => (
     `}</style>
   </section>
 );
+
 
 
 export default ServiceFeatures;

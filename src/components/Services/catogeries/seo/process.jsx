@@ -15,10 +15,9 @@ const ProcessSection = () => {
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center"
         >
-          <h3 className="text-xl font-bold text-center text-[#fab116] relative">
+          <h3 className="text-xl font-bold text-center text-[#fab116]">
             Audit
-            <span className="absolute inset-x-0 -bottom-1 h-[2px] bg-black"></span>
-          </h3>{" "}
+          </h3>
           <p className="text-gray-800 mt-4 text-center text-[15px] max-w-[90%] sm:max-w-[80%]">
             We analyze your website to identify areas of improvement, focusing
             on key metrics such as site speed, technical SEO, and overall user
@@ -41,10 +40,9 @@ const ProcessSection = () => {
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center"
         >
-          <h3 className="text-xl font-bold text-center text-[#fab116] relative">
+          <h3 className="text-xl font-bold text-center text-[#fab116]">
             Optimization
-            <span className="absolute inset-x-0 -bottom-1 h-[2px] bg-black"></span>
-          </h3>{" "}
+          </h3>
           <p className="text-gray-800 mt-4 text-center text-[15px] max-w-[90%] sm:max-w-[80%]">
             We enhance your website's on-page elements, including metadata,
             headings, and internal linking. Our goal is to improve rankings
@@ -58,6 +56,7 @@ const ProcessSection = () => {
       ),
     },
     {
+      id: "insights",
       label: "Insights",
       content: (
         <motion.div
@@ -66,10 +65,9 @@ const ProcessSection = () => {
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center"
         >
-          <h3 className="text-xl font-bold text-center text-[#fab116] relative">
-            Insights (Monitoring & Reporting){" "}
-            <span className="absolute inset-x-0 -bottom-1 h-[2px] bg-black"></span>
-          </h3>{" "}
+          <h3 className="text-xl font-bold text-center text-[#fab116]">
+            Insights (Monitoring & Reporting)
+          </h3>
           <p className="text-gray-600 mt-4 text-center text-[15px] max-w-[90%] sm:max-w-[80%]">
             Our team consistently monitors your site's performance metrics,
             ensuring any changes in ranking or traffic are promptly addressed.
@@ -104,7 +102,7 @@ const ProcessSection = () => {
                   onClick={() => setActiveTab(tab.id)}
                   className={`tab text-gray-600 flex-1 sm:flex-none flex items-center justify-center font-semibold text-sm sm:text-[15px] px-4 py-3 border-b sm:border-b-0 sm:border-r-4 ${
                     activeTab === tab.id
-                      ? "text-blue-500 bg-white border-[#fab116] font-bold"
+                      ? "text-[#fab116] bg-white border-[#fab116] font-bold"
                       : "border-gray-100 cursor-pointer hover:bg-gray-200"
                   }`}
                   whileHover={{ scale: 1.05 }}
@@ -117,7 +115,7 @@ const ProcessSection = () => {
             </ul>
 
             {/* Tab Content */}
-            <div className="tab-content px-4 sm:px-8 py-4 sm:py-6 w-full h-[270px]">
+            <div className="tab-content px-4 sm:px-8 py-4 sm:py-6 w-[900px] h-auto">
               {tabs.find((tab) => tab.id === activeTab)?.content}
             </div>
           </div>

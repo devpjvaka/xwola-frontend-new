@@ -1,6 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaBroadcastTower, FaBug, FaCogs, FaSyncAlt, FaGlobe, FaPhoneAlt, FaAward } from "react-icons/fa";
+import {
+  FaBroadcastTower,
+  FaBug,
+  FaCogs,
+  FaSyncAlt,
+  FaGlobe,
+  FaPhoneAlt,
+  FaAward,
+} from "react-icons/fa";
 
 const SupportServices = () => {
   const services = [
@@ -89,7 +97,9 @@ aligned with organizational goals.`,
               viewport={{ once: true }}
             >
               {/* Centered Icon */}
-              <div className="flex items-center justify-center mb-4">{service.icon}</div>
+              <div className="flex items-center justify-center mb-4">
+                {service.icon}
+              </div>
               <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
               <p className="text-gray-600 text-sm whitespace-pre-line">
                 {service.description}
