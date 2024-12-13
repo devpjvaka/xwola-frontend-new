@@ -76,7 +76,7 @@ const SupportMaintenance = () => {
               <a href="/contactus" className="inline-block">
                 <button
                   type="button"
-                  className="border border-[#fab116] text-white px-4 py-2 text-sm sm:text-lg  rounded-lg  hover:text-white transition"
+                  className="border-2 border-[#fab116] text-white px-4 py-2 text-sm sm:text-lg  rounded-lg  hover:text-white transition"
                 >
                   Get in Touch
                 </button>

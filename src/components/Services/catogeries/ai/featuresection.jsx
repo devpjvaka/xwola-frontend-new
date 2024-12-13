@@ -16,8 +16,11 @@ const FeatureSection = () => {
           transition={{ duration: 1 }}
           className="text-2xl font-semibold text-black capitalize lg:text-3xl dark:text-white"
         >
-          Smart <br /> Automation{" "}
-          <span className="underline decoration-[#fab116]">Solutions</span>
+          Smart Automation{" "}
+          <span className="relative inline-block">
+            <span className="absolute inset-0 -skew-y-3 bg-black"></span>
+            <span className="relative text-white italic">Solutions</span>
+          </span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, x: 50 }}
@@ -88,7 +91,7 @@ const FeatureSection = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="p-8 space-y-3 border-2 border-gray-400   rounded-xl"
+            className="p-8 space-y-3 border-2 border-gray-400 rounded-xl"
           >
             <span className="inline-block text-[#fab116] dark:text-[#fab116]">
               <svg
@@ -138,9 +141,9 @@ const FeatureSection = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="p-8 space-y-3 border-2 border-gray-400   rounded-xl"
+            className="p-8 space-y-3 border-2 border-gray-400 rounded-xl"
           >
-            <span className="inline-block text-[#fab116] ">
+            <span className="inline-block text-[#fab116]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-8 h-8"
@@ -188,5 +191,6 @@ const FeatureSection = () => {
     </section>
   );
 };
+
 
 export default FeatureSection;

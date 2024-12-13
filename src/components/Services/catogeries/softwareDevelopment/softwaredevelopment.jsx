@@ -142,7 +142,7 @@ const SoftwareDevelopment = () => {
                 <a href="/contactus" className="inline-block">
                   <button
                     type="button"
-                    className="rounded-lg bg-[#fab116] px-6 py-3 text-lg font-semibold text-black shadow-md"
+                    className=" mt-2 rounded-lg border-2 border-[#fab116] text-white px-4 py-2 text-sm sm:text-lg  hover:bg-black hover:text-white transition"
                   >
                     Get in touch
                   </button>
@@ -169,8 +169,8 @@ const SoftwareDevelopment = () => {
         </section>
       </main>
 
-     {/* Additional Sections */}
-     <Status />
+      {/* Additional Sections */}
+      <Status />
       <SoftwareServices />
       {/* <BestPractice /> */}
       {/* <Achieve />
@@ -184,6 +184,8 @@ const SoftwareDevelopment = () => {
       <Softwaresupportindustry />
       <Softwaredevelopmentsteps />
       <Faqs />
+      <Achieve />
+
     </>
   );
 };
