@@ -25,6 +25,7 @@ import Team from "./components/Banner/team";
 import LearnMore from "./components/Industries/pages/events&hospitatily/learnMore";
 import Ideas from "./components/Industries/pages/retail/ideas";
 
+
 const Home = () => ( 
   <>
     <Hero />
