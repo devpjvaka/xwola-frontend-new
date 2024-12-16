@@ -18,12 +18,12 @@ const ProcessSection = () => {
           <h3 className="text-xl font-bold text-center text-[#fab116]">
             Audit
           </h3>
-          <p className="text-gray-800 mt-4 text-center text-[15px] max-w-[90%] sm:max-w-[80%]">
+          <p className="text-gray-800 mt-4 text-center text-[15px] max-w-[95%] sm:max-w-[80%]">
             We analyze your website to identify areas of improvement, focusing
             on key metrics such as site speed, technical SEO, and overall user
             experience.
           </p>
-          <p className="text-gray-800 mt-2 text-center text-[15px] max-w-[90%] sm:max-w-[80%]">
+          <p className="text-gray-800 mt-2 text-center text-[15px] max-w-[95%] sm:max-w-[80%]">
             Our audits are comprehensive, ensuring no critical aspect is
             overlooked.
           </p>
@@ -43,12 +43,12 @@ const ProcessSection = () => {
           <h3 className="text-xl font-bold text-center text-[#fab116]">
             Optimization
           </h3>
-          <p className="text-gray-800 mt-4 text-center text-[15px] max-w-[90%] sm:max-w-[80%]">
+          <p className="text-gray-800 mt-4 text-center text-[15px] max-w-[95%] sm:max-w-[80%]">
             We enhance your website's on-page elements, including metadata,
             headings, and internal linking. Our goal is to improve rankings
             while delivering a seamless user experience.
           </p>
-          <p className="text-gray-800 mt-2 text-center text-[15px] max-w-[90%] sm:max-w-[80%]">
+          <p className="text-gray-800 mt-2 text-center text-[15px] max-w-[95%] sm:max-w-[80%]">
             Technical optimizations, such as schema implementation and mobile
             responsiveness, are included in our strategy.
           </p>
@@ -68,11 +68,11 @@ const ProcessSection = () => {
           <h3 className="text-xl font-bold text-center text-[#fab116]">
             Insights (Monitoring & Reporting)
           </h3>
-          <p className="text-gray-600 mt-4 text-center text-[15px] max-w-[90%] sm:max-w-[80%]">
+          <p className="text-gray-600 mt-4 text-center text-[15px] max-w-[95%] sm:max-w-[80%]">
             Our team consistently monitors your site's performance metrics,
             ensuring any changes in ranking or traffic are promptly addressed.
           </p>
-          <p className="text-gray-600 mt-2 text-center text-[15px] max-w-[90%] sm:max-w-[80%]">
+          <p className="text-gray-600 mt-2 text-center text-[15px] max-w-[95%] sm:max-w-[80%]">
             We provide detailed monthly reports, highlighting progress, key
             metrics, and actionable insights for continuous improvement.
           </p>
@@ -115,7 +115,7 @@ const ProcessSection = () => {
             </ul>
 
             {/* Tab Content */}
-            <div className="tab-content px-4 sm:px-8 py-4 sm:py-6 w-[900px] h-auto">
+            <div className="tab-content px-4 sm:px-8 py-4 sm:py-6 w-full sm:w-[900px] h-auto">
               {tabs.find((tab) => tab.id === activeTab)?.content}
             </div>
           </div>
@@ -124,5 +124,6 @@ const ProcessSection = () => {
     </section>
   );
 };
+
 
 export default ProcessSection;
