@@ -186,14 +186,184 @@ const InputField = ({
       placeholder={placeholder}
     />
   </motion.div>
-);
+); 
+// import { motion } from "framer-motion";
+// import { useEffect, useState } from "react";
+// import MapComponent from "./mapComponent";
+
+// export default function ContactSection() {
+//   const [parallax, setParallax] = useState(0);
+
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       setParallax(window.scrollY * 0.2);
+//     };
+//     window.addEventListener("scroll", handleScroll);
+//     return () => window.removeEventListener("scroll", handleScroll);
+//   }, []);
+
+//   return (
+//     <div className="relative bg-white text-black overflow-hidden py-24 px-6 lg:px-12">
+//       {/* Main Content */}
+//       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-16">
+//         {/* Map Section */}
+//         <motion.div
+//           className="relative w-full h-[28rem] rounded-xl overflow-hidden shadow-lg"
+//           initial={{ opacity: 0, scale: 0.8 }}
+//           animate={{ opacity: 1, scale: 1 }}
+//           transition={{ duration: 1 }}
+//         >
+//           <MapComponent />
+
+//         </motion.div>
+
+//         {/* Form Section */}
+//         <motion.div
+//           className="relative bg-white p-8 lg:p-12 rounded-xl shadow-2xl border border-gray-200"
+//           initial={{ opacity: 0, y: 50 }}
+//           animate={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 1, ease: "easeOut" }}
+//         >
+//           {/* Heading */}
+//           <h2 className="text-4xl font-bold text-[#fab116] mb-4">
+//             Let’s build something amazing!
+//           </h2>
+//           <p className="text-gray-600 text-lg leading-7 mb-8">
+//             Share your project details, and we’ll connect with you to discuss how we can help.
+//           </p>
+
+//           {/* Form */}
+//           <form action="#" method="POST" className="space-y-6">
+//             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+//               {/* Input Fields */}
+//               <input
+//                 type="text"
+//                 placeholder="First Name"
+//                 className="w-full p-3 rounded-lg bg-gray-100 text-black border border-gray-300 focus:ring-2 focus:ring-[#fab116] focus:border-[#fab116]"
+//               />
+//               <input
+//                 type="text"
+//                 placeholder="Last Name"
+//                 className="w-full p-3 rounded-lg bg-gray-100 text-black border border-gray-300 focus:ring-2 focus:ring-[#fab116] focus:border-[#fab116]"
+//               />
+//             </div>
+//             <input
+//               type="email"
+//               placeholder="Email Address"
+//               className="w-full p-3 rounded-lg bg-gray-100 text-black border border-gray-300 focus:ring-2 focus:ring-[#fab116] focus:border-[#fab116]"
+//             />
+//             <textarea
+//               placeholder="Your Message"
+//               className="w-full p-3 rounded-lg bg-gray-100 text-black border border-gray-300 focus:ring-2 focus:ring-[#fab116] focus:border-[#fab116] resize-none"
+//               rows={5}
+//             ></textarea>
+//             {/* Submit Button */}
+//             <button
+//               type="submit"
+//               className="w-full py-3 rounded-lg bg-[#fab116] text-white font-semibold shadow-md hover:bg-[#e9a60f] transition duration-200"
+//             >
+//               Send Message
+//             </button>
+//           </form>
+//         </motion.div>
+//       </div>
+//     </div>
+
+
+//   );
+// }
+
+// import React from "react";
+// import MapComponent from "./mapComponent";
+
+// const ContactForm = () => {
+//   return (
+//     <div className="flex flex-col w-full min-h-screen bg-gray-50">
+//       {/* Split Screen Section */}
+//       <div className="grid grid-cols-1 md:grid-cols-2 gap-0 ">
+//         {/* Left Sidebar */}
+//         <div className="p-8  bg-white flex flex-col justify-center shadow-md">
+//           <h2 className="text-4xl font-bold mb-6 text-gray-900">
+//             Let’s get in touch with us
+//           </h2>
+//           <p className="text-lg font-semibold mb-4 text-gray-700">
+//             Feel free to say hello with us!
+//           </p>
+//           <div className="space-y-4">
+//             <div>
+//               <h4 className="text-gray-600 font-semibold">Phone</h4>
+//               <p>+1 (5) 534-093-762</p>
+//             </div>
+//             <div>
+//               <h4 className="text-gray-600 font-semibold">Email</h4>
+//               <p>hello@company.com</p>
+//             </div>
+//             <div>
+//               <h4 className="text-gray-600 font-semibold">Office</h4>
+//               <p>230 Norman Street, New York, QC (USA) H8R 1A1</p>
+//             </div>
+//           </div>
+//         </div> 
+
+//         {/* Right Contact Form */}
+//         <div className="p-8 bg-gray-900 text-white flex flex-col justify-center mt-20">
+//           <p className="mb-4 text-gray-400">
+//             Great! We’re excited to hear from you and let’s start something
+//             special together.
+//           </p>
+//           <form className="space-y-4">
+//             <div>
+//               <label className="block text-sm mb-1">Email</label>
+//               <input
+//                 type="email"
+//                 placeholder="youremail@company.com"
+//                 className="w-full px-4 py-2 rounded bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+//               />
+//             </div>
+//             <div>
+//               <label className="block text-sm mb-1">Phone number</label>
+//               <input
+//                 type="text"
+//                 placeholder="+1 (555) 444-0000"
+//                 className="w-full px-4 py-2 rounded bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+//               />
+//             </div>
+//             <div>
+//               <label className="block text-sm mb-1">Message</label>
+//               <textarea
+//                 rows="4"
+//                 placeholder="Type your message"
+//                 className="w-full px-4 py-2 rounded bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+//               ></textarea>
+//             </div>
+//             <button
+//               type="submit"
+//               className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded"
+//             >
+//               Send Message
+//             </button>
+//           </form>
+//         </div>
+//       </div>
+
+//       {/* Bottom Map Section */}
+//       <div className="w-full h-50">
+//         <MapComponent />
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default ContactForm;
+
+
 
 // const ContactForm = () => {
 //   return (
 //     <div className="grid md:grid-cols-2 gap-16 items-center relative overflow-hidden p-8 shadow-[0_2px_10px_-3px_rgba(250,177,22,0.3)] rounded-3xl max-w-6xl mx-auto bg-white mt-20 font-[sans-serif] before:absolute before:right-0 before:w-[300px] before:bg-[#fab116] before:h-full max-md:before:hidden mb-2">
 //       {/* Left Section */}
 //       <div>
-//         <motion.h2
+//         <motion.h2 
 //           className="text-3xl sm:text-4xl tracking-tight text-black relative inline-block font-sans"
 //           initial={{ opacity: 0 }}
 //           animate={{ opacity: 1 }}

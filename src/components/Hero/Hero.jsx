@@ -14,7 +14,7 @@ const Hero = () => {
     <section className="container mx-auto px-4 py-16 mt-15 ">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Image Section */}
-        {/* <div className="order-1 md:order-2 flex justify-center md:justify-end items-start">
+        <div className="order-1 md:order-2 flex justify-center md:justify-end items-start">
           <motion.img
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -23,8 +23,8 @@ const Hero = () => {
             alt="Hero"
             className="w-[100%] md:w-[350px] md:max-h-[500px] md:h-auto lg:w-[700px] object-contain"
           />
-        </div> */}
-         <div className="order-1 md:order-2 flex justify-center md:justify-end items-start  mt-24 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
+        </div>
+         {/* <div className="order-1 md:order-2 flex justify-center md:justify-end items-start  mt-24 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
                   <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                     <div className="relative">
                       <img
@@ -71,7 +71,7 @@ const Hero = () => {
                       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
                     </div>
                   </div>
-                </div>
+                </div> */}
 
         {/* Text Section */}
         <div className="order-2 md:order-1 flex flex-col justify-center items-center md:items-start text-center md:text-left space-y-6">
