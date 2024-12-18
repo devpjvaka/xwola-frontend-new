@@ -130,14 +130,9 @@ const ServiceBanner2 = () => {
 
           {/* Popover with Enhanced Animation */}
           <Link to="/supportmaintanace">
-          <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              className="primary-btn bg-black text-white shadow w-auto mt-5 text-xs sm:text-sm md:text-base px-2 py-1 sm:px-4 sm:py-2 rounded"
-              style={{
-                minWidth: "80px", // Smaller button for small screens
-              }}
+            <motion.button
+              className="primary-btn bg-black text-white px-6 py-2 mt-6 shadow-[5px_5px_0px_0px_#6c6c6c] hover:shadow-md"
+              onClick={() => setPopoverOpen(!popoverOpen)}
             >
               Learn more
             </motion.button>
