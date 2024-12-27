@@ -45,7 +45,7 @@ import CountUp from "react-countup";
 //           <p className="text-xl text-white  mb-6">
 //             Our company does not pass mere project administration off as project
 //             management, which, unfortunately, often happens in the market. We
-//             practice real project management, achieving project success for our
+//             practice real project management, achieving 5project success for our
 //             clients no matter what.
 //           </p>
 //           <motion.button
@@ -79,8 +79,7 @@ const Achieve = () => {
         transition={{ duration: 0.8, delay: 0.3 }}
       >
         <a
-          href="/contactus
-        "
+          href="/contactus"
           className="inline-block"
         >
           <button
