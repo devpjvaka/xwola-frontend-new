@@ -1,7 +1,668 @@
-import React, { useState } from "react"; // Add useState to the import
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import MapComponent from "./mapComponent";
+
+// export default function ContactForm() {
+//   const [formData, setFormData] = useState({
+//     firstName: "",
+//     lastName: "",
+//     email: "",
+//     company: "",
+//     phone: "",
+//     message: "",
+//     address: "",
+//     city: "",
+//     pinCode: "",
+//     country: "",
+//     website: "",
+//   });
+
+//   const [isSubmitting, setIsSubmitting] = useState(false);
+//   const [isSuccess, setIsSuccess] = useState(false);
+//   const [error, setError] = useState("");
+
+//   // Validation function
+//   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+//   const handleChange = (e) => {
+//     const { name, value } = e.target;
+
+//     // Enforce 250-character limit for all fields except "email"
+//     if (name !== "email" && value.length > 250) {
+//       return;
+//     }
+
+//     setFormData((prevData) => {
+//       const updatedData = { ...prevData, [name]: value };
+
+//       // Clear error message if all fields are filled
+//       const isEmptyField = Object.values(updatedData).some(
+//         (fieldValue) => fieldValue.trim() === ""
+//       );
+//       if (!isEmptyField) {
+//         setError(""); // Clear error if all fields are filled
+//       }
+
+//       return updatedData;
+//     });
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+
+//     // Validate if all fields are filled
+//     const isEmptyField = Object.values(formData).some(
+//       (value) => value.trim() === ""
+//     );
+//     if (isEmptyField) {
+//       setError("All fields are required. Please fill out every field.");
+//       return;
+//     }
+
+//     // Validate the length of the text fields
+//     const isTextFieldExceedingLimit = [
+//       "firstName",
+//       "lastName",
+//       "company",
+//       "address",
+//       "city",
+//       "country",
+//       "message",
+//     ].some((key) => formData[key].length > 250);
+//     if (isTextFieldExceedingLimit) {
+//       setError("Each text field must be within 250 characters.");
+//       return;
+//     }
+
+//     // Validate phone number for Indian standards
+//     const phoneRegex = /^[6-9]\d{9}$/; // Indian phone numbers start with 6-9 and have 10 digits
+//     if (!phoneRegex.test(formData.phone)) {
+//       setError("Please enter a valid Indian phone number with 10 digits.");
+//       return;
+//     }
+
+//     setError(""); // Clear previous error
+//     setIsSubmitting(true);
+
+//     // Proceed with EmailJS logic
+//     emailjs
+//       .send(
+//         "service_6vtsqkq",
+//         "template_vfge3ff",
+//         {
+//           first_name: formData.firstName,
+//           last_name: formData.lastName,
+//           email: formData.email,
+//           company: formData.company,
+//           phone: formData.phone,
+//           address: formData.address,
+//           city: formData.city,
+//           pinCode: formData.pinCode,
+//           website: formData.website,
+//           country: formData.country,
+//           message: formData.message,
+//         },
+//         "t59Chbg4hRYErqjFB"
+//       )
+//       .then(
+//         (response) => {
+//           console.log("Email sent to admin successfully:", response);
+
+//           emailjs
+//             .send(
+//               "service_6vtsqkq",
+//               "template_9jdoiv8",
+//               {
+//                 to_email: formData.email,
+//                 user_name: `${formData.firstName} ${formData.lastName}`,
+//               },
+//               "t59Chbg4hRYErqjFB"
+//             )
+//             .then(
+//               (replyResponse) => {
+//                 console.log("Reply email sent successfully:", replyResponse);
+//                 setIsSubmitting(false);
+//                 setIsSuccess(true);
+//                 setFormData({
+//                   firstName: "",
+//                   lastName: "",
+//                   email: "",
+//                   company: "",
+//                   phone: "",
+//                   message: "",
+//                   address: "",
+//                   city: "",
+//                   pinCode: "",
+//                   country: "",
+//                   website: "",
+//                 });
+//                 setTimeout(() => setIsSuccess(false), 1000);
+//               },
+//               (replyError) => {
+//                 console.error("Failed to send reply email:", replyError);
+//                 setIsSubmitting(false);
+//                 setError("Something went wrong while sending the reply email.");
+//               }
+//             );
+//         },
+//         (error) => {
+//           console.error("Failed to send email to admin:", error);
+//           setIsSubmitting(false);
+//           setError("Something went wrong. Please try again.");
+//         }
+//       );
+//   };
+//   useEffect(() => {
+//     setIsSuccess(false);
+//     setError("");
+//   }, []);
+
+//   return (
+//     <motion.div
+//       className="relative bg-white"
+//       initial={{ opacity: 0, y: 50 }}
+//       animate={{ opacity: 1, y: 0 }}
+//       transition={{ duration: 0.8, ease: "easeOut" }}
+//     >
+//       <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 px-6 lg:px-8 py-24">
+//         <motion.div
+//           className="order-1 lg:order-2 w-full lg:w-1/3 flex items-center justify-center mx-auto lg:mx-0 -ml-4 lg:-ml-16"
+//           initial={{ opacity: 0, y: 0 }}
+//           animate={{ opacity: 1, y: 30 }}
+//           transition={{ duration: 0.8, ease: "easeOut" }}
+//         >
+//           <div style={{ width: "100%", height: "100%", border: 0 }}>
+//             <MapComponent />
+//           </div>
+//         </motion.div>
+
+//         <motion.div
+//           className="order-2 lg:order-1 w-full lg:w-1/2 lg:ml-40"
+//           initial={{ opacity: 0, x: -100 }}
+//           animate={{ opacity: 1, x: 0 }}
+//           transition={{ duration: 0.8, ease: "easeOut" }}
+//         >
+//           <div className="max-w-xl">
+//             <motion.h2
+//               className="text-3xl sm:text-4xl tracking-tight text-black relative inline-block"
+//               initial={{ opacity: 0 }}
+//               animate={{ opacity: 1 }}
+//               transition={{ duration: 0.5 }}
+//               style={{ display: "inline-block" }}
+//             >
+//               Let's work together
+//             </motion.h2>
+//             <motion.p
+//               className="mt-4 text-lg leading-8 text-gray-600"
+//               initial={{ opacity: 0, x: -50 }}
+//               animate={{ opacity: 1, x: 0 }}
+//               transition={{ duration: 0.6, delay: 0.3 }}
+//             >
+//               Get in touch with us, and we will gladly get back to you as soon
+//               as possible.
+//             </motion.p>
+
+//             <form onSubmit={handleSubmit} className="mt-12 space-y-6">
+//               <div className="grid grid-cols-1 gap-y-6 gap-x-8 sm:grid-cols-2">
+//                 <div className="mt-3">
+//                   <label className="font-semibold">First Name</label>
+//                   <input
+//                     className={`mt-2 rounded-md w-full py-2 px-3 ${
+//                       error && !formData.firstName
+//                         ? "border-2 border-red-500 error-form"
+//                         : "border"
+//                     }`}
+//                     name="firstName"
+//                     type="text"
+//                     placeholder="Votre prénom"
+//                     value={formData.firstName}
+//                     onChange={handleChange}
+//                   />
+//                   {error && !formData.firstName && (
+//                     <div className="text-red-500 text-sm">
+//                       First name is required.
+//                     </div>
+//                   )}
+//                 </div>
+//                 <div className="mt-3">
+//                   <label className="font-semibold">Last Name</label>
+//                   <input
+//                     className={`mt-2 rounded-md w-full py-2 px-3 ${
+//                       error && !formData.lastName
+//                         ? "border-2 border-red-500 error-form"
+//                         : "border"
+//                     }`}
+//                     name="lastName"
+//                     type="text"
+//                     placeholder="Votre nom"
+//                     value={formData.lastName}
+//                     onChange={handleChange}
+//                   />
+//                   {error && !formData.lastName && (
+//                     <div className="text-red-500 text-sm">
+//                       Last name is required.
+//                     </div>
+//                   )}
+//                 </div>
+//                 <div className="mt-3">
+//                   <label className="font-semibold">Email</label>
+//                   <input
+//                     className={`mt-2 rounded-md w-full py-2 px-3 ${
+//                       error && !isValidEmail(formData.email)
+//                         ? "border-2 border-red-500 error-form"
+//                         : "border"
+//                     }`}
+//                     name="email"
+//                     type="email"
+//                     placeholder="Votre email"
+//                     value={formData.email}
+//                     onChange={handleChange}
+//                   />
+//                   {error && !isValidEmail(formData.email) && (
+//                     <div className="text-red-500 text-sm">
+//                       Invalid email format.
+//                     </div>
+//                   )}
+//                 </div>
+//                 <div className="mt-3">
+//                   <label className="font-semibold">Phone</label>
+//                   <input
+//                     className={`mt-2 rounded-md w-full py-2 px-3 ${
+//                       error && !/^[6-9]\d{9}$/.test(formData.phone)
+//                         ? "border-2 border-red-500 error-form"
+//                         : "border"
+//                     }`}
+//                     name="phone"
+//                     type="tel"
+//                     placeholder="91+0123456789"
+//                     value={formData.phone}
+//                     onChange={handleChange}
+//                   />
+//                   {error && !/^[6-9]\d{9}$/.test(formData.phone) && (
+//                     <div className="text-red-500 text-sm">
+//                       Invalid phone number.
+//                     </div>
+//                   )}
+//                 </div>
+//                 <div className="mt-3">
+//                   <label className="font-semibold">Company</label>
+//                   <input
+//                     className={`mt-2 rounded-md w-full py-2 px-3 ${
+//                       error && !formData.company
+//                         ? "border-2 border-red-500 error-form"
+//                         : "border"
+//                     }`}
+//                     name="company"
+//                     type="text"
+//                     placeholder="Enter your company name"
+//                     value={formData.company}
+//                     onChange={handleChange}
+//                   />
+//                   {error && !formData.company && (
+//                     <div className="text-red-500 text-sm">
+//                       company name is required.
+//                     </div>
+//                   )}
+//                 </div>
+//                 <div className="mt-3">
+//                   <label className="font-semibold">Address</label>
+//                   <input
+//                     className={`mt-2 rounded-md w-full py-2 px-3 ${
+//                       error && !formData.address
+//                         ? "border-2 border-red-500 error-form"
+//                         : "border"
+//                     }`}
+//                     name="address"
+//                     type="text"
+//                     placeholder="Enter your address"
+//                     value={formData.address}
+//                     onChange={handleChange}
+//                   />
+//                   {error && !formData.address && (
+//                     <div className="text-red-500 text-sm">
+//                       {" "}
+//                       Address is required.
+//                     </div>
+//                   )}
+//                 </div>
+//                 <div className="mt-3">
+//                   <label className="font-semibold">City</label>
+//                   <input
+//                     className={`mt-2 rounded-md w-full py-2 px-3 ${
+//                       error && !formData.city
+//                         ? "border-2 border-red-500 error-form"
+//                         : "border"
+//                     }`}
+//                     name="city"
+//                     type="text"
+//                     placeholder="Enter your city"
+//                     value={formData.city}
+//                     onChange={handleChange}
+//                   />
+//                   {error && !formData.city && (
+//                     <div className="text-red-500 text-sm">
+//                       {" "}
+//                       City is required.
+//                     </div>
+//                   )}
+//                 </div>
+//                 <div className="mt-3">
+//                   <label className="font-semibold">Pin Code</label>
+//                   <input
+//                     className={`mt-2 rounded-md w-full py-2 px-3 ${
+//                       error && !/^\d{6}$/.test(formData.pinCode)
+//                         ? "border-2 border-red-500 error-form"
+//                         : "border"
+//                     }`}
+//                     name="pinCode"
+//                     type="text"
+//                     placeholder="123456"
+//                     value={formData.pinCode}
+//                     onChange={handleChange}
+//                   />
+//                   {error && !/^\d{6}$/.test(formData.pinCode) && (
+//                     <div className="text-red-500 text-sm">
+//                       Pin Code must be a 6-digit number.
+//                     </div>
+//                   )}
+//                 </div>
+
+//                 <div className="mt-3">
+//                   <label className="font-semibold">Country</label>
+//                   <input
+//                     className={`mt-2 rounded-md w-full py-2 px-3 ${
+//                       error && !formData.country
+//                         ? "border-2 border-red-500 error-form"
+//                         : "border"
+//                     }`}
+//                     name="country"
+//                     type="text"
+//                     placeholder="Enter your country"
+//                     value={formData.country}
+//                     onChange={handleChange}
+//                   />
+//                   {error && !formData.country && (
+//                     <div className="text-red-500 text-sm">
+//                       {" "}
+//                       Country is required.
+//                     </div>
+//                   )}
+//                 </div>
+//                 <div className="mt-3">
+//                   <label className="font-semibold">Website</label>
+//                   <input
+//                     className={`mt-2 rounded-md w-full py-2 px-3 ${
+//                       error && !formData.website
+//                         ? "border-2 border-red-500 error-form"
+//                         : "border"
+//                     }`}
+//                     name="website"
+//                     type="url"
+//                     placeholder="https://example.com"
+//                     value={formData.website}
+//                     onChange={handleChange}
+//                   />
+//                   {error && !formData.website && (
+//                     <div className="text-red-500 text-sm">
+//                       Website is required.
+//                     </div>
+//                   )}
+//                 </div>
+//                 {/* Message */}
+//                 <div className="mt-3 sm:col-span-2">
+//                   <label className="font-semibold">Message</label>
+//                   <textarea
+//                     className={`mt-2 rounded-md w-full py-2 px-3 ${
+//                       error && !formData.message
+//                         ? "border-2 border-red-500 error-form"
+//                         : "border"
+//                     }`}
+//                     name="message"
+//                     rows="4"
+//                     placeholder="Your message"
+//                     value={formData.message}
+//                     onChange={handleChange}
+//                   />
+//                   {error && !formData.message && (
+//                     <div className="text-red-500 text-sm">
+//                       Message is required.
+//                     </div>
+//                   )}
+//                 </div>
+//               </div>
+
+//               <div className="mt-10 flex justify-end border-t border-gray-300 pt-8">
+//                 <button
+//                   type="submit"
+//                   disabled={isSubmitting}
+//                   className="bg-black text-white px-6 py-3 rounded-lg transition duration-200 hover:bg-gray-800 focus:ring-2 focus:ring-offset-2 focus:ring-black flex items-center justify-center"
+//                 >
+//                   {isSubmitting ? (
+//                     <>
+//                       Sending
+//                       <svg
+//                         xmlns="http://www.w3.org/2000/svg"
+//                         width="18px"
+//                         fill="#fff"
+//                         className="ml-2 inline animate-spin"
+//                         viewBox="0 0 24 24"
+//                       >
+//                         <path
+//                           d="M12 22c5.421 0 10-4.579 10-10h-2c0 4.337-3.663 8-8 8s-8-3.663-8-8c0-4.336 3.663-8 8-8V2C6.579 2 2 6.58 2 12c0 5.421 4.579 10 10 10z"
+//                           data-original="#000000"
+//                         />
+//                       </svg>
+//                     </>
+//                   ) : (
+//                     "Submit"
+//                   )}
+//                 </button>
+//               </div>
+
+//               {isSuccess && (
+//                 <p className="text-green-500 mt-4">
+//                   Message sent successfully!
+//                 </p>
+//               )}
+//               {error && <p className="text-red-500 mt-4">{error}</p>}
+//             </form>
+//           </div>
+//         </motion.div>
+//       </div>
+//     </motion.div>
+//   );
+// }
+
+// // InputField Component
+// const InputField = ({
+//   label,
+//   id,
+//   name,
+//   type,
+//   placeholder,
+//   value,
+//   onChange,
+// }) => (
+//   <motion.div>
+//     <label htmlFor={id} className="block text-sm text-gray-900">
+//       {label}
+//     </label>
+//     <input
+//       id={id}
+//       name={name}
+//       type={type}
+//       value={value}
+//       onChange={onChange}
+//       placeholder={placeholder}
+//       className="mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder-gray-400 focus:ring-2 focus:ring-black"
+//     />
+//   </motion.div>
+// );
+
+// Validation Schema
+// Validation Schema
 export default function ContactForm() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    company: "",
+    phone: "",
+    message: "",
+    address: "",
+    city: "",
+    pinCode: "",
+    country: "",
+    website: "",
+  });
+ 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState("");
+  const [wordCount, setWordCount] = useState(0);
+ 
+  // Validation function
+  const isValidEmail = (email) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+ 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+ 
+    // Enforce 250-character limit for all fields except "email"
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+ 
+    // Update word count for the "message" field
+    if (name === "message") {
+      const words = value.trim().split(/\s+/).filter((word) => word.length > 0);
+      setWordCount(words.length);
+    }
+ 
+    setFormData((prevData) => {
+      const updatedData = { ...prevData, [name]: value };
+ 
+      // Clear error message if all fields are filled
+      const isEmptyField = Object.values(updatedData).some(
+        (fieldValue) => fieldValue.trim() === ""
+      );
+      if (!isEmptyField) {
+        setError(""); // Clear error if all fields are filled
+      }
+ 
+      return updatedData;
+    });
+  };
+ 
+ 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+ 
+    // Validate if all fields are filled
+    const isEmptyField = Object.values(formData).some(
+      (value) => value.trim() === ""
+    );
+    if (isEmptyField) {
+      setError("All fields are required. Please fill out every field.");
+      return;
+    }
+ 
+    // Validate the length of the text fields
+    const isTextFieldExceedingLimit = ["firstName", "lastName", "company", "address", "city", "country"].some(
+      (key) => formData[key].length > 250
+    );
+    if (isTextFieldExceedingLimit) {
+      setError("Each text field must be within 250 characters.");
+      return;
+    }
+ 
+    // Validate phone number for Indian standards
+    const phoneRegex = /^[6-9]\d{9}$/; // Indian phone numbers start with 6-9 and have 10 digits
+    if (!phoneRegex.test(formData.phone)) {
+      setError("Please enter a valid Indian phone number with 10 digits.");
+      return;
+    }
+ 
+    setError(""); // Clear previous error
+    setIsSubmitting(true);
+ 
+    // Proceed with EmailJS logic
+    emailjs
+      .send(
+        "service_6vtsqkq",
+        "template_vfge3ff",
+        {
+          first_name: formData.firstName,
+          last_name: formData.lastName,
+          email: formData.email,
+          company: formData.company,
+          phone: formData.phone,
+          address: formData.address,
+          city: formData.city,
+          pinCode: formData.pinCode,
+          website: formData.website,
+          country: formData.country,
+          message: formData.message,
+        },
+        "t59Chbg4hRYErqjFB"
+      )
+      .then(
+        (response) => {
+          console.log("Email sent to admin successfully:", response);
+ 
+          emailjs
+            .send(
+              "service_6vtsqkq",
+              "template_9jdoiv8",
+              {
+                to_email: formData.email,
+                user_name: `${formData.firstName} ${formData.lastName}`,
+ 
+              },
+              "t59Chbg4hRYErqjFB"
+            )
+            .then(
+              (replyResponse) => {
+                console.log("Reply email sent successfully:", replyResponse);
+                setIsSubmitting(false);
+                setIsSuccess(true);
+                setFormData({
+                  firstName: "",
+                  lastName: "",
+                  email: "",
+                  company: "",
+                  phone: "",
+                  message: "",
+                  address: "",
+                  city: "",
+                  pinCode: "",
+                  country: "",
+                  website: "",
+                });
+                setTimeout(() => setIsSuccess(false), 1000);
+              },
+              (replyError) => {
+                console.error("Failed to send reply email:", replyError);
+                setIsSubmitting(false);
+                setError("Something went wrong while sending the reply email.");
+              }
+            );
+        },
+        (error) => {
+          console.error("Failed to send email to admin:", error);
+          setIsSubmitting(false);
+          setError("Something went wrong. Please try again.");
+        }
+      );
+  };
+  useEffect(() => {
+    setIsSuccess(false);
+    setError("");
+  }, []);
+ 
+ 
   return (
     <motion.div
       className="relative bg-white"
@@ -10,27 +671,19 @@ export default function ContactForm() {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 px-6 lg:px-8 py-24">
-        {/* Google Map Section */}
         <motion.div
-          className="order-1 lg:order-2 w-full lg:w-1/3 flex items-center justify-center mx-auto lg:mx-0 -ml-4 lg:-ml-16" // Adjusted for mobile screens
+          className="order-1 lg:order-2 w-full lg:w-1/3 flex items-center justify-center mx-auto lg:mx-0 -ml-4 lg:-ml-16"
           initial={{ opacity: 0, y: 0 }}
           animate={{ opacity: 1, y: 30 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              border: 0,
-            }}
-          >
+          <div style={{ width: "100%", height: "100%", border: 0 }}>
             <MapComponent />
           </div>
         </motion.div>
-
-        {/* Contact Form Section */}
+ 
         <motion.div
-          className="order-2 lg:order-1 w-full lg:w-1/2 lg:ml-40" // Changed order for responsiveness
+          className="order-2 lg:order-1 w-full lg:w-1/2 lg:ml-40"
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -52,129 +705,232 @@ export default function ContactForm() {
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               Get in touch with us, and we will gladly get back to you as soon
-              as possible. If you need a professional team, Xwola will be happy
-              to assist you in making your vision a reality.
+              as possible.
             </motion.p>
-
-            <motion.form
-              action="#"
-              method="POST"
-              className="mt-12 space-y-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.5 }}
-            >
+ 
+ 
+            <form onSubmit={handleSubmit} className="mt-12 space-y-6">
               <div className="grid grid-cols-1 gap-y-6 gap-x-8 sm:grid-cols-2">
-                {/* First Name Input */}
-                <InputField
-                  label="First name"
-                  id="first-name"
-                  name="first-name"
-                  type="text"
-                  placeholder="John"
-                  delay={0.6}
-                />
-                {/* Last Name Input */}
-                <InputField
-                  label="Last name"
-                  id="last-name"
-                  name="last-name"
-                  type="text"
-                  placeholder="Doe"
-                  delay={0.7}
-                />
-                {/* Email Input */}
-                <InputField
-                  label="Email"
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="you@example.com"
-                  delay={0.8}
-                  fullWidth
-                />
-                {/* Company Input */}
-                <InputField
-                  label="Company"
-                  id="company"
-                  name="company"
-                  type="text"
-                  placeholder="Your Company"
-                  delay={0.9}
-                  fullWidth
-                />
-                {/* Phone Input */}
-                <InputField
-                  label="Phone"
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  placeholder="+1234567890"
-                  delay={1}
-                  fullWidth
-                />
-                {/* Message Textarea */}
-                <motion.div
-                  className="sm:col-span-2"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 1.1 }}
-                >
-                  <label
-                    htmlFor="message"
-                    className="block text-sm text-gray-900"
-                  >
-                    How can we help you?
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    className="mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder-gray-400 focus:ring-2 focus:ring-black"
-                    placeholder="Your message"
+                <div className="mt-3">
+                  <label className="font-semibold">First Name</label>
+                  <input
+                    className={`mt-2 rounded-md w-full py-2 px-3 ${error && !formData.firstName ? 'border-2 border-red-500 error-form' : 'border'
+                      }`}
+                    name="firstName"
+                    type="text"
+                    placeholder="Votre prénom"
+                    value={formData.firstName}
+                    onChange={handleChange}
                   />
-                </motion.div>
+                  {error && !formData.firstName && (
+                    <div className="text-red-500 text-sm">First name is required.</div>
+                  )}
+                </div>
+                <div className="mt-3">
+                  <label className="font-semibold">Last Name</label>
+                  <input
+                    className={`mt-2 rounded-md w-full py-2 px-3 ${error && !formData.lastName ? 'border-2 border-red-500 error-form' : 'border'
+                      }`}
+                    name="lastName"
+                    type="text"
+                    placeholder="Votre nom"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                  />
+                  {error && !formData.lastName && (
+                    <div className="text-red-500 text-sm">Last name is required.</div>
+                  )}
+                </div>
+                <div className="mt-3">
+                  <label className="font-semibold">Email</label>
+                  <input
+                    className={`mt-2 rounded-md w-full py-2 px-3 ${error && !isValidEmail(formData.email) ? 'border-2 border-red-500 error-form' : 'border'
+                      }`}
+                    name="email"
+                    type="email"
+                    placeholder="Votre email"
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                  {error && !isValidEmail(formData.email) && (
+                    <div className="text-red-500 text-sm">Invalid email format.</div>
+                  )}
+                </div>
+                <div className="mt-3">
+                  <label className="font-semibold">Phone</label>
+                  <input
+                    className={`mt-2 rounded-md w-full py-2 px-3 ${error && !/^[6-9]\d{9}$/.test(formData.phone) ? 'border-2 border-red-500 error-form' : 'border'
+                      }`}
+                    name="phone"
+                    type="tel"
+                    placeholder="91+0123456789"
+                    value={formData.phone}
+                    onChange={handleChange}
+                  />
+                  {error && !/^[6-9]\d{9}$/.test(formData.phone) && (
+                    <div className="text-red-500 text-sm">Invalid phone number.</div>
+                  )}
+                </div>
+                <div className="mt-3">
+                  <label className="font-semibold">Company</label>
+                  <input
+                    className={`mt-2 rounded-md w-full py-2 px-3 ${error && !formData.company ? 'border-2 border-red-500 error-form' : 'border'
+                      }`}
+                    name="company"
+                    type="text"
+                    placeholder="Enter your company name"
+                    value={formData.company}
+                    onChange={handleChange}
+                  />
+                  {error && !formData.company && (
+                    <div className="text-red-500 text-sm">company name is required.</div>
+                  )}
+                </div>
+                <div className="mt-3">
+                  <label className="font-semibold">Address</label>
+                  <input
+                    className={`mt-2 rounded-md w-full py-2 px-3 ${error && !formData.address ? 'border-2 border-red-500 error-form' : 'border'
+                      }`}
+                    name="address"
+                    type="text"
+                    placeholder="Enter your address"
+                    value={formData.address}
+                    onChange={handleChange}
+                  />
+                  {error && !formData.address && (
+                    <div className="text-red-500 text-sm"> Address is required.</div>
+                  )}
+                </div>
+                <div className="mt-3">
+                  <label className="font-semibold">City</label>
+                  <input
+                    className={`mt-2 rounded-md w-full py-2 px-3 ${error && !formData.city ? 'border-2 border-red-500 error-form' : 'border'
+                      }`}
+                    name="city"
+                    type="text"
+                    placeholder="Enter your city"
+                    value={formData.city}
+                    onChange={handleChange}
+                  />
+                  {error && !formData.city && (
+                    <div className="text-red-500 text-sm"> City is required.</div>
+                  )}
+                </div>
+                <div className="mt-3">
+                  <label className="font-semibold">Pin Code</label>
+                  <input
+                    className={`mt-2 rounded-md w-full py-2 px-3 ${error && !/^\d{6}$/.test(formData.pinCode) ? 'border-2 border-red-500 error-form' : 'border'
+                      }`}
+                    name="pinCode"
+                    type="text"
+                    placeholder="123456"
+                    value={formData.pinCode}
+                    onChange={handleChange}
+                  />
+                  {error && !/^\d{6}$/.test(formData.pinCode) && (
+                    <div className="text-red-500 text-sm">Pin Code must be a 6-digit number.</div>
+                  )}
+                </div>
+ 
+                <div className="mt-3">
+                  <label className="font-semibold">Country</label>
+                  <input
+                    className={`mt-2 rounded-md w-full py-2 px-3 ${error && !formData.country ? 'border-2 border-red-500 error-form' : 'border'
+                      }`}
+                    name="country"
+                    type="text"
+                    placeholder="Enter your country"
+                    value={formData.country}
+                    onChange={handleChange}
+                  />
+                  {error && !formData.country && (
+                    <div className="text-red-500 text-sm"> Country is required.</div>
+                  )}
+                </div>
+                <div className="mt-3">
+                  <label className="font-semibold">Website</label>
+                  <input
+                    className={`mt-2 rounded-md w-full py-2 px-3 ${error && !formData.website ? 'border-2 border-red-500 error-form' : 'border'}`}
+                    name="website"
+                    type="url"
+                    placeholder="https://example.com"
+                    value={formData.website}
+                    onChange={handleChange}
+                  />
+                  {error && !formData.website && (
+                    <div className="text-red-500 text-sm">Website is required.</div>
+                  )}
+                </div>
+                {/* Message */}
+                <div className="mt-3 sm:col-span-2">
+                  <label className="font-semibold">Message</label>
+                  <textarea
+                    className={`mt-2 rounded-md w-full py-2 px-3 ${error && !formData.message ? 'border-2 border-red-500 error-form' : 'border'
+                      }`}
+                    name="message"
+                    placeholder="Write your message here"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows="4"
+                  />
+                  <div className="text-sm text-gray-600 mt-1">
+                    Word count: {wordCount} / 300
+                  </div>
+                  {wordCount > 300 && (
+                    <div className="text-red-500 text-sm">
+                      Word count exceeded. Please limit to 300 words.
+                    </div>
+                  )}
+                  {error && !formData.message && (
+                    <div className="text-red-500 text-sm">Message is required.</div>
+                  )}
+                </div>
               </div>
-              {/* Submit Button */}
-              <motion.div
-                className="mt-10 flex justify-end border-t border-gray-300 pt-8"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 1.2 }}
-              >
-                <motion.button
-                  type="submit"
-                  className="bg-black text-white px-6 py-3 rounded-lg transition duration-200 hover:bg-gray-800 focus:ring-2 focus:ring-offset-2 focus:ring-black"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Submit
-                </motion.button>
-              </motion.div>
-            </motion.form>
+ 
+              <div className="mt-10 flex justify-end border-t border-gray-300 pt-8">
+                <div className="mt-10 flex justify-end border-t border-gray-300 pt-8">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="bg-black text-white px-6 py-3 rounded-lg transition duration-200 hover:bg-gray-800 focus:ring-2 focus:ring-offset-2 focus:ring-black flex items-center justify-center"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        Sending
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="18px"
+                          fill="#fff"
+                          className="ml-2 inline animate-spin"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 22c5.421 0 10-4.579 10-10h-2c0 4.337-3.663 8-8 8s-8-3.663-8-8c0-4.336 3.663-8 8-8V2C6.579 2 2 6.58 2 12c0 5.421 4.579 10 10 10z"
+                            data-original="#000000"
+                          />
+                        </svg>
+                      </>
+                    ) : (
+                      "Submit"
+                    )}
+                  </button>
+                </div>
+              </div>
+ 
+              {isSuccess && <p className="text-green-500 mt-4">Message sent successfully!</p>}
+              {error && <p className="text-red-500 mt-4">{error}</p>}
+            </form>
+ 
           </div>
         </motion.div>
       </div>
     </motion.div>
   );
 }
-
-// InputField Component for Reusability
-const InputField = ({
-  label,
-  id,
-  name,
-  type,
-  placeholder,
-  delay,
-  fullWidth,
-}) => (
-  <motion.div
-    className={fullWidth ? "sm:col-span-2" : ""}
-    initial={{ opacity: 0, scale: 0.8 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.6, delay }}
-  >
+ 
+// InputField Component
+const InputField = ({ label, id, name, type, placeholder, value, onChange }) => (
+  <motion.div>
     <label htmlFor={id} className="block text-sm text-gray-900">
       {label}
     </label>
@@ -182,12 +938,13 @@ const InputField = ({
       id={id}
       name={name}
       type={type}
-      className="mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder-gray-400 focus:ring-2 focus:ring-black"
+      value={value}
+      onChange={onChange}
       placeholder={placeholder}
+      className="mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder-gray-400 focus:ring-2 focus:ring-black"
     />
   </motion.div>
 );
-
 // const ContactForm = () => {
 //   return (
 //     <div className="grid md:grid-cols-2 gap-16 items-center relative overflow-hidden p-8 shadow-[0_2px_10px_-3px_rgba(250,177,22,0.3)] rounded-3xl max-w-6xl mx-auto bg-white mt-20 font-[sans-serif] before:absolute before:right-0 before:w-[300px] before:bg-[#fab116] before:h-full max-md:before:hidden mb-2">

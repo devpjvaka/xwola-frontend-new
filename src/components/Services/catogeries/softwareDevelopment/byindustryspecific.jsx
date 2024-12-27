@@ -6,7 +6,7 @@ const Byindustryspecific = () => {
     {
       id: 1,
       title: "Healthcare",
-      icon: "🏥", // Hospital building icon for healthcare
+      icon: "🏥",
       points: [
         "EHR/EMR.",
         "Healthcare information system (HIS).",
@@ -26,7 +26,7 @@ const Byindustryspecific = () => {
     {
       id: 2,
       title: "Retail & Wholesale",
-      icon: "🛍️", // Shopping bag icon for Retail & Wholesale
+      icon: "🛍️",
       points: [
         "Point-of-sale systems.",
         "Inventory management.",
@@ -39,7 +39,7 @@ const Byindustryspecific = () => {
     {
       id: 3,
       title: "Telecommunications",
-      icon: "📡", // Satellite antenna icon for Telecommunications
+      icon: "📡",
       points: [
         "Network management systems.",
         "Customer billing systems.",
@@ -62,7 +62,6 @@ const Byindustryspecific = () => {
 
   return (
     <div className="container mx-auto py-8 px-6 lg:px-12 mt-0">
-      {/* Heading and Paragraph with animation */}
       <motion.div
         className="mb-6 mt-5"
         initial={{ opacity: 0, y: 30 }}
@@ -79,8 +78,7 @@ const Byindustryspecific = () => {
         </motion.h1>
       </motion.div>
 
-      {/* Responsive Grid Section with Golden Border and Internal Animations */}
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-8 w-full lg:max-w-4xl h-auto items-center justify-center mx-auto mt-0">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 w-full lg:max-w-4xl h-auto items-center justify-center mx-auto mt-0">
         {gridItems.map((item) => (
           <motion.div
             key={item.id}
@@ -92,12 +90,10 @@ const Byindustryspecific = () => {
             <div className="text-4xl bg-gray-200 rounded-full p-4 mb-4 flex items-center justify-center">
               {item.icon}
             </div>
-            {/* Title and Ellipsis */}
             <div className="flex mb-4">
               <h2 className="text-xl font-semibold mr-2">{item.title}</h2>
               <span className="text-yellow-600 text-xl">...</span>
             </div>
-            {/* Points List */}
             <motion.ul
               className="text-gray-700 space-y-2 text-sm sm:text-base"
               initial="hidden"
@@ -154,8 +150,8 @@ const Byindustryspecific = () => {
                         opacity: 1,
                         y: 0,
                         transition: {
-                          delay: index * 0.15, // Adds delay between each point
-                          duration: 0.6, // Makes the transition smoother
+                          delay: index * 0.15,
+                          duration: 0.6,
                           ease: "easeInOut",
                         },
                       }}
@@ -176,7 +172,6 @@ const Byindustryspecific = () => {
                   ))}
               </AnimatePresence>
             </motion.ul>
-            {/* Toggle Button */}
             <button
               onClick={() => toggleShowMore(item.id)}
               className="absolute bottom-2 right-2 text-yellow-600 rounded-md text-lg"
@@ -190,8 +185,6 @@ const Byindustryspecific = () => {
           </motion.div>
         ))}
       </div>
-
-      {/* Add padding below */}
       <div className="py-12"></div>
     </div>
   );
